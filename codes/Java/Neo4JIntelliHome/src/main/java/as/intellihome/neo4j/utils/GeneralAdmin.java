@@ -10,7 +10,7 @@ public class GeneralAdmin
     
     // ================================================
     
-    public static synchronized void installIntelliHomeOnNeo4J( GraphDatabaseService graphDb )
+    public static synchronized void installService( GraphDatabaseService graphDb )
     {
         if( !isInstalled )
         {

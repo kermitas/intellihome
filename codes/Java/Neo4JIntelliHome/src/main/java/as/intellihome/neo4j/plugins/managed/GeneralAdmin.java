@@ -10,12 +10,12 @@ public class GeneralAdmin extends ServerPlugin
 {
     // ================================================
     
-    @Name( "installIntelliHomeOnNeo4J" )
-    @Description( "Install IntelliHome on Neo4J (one time action should be executed after startup)." )
+    @Name( "installService" )
+    @Description( "Install IntelliHome service on Neo4J (one time action should be executed just after startup)." )
     @PluginTarget( GraphDatabaseService.class )
-    public void installIntelliHomeOnNeo4J( @Source GraphDatabaseService graphDb )
+    public void installService( @Source GraphDatabaseService graphDb )
     {
-        as.intellihome.neo4j.utils.GeneralAdmin.installIntelliHomeOnNeo4J( graphDb );
+        as.intellihome.neo4j.utils.GeneralAdmin.installService( graphDb );
     }
     
     // ================================================
