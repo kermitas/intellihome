@@ -1,1 +1,1 @@
-This is a simple test of ServerPlugin.
+This is a simple test of Neo4J ServerPlugin.
