@@ -1,5 +1,6 @@
 package as.intellihome.neo4j.plugins.managed;
 
+import as.intellihome.Config;
 import org.neo4j.graphdb.GraphDatabaseService;
 import org.neo4j.server.plugins.*;
 
@@ -10,7 +11,7 @@ public class SSC extends ServerPlugin
 {
     // ================================================
     
-    @Name( "b" )
+    @Name( Config.pathFor_managedPlugin_sensorSamplesCollector_collectBoolean )
     @Description( "Collect sensor boolean sample." )
     @PluginTarget( GraphDatabaseService.class )
     public String collectBoolean(
@@ -19,11 +20,11 @@ public class SSC extends ServerPlugin
             GraphDatabaseService graphDb , 
             
             @Description( "SensorId" )
-            @Parameter( name = "s" , optional = false )
+            @Parameter( name = Config.restParameterNameFor_sensorSamplesCollector_sensorId , optional = false )
             Integer sensorId , 
             
             @Description( "SensorBooleanValue" )
-            @Parameter( name = "v" , optional = false )
+            @Parameter( name = Config.restParameterNameFor_sensorSamplesCollector_sensorValue , optional = false )
             Boolean sensorBooleanValue       
         )
     {
@@ -32,7 +33,7 @@ public class SSC extends ServerPlugin
     
     // ================================================
     
-    @Name( "f" )
+    @Name( Config.pathFor_managedPlugin_sensorSamplesCollector_collectFloat )
     @Description( "Collect sensor float sample." )
     @PluginTarget( GraphDatabaseService.class )
     public String collectFloat(
@@ -41,11 +42,11 @@ public class SSC extends ServerPlugin
             GraphDatabaseService graphDb , 
 
             @Description( "SensorId" )
-            @Parameter( name = "s" , optional = false )
+            @Parameter( name = Config.restParameterNameFor_sensorSamplesCollector_sensorId , optional = false )
             Integer sensorId , 
             
             @Description( "SensorFloatValue" )
-            @Parameter( name = "v" , optional = false )
+            @Parameter( name = Config.restParameterNameFor_sensorSamplesCollector_sensorValue , optional = false )
             Float sensorFloatValue       
         )
     {
@@ -54,7 +55,7 @@ public class SSC extends ServerPlugin
     
     // ================================================
     
-    @Name( "s" )
+    @Name( Config.pathFor_managedPlugin_sensorSamplesCollector_collectString )
     @Description( "Collect sensor string sample." )
     @PluginTarget( GraphDatabaseService.class )
     public String collectString(
@@ -63,11 +64,11 @@ public class SSC extends ServerPlugin
             GraphDatabaseService graphDb , 
             
             @Description( "SensorId" )
-            @Parameter( name = "s" , optional = false )
+            @Parameter( name = Config.restParameterNameFor_sensorSamplesCollector_sensorId , optional = false )
             Integer sensorId , 
             
             @Description( "SensorStringValue" )
-            @Parameter( name = "v" , optional = false )
+            @Parameter( name = Config.restParameterNameFor_sensorSamplesCollector_sensorValue , optional = false )
             String sensorStringValue       
         )
     {
@@ -76,7 +77,7 @@ public class SSC extends ServerPlugin
     
     // ================================================
     
-    @Name( "i" )
+    @Name( Config.pathFor_managedPlugin_sensorSamplesCollector_collectInteger )
     @Description( "Collect sensor integer sample." )
     @PluginTarget( GraphDatabaseService.class )
     public String collectInteger(
@@ -85,11 +86,11 @@ public class SSC extends ServerPlugin
             GraphDatabaseService graphDb , 
             
             @Description( "SensorId" )
-            @Parameter( name = "s" , optional = false )
+            @Parameter( name = Config.restParameterNameFor_sensorSamplesCollector_sensorId , optional = false )
             Integer sensorId , 
             
             @Description( "SensorIntegerValue" )
-            @Parameter( name = "v" , optional = false )
+            @Parameter( name = Config.restParameterNameFor_sensorSamplesCollector_sensorValue , optional = false )
             Integer sensorIntegerValue       
         )
     {

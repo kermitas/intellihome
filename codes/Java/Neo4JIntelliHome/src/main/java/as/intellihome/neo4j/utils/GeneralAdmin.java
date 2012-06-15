@@ -29,7 +29,7 @@ public class GeneralAdmin
     
     // ================================================
     
-    private static void createInitialIntelliHomeDbGraph( GraphDatabaseService graphDb )
+    public static void createInitialIntelliHomeDbGraph( GraphDatabaseService graphDb )
     {
         if( doDbContainsIntelliHomeGraph( graphDb ) )
         {
@@ -61,9 +61,9 @@ public class GeneralAdmin
         throw new UnsupportedOperationException( "not implemented yet" );
     }
     
-// ================================================
+    // ================================================
     
-    public static void addDefaultData( GraphDatabaseService graphDb )
+    public static void addDefaultDataToDb( GraphDatabaseService graphDb )
     {
         // TODO
         
@@ -77,7 +77,16 @@ public class GeneralAdmin
         throw new UnsupportedOperationException( "not implemented yet" );
     }
     
-// ================================================
+    // ================================================
+    
+    public static void createDb( GraphDatabaseService graphDb )
+    {
+        // TODO
+        
+        throw new UnsupportedOperationException( "not implemented yet" );
+    }
+    
+    // ================================================
     
     public static void deleteDb( GraphDatabaseService graphDb )
     {
