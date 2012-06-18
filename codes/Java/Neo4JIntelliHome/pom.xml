@@ -33,7 +33,7 @@
         <dependency>
             <groupId>org.neo4j</groupId>
             <artifactId>server-api</artifactId>
-            <version>1.8.M02</version>
+            <version>1.8.M04</version>
         </dependency>
 
         <dependency>

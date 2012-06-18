@@ -19,23 +19,43 @@ public class Config
             
     // ---
     
-    public static final String pathFor_managedPlugin_generalAdmin_installService = "installService";
-    public static final String pathFor_managedPlugin_generalAdmin_createDb = "createDb";
-    public static final String pathFor_managedPlugin_generalAdmin_deleteDb = "deleteDb";
-    public static final String pathFor_managedPlugin_generalAdmin_addDefaultDataToDb = "addDefaultDataToDb";
+    public static final String pathFor_managedPlugin_admin_installService = "installService";
+    public static final String descriptionFor_managedPlugin_admin_installService = "Install IntelliHome service (one time action should be executed just after Neo4J startup).";
+    
+    public static final String pathFor_managedPlugin_admin_createDb = "createDb";
+    public static final String descriptionFor_managedPlugin_admin_createDb = "Create database.";
+    
+    public static final String pathFor_managedPlugin_admin_deleteDb = "deleteDb";
+    public static final String descriptionFor_managedPlugin_admin_deleteDb = "Delete database.";
+    
+    public static final String pathFor_managedPlugin_admin_addDefaultDataToDb = "addDefaultDataToDb";
+    public static final String descriptionFor_managedPlugin_admin_addDefaultDataToDb = "Add default data to DB.";
+    
+    public static final String pathFor_managedPlugin_admin_shutdown = "shutdown";
+    public static final String descriptionFor_managedPlugin_admin_shutdown = "Shutdown IntelliHome (terminates JVM).";
     
     // ---
     
     public static final String pathFor_unmanagedPlugins = "/plugins";
-    public static final String pathFor_unmanagedPlugins_generalAdmin = "/GeneralAdmin";
-    public static final String pathFor_unmanagedPlugins_generalAdmin_installService = "/" + pathFor_managedPlugin_generalAdmin_installService;
-    public static final String pathFor_unmanagedPlugins_generalAdmin_createDb = "/" + pathFor_managedPlugin_generalAdmin_createDb;
-    public static final String pathFor_unmanagedPlugins_generalAdmin_deleteDb = "/" + pathFor_managedPlugin_generalAdmin_deleteDb;
-    public static final String pathFor_unmanagedPlugins_generalAdmin_addDefaultDataToDb = "/" + pathFor_managedPlugin_generalAdmin_addDefaultDataToDb;
+    public static final String pathFor_unmanagedPlugins_admin = "/Admin";
+    public static final String pathFor_unmanagedPlugins_admin_installService = "/" + pathFor_managedPlugin_admin_installService;
+    public static final String pathFor_unmanagedPlugins_admin_createDb = "/" + pathFor_managedPlugin_admin_createDb;
+    public static final String pathFor_unmanagedPlugins_admin_deleteDb = "/" + pathFor_managedPlugin_admin_deleteDb;
+    public static final String pathFor_unmanagedPlugins_admin_addDefaultDataToDb = "/" + pathFor_managedPlugin_admin_addDefaultDataToDb;
+    public static final String pathFor_unmanagedPlugins_admin_shutdown = "/" + pathFor_managedPlugin_admin_shutdown;
    
     // ---
     
     public static final String typeOfMethodForButtonsBaseOnForms = "POST";
+    
+    // ---
+    
+    public static final int shutdownWaitTimeBeforeExecutionSystemExit = 5 * 1000;
+    
+    // ---
+    
+    public static final int interlliHomeMajorVersion = 0;
+    public static final int interlliHomeMinorVersion = 1;
     
     // ---
     
