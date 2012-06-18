@@ -1,7 +1,7 @@
 package as.intellihome.neo4j.utils;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import as.intellihome.neo4j.utils.db.IntelliHomeNode;
+import as.intellihome.neo4j.utils.db.StartupNode;
 import org.neo4j.graphdb.GraphDatabaseService;
 
 // ====================================================
@@ -12,15 +12,15 @@ public class Admin
     
     // ================================================
     
-    public static synchronized void installService( GraphDatabaseService graphDb )
+    public static synchronized void install( GraphDatabaseService graphDb )
     {
         if( !isInstalled )
         {
-            if( !DatabaseAdmin.doDbContainsIntelliHomeGraph( graphDb ) ) throw new IllegalStateException( "database should contain IntelliHome graph" );
+            if( !IntelliHomeNode.exists( graphDb ) ) throw new IllegalStateException( "database should contain IntelliHome graph" );
                 
             // maybe install graphDb.registerTransactionEventHandler( )
             
-            DatabaseAdmin.addNewIntelliHomeSystemStartupTime( graphDb );
+            StartupNode.addNewStartupNode( IntelliHomeNode.get( graphDb ) );
 
             isInstalled = true;
         }
@@ -30,9 +30,9 @@ public class Admin
     
     // ================================================
     
-    public static void shutdownIntelliHome( final GraphDatabaseService graphDb )
+    public static void shutdown( final GraphDatabaseService graphDb )
     {
-        try { DatabaseAdmin.addNewIntelliHomeSystemShutdownTime( graphDb ); } catch (Exception e) { }
+        try { StartupNode.setShutdownTime( IntelliHomeNode.get( graphDb ) ); } catch (Exception e) { }
         
         Thread t = new Thread()
         {

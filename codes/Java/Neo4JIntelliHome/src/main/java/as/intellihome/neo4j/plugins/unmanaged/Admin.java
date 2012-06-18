@@ -37,7 +37,7 @@ public class Admin
         
         AdminHtml.renderPageTop( sb , getClass().getSimpleName() , null , null );
         
-        AdminHtml.renderButtonBasedOnForm( sb , Config.descriptionFor_managedPlugin_admin_installService , Config.typeOfMethodForButtonsBaseOnForms , Config.pathFor_unmanagedPlugins + Config.pathFor_unmanagedPlugins_admin + Config.pathFor_unmanagedPlugins_admin_installService );          
+        AdminHtml.renderButtonBasedOnForm( sb , Config.descriptionFor_managedPlugin_admin_install , Config.typeOfMethodForButtonsBaseOnForms , Config.pathFor_unmanagedPlugins + Config.pathFor_unmanagedPlugins_admin + Config.pathFor_unmanagedPlugins_admin_install );          
         AdminHtml.renderButtonBasedOnForm( sb , Config.descriptionFor_managedPlugin_admin_shutdown , Config.typeOfMethodForButtonsBaseOnForms , Config.pathFor_unmanagedPlugins + Config.pathFor_unmanagedPlugins_admin + Config.pathFor_unmanagedPlugins_admin_shutdown );          
         AdminHtml.renderButtonBasedOnForm( sb , Config.descriptionFor_managedPlugin_admin_createDb , Config.typeOfMethodForButtonsBaseOnForms , Config.pathFor_unmanagedPlugins + Config.pathFor_unmanagedPlugins_admin + Config.pathFor_unmanagedPlugins_admin_createDb );          
         AdminHtml.renderButtonBasedOnForm( sb , Config.descriptionFor_managedPlugin_admin_deleteDb , Config.typeOfMethodForButtonsBaseOnForms , Config.pathFor_unmanagedPlugins + Config.pathFor_unmanagedPlugins_admin + Config.pathFor_unmanagedPlugins_admin_deleteDb );          
@@ -51,14 +51,14 @@ public class Admin
     // ================================================
    
     @GET
-    @Path( Config.pathFor_unmanagedPlugins_admin_installService )
+    @Path( Config.pathFor_unmanagedPlugins_admin_install )
     @Produces( MediaType.TEXT_HTML )
     public String installServiceGET( @Context GraphDatabaseService graphDb ) { return installService( graphDb ); }    
     
     // ================================================
    
     @POST
-    @Path( Config.pathFor_unmanagedPlugins_admin_installService )
+    @Path( Config.pathFor_unmanagedPlugins_admin_install )
     @Produces( MediaType.TEXT_HTML )
     public String installServicePOST( @Context GraphDatabaseService graphDb ) { return installService( graphDb ); }    
     
@@ -72,7 +72,7 @@ public class Admin
         
         try
         {
-            as.intellihome.neo4j.utils.Admin.installService( graphDb );
+            as.intellihome.neo4j.utils.Admin.install( graphDb );
             sb.append( "OK!" );
         }
         catch( Exception e )
@@ -109,7 +109,7 @@ public class Admin
         
         try
         {
-            as.intellihome.neo4j.utils.DatabaseAdmin.createDb( graphDb );
+            as.intellihome.neo4j.utils.db.GeneralDbOperations.createDb( graphDb );
             sb.append( "OK!" );
         }
         catch( Exception e )
@@ -146,7 +146,7 @@ public class Admin
         
         try
         {
-            as.intellihome.neo4j.utils.DatabaseAdmin.deleteDb( graphDb );
+            as.intellihome.neo4j.utils.db.GeneralDbOperations.deleteDb( graphDb );
             sb.append( "OK!" );
         }
         catch( Exception e )
@@ -183,7 +183,7 @@ public class Admin
         
         try
         {
-            as.intellihome.neo4j.utils.DatabaseAdmin.addDefaultDataToDb( graphDb );
+            as.intellihome.neo4j.utils.db.GeneralDbOperations.addDefaultDataToDb( graphDb );
             sb.append( "OK!" );
         }
         catch( Exception e )
@@ -220,7 +220,7 @@ public class Admin
         
         try
         {
-            as.intellihome.neo4j.utils.Admin.shutdownIntelliHome( graphDb );
+            as.intellihome.neo4j.utils.Admin.shutdown( graphDb );
             sb.append( "OK!" );
         }
         catch( Exception e )

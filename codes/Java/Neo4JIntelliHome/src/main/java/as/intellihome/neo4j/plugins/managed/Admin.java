@@ -11,12 +11,12 @@ public class Admin extends ServerPlugin
 {
     // ================================================
     
-    @Name( Config.pathFor_managedPlugin_admin_installService )
-    @Description( Config.descriptionFor_managedPlugin_admin_installService )
+    @Name( Config.pathFor_managedPlugin_admin_install )
+    @Description( Config.descriptionFor_managedPlugin_admin_install )
     @PluginTarget( GraphDatabaseService.class )
     public void installService( @Source GraphDatabaseService graphDb )
     {
-        as.intellihome.neo4j.utils.Admin.installService( graphDb );
+        as.intellihome.neo4j.utils.Admin.install( graphDb );
     }
     
     // ================================================
@@ -26,7 +26,7 @@ public class Admin extends ServerPlugin
     @PluginTarget( GraphDatabaseService.class )
     public void createDb( @Source GraphDatabaseService graphDb )
     {
-        as.intellihome.neo4j.utils.DatabaseAdmin.createDb( graphDb );
+        as.intellihome.neo4j.utils.db.GeneralDbOperations.createDb( graphDb );
     }
     
     // ================================================
@@ -36,7 +36,7 @@ public class Admin extends ServerPlugin
     @PluginTarget( GraphDatabaseService.class )
     public void deleteDb( @Source GraphDatabaseService graphDb )
     {
-        as.intellihome.neo4j.utils.DatabaseAdmin.deleteDb( graphDb );
+        as.intellihome.neo4j.utils.db.GeneralDbOperations.deleteDb( graphDb );
     }  
     
     // ================================================
@@ -46,7 +46,7 @@ public class Admin extends ServerPlugin
     @PluginTarget( GraphDatabaseService.class )
     public void addDefaultDataToDb( @Source GraphDatabaseService graphDb )
     {
-        as.intellihome.neo4j.utils.DatabaseAdmin.addDefaultDataToDb( graphDb );
+        as.intellihome.neo4j.utils.db.GeneralDbOperations.addDefaultDataToDb( graphDb );
     } 
     
     // ================================================
@@ -56,7 +56,7 @@ public class Admin extends ServerPlugin
     @PluginTarget( GraphDatabaseService.class )
     public void shutdown( @Source GraphDatabaseService graphDb )
     {
-        as.intellihome.neo4j.utils.Admin.shutdownIntelliHome( graphDb );
+        as.intellihome.neo4j.utils.Admin.shutdown( graphDb );
     }     
     
     // ================================================    
