@@ -21,12 +21,13 @@ public class InSystemLocalizationTypesNode
     
     // creates relation IN_SYSTEM_LOCALIZATION_TYPES and empty node (as a group of types), then creates all outgoing relations and nodes
     // should be executed under active transaction
-    public static void createDefaultData( Node intelliHomeNode )
+    public static void createDefaultData( Node intelliHomeNode , boolean addDecriptionProperty )
     {
         Node inSystemLocalizationTypesNode = intelliHomeNode.getGraphDatabase().createNode();
+        if( addDecriptionProperty ) inSystemLocalizationTypesNode.setProperty( "description" , "Singleton node - group of device localization in out system (like head, pass-through or end-point)." );
         intelliHomeNode.createRelationshipTo( inSystemLocalizationTypesNode , InSystemLocalizationTypesRelationships.IN_SYSTEM_LOCALIZATION_TYPES );
         
-        InSystemLocalizationTypeNode.createDefaultData( inSystemLocalizationTypesNode );
+        InSystemLocalizationTypeNode.createDefaultData( inSystemLocalizationTypesNode , addDecriptionProperty );
     }
     
     // ================================================

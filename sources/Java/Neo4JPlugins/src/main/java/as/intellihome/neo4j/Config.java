@@ -4,12 +4,15 @@ package as.intellihome.neo4j;
 
 public class Config
 {
-
     // ---
     
     public static final int interlliHomeMajorVersion = 0;
     public static final int interlliHomeMinorVersion = 1;
     
+    // ---
+            
+    public static final boolean addDecriptionPropertyToNodes = false;
+         
     // ---
     
     public static final int shutdownWaitTimeBeforeExecutionSystemExit = 5 * 1000;
@@ -29,7 +32,7 @@ public class Config
     // ---
     
     public static final String pathFor_managedPlugin_admin_install = "install";
-    public static final String descriptionFor_managedPlugin_admin_install = "Install IntelliHome service (one time action should be executed just after startup).";
+    public static final String descriptionFor_managedPlugin_admin_install = "Install IntelliHome service (one time action should be executed just after startup; creates DB if not exists).";
     
     public static final String pathFor_managedPlugin_admin_createDb = "createDb";
     public static final String descriptionFor_managedPlugin_admin_createDb = "Create database.";

@@ -17,18 +17,21 @@ public class IntelliHomeNode
     
     // creates relation INTELLI_HOME and it's node, then create all outgoing relations and nodes
     // should be executed under active transaction
-    public static void createDefaultData( GraphDatabaseService graphDb , int majorVersion , int minorVersion )
+    public static void createDefaultData( GraphDatabaseService graphDb , boolean addDecriptionProperty , int majorVersion , int minorVersion )
     {
-        Node interlliHomeNode = graphDb.createNode();
+        Node intelliHomeNode = graphDb.createNode();
         
-        interlliHomeNode.setProperty( "majorVersion" , majorVersion );
-        interlliHomeNode.setProperty( "minorVersion" , minorVersion );
+        if( addDecriptionProperty ) intelliHomeNode.setProperty( "description" , "IntelliHome main node." );
+        intelliHomeNode.setProperty( "majorVersion" , majorVersion );
+        intelliHomeNode.setProperty( "minorVersion" , minorVersion );
                 
-        graphDb.getReferenceNode().createRelationshipTo( interlliHomeNode , IntelliHomeRelationships.INTELLI_HOME );
+        graphDb.getReferenceNode().createRelationshipTo( intelliHomeNode , IntelliHomeRelationships.INTELLI_HOME );
         
-        SystemRightsNode.createDefaultData( interlliHomeNode );
-        PhysicalityTypesNode.createDefaultData( interlliHomeNode );
-        InSystemLocalizationTypesNode.createDefaultData( interlliHomeNode );
+        SystemRightsNode.createDefaultData( intelliHomeNode , addDecriptionProperty );
+        PhysicalityTypesNode.createDefaultData( intelliHomeNode , addDecriptionProperty );
+        InSystemLocalizationTypesNode.createDefaultData( intelliHomeNode , addDecriptionProperty );
+        DataIncomeTypesNode.createDefaultData( intelliHomeNode , addDecriptionProperty );
+        DataCollectingTypesNode.createDefaultData( intelliHomeNode , addDecriptionProperty );
     }
     
     // ================================================
@@ -76,9 +79,8 @@ public class IntelliHomeNode
             SystemRightsNode.delete( intelliHomeNode );
             PhysicalityTypesNode.delete( intelliHomeNode );
             InSystemLocalizationTypesNode.delete( intelliHomeNode );
-            
-            //System.out.println( IntelliHomeNode.class.getName() + ": deleting node " + intelliHomeNode.getId() );
-            //System.out.println( IntelliHomeNode.class.getName() + ": deleting reference " + mainRelationshipToIntelliHomeNode.getId() );
+            DataIncomeTypesNode.delete( intelliHomeNode );
+            DataCollectingTypesNode.delete( intelliHomeNode );
             
             mainRelationshipToIntelliHomeNode.delete();
             intelliHomeNode.delete();

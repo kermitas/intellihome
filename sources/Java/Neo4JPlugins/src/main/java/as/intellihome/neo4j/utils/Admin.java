@@ -1,5 +1,6 @@
 package as.intellihome.neo4j.utils;
 
+import as.intellihome.neo4j.utils.db.GeneralDbOperations;
 import as.intellihome.neo4j.utils.db.IntelliHomeNode;
 import as.intellihome.neo4j.utils.db.StartupNode;
 import org.neo4j.graphdb.GraphDatabaseService;
@@ -16,8 +17,9 @@ public class Admin
     {
         if( !isInstalled )
         {
-            if( !IntelliHomeNode.exists( graphDb ) ) throw new IllegalStateException( "database should contain IntelliHome graph" );
-                
+            //if( !IntelliHomeNode.exists( graphDb ) ) throw new IllegalStateException( "database should contain IntelliHome graph" );
+            if( !IntelliHomeNode.exists( graphDb ) ) GeneralDbOperations.createDb( graphDb );
+            
             // maybe install graphDb.registerTransactionEventHandler( )
             
             StartupNode.addNewStartupNode( IntelliHomeNode.get( graphDb ) );

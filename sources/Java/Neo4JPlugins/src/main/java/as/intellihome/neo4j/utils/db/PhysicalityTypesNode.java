@@ -21,12 +21,13 @@ public class PhysicalityTypesNode
     
     // creates relation PHISICALITY_TYPES and empty node (as a group of phisicality types), then creates all outgoing relations and nodes
     // should be executed under active transaction
-    public static void createDefaultData( Node intelliHomeNode )
+    public static void createDefaultData( Node intelliHomeNode , boolean addDecriptionProperty )
     {
         Node phisicalityTypesNode = intelliHomeNode.getGraphDatabase().createNode();
+        if( addDecriptionProperty ) phisicalityTypesNode.setProperty( "description" , "Singleton node - group of phisicality types like virtual/real (device, sensor)." );
         intelliHomeNode.createRelationshipTo( phisicalityTypesNode , PhysicalityTypesRelationships.PHISICALITY_TYPES );
         
-        PhysicalityTypeNode.createDefaultData( phisicalityTypesNode );
+        PhysicalityTypeNode.createDefaultData( phisicalityTypesNode , addDecriptionProperty );
     }
     
     // ================================================

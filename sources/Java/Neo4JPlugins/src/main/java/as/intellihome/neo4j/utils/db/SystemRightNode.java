@@ -21,15 +21,18 @@ public class SystemRightNode
     
     // creates relation like ADMIN_LOGIN, DEVICE_CREATOR, SENSOR_CREATOR and empty nodes at the end of each relation
     // should be executed under active transaction
-    public static void createDefaultData( Node systemRightsNode )
+    public static void createDefaultData( Node systemRightsNode , boolean addDecriptionProperty )
     {
         Node adminLoginNode = systemRightsNode.getGraphDatabase().createNode();
+        if( addDecriptionProperty ) adminLoginNode.setProperty( "description" , "Singleton node - allow user to login into administration panel." );
         systemRightsNode.createRelationshipTo( adminLoginNode , SystemRightRelationships.ADMIN_LOGIN );
 
         Node deviceCreatorNode = systemRightsNode.getGraphDatabase().createNode();
+        if( addDecriptionProperty ) deviceCreatorNode.setProperty( "description" , "Singleton node - allow user to create new devices." );
         systemRightsNode.createRelationshipTo( deviceCreatorNode , SystemRightRelationships.DEVICE_CREATOR );
 
         Node sensorCreatorNode = systemRightsNode.getGraphDatabase().createNode();
+        if( addDecriptionProperty ) sensorCreatorNode.setProperty( "description" , "Singleton node - allow user to create new sensor (each sensor is attached to device)." );
         systemRightsNode.createRelationshipTo( sensorCreatorNode , SystemRightRelationships.SENSOR_CREATOR );       
     }
     

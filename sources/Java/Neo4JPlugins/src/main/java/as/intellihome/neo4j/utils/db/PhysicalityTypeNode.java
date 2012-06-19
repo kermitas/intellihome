@@ -21,12 +21,14 @@ public class PhysicalityTypeNode
     
     // creates relation like VIRTUAL, REAL and empty nodes at the end of each relation
     // should be executed under active transaction
-    public static void createDefaultData( Node phisicalityTypesNode )
+    public static void createDefaultData( Node phisicalityTypesNode , boolean addDecriptionProperty )
     {
         Node virtualNode = phisicalityTypesNode.getGraphDatabase().createNode();
+        if( addDecriptionProperty ) virtualNode.setProperty( "description" , "Singleton node - this is virtual device/sensor (for example simulated by the computer)." );
         phisicalityTypesNode.createRelationshipTo( virtualNode , PhysicalityTypeRelationships.VIRTUAL );
 
         Node realNode = phisicalityTypesNode.getGraphDatabase().createNode();
+        if( addDecriptionProperty ) realNode.setProperty( "description" , "Singleton node - this is real device/sensor (exists in phisical world)." );
         phisicalityTypesNode.createRelationshipTo( realNode , PhysicalityTypeRelationships.REAL );      
     }
     

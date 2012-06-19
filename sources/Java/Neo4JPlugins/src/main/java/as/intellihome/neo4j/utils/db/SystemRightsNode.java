@@ -21,12 +21,13 @@ public class SystemRightsNode
     
     // creates relation SYSTEM_RIGHTS and empty node (as a group of rights), then creates all outgoing relations and nodes
     // should be executed under active transaction
-    public static void createDefaultData( Node intelliHomeNode )
+    public static void createDefaultData( Node intelliHomeNode , boolean addDecriptionProperty )
     {
         Node systemRightsNode = intelliHomeNode.getGraphDatabase().createNode();
+        if( addDecriptionProperty ) systemRightsNode.setProperty( "description" , "Singleton node - group of system rights." );
         intelliHomeNode.createRelationshipTo( systemRightsNode , SystemRightsRelationships.SYSTEM_RIGHTS );
         
-        SystemRightNode.createDefaultData( systemRightsNode );
+        SystemRightNode.createDefaultData( systemRightsNode , addDecriptionProperty );
     }
     
     // ================================================
