@@ -1,4 +1,4 @@
-package as.intellihome;
+package as.intellihome.neo4j;
 
 // ====================================================
 

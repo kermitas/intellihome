@@ -1,6 +1,6 @@
 package as.intellihome.neo4j.plugins.managed;
 
-import as.intellihome.Config;
+import as.intellihome.neo4j.Config;
 import org.neo4j.graphdb.GraphDatabaseService;
 import org.neo4j.server.plugins.*;
 

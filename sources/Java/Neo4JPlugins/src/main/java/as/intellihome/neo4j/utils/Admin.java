@@ -43,7 +43,7 @@ public class Admin
                 
                 graphDb.shutdown();
                 
-                try { Thread.sleep( as.intellihome.Config.shutdownWaitTimeBeforeExecutionSystemExit ); } catch (InterruptedException ie) { }
+                try { Thread.sleep( as.intellihome.neo4j.Config.shutdownWaitTimeBeforeExecutionSystemExit ); } catch (InterruptedException ie) { }
                 
                 System.exit( 0 );
             }

@@ -1,6 +1,6 @@
 package as.intellihome.neo4j.plugins.unmanaged;
 
-import as.intellihome.Config;
+import as.intellihome.neo4j.Config;
 import as.intellihome.neo4j.utils.AdminHtml;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
