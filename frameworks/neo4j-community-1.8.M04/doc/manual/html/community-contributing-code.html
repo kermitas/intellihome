@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>30.4. Contributing Code to Neo4j</title><link rel="stylesheet" href="docbook-xsl.css" type="text/css" /><meta name="generator" content="DocBook XSL Stylesheets V1.75.2" /><link rel="home" href="index.html" title="The Neo4j Manual v1.8.M04" /><link rel="up" href="community-contributing.html" title="Chapter 30. Contributing to Neo4j" /><link rel="prev" href="community-docs.html" title="30.3. Writing Neo4j Documentation" /><link rel="next" href="contributors.html" title="30.5. Contributors" /><link rel="preface" href="preface.html" title="Preface" /><link rel="part" href="introduction.html" title="Part I. Introduction" /><link rel="chapter" href="introduction-highlights.html" title="Chapter 1. Neo4j Highlights" /><link rel="chapter" href="graphdb-concepts.html" title="Chapter 2. Graph Database Concepts" /><link rel="chapter" href="graphdb-neo4j.html" title="Chapter 3. The Neo4j Graph Database" /><link rel="part" href="tutorials.html" title="Part II. Tutorials" /><link rel="chapter" href="tutorials-java-embedded.html" title="Chapter 4. Using Neo4j embedded in Java applications" /><link rel="chapter" href="cypher-cookbook.html" title="Chapter 5. Cypher Cookbook" /><link rel="chapter" href="tutorials-rest.html" title="Chapter 6. Neo4j Remote Client Libraries" /><link rel="chapter" href="server-extending.html" title="Chapter 7. Extending the Neo4j Server" /><link rel="chapter" href="tutorial-traversal.html" title="Chapter 8. The Traversal Framework" /><link rel="chapter" href="domain-modeling-gallery.html" title="Chapter 9. Domain Modeling Gallery" /><link rel="chapter" href="languages.html" title="Chapter 10. Languages" /><link rel="chapter" href="tutorials-python-embedded.html" title="Chapter 11. Using Neo4j embedded in Python applications" /><link rel="part" href="reference-documentation.html" title="Part III. Reference" /><link rel="chapter" href="capabilities.html" title="Chapter 12. Capabilities" /><link rel="chapter" href="transactions.html" title="Chapter 13. Transaction Management" /><link rel="chapter" href="import.html" title="Chapter 14. Data Import" /><link rel="chapter" href="indexing.html" title="Chapter 15. Indexing" /><link rel="chapter" href="cypher-query-lang.html" title="Chapter 16. Cypher Query Language" /><link rel="chapter" href="graph-algo.html" title="Chapter 17. Graph Algorithms" /><link rel="chapter" href="server.html" title="Chapter 18. Neo4j Server" /><link rel="chapter" href="rest-api.html" title="Chapter 19. REST API" /><link rel="chapter" href="python-embedded.html" title="Chapter 20. Python embedded bindings" /><link rel="part" href="operations.html" title="Part IV. Operations" /><link rel="chapter" href="deployment.html" title="Chapter 21. Installation &amp; Deployment" /><link rel="chapter" href="embedded-configuration.html" title="Chapter 22. Configuration &amp; Performance" /><link rel="chapter" href="ha.html" title="Chapter 23. High Availability" /><link rel="chapter" href="operations-backup.html" title="Chapter 24. Backup" /><link rel="chapter" href="operations-security.html" title="Chapter 25. Security" /><link rel="chapter" href="operations-monitoring.html" title="Chapter 26. Monitoring" /><link rel="part" href="tools.html" title="Part V. Tools" /><link rel="chapter" href="tools-webadmin.html" title="Chapter 27. Web Administration" /><link rel="chapter" href="shell.html" title="Chapter 28. Neo4j Shell" /><link rel="part" href="community.html" title="Part VI. Community" /><link rel="chapter" href="community-support.html" title="Chapter 29. Community Support" /><link rel="chapter" href="community-contributing.html" title="Chapter 30. Contributing to Neo4j" /><link rel="appendix" href="manpages.html" title="Appendix A. Manpages" /><link rel="refentry" href="re01.html" title="neo4j" /><link rel="refentry" href="re02.html" title="neo4j-shell" /><link rel="refentry" href="re03.html" title="neo4j-backup" /><link rel="refentry" href="re04.html" title="neo4j-coordinator" /><link rel="refentry" href="re05.html" title="neo4j-coordinator-shell" /><link rel="appendix" href="questions.html" title="Appendix B. Questions &amp; Answers" /><link rel="subsection" href="community-contributing-code.html#community-contributing-code-intro" title="30.4.1. Intro" /><link rel="subsection" href="community-contributing-code.html#community-contributing-code-intro-the-fast-track" title="30.4.2. The Fast Track" /><link rel="subsection" href="community-contributing-code.html#community-contributing-code-governance-fundamentals" title="30.4.3. Governance fundamentals" /><link rel="subsection" href="community-contributing-code.html#community-contributing-code-contributor-roles" title="30.4.4. Contributor roles" /><link rel="subsection" href="community-contributing-code.html#community-contributing-code-code-style" title="30.4.5. Code Style" /><link rel="subsection" href="community-contributing-code.html#_unit_tests" title="30.4.6. Unit Tests" /><link rel="subsection" href="community-contributing-code.html#community-contributing-code-workflow" title="30.4.7. Workflow" /><link rel="subsection" href="community-contributing-code.html#community-contributing-code-commit-messages" title="30.4.8. Commit messages" /><link rel="copyright" href="ln-id464096.html" title="License: Creative Commons 3.0" />
+
+
+<!-- favicon -->
+
+<link rel="shortcut icon" href="http://neo4j.org/favicon.ico" type="image/vnd.microsoft.icon" />
+<link rel="icon" href="http://neo4j.org/favicon.ico" type="image/x-icon" />
+
+<!-- style -->
+
+<link href="css/shCore.css" rel="stylesheet" type="text/css" />
+<link href="css/shCoreEclipse.css" rel="stylesheet" type="text/css" />
+<link href="css/shThemeEclipse.css" rel="stylesheet" type="text/css" />
+<link href="css/neo.css" rel="stylesheet" type="text/css" />
+
+<!-- Syntax Highlighter -->
+
+<script type="text/javascript" src="js/shCore.js"></script>
+<script type="text/javascript" src="js/shBrushJava.js"></script>
+<script type="text/javascript" src="js/shBrushJScript.js"></script>
+<script type="text/javascript" src="js/shBrushBash.js"></script>
+<script type="text/javascript" src="js/shBrushPlain.js"></script>
+<script type="text/javascript" src="js/shBrushXml.js"></script>
+<script type="text/javascript" src="js/shBrushGroovy.js"></script>
+<script type="text/javascript" src="js/shBrushCypher.js"></script>
+<script type="text/javascript" src="js/shBrushScala.js"></script>
+<script type="text/javascript" src="js/shBrushSql.js"></script>
+<script type="text/javascript" src="js/shBrushPython.js"></script>
+
+<!-- activate when needed
+<script type="text/javascript" src="js/shBrushRuby.js"></script>
+<script type="text/javascript" src="js/shBrushCSharp.js"></script>
+-->
+ 
+<script type="text/javascript">
+  SyntaxHighlighter.defaults['tab-size'] = 4;
+  SyntaxHighlighter.defaults['gutter'] = false;
+  SyntaxHighlighter.defaults['toolbar'] = false;
+  SyntaxHighlighter.all()
+</script>
+
+<!-- JQuery -->
+
+<script type="text/javascript" src="js/jquery-1.6.4.min.js"></script>
+
+<!-- Replace SVG for browsers that lack support. -->
+<script type="text/javascript" src="js/svgreplacer.js"></script>
+
+<!-- Image Scaler -->
+
+<script type="text/javascript" src="js/imagescaler.js"></script>
+
+<!-- Table Styler -->
+
+<script type="text/javascript" src="js/tablestyler.js"></script>
+
+<!-- Version -->
+
+<script type="text/javascript" src="js/version.js"></script>
+
+<!-- Offline Sidebar -->
+
+<script type="text/javascript" src="js/sidebar.js"></script>
+
+
+<div xmlns="" class="breadcrumbs"><span class="breadcrumb-link"><a href="index.html">The Neo4j Manual</a></span> &gt; <span class="breadcrumb-link"><a href="community.html">Community</a></span> &gt; <span class="breadcrumb-link"><a href="community-contributing.html">Contributing to Neo4j</a></span> &gt; <span class="breadcrumb-node">Contributing Code to Neo4j</span></div></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><td width="20%" align="left"><a accesskey="p" href="community-docs.html">Prev</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="contributors.html">Next</a></td></tr></table><hr /></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="community-contributing-code"></a>30.4. Contributing Code to Neo4j</h2></div></div></div><div class="toc"><dl><dt><span class="section"><a href="community-contributing-code.html#community-contributing-code-intro">30.4.1. Intro</a></span></dt><dt><span class="section"><a href="community-contributing-code.html#community-contributing-code-intro-the-fast-track">30.4.2. The Fast Track</a></span></dt><dt><span class="section"><a href="community-contributing-code.html#community-contributing-code-governance-fundamentals">30.4.3. Governance fundamentals</a></span></dt><dt><span class="section"><a href="community-contributing-code.html#community-contributing-code-contributor-roles">30.4.4. Contributor roles</a></span></dt><dt><span class="section"><a href="community-contributing-code.html#community-contributing-code-code-style">30.4.5. Code Style</a></span></dt><dt><span class="section"><a href="community-contributing-code.html#_unit_tests">30.4.6. Unit Tests</a></span></dt><dt><span class="section"><a href="community-contributing-code.html#community-contributing-code-workflow">30.4.7. Workflow</a></span></dt><dt><span class="section"><a href="community-contributing-code.html#community-contributing-code-commit-messages">30.4.8. Commit messages</a></span></dt></dl></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="community-contributing-code-intro"></a>30.4.1. Intro</h3></div></div></div><p>The Neo4j community is a free software and open source community centered around software and components for the Neo4j Graph Database.
+It is sponsored by <a class="ulink" href="http://neotechnology.com" target="_top">Neo Technology</a>, which provides infrastructure (different kinds of hosting, documentation, etc) as well as people to manage it.
+The Neo4j community is an open community, in so far as it welcomes any member that accepts the basic criterias of contribution and adheres to the community’s Code of Conduct.</p><p>Contribution can be in many forms (documentation, discussions, bug reports).
+This document outlines the rules of governance for a contributor of code.</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="community-contributing-code-intro-the-fast-track"></a>30.4.2. The Fast Track</h3></div></div></div><p>One crucial aspect of contributing is the <a class="link" href="cla.html" title="30.1. Contributor License Agreement">Contributor License Agreement</a>.
+In short: make sure to sign the CLA, or the Neo4j project won’t be able to accept your contribution.</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="community-contributing-code-governance-fundamentals"></a>30.4.3. Governance fundamentals</h3></div></div></div><p>In a nutshell, you need to be aware of the following fundamentals if you wish to contribute code:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+All software published by the Neo4j project must have been contributed under the Neo4j Code <a class="link" href="cla.html" title="30.1. Contributor License Agreement">Contributor License Agreement</a>.
+</li><li class="listitem">
+Neo4j is a free software and open source community.
+  As a contributor, you are free to place your work under any license that has been approved by either the <a class="ulink" href="http://fsf.org" target="_top">Free Software Foundation</a> or the <a class="ulink" href="http://opensource.org" target="_top">Open Source Initiative</a>.
+  You still retain copyright, so in addition to that license you can of course release your work under any other license (for example a fully proprietary license), just not on the Neo4j infrastructure.
+</li><li class="listitem">
+The Neo4j software is split into components.
+  A Git repository holds either a single or multiple components.
+</li><li class="listitem">
+The source code should follow the Neo4j <a class="link" href="community-contributing-code.html#community-contributing-code-code-style" title="30.4.5. Code Style">Code Style</a> and “fit in” with the Neo4j infrastructure as much as is reasonable for the specific component.
+</li></ul></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="community-contributing-code-contributor-roles"></a>30.4.4. Contributor roles</h3></div></div></div><p>Every individual that contributes code does so in the context of a role (a single individual can have multiple roles).
+The role defines their responsibilities and privileges:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+A <span class="emphasis"><em>patch submitter</em></span> is a person who wishes to contribute a patch to an existing component.
+  See <a class="link" href="community-contributing-code.html#community-contributing-code-workflow" title="30.4.7. Workflow">Workflow</a> below.
+</li><li class="listitem">
+A <span class="emphasis"><em>committer</em></span> can contribute code directly to one or more components.
+</li><li class="listitem"><p class="simpara">
+A <span class="emphasis"><em>component maintainer</em></span> is in charge of a specific component.
+  They can:
+</p><div class="itemizedlist"><ul class="itemizedlist" type="circle"><li class="listitem">
+commit code in their component’s repository,
+</li><li class="listitem">
+manage tickets for the repository,
+</li><li class="listitem">
+grant push rights to the repository.
+</li></ul></div></li><li class="listitem"><p class="simpara">
+A <span class="emphasis"><em>Neo4j admin</em></span> manages the Neo4j infrastructure.
+  They:
+</p><div class="itemizedlist"><ul class="itemizedlist" type="circle"><li class="listitem">
+define new components and assign component maintainership,
+</li><li class="listitem">
+drive, mentor and coach Neo4j component development.
+</li></ul></div></li></ul></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="community-contributing-code-code-style"></a>30.4.5. Code Style</h3></div></div></div><p>The Neo4j Code style is maintained on GitHub in <a class="ulink" href="https://github.com/neo4j/neo4j.github.com/tree/master/code-style" target="_top">styles for the different IDEs</a>.</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="_unit_tests"></a>30.4.6. Unit Tests</h3></div></div></div><p>You have a much higher chance of getting your changes accepted if you supply us with small, readable unit tests that test the code you’ve written.
+Also, make sure your code doesn’t break any existing tests.
+See the advice on building below.
+<span class="emphasis"><em>Note that there may be downstream components that need to be tested as well,</em></span> depending on what you change.</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="community-contributing-code-workflow"></a>30.4.7. Workflow</h3></div></div></div><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+Fork the appropriate repository on GitHub, and clone it.
+</li><li class="listitem">
+Create a new, appropriately named branch in your local repository for that specific feature or bugfix.
+  Keeping a new branch for each feature ensures we can easily pull in your changes without pulling in any other commits that are not supposed to be pulled.
+</li><li class="listitem">
+Modify the code to do what you want (e.g. fix a bug, implement a feature).
+</li><li class="listitem">
+Make sure your changeset has unit tests that are readable and relevant for your change.
+  Try to do this even for small fixes.
+  You never know whether you have introduced some weird bug without testing.
+</li><li class="listitem">
+Run the Maven build frequently so you know if you’ve introduced any unexpected issues (<code class="literal">mvn clean verify</code>).
+  Running tests from your IDE isn’t repeatable enough, even if you run all of the tests in the project.
+</li><li class="listitem">
+When adding new functionality or changing existing code significantly, be sure to add or update Javadoc comments to non-trivial classes and methods.
+  Also check if the manual is affected by your change and needs to be updated, see <a class="xref" href="community-docs.html" title="30.3. Writing Neo4j Documentation">Section 30.3, “Writing Neo4j Documentation”</a>.
+</li><li class="listitem">
+Give each commit an appropriate commit message, so that others who are not familiar with the matter get a good idea of what you have changed.
+</li><li class="listitem">
+Once you are satisfied with your changes, merge with our upstream repository.
+  We can pull your stuff, but since you know best what you changed, you should do the merge.
+  Use rebase and/or squash commits as appropriate!
+</li><li class="listitem">
+This is a good point to do one last clean build to see that the merge hasn’t broken your code.
+</li><li class="listitem">
+Push to your remote repository on GitHub.
+</li><li class="listitem">
+Send a Pull Request with a description of what you changed via the button in the GitHub interface of your repository.
+  If you know the person responsible for the component, be sure to mention him in the Pull Request (e.g. @user) so he will be notified.
+</li></ul></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="community-contributing-code-commit-messages"></a>30.4.8. Commit messages</h3></div></div></div><p>Please take some care in providing good commit messages.
+Use your common sense. In particular:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+Use <span class="emphasis"><em>english</em></span>. This includes proper punctuation and correct spelling.
+  Commit messages are supposed to convey some information at a glance — they’re not a chat room.
+</li><li class="listitem">
+Remember that a commit is a <span class="emphasis"><em>changeset</em></span>, which describes a cohesive set of changes across potentially many files.
+  Try to group every commit as a logical change.
+  Explain what it changes.
+  If you have to redo work, you might want to clean up your commit log before doing a pull request.
+</li><li class="listitem"><p class="simpara">
+If you fix a bug or an issue that’s related to a ticket, then refer to the ticket in the message.
+  For example, <span class="emphasis"><em>`‘Added this and then changed that. This fixes #14.’'</em></span>
+  Just mentioning #xxx in the commit will connect  it to the GitHub issue with that number, see <a class="ulink" href="https://github.com/blog/831-issues-2-0-the-next-generation" target="_top">GitHub issues</a>.
+  Any of these synonyms will also work:
+</p><div class="itemizedlist"><ul class="itemizedlist" type="circle"><li class="listitem">
+fixes #xxx
+</li><li class="listitem">
+fixed #xxx
+</li><li class="listitem">
+fix #xxx
+</li><li class="listitem">
+closes #xxx
+</li><li class="listitem">
+close #xxx
+</li><li class="listitem">
+closed #xxx.
+</li></ul></div></li><li class="listitem">
+Remember to convey <span class="emphasis"><em>intent</em></span>.
+  Don’t be too brief but don’t provide too much detail, either.
+  That’s what <code class="literal">git diff</code> is for.
+</li></ul></div></div></div><HR xmlns=""></HR><a xmlns="" href="ln-id464096.html"><p xmlns="http://www.w3.org/1999/xhtml" class="copyright">Copyright © 2012 Neo Technology</p></a><div class="navfooter"><hr /><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="community-docs.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="community-contributing.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="contributors.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top"> </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> </td></tr></table></div></body></html>

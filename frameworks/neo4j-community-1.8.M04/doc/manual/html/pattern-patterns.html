@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>16.8. Patterns</title><link rel="stylesheet" href="docbook-xsl.css" type="text/css" /><meta name="generator" content="DocBook XSL Stylesheets V1.75.2" /><link rel="home" href="index.html" title="The Neo4j Manual v1.8.M04" /><link rel="up" href="cypher-query-lang.html" title="Chapter 16. Cypher Query Language" /><link rel="prev" href="query-transactions.html" title="16.7. Transactions and Cypher" /><link rel="next" href="query-start.html" title="16.9. Start" /><link rel="preface" href="preface.html" title="Preface" /><link rel="part" href="introduction.html" title="Part I. Introduction" /><link rel="chapter" href="introduction-highlights.html" title="Chapter 1. Neo4j Highlights" /><link rel="chapter" href="graphdb-concepts.html" title="Chapter 2. Graph Database Concepts" /><link rel="chapter" href="graphdb-neo4j.html" title="Chapter 3. The Neo4j Graph Database" /><link rel="part" href="tutorials.html" title="Part II. Tutorials" /><link rel="chapter" href="tutorials-java-embedded.html" title="Chapter 4. Using Neo4j embedded in Java applications" /><link rel="chapter" href="cypher-cookbook.html" title="Chapter 5. Cypher Cookbook" /><link rel="chapter" href="tutorials-rest.html" title="Chapter 6. Neo4j Remote Client Libraries" /><link rel="chapter" href="server-extending.html" title="Chapter 7. Extending the Neo4j Server" /><link rel="chapter" href="tutorial-traversal.html" title="Chapter 8. The Traversal Framework" /><link rel="chapter" href="domain-modeling-gallery.html" title="Chapter 9. Domain Modeling Gallery" /><link rel="chapter" href="languages.html" title="Chapter 10. Languages" /><link rel="chapter" href="tutorials-python-embedded.html" title="Chapter 11. Using Neo4j embedded in Python applications" /><link rel="part" href="reference-documentation.html" title="Part III. Reference" /><link rel="chapter" href="capabilities.html" title="Chapter 12. Capabilities" /><link rel="chapter" href="transactions.html" title="Chapter 13. Transaction Management" /><link rel="chapter" href="import.html" title="Chapter 14. Data Import" /><link rel="chapter" href="indexing.html" title="Chapter 15. Indexing" /><link rel="chapter" href="cypher-query-lang.html" title="Chapter 16. Cypher Query Language" /><link rel="chapter" href="graph-algo.html" title="Chapter 17. Graph Algorithms" /><link rel="chapter" href="server.html" title="Chapter 18. Neo4j Server" /><link rel="chapter" href="rest-api.html" title="Chapter 19. REST API" /><link rel="chapter" href="python-embedded.html" title="Chapter 20. Python embedded bindings" /><link rel="part" href="operations.html" title="Part IV. Operations" /><link rel="chapter" href="deployment.html" title="Chapter 21. Installation &amp; Deployment" /><link rel="chapter" href="embedded-configuration.html" title="Chapter 22. Configuration &amp; Performance" /><link rel="chapter" href="ha.html" title="Chapter 23. High Availability" /><link rel="chapter" href="operations-backup.html" title="Chapter 24. Backup" /><link rel="chapter" href="operations-security.html" title="Chapter 25. Security" /><link rel="chapter" href="operations-monitoring.html" title="Chapter 26. Monitoring" /><link rel="part" href="tools.html" title="Part V. Tools" /><link rel="chapter" href="tools-webadmin.html" title="Chapter 27. Web Administration" /><link rel="chapter" href="shell.html" title="Chapter 28. Neo4j Shell" /><link rel="part" href="community.html" title="Part VI. Community" /><link rel="chapter" href="community-support.html" title="Chapter 29. Community Support" /><link rel="chapter" href="community-contributing.html" title="Chapter 30. Contributing to Neo4j" /><link rel="appendix" href="manpages.html" title="Appendix A. Manpages" /><link rel="refentry" href="re01.html" title="neo4j" /><link rel="refentry" href="re02.html" title="neo4j-shell" /><link rel="refentry" href="re03.html" title="neo4j-backup" /><link rel="refentry" href="re04.html" title="neo4j-coordinator" /><link rel="refentry" href="re05.html" title="neo4j-coordinator-shell" /><link rel="appendix" href="questions.html" title="Appendix B. Questions &amp; Answers" /><link rel="copyright" href="ln-id464096.html" title="License: Creative Commons 3.0" />
+
+
+<!-- favicon -->
+
+<link rel="shortcut icon" href="http://neo4j.org/favicon.ico" type="image/vnd.microsoft.icon" />
+<link rel="icon" href="http://neo4j.org/favicon.ico" type="image/x-icon" />
+
+<!-- style -->
+
+<link href="css/shCore.css" rel="stylesheet" type="text/css" />
+<link href="css/shCoreEclipse.css" rel="stylesheet" type="text/css" />
+<link href="css/shThemeEclipse.css" rel="stylesheet" type="text/css" />
+<link href="css/neo.css" rel="stylesheet" type="text/css" />
+
+<!-- Syntax Highlighter -->
+
+<script type="text/javascript" src="js/shCore.js"></script>
+<script type="text/javascript" src="js/shBrushJava.js"></script>
+<script type="text/javascript" src="js/shBrushJScript.js"></script>
+<script type="text/javascript" src="js/shBrushBash.js"></script>
+<script type="text/javascript" src="js/shBrushPlain.js"></script>
+<script type="text/javascript" src="js/shBrushXml.js"></script>
+<script type="text/javascript" src="js/shBrushGroovy.js"></script>
+<script type="text/javascript" src="js/shBrushCypher.js"></script>
+<script type="text/javascript" src="js/shBrushScala.js"></script>
+<script type="text/javascript" src="js/shBrushSql.js"></script>
+<script type="text/javascript" src="js/shBrushPython.js"></script>
+
+<!-- activate when needed
+<script type="text/javascript" src="js/shBrushRuby.js"></script>
+<script type="text/javascript" src="js/shBrushCSharp.js"></script>
+-->
+ 
+<script type="text/javascript">
+  SyntaxHighlighter.defaults['tab-size'] = 4;
+  SyntaxHighlighter.defaults['gutter'] = false;
+  SyntaxHighlighter.defaults['toolbar'] = false;
+  SyntaxHighlighter.all()
+</script>
+
+<!-- JQuery -->
+
+<script type="text/javascript" src="js/jquery-1.6.4.min.js"></script>
+
+<!-- Replace SVG for browsers that lack support. -->
+<script type="text/javascript" src="js/svgreplacer.js"></script>
+
+<!-- Image Scaler -->
+
+<script type="text/javascript" src="js/imagescaler.js"></script>
+
+<!-- Table Styler -->
+
+<script type="text/javascript" src="js/tablestyler.js"></script>
+
+<!-- Version -->
+
+<script type="text/javascript" src="js/version.js"></script>
+
+<!-- Offline Sidebar -->
+
+<script type="text/javascript" src="js/sidebar.js"></script>
+
+
+<div xmlns="" class="breadcrumbs"><span class="breadcrumb-link"><a href="index.html">The Neo4j Manual</a></span> &gt; <span class="breadcrumb-link"><a href="reference-documentation.html">Reference</a></span> &gt; <span class="breadcrumb-link"><a href="cypher-query-lang.html">Cypher Query Language</a></span> &gt; <span class="breadcrumb-node">Patterns</span></div></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><td width="20%" align="left"><a accesskey="p" href="query-transactions.html">Prev</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="query-start.html">Next</a></td></tr></table><hr /></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="pattern-patterns"></a>16.8. Patterns</h2></div></div></div><p>Patterns are at the very core of Cypher, and are used for a lot of different reasons. Patterns are used
+in the <code class="literal">MATCH</code> clause. Path patterns are expressions. Since these expressions are collections, they can also be used as
+predicates (a non-empty collection signifies true). They are also used to <code class="literal">CREATE</code> the graph, and by the <code class="literal">RELATE</code>
+clause.</p><p>So, understanding patterns is important, to be able to be effective with Cypher.</p><p>You describe the pattern, and Cypher will figure out how to get that data for you. The idea is for you to draw your
+query on a whiteboard, naming the interesting parts of the pattern, so you can then use values from these parts
+to create the result set you are looking for.</p><p>The description of the pattern is made up of one or more paths, separated by commas. A path is a sequence of nodes and
+relationships that always start and end in nodes. An example path would be:</p><p><code class="literal"><code class="literal">(a)--&gt;(b)</code></code></p><p>This is a path starting from the pattern node <code class="literal">a</code>, with an outgoing relationship from it to pattern node <code class="literal">b</code>.</p><p>Paths can be of arbitrary length, and the same node may appear in multiple places in the path.</p><p>Node identifiers can be used with or without surrounding parenthesis. The following match is semantically identical to
+the one we saw above — the difference is purely aesthetic.</p><p><code class="literal"><code class="literal">a--&gt;b</code></code></p><p>If you don’t care about a node, you don’t need to name it. Empty parenthesis are used for these nodes, like so:</p><p><code class="literal"><code class="literal">a--&gt;()&lt;--b</code></code></p><p>If you need to work with the relationship between two nodes, you can name it.</p><p><code class="literal"><code class="literal">a-[r]-&gt;b</code></code></p><p>If you don’t care about the direction of the relationship, you can omit the arrow at either end of the relationship, like:</p><p><code class="literal"><code class="literal">a--b</code></code></p><p>Relationships have types. When you are only interested in a specific relationship type, you can specify this like so:</p><p><code class="literal"><code class="literal">a-[:REL_TYPE]-&gt;b</code></code></p><p>If multiple relationships are acceptable, you can list them, separating them with the pipe symbol <code class="literal">|</code></p><p><code class="literal"><code class="literal">a-[r:TYPE1|TYPE2]-&gt;b</code></code></p><p>This pattern matches a relationship of type TYPE1 or TYPE2, going from <code class="literal">a</code> to <code class="literal">b</code>. The relationship is named <code class="literal">r</code>.
+Multiple relationship types do not work with CREATE or RELATE.</p><p>An optional relationship is a relationship that when it is found is matched, but if it is missing, a null will be
+placed in place of the relationship. Normally, if no matching relationship is found, that sub graph is not matched.</p><p>This allows you to write queries like this:</p><pre class="programlisting brush: cypher">START me=node(1)
+MATCH me--&gt;friend-[?:parent_of]-&gt;children
+RETURN friend, children</pre><p>The query above says “give me all my friends, and their children, if they have any.”</p><p>Optionality is transitive — if a part of the pattern can only be reached from a bound point through an optional relationship,
+that part is also optional. In the pattern above, the only bound point in the pattern is <code class="literal">me</code>. Since the relationship
+between <code class="literal">friend</code> and <code class="literal">children</code> is optional, <code class="literal">children</code> is an optional part of the graph.</p><p>Also, named paths that contain optional parts are also optional — if any part of the path is
+<code class="literal">null</code>, the whole path is <code class="literal">null</code>.</p><p>In these examples, <code class="literal">b</code> and <code class="literal">p</code> are all optional and can contain <code class="literal">null</code>:</p><pre class="programlisting brush: cypher">START a=node(1)
+MATCH p = a-[?]-&gt;b
+RETURN b</pre><pre class="programlisting brush: cypher">START a=node(1)
+MATCH p = a-[?*]-&gt;b
+RETURN b</pre><pre class="programlisting brush: cypher">START a=node(1)
+MATCH p = a-[?]-&gt;x--&gt;b
+RETURN b</pre><pre class="programlisting brush: cypher">START a=node(1), x=node(2)
+MATCH p = shortestPath( a-[?*]-&gt;x )
+RETURN p</pre><p>A pattern relationship can span multiple graph relationships. These are called variable length relationships, and are
+marked as such using an asterix:</p><p><code class="literal"><code class="literal">(a)-[*]-&gt;(b)</code></code></p><p>This signifies a path starting on the pattern node <code class="literal">a</code>, following only outgoing relationships, until it reaches pattern
+node <code class="literal">b</code>. Any number of relationships can be followed searching for a path to <code class="literal">b</code>, so this can be a very expensive query,
+depending on what your graph looks like.</p><p>You can set a minimum set of steps that can be taken, and/or the max number of steps:</p><p><code class="literal"><code class="literal">(a)-[*3..5]-&gt;(b)</code></code></p><p>This is a variable length relationship containing at least three graph relationships, and at most five.</p><p>Variable length relationships do not work with CREATE and RELATE.</p><p>As a simple example, let’s take the following query, executed on the graph pictured below.</p><p><span class="emphasis"><em>Query</em></span></p><pre class="programlisting brush: cypher">START me=node(1)
+MATCH me--&gt;friend-[?:parent_of]-&gt;children
+RETURN friend, children</pre><p>This returns the a <code class="literal">friend</code> node, and no <code class="literal">children</code>, since there are no such relationships in the graph.</p><div class="queryresult table"><a id="id529675"></a><p class="title"><b>Result</b></p><div class="queryresult table-contents"><table summary="Result" cellspacing="0" cellpadding="0" border="1"><colgroup><col /><col /></colgroup><thead><tr><th align="left" valign="top">friend</th><th align="left" valign="top">children</th></tr></thead><tfoot><tr><th colspan="2" align="left" valign="top">1 row
+</th></tr><tr><th colspan="2" align="left" valign="top">1 ms</th></tr></tfoot><tbody><tr><td align="left" valign="top"><p><code class="literal">Node[3]{name:"Anders"}</code></p></td><td align="left" valign="top"><p><code class="literal">&lt;null&gt;</code></p></td></tr></tbody></table></div></div><br class="queryresult table-break" /></div><HR xmlns=""></HR><a xmlns="" href="ln-id464096.html"><p xmlns="http://www.w3.org/1999/xhtml" class="copyright">Copyright © 2012 Neo Technology</p></a><div class="navfooter"><hr /><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="query-transactions.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="cypher-query-lang.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="query-start.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top"> </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> </td></tr></table></div></body></html>
