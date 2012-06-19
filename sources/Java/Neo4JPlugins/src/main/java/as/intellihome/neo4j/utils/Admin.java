@@ -15,10 +15,12 @@ public class Admin
     
     public static synchronized void install( GraphDatabaseService graphDb )
     {
-        if( !isInstalled )
+        boolean doesMainNodeExists = IntelliHomeNode.exists( graphDb );
+        
+        if( !doesMainNodeExists || !isInstalled )
         {
             //if( !IntelliHomeNode.exists( graphDb ) ) throw new IllegalStateException( "database should contain IntelliHome graph" );
-            if( !IntelliHomeNode.exists( graphDb ) ) GeneralDbOperations.createDb( graphDb );
+            if( !doesMainNodeExists ) GeneralDbOperations.createDb( graphDb );
             
             // maybe install graphDb.registerTransactionEventHandler( )
             

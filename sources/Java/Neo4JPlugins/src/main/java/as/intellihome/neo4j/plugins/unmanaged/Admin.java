@@ -39,7 +39,7 @@ public class Admin
         
         AdminHtml.renderButtonBasedOnForm( sb , Config.descriptionFor_managedPlugin_admin_install , Config.typeOfMethodForButtonsBaseOnForms , Config.pathFor_unmanagedPlugins + Config.pathFor_unmanagedPlugins_admin + Config.pathFor_unmanagedPlugins_admin_install );          
         AdminHtml.renderButtonBasedOnForm( sb , Config.descriptionFor_managedPlugin_admin_shutdown , Config.typeOfMethodForButtonsBaseOnForms , Config.pathFor_unmanagedPlugins + Config.pathFor_unmanagedPlugins_admin + Config.pathFor_unmanagedPlugins_admin_shutdown );          
-        AdminHtml.renderButtonBasedOnForm( sb , Config.descriptionFor_managedPlugin_admin_createDb , Config.typeOfMethodForButtonsBaseOnForms , Config.pathFor_unmanagedPlugins + Config.pathFor_unmanagedPlugins_admin + Config.pathFor_unmanagedPlugins_admin_createDb );          
+        //AdminHtml.renderButtonBasedOnForm( sb , Config.descriptionFor_managedPlugin_admin_createDb , Config.typeOfMethodForButtonsBaseOnForms , Config.pathFor_unmanagedPlugins + Config.pathFor_unmanagedPlugins_admin + Config.pathFor_unmanagedPlugins_admin_createDb );          
         AdminHtml.renderButtonBasedOnForm( sb , Config.descriptionFor_managedPlugin_admin_deleteDb , Config.typeOfMethodForButtonsBaseOnForms , Config.pathFor_unmanagedPlugins + Config.pathFor_unmanagedPlugins_admin + Config.pathFor_unmanagedPlugins_admin_deleteDb );          
         AdminHtml.renderButtonBasedOnForm( sb , Config.descriptionFor_managedPlugin_admin_addDefaultDataToDb , Config.typeOfMethodForButtonsBaseOnForms , Config.pathFor_unmanagedPlugins + Config.pathFor_unmanagedPlugins_admin + Config.pathFor_unmanagedPlugins_admin_addDefaultDataToDb );          
     
@@ -86,7 +86,7 @@ public class Admin
     }
     
     // ================================================
-    
+    /*
     @GET
     @Path( Config.pathFor_unmanagedPlugins_admin_createDb )
     @Produces( MediaType.TEXT_HTML )
@@ -120,7 +120,7 @@ public class Admin
         AdminHtml.renderPageBottom( sb , null , null );
                   
         return sb.toString();
-    }
+    }*/
     
     // ================================================
        

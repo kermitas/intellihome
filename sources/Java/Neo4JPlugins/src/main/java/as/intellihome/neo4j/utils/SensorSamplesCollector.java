@@ -16,17 +16,17 @@ public class SensorSamplesCollector
         
         validateSensorValueObjectType( sensorValue );
         
-        Node sensor = as.intellihome.neo4j.utils.Sensor.getSensorNodeById( graphDb , sensorId );
+        //Node sensor = as.intellihome.neo4j.utils.Sensor.getSensorNodeById( graphDb , sensorId );
         
         // if is sensor disabled ...
         
         
-        Node device = as.intellihome.neo4j.utils.Device.getDeviceNodeByContainedSensor( graphDb , sensor );
+        //Node device = as.intellihome.neo4j.utils.Device.getDeviceNodeByContainedSensor( graphDb , sensor );
         
         // if is device disabled ...
         
         {
-            Node user = as.intellihome.neo4j.utils.User.getUserNodeByContainedDevice( graphDb , device );
+            //Node user = as.intellihome.neo4j.utils.User.getUserNodeByContainedDevice( graphDb , device );
             
             // if is device disabled ...
         }
@@ -61,6 +61,9 @@ public class SensorSamplesCollector
         if(
             !( sensorValue instanceof Boolean ) ||
             !( sensorValue instanceof String ) ||
+            !( sensorValue instanceof Character ) ||
+            !( sensorValue instanceof Double ) ||
+            !( sensorValue instanceof Short ) ||
             !( sensorValue instanceof Integer ) ||
             !( sensorValue instanceof Float )
         )

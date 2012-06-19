@@ -21,13 +21,14 @@ public class Admin extends ServerPlugin
     
     // ================================================
    
+    /*
     @Name( Config.pathFor_managedPlugin_admin_createDb )
     @Description( Config.descriptionFor_managedPlugin_admin_createDb )
     @PluginTarget( GraphDatabaseService.class )
     public void createDb( @Source GraphDatabaseService graphDb )
     {
         as.intellihome.neo4j.utils.db.GeneralDbOperations.createDb( graphDb );
-    }
+    }*/
     
     // ================================================
    

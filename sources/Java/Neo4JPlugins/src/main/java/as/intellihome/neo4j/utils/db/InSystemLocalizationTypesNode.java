@@ -1,10 +1,7 @@
 package as.intellihome.neo4j.utils.db;
 
 import java.util.Iterator;
-import org.neo4j.graphdb.Direction;
-import org.neo4j.graphdb.Node;
-import org.neo4j.graphdb.Relationship;
-import org.neo4j.graphdb.RelationshipType;
+import org.neo4j.graphdb.*;
 
 // ====================================================
 
@@ -19,15 +16,13 @@ public class InSystemLocalizationTypesNode
 {
     // ================================================
     
-    // creates relation IN_SYSTEM_LOCALIZATION_TYPES and empty node (as a group of types), then creates all outgoing relations and nodes
+    // creates relation IN_SYSTEM_LOCALIZATION_TYPES and empty node (as a group of types)
     // should be executed under active transaction
-    public static void createDefaultData( Node intelliHomeNode , boolean addDecriptionProperty )
+    public static void createDefaultData( Node intelliHomeNode , boolean addDescriptionProperty )
     {
         Node inSystemLocalizationTypesNode = intelliHomeNode.getGraphDatabase().createNode();
-        if( addDecriptionProperty ) inSystemLocalizationTypesNode.setProperty( "description" , "Singleton node - group of device localization in out system (like head, pass-through or end-point)." );
+        if( addDescriptionProperty ) inSystemLocalizationTypesNode.setProperty( "description" , "Singleton node - group of device localization in out system (like head, pass-through or end-point)." );
         intelliHomeNode.createRelationshipTo( inSystemLocalizationTypesNode , InSystemLocalizationTypesRelationships.IN_SYSTEM_LOCALIZATION_TYPES );
-        
-        InSystemLocalizationTypeNode.createDefaultData( inSystemLocalizationTypesNode , addDecriptionProperty );
     }
     
     // ================================================
@@ -40,31 +35,43 @@ public class InSystemLocalizationTypesNode
     
     // ================================================
     
-    // delete main incomming relation, this node, all outgoing relations and it's nodes
+    public static Node get( GraphDatabaseService graphDb )
+    {
+        return get( IntelliHomeNode.get( graphDb ) );
+    }  
+    
+    // ================================================
+    
+    public static Node get( Node intelliHomeNode )
+    {
+        return getRelationTo( intelliHomeNode ).getEndNode();
+    }      
+    
+    // ================================================
+    
+    // should be executed under active transaction
+    public static void setInSystemLocalizationForDevice( Node deviceNode , InSystemLocalizationTypes inSystemLocalizationType )
+    {
+        Iterator< Relationship > iter = deviceNode.getRelationships( Direction.OUTGOING , InSystemLocalizationTypes.values() ).iterator();
+        while( iter.hasNext() ) iter.next().delete();
+            
+        deviceNode.createRelationshipTo( get( deviceNode.getGraphDatabase() ) , inSystemLocalizationType );
+    }    
+    
+    // ================================================
+    
+    // delete main incomming relation, this node
     // should be executed under active transaction
     public static void delete( Node intelliHomeNode )
     {   
-        Relationship inSystemLocalizationTypesReference = getRelationTo( intelliHomeNode );
+        Relationship inSystemLocalizationTypesRelationship = getRelationTo( intelliHomeNode );
 
-        if( inSystemLocalizationTypesReference != null )
+        if( inSystemLocalizationTypesRelationship != null )
         {
-            //System.out.println( InSystemLocalizationTypesNode.class.getName() + ": trying to delete child nodes..." );
-            
-            Node inSystemLocalizationTypesNode = inSystemLocalizationTypesReference.getEndNode();
+            Node inSystemLocalizationTypesNode = inSystemLocalizationTypesRelationship.getEndNode();
 
-            Iterator< Relationship > iter = inSystemLocalizationTypesNode.getRelationships( Direction.OUTGOING , InSystemLocalizationTypeRelationships.values() ).iterator();
-
-            while( iter.hasNext() ) InSystemLocalizationTypeNode.delete( iter.next().getEndNode() );
-            
-            //System.out.println( InSystemLocalizationTypesNode.class.getName() + ": deleting node " + inSystemLocalizationTypesNode.getId() );
-            //System.out.println( InSystemLocalizationTypesNode.class.getName() + ": deleting reference " + inSystemLocalizationTypesReference.getId() );
-            
-            inSystemLocalizationTypesReference.delete();
+            inSystemLocalizationTypesRelationship.delete();
             inSystemLocalizationTypesNode.delete();
-        }  
-        else
-        {
-            //System.out.println( InSystemLocalizationTypesNode.class.getName() + ": could not find inSystemLocalizationTypesReference" );
         }        
     }
     

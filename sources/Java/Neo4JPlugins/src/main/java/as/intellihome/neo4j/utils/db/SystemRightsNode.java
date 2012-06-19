@@ -1,10 +1,7 @@
 package as.intellihome.neo4j.utils.db;
 
 import java.util.Iterator;
-import org.neo4j.graphdb.Direction;
-import org.neo4j.graphdb.Node;
-import org.neo4j.graphdb.Relationship;
-import org.neo4j.graphdb.RelationshipType;
+import org.neo4j.graphdb.*;
 
 // ====================================================
 
@@ -19,15 +16,13 @@ public class SystemRightsNode
 {
     // ================================================
     
-    // creates relation SYSTEM_RIGHTS and empty node (as a group of rights), then creates all outgoing relations and nodes
+    // creates relation SYSTEM_RIGHTS and empty node (as a group of rights)
     // should be executed under active transaction
-    public static void createDefaultData( Node intelliHomeNode , boolean addDecriptionProperty )
+    public static void createDefaultData( Node intelliHomeNode , boolean addDescriptionProperty )
     {
         Node systemRightsNode = intelliHomeNode.getGraphDatabase().createNode();
-        if( addDecriptionProperty ) systemRightsNode.setProperty( "description" , "Singleton node - group of system rights." );
+        if( addDescriptionProperty ) systemRightsNode.setProperty( "description" , "Singleton node - group of system rights." );
         intelliHomeNode.createRelationshipTo( systemRightsNode , SystemRightsRelationships.SYSTEM_RIGHTS );
-        
-        SystemRightNode.createDefaultData( systemRightsNode , addDecriptionProperty );
     }
     
     // ================================================
@@ -40,32 +35,44 @@ public class SystemRightsNode
     
     // ================================================
     
-    // delete main incomming relation, this node, all outgoing relations and it's nodes
+    public static Node get( GraphDatabaseService graphDb )
+    {
+        return get( IntelliHomeNode.get( graphDb ) );
+    }  
+    
+    // ================================================
+    
+    public static Node get( Node intelliHomeNode )
+    {
+        return getRelationTo( intelliHomeNode ).getEndNode();
+    }      
+    
+    // ================================================
+    
+    // should be executed under active transaction
+    public static void addRightToUser( Node userNode , SystemRights right )
+    {
+        if( !userNode.hasRelationship( Direction.OUTGOING , right ) )
+        {
+            userNode.createRelationshipTo( get( userNode.getGraphDatabase() ) , right );
+        }
+    }
+    
+    // ================================================
+    
+    // delete main incomming relation, this node
     // should be executed under active transaction
     public static void delete( Node intelliHomeNode )
     {   
-        Relationship systemRightsReference = getRelationTo( intelliHomeNode );
+        Relationship systemRightsRelationship = getRelationTo( intelliHomeNode );
 
-        if( systemRightsReference != null )
+        if( systemRightsRelationship != null )
         {
-            //System.out.println( SystemRightsNode.class.getName() + ": trying to delete child nodes..." );
-            
-            Node systemRightsNode = systemRightsReference.getEndNode();
-
-            Iterator< Relationship > iter = systemRightsNode.getRelationships( Direction.OUTGOING , SystemRightRelationships.values() ).iterator();
-
-            while( iter.hasNext() ) SystemRightNode.delete( iter.next().getEndNode() );
-            
-            //System.out.println( SystemRightsNode.class.getName() + ": deleting node " + systemRightsNode.getId() );
-            //System.out.println( SystemRightsNode.class.getName() + ": deleting reference " + systemRightsReference.getId() );
-            
-            systemRightsReference.delete();
+            Node systemRightsNode = systemRightsRelationship.getEndNode();
+  
+            systemRightsRelationship.delete();
             systemRightsNode.delete();
-        }  
-        else
-        {
-            //System.out.println( SystemRightsNode.class.getName() + ": could not find systemRightsReference" );
-        }        
+        }         
     }
     
     // ================================================

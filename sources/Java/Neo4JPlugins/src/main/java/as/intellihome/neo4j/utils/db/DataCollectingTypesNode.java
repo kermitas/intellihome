@@ -1,10 +1,7 @@
 package as.intellihome.neo4j.utils.db;
 
 import java.util.Iterator;
-import org.neo4j.graphdb.Direction;
-import org.neo4j.graphdb.Node;
-import org.neo4j.graphdb.Relationship;
-import org.neo4j.graphdb.RelationshipType;
+import org.neo4j.graphdb.*;
 
 // ====================================================
 
@@ -19,15 +16,13 @@ public class DataCollectingTypesNode
 {
     // ================================================
     
-    // creates relation DATA_COLLECTING_TYPES and empty node (as a group of phisicality types), then creates all outgoing relations and nodes
+    // creates relation DATA_COLLECTING_TYPES and empty node (as a group of phisicality types)
     // should be executed under active transaction
-    public static void createDefaultData( Node intelliHomeNode , boolean addDecriptionProperty )
+    public static void createDefaultData( Node intelliHomeNode , boolean addDescriptionProperty )
     {
         Node dataCollectingTypesNode = intelliHomeNode.getGraphDatabase().createNode();
-        if( addDecriptionProperty ) dataCollectingTypesNode.setProperty( "description" , "This is a singleton node - group of data collecting types." );
+        if( addDescriptionProperty ) dataCollectingTypesNode.setProperty( "description" , "This is a singleton node - group of data collecting types." );
         intelliHomeNode.createRelationshipTo( dataCollectingTypesNode , DataCollectingTypesRelationships.DATA_COLLECTING_TYPES );
-        
-        DataCollectingTypeNode.createDefaultData( dataCollectingTypesNode , addDecriptionProperty );
     }
     
     // ================================================
@@ -40,21 +35,71 @@ public class DataCollectingTypesNode
     
     // ================================================
     
-    // delete main incomming relation, this node, all outgoing relations and it's nodes
+    public static Node get( GraphDatabaseService graphDb )
+    {
+        return get( IntelliHomeNode.get( graphDb ) );
+    }  
+    
+    // ================================================
+    
+    public static Node get( Node intelliHomeNode )
+    {
+        return getRelationTo( intelliHomeNode ).getEndNode();
+    }      
+    
+    // ================================================
+    
+    // should be executed under active transaction
+    public static void setOverrideDataCollectingTypeForSensor( Node sensorNode )
+    {
+        removeDataCollectingTypeFromSensor( sensorNode );
+            
+        sensorNode.createRelationshipTo( get( sensorNode.getGraphDatabase() ) , DataCollectingTypes.OVERRIDE );
+    } 
+    
+    // ================================================
+    
+    // should be executed under active transaction
+    public static void setUnlimitedAppendDataCollectingTypeForSensor( Node sensorNode )
+    {
+        removeDataCollectingTypeFromSensor( sensorNode );
+            
+        sensorNode.createRelationshipTo( get( sensorNode.getGraphDatabase() ) , DataCollectingTypes.OVERRIDE );
+    } 
+    
+    // ================================================
+    
+    // will add 'expirationTime' property to relation which means that sensor samples should NOT be be keep in system longer than this time
+    // should be executed under active transaction
+    public static void setAppendDataCollectingTypeForSensor( Node sensorNode , long expirationTime )
+    {
+        removeDataCollectingTypeFromSensor( sensorNode );
+            
+        Relationship r = sensorNode.createRelationshipTo( get( sensorNode.getGraphDatabase() ) , DataCollectingTypes.OVERRIDE );
+        r.setProperty( "expirationTime" , expirationTime );
+    } 
+    
+    // ================================================
+    
+    private static void removeDataCollectingTypeFromSensor( Node sensorNode )
+    {
+        Iterator< Relationship > iter = sensorNode.getRelationships( Direction.OUTGOING , DataCollectingTypes.values() ).iterator();
+        while( iter.hasNext() ) iter.next().delete();
+    } 
+    
+    // ================================================
+    
+    // delete main incomming relation, this node
     // should be executed under active transaction
     public static void delete( Node intelliHomeNode )
     {   
-        Relationship dataCollectingTypesReference = getRelationTo( intelliHomeNode );
+        Relationship dataCollectingTypesRelationship = getRelationTo( intelliHomeNode );
 
-        if( dataCollectingTypesReference != null )
+        if( dataCollectingTypesRelationship != null )
         {
-            Node dataCollectingTypesNode = dataCollectingTypesReference.getEndNode();
+            Node dataCollectingTypesNode = dataCollectingTypesRelationship.getEndNode();
 
-            Iterator< Relationship > iter = dataCollectingTypesNode.getRelationships( Direction.OUTGOING , DataCollectingTypeRelationships.values() ).iterator();
-
-            while( iter.hasNext() ) DataCollectingTypeNode.delete( iter.next().getEndNode() );
-         
-            dataCollectingTypesReference.delete();
+            dataCollectingTypesRelationship.delete();
             dataCollectingTypesNode.delete();
         }  
     }

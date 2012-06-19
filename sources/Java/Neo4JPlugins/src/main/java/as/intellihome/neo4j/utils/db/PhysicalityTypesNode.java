@@ -1,10 +1,7 @@
 package as.intellihome.neo4j.utils.db;
 
 import java.util.Iterator;
-import org.neo4j.graphdb.Direction;
-import org.neo4j.graphdb.Node;
-import org.neo4j.graphdb.Relationship;
-import org.neo4j.graphdb.RelationshipType;
+import org.neo4j.graphdb.*;
 
 // ====================================================
 
@@ -19,15 +16,13 @@ public class PhysicalityTypesNode
 {
     // ================================================
     
-    // creates relation PHISICALITY_TYPES and empty node (as a group of phisicality types), then creates all outgoing relations and nodes
+    // creates relation PHISICALITY_TYPES and empty node (as a group of phisicality types)
     // should be executed under active transaction
-    public static void createDefaultData( Node intelliHomeNode , boolean addDecriptionProperty )
+    public static void createDefaultData( Node intelliHomeNode , boolean addDescriptionProperty )
     {
         Node phisicalityTypesNode = intelliHomeNode.getGraphDatabase().createNode();
-        if( addDecriptionProperty ) phisicalityTypesNode.setProperty( "description" , "Singleton node - group of phisicality types like virtual/real (device, sensor)." );
+        if( addDescriptionProperty ) phisicalityTypesNode.setProperty( "description" , "Singleton node - group of phisicality types like virtual/real (device, sensor)." );
         intelliHomeNode.createRelationshipTo( phisicalityTypesNode , PhysicalityTypesRelationships.PHISICALITY_TYPES );
-        
-        PhysicalityTypeNode.createDefaultData( phisicalityTypesNode , addDecriptionProperty );
     }
     
     // ================================================
@@ -40,32 +35,44 @@ public class PhysicalityTypesNode
     
     // ================================================
     
-    // delete main incomming relation, this node, all outgoing relations and it's nodes
+    public static Node get( GraphDatabaseService graphDb )
+    {
+        return get( IntelliHomeNode.get( graphDb ) );
+    }  
+    
+    // ================================================
+    
+    public static Node get( Node intelliHomeNode )
+    {
+        return getRelationTo( intelliHomeNode ).getEndNode();
+    }      
+    
+    // ================================================
+    
+    // should be executed under active transaction
+    public static void setPhisicalityTypeForDeviceOrSensor( Node deviceOrSensorNode , PhysicalityTypes phisicalityType )
+    {
+        Iterator< Relationship > iter = deviceOrSensorNode.getRelationships( Direction.OUTGOING , PhysicalityTypes.values() ).iterator();
+        while( iter.hasNext() ) iter.next().delete();
+            
+        deviceOrSensorNode.createRelationshipTo( get( deviceOrSensorNode.getGraphDatabase() ) , phisicalityType );
+    }
+    
+    // ================================================
+    
+    // delete main incomming relation, this node
     // should be executed under active transaction
     public static void delete( Node intelliHomeNode )
     {   
-        Relationship physicalityTypesReference = getRelationTo( intelliHomeNode );
+        Relationship physicalityTypesRelationship = getRelationTo( intelliHomeNode );
 
-        if( physicalityTypesReference != null )
+        if( physicalityTypesRelationship != null )
         {
-            //System.out.println( PhysicalityTypesNode.class.getName() + ": trying to delete child nodes..." );
-            
-            Node physicalityTypesNode = physicalityTypesReference.getEndNode();
+            Node physicalityTypesNode = physicalityTypesRelationship.getEndNode();
 
-            Iterator< Relationship > iter = physicalityTypesNode.getRelationships( Direction.OUTGOING , PhysicalityTypeRelationships.values() ).iterator();
-
-            while( iter.hasNext() ) PhysicalityTypeNode.delete( iter.next().getEndNode() );
-            
-            //System.out.println( PhysicalityTypesNode.class.getName() + ": deleting node " + physicalityTypesNode.getId() );
-            //System.out.println( PhysicalityTypesNode.class.getName() + ": deleting reference " + physicalityTypesReference.getId() );
-                        
-            physicalityTypesReference.delete();
+            physicalityTypesRelationship.delete();
             physicalityTypesNode.delete();
         }  
-        else
-        {
-            //System.out.println( PhysicalityTypesNode.class.getName() + ": could not find physicalityTypesReference" );
-        }
     }
     
     // ================================================

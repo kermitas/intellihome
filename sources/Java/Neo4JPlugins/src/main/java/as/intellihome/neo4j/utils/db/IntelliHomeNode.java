@@ -17,21 +17,24 @@ public class IntelliHomeNode
     
     // creates relation INTELLI_HOME and it's node, then create all outgoing relations and nodes
     // should be executed under active transaction
-    public static void createDefaultData( GraphDatabaseService graphDb , boolean addDecriptionProperty , int majorVersion , int minorVersion )
+    public static void createDefaultData( GraphDatabaseService graphDb , boolean addDescriptionProperty , int majorVersion , int minorVersion )
     {
         Node intelliHomeNode = graphDb.createNode();
         
-        if( addDecriptionProperty ) intelliHomeNode.setProperty( "description" , "IntelliHome main node." );
+        if( addDescriptionProperty ) intelliHomeNode.setProperty( "description" , "IntelliHome main node." );
         intelliHomeNode.setProperty( "majorVersion" , majorVersion );
         intelliHomeNode.setProperty( "minorVersion" , minorVersion );
                 
         graphDb.getReferenceNode().createRelationshipTo( intelliHomeNode , IntelliHomeRelationships.INTELLI_HOME );
         
-        SystemRightsNode.createDefaultData( intelliHomeNode , addDecriptionProperty );
-        PhysicalityTypesNode.createDefaultData( intelliHomeNode , addDecriptionProperty );
-        InSystemLocalizationTypesNode.createDefaultData( intelliHomeNode , addDecriptionProperty );
-        DataIncomeTypesNode.createDefaultData( intelliHomeNode , addDecriptionProperty );
-        DataCollectingTypesNode.createDefaultData( intelliHomeNode , addDecriptionProperty );
+        SystemRightsNode.createDefaultData( intelliHomeNode , addDescriptionProperty );
+        PhysicalityTypesNode.createDefaultData( intelliHomeNode , addDescriptionProperty );
+        InSystemLocalizationTypesNode.createDefaultData( intelliHomeNode , addDescriptionProperty );
+        DataIncomeTypesNode.createDefaultData( intelliHomeNode , addDescriptionProperty );
+        DataCollectingTypesNode.createDefaultData( intelliHomeNode , addDescriptionProperty );
+        SensorsGroupNode.createDefaultData( intelliHomeNode , addDescriptionProperty );
+        DevicesGroupNode.createDefaultData( intelliHomeNode , addDescriptionProperty );
+        UsersGroupNode.createDefaultData( intelliHomeNode , addDescriptionProperty );
     }
     
     // ================================================
@@ -81,9 +84,16 @@ public class IntelliHomeNode
             InSystemLocalizationTypesNode.delete( intelliHomeNode );
             DataIncomeTypesNode.delete( intelliHomeNode );
             DataCollectingTypesNode.delete( intelliHomeNode );
+            SensorsGroupNode.delete( intelliHomeNode );
+            DevicesGroupNode.delete( intelliHomeNode );
+            UsersGroupNode.delete( intelliHomeNode );  
             
             mainRelationshipToIntelliHomeNode.delete();
             intelliHomeNode.delete();
+        }
+        else
+        {
+            throw new RuntimeException( "database does not contain IntelliHome reference node" );
         }
     }
     

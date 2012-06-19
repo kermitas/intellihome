@@ -21,7 +21,7 @@ public class GeneralDbOperations
             Transaction tx = graphDb.beginTx();
             try
             {
-                IntelliHomeNode.createDefaultData( graphDb , Config.addDecriptionPropertyToNodes , Config.interlliHomeMajorVersion , Config.interlliHomeMinorVersion );
+                IntelliHomeNode.createDefaultData( graphDb , Config.addDescriptionPropertyToNodes , Config.interlliHomeMajorVersion , Config.interlliHomeMinorVersion );
                 
                 tx.success();
             }
