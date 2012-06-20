@@ -50,12 +50,12 @@ public class PhysicalityTypesNode
     // ================================================
     
     // should be executed under active transaction
-    public static void setPhisicalityTypeForDeviceOrSensor( Node deviceOrSensorNode , PhysicalityTypes phisicalityType )
+    public static void setPhisicalityTypeForDeviceOrSensor( Node deviceOrSensorNode , PhysicalityTypes physicalityType )
     {
         Iterator< Relationship > iter = deviceOrSensorNode.getRelationships( Direction.OUTGOING , PhysicalityTypes.values() ).iterator();
         while( iter.hasNext() ) iter.next().delete();
             
-        deviceOrSensorNode.createRelationshipTo( get( deviceOrSensorNode.getGraphDatabase() ) , phisicalityType );
+        deviceOrSensorNode.createRelationshipTo( get( deviceOrSensorNode.getGraphDatabase() ) , physicalityType );
     }
     
     // ================================================

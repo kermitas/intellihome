@@ -6,7 +6,7 @@ import org.neo4j.graphdb.RelationshipType;
 
 public enum DataCollectingTypes implements RelationshipType
 {
-    OVERRIDE , APPEND
+    OVERRIDE , UNLIMITED_APPEND , TIME_LIMITED_APPEND , SAMPLES_COUNT_LIMITED_APPEND
 }
 
 // ====================================================

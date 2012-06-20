@@ -1,5 +1,6 @@
 package as.intellihome.neo4j.utils.db;
 
+import java.util.Iterator;
 import org.neo4j.graphdb.*;
 
 // ====================================================
@@ -76,6 +77,9 @@ public class UsersGroupNode
         {
             Node usersGroupNode = usersGroupReference.getEndNode();
 
+            Iterator< Relationship > iter = usersGroupNode.getRelationships( Direction.INCOMING , UsersGroup.MEMBER_OF_USERS_GROUP ).iterator();
+            while( iter.hasNext() ) UserNode.delete( iter.next().getStartNode() );
+        
             usersGroupReference.delete();
             usersGroupNode.delete();
         }  

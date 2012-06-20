@@ -1,1 +1,1 @@
-curl -X POST http://localhost:7474/db/data/ext/Admin/graphdb/createUser -H "Content-Type: application/json" -d '{"userName":"test" , "userLogin":"test1" , "userPassword":"test2" , "enabled":true , "userRights":["CAN_LOGIN_TO_ADMIN"] }'
+curl -X POST http://localhost:7474/db/data/ext/Admin/graphdb/createUser -H "Content-Type: application/json" -d '{"userName":"test" , "userLogin":"test1" , "userPassword":"test2" , "enabled":true , "description":"This is description of this user" , "userRights":["CAN_LOGIN_TO_ADMIN"] }'

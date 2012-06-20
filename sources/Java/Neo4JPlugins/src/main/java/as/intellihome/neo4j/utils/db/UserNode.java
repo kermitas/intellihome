@@ -1,11 +1,14 @@
 package as.intellihome.neo4j.utils.db;
 
 import java.util.Iterator;
-import java.util.Random;
-import org.neo4j.graphdb.Direction;
-import org.neo4j.graphdb.GraphDatabaseService;
-import org.neo4j.graphdb.Node;
-import org.neo4j.graphdb.Relationship;
+import org.neo4j.graphdb.*;
+
+// ====================================================
+
+enum UserContainsDeviceRelationship implements RelationshipType
+{
+    CONTAINS_DEVICE
+}
 
 // ====================================================
 
@@ -14,19 +17,18 @@ public class UserNode
     // ================================================
     
     // should be executed under active transaction
-    public static synchronized Node createUserNode( Node usersGroupNode , boolean addDescriptionProperty , String userName , String userLogin , String userPassword , boolean enabled , UserRights ... rights )
+    public static synchronized Node create( Node usersGroupNode , String userLogin , String userPassword , String userName , String description , boolean enabled , UserRights ... rights )
     {
         if( existsByLogin( usersGroupNode , userLogin ) ) throw new RuntimeException( "User with login '" + userLogin + "' already exists." );
         
         Node userNode = usersGroupNode.getGraphDatabase().createNode();
         
-        userNode.setProperty( "id" , generateUniqueUserId( usersGroupNode ) );
-        userNode.setProperty( "userName" , userName );
         userNode.setProperty( "userLogin" , userLogin );
         userNode.setProperty( "userPassword" , userPassword );
+        userNode.setProperty( "userName" , userName );
+        userNode.setProperty( "description" , description );
         userNode.setProperty( "enabled" , enabled );
         userNode.setProperty( "creationTime" , System.currentTimeMillis() );
-        if( addDescriptionProperty ) userNode.setProperty( "description" , "This node represents a user." );
         
         UsersGroupNode.addUserToUsersGroup( userNode );
 
@@ -35,6 +37,7 @@ public class UserNode
         return userNode;
     }
     
+    /*
     // ================================================
     
     private static int generateUniqueUserId( Node usersGroupNode )
@@ -63,8 +66,18 @@ public class UserNode
         }
         
         return true;
-    } 
+    } */
 
+    // ================================================
+    
+    public static void attachDeviceToUser( Node userNode , Node deviceNode )
+    {
+        Iterator< Relationship > iter = deviceNode.getRelationships( Direction.OUTGOING , UserContainsDeviceRelationship.values() ).iterator();
+        while( iter.hasNext() ) iter.next().delete();
+            
+        userNode.createRelationshipTo( deviceNode , UserContainsDeviceRelationship.CONTAINS_DEVICE );
+    }
+    
     // ================================================
     
     public static boolean existsByLogin( GraphDatabaseService graphDb , String userLogin )
@@ -92,7 +105,7 @@ public class UserNode
     // ================================================
     
     // should be executed under active transaction
-    public static void deleteUser( Node userNode )
+    public static void delete( Node userNode )
     {   
         Iterator< Relationship > iter = userNode.getRelationships( Direction.OUTGOING , UsersGroup.MEMBER_OF_USERS_GROUP ).iterator();
         while( iter.hasNext() ) iter.next().delete();
@@ -100,18 +113,22 @@ public class UserNode
         iter = userNode.getRelationships( Direction.OUTGOING , UserRights.values() ).iterator();
         while( iter.hasNext() ) iter.next().delete();
         
+        iter = userNode.getRelationships( Direction.OUTGOING , UserContainsDeviceRelationship.CONTAINS_DEVICE ).iterator();
+        while( iter.hasNext() ) DeviceNode.delete( iter.next().getEndNode() );
+        
         userNode.delete();
     }
     
     // ================================================
     
+    /*
     // should be executed under active transaction
     public static void deleteAllUsers( Node usersGroupNode )
     {  
         Iterator< Relationship > iter = usersGroupNode.getRelationships( Direction.INCOMING , UsersGroup.MEMBER_OF_USERS_GROUP ).iterator();
         
-        while( iter.hasNext() ) deleteUser( iter.next().getStartNode() );
-    }   
+        while( iter.hasNext() ) delete( iter.next().getStartNode() );
+    }*/   
     
     // ================================================
 }

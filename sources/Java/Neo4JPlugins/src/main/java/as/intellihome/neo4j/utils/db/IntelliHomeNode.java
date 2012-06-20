@@ -32,6 +32,9 @@ public class IntelliHomeNode
         InSystemLocalizationTypesNode.createDefaultData( intelliHomeNode , addDescriptionProperty );
         DataIncomeTypesNode.createDefaultData( intelliHomeNode , addDescriptionProperty );
         DataCollectingTypesNode.createDefaultData( intelliHomeNode , addDescriptionProperty );
+        DoorLocalizationTypesNode.createDefaultData( intelliHomeNode , addDescriptionProperty );
+        SensorDataTypesNode.createDefaultData( intelliHomeNode , addDescriptionProperty );
+        
         SensorsGroupNode.createDefaultData( intelliHomeNode , addDescriptionProperty );
         DevicesGroupNode.createDefaultData( intelliHomeNode , addDescriptionProperty );
         UsersGroupNode.createDefaultData( intelliHomeNode , addDescriptionProperty );
@@ -84,10 +87,13 @@ public class IntelliHomeNode
             InSystemLocalizationTypesNode.delete( intelliHomeNode );
             DataIncomeTypesNode.delete( intelliHomeNode );
             DataCollectingTypesNode.delete( intelliHomeNode );
+            DoorLocalizationTypesNode.delete( intelliHomeNode );
+            SensorDataTypesNode.delete( intelliHomeNode );
+            
             SensorsGroupNode.delete( intelliHomeNode );
             DevicesGroupNode.delete( intelliHomeNode );
             
-            UserNode.deleteAllUsers( UsersGroupNode.get( graphDb ) );
+            //UserNode.deleteAllUsers( UsersGroupNode.get( graphDb ) );
             UsersGroupNode.delete( intelliHomeNode );  
             
             mainRelationshipToIntelliHomeNode.delete();
@@ -95,7 +101,7 @@ public class IntelliHomeNode
         }
         else
         {
-            throw new RuntimeException( "database does not contain IntelliHome reference node" );
+            throw new RuntimeException( "Database does not contain IntelliHome reference node." );
         }
     }
     

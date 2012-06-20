@@ -64,20 +64,32 @@ public class DataCollectingTypesNode
     {
         removeDataCollectingTypeFromSensor( sensorNode );
             
-        sensorNode.createRelationshipTo( get( sensorNode.getGraphDatabase() ) , DataCollectingTypes.OVERRIDE );
+        sensorNode.createRelationshipTo( get( sensorNode.getGraphDatabase() ) , DataCollectingTypes.UNLIMITED_APPEND );
     } 
     
     // ================================================
     
     // will add 'expirationTime' property to relation which means that sensor samples should NOT be be keep in system longer than this time
     // should be executed under active transaction
-    public static void setAppendDataCollectingTypeForSensor( Node sensorNode , long expirationTime )
+    public static void setTimeLimitedAppendDataCollectingTypeForSensor( Node sensorNode , long expirationTime )
     {
         removeDataCollectingTypeFromSensor( sensorNode );
             
-        Relationship r = sensorNode.createRelationshipTo( get( sensorNode.getGraphDatabase() ) , DataCollectingTypes.OVERRIDE );
+        Relationship r = sensorNode.createRelationshipTo( get( sensorNode.getGraphDatabase() ) , DataCollectingTypes.TIME_LIMITED_APPEND );
         r.setProperty( "expirationTime" , expirationTime );
     } 
+    
+    // ================================================
+    
+    // will add 'expirationTime' property to relation which means that sensor samples should NOT be be keep in system longer than this time
+    // should be executed under active transaction
+    public static void setSamplesCountLimitedAppendDataCollectingTypeForSensor( Node sensorNode , int maxSamplesCountLimit )
+    {
+        removeDataCollectingTypeFromSensor( sensorNode );
+            
+        Relationship r = sensorNode.createRelationshipTo( get( sensorNode.getGraphDatabase() ) , DataCollectingTypes.SAMPLES_COUNT_LIMITED_APPEND );
+        r.setProperty( "samplesCountLimit" , maxSamplesCountLimit );
+    }     
     
     // ================================================
     
