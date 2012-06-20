@@ -1,10 +1,6 @@
 package as.intellihome.neo4j.utils.db;
 
-import java.util.Iterator;
 import org.neo4j.graphdb.*;
-
-// ====================================================
-
 
 // ====================================================
 
@@ -57,7 +53,7 @@ public class SensorsGroupNode
     {
         if( !isSensorInSensorsGroup( sensorNode ) )
         {   
-            sensorNode.createRelationshipTo( get( sensorNode.getGraphDatabase() ) , MemberOfRelationship.MEMBER_OF );
+            sensorNode.createRelationshipTo( get( sensorNode.getGraphDatabase() ) , SensorsGroup.MEMBER_OF_SENSORS_GROUP );
         }
     }
     
@@ -65,17 +61,7 @@ public class SensorsGroupNode
     
     public static boolean isSensorInSensorsGroup( Node sensorNode )
     {
-        Node sensorsGroupNode = get( sensorNode );
-        
-        Iterator< Relationship > iter = sensorNode.getRelationships( Direction.OUTGOING , MemberOfRelationship.MEMBER_OF ).iterator();
-        
-        while( iter.hasNext() )
-        {
-            Relationship r = iter.next();
-            if( r.getEndNode().getId() == sensorsGroupNode.getId() ) return true;
-        }
-        
-        return false;
+        return sensorNode.hasRelationship( Direction.OUTGOING , SensorsGroup.MEMBER_OF_SENSORS_GROUP );
     } 
     
     // ================================================

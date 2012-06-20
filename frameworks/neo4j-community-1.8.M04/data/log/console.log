@@ -3668,3 +3668,362 @@ as.intellihome.neo4j.utils.db.IntelliHomeNode: deleting reference 30
 20.06.12 01:31:14 org.neo4j.server.statistic.StatisticStartupListener INFO: adding statistic-filter to /db/data
 20.06.12 01:31:14 org.neo4j.server.statistic.StatisticStartupListener INFO: adding statistic-filter to /
 20.06.12 01:31:14 org.neo4j.server.NeoServerWithEmbeddedWebServer INFO: Server started on [http://0.0.0.0:7474/]
+20.06.12 01:42:01 org.neo4j.server.NeoServerBootstrapper INFO: Neo4j Server shutdown initiated by kill signal
+20.06.12 01:42:01 org.neo4j.server.statistic.StatisticStartupListener INFO: stopping filter
+01:42:01.864 [Thread-8] INFO  org.mortbay.log - Stopped SslSocketConnector@0.0.0.0:7473
+01:42:01.870 [Thread-8] INFO  org.mortbay.log - Stopped SelectChannelConnector@0.0.0.0:7474
+16:17:27.432 [main] DEBUG o.a.c.c.ConfigurationUtils - ConfigurationUtils.locate(): base is /home/as/Pobrane/PROGRAMOWANIE/ProjectIntelliHome/frameworks/neo4j-community-1.8.M04/conf, name is neo4j-server.properties
+16:17:27.463 [main] DEBUG o.a.c.c.ConfigurationUtils - Loading configuration from the path /home/as/Pobrane/PROGRAMOWANIE/ProjectIntelliHome/frameworks/neo4j-community-1.8.M04/conf/neo4j-server.properties
+20.06.12 16:17:27 org.neo4j.server.NeoServerWithEmbeddedWebServer INFO: Starting Neo Server on port [7474] with [40] threads available
+20.06.12 16:17:27 org.neo4j.server.NeoServerWithEmbeddedWebServer INFO: Enabling HTTPS on port [7473]
+16:17:28.498 [main] INFO  org.mortbay.log - Logging to Logger[org.mortbay.log] via org.mortbay.log.Slf4jLog
+16:17:28.500 [main] DEBUG org.mortbay.log - Container Server@53d29c95 + SelectChannelConnector@0.0.0.0:7474 as connector
+16:17:28.528 [main] DEBUG org.mortbay.log - Container Server@53d29c95 + SslSocketConnector@0.0.0.0:7473 as connector
+16:17:28.534 [main] DEBUG org.mortbay.log - Container Server@53d29c95 + org.mortbay.thread.QueuedThreadPool@63c8e097 as threadpool
+20.06.12 16:17:28 org.neo4j.server.database.Database INFO: Using database at /home/as/Pobrane/PROGRAMOWANIE/ProjectIntelliHome/frameworks/neo4j-community-1.8.M04/data/graph.db
+16:17:29.391 [main] DEBUG neo4j.xafactory - Opened [/home/as/Pobrane/PROGRAMOWANIE/ProjectIntelliHome/frameworks/neo4j-community-1.8.M04/data/graph.db/nioneo_logical.log.1] clean empty log, version=24, lastTxId=108
+20.06.12 16:17:32 org.neo4j.server.web.Jetty6WebServer FINE: Adding JAXRS packages [org.neo4j.server.rest.discovery] at [/]
+20.06.12 16:17:32 org.neo4j.server.modules.DiscoveryModule INFO: Mounted discovery module at [/]
+20.06.12 16:17:32 org.neo4j.server.web.Jetty6WebServer FINE: Adding JAXRS packages [org.neo4j.server.rest.web] at [/db/data]
+20.06.12 16:17:32 org.neo4j.server.plugins.PluginManager INFO: Loaded server plugin "CypherPlugin"
+20.06.12 16:17:32 org.neo4j.server.plugins.PluginManager INFO: Loaded server plugin "GremlinPlugin"
+20.06.12 16:17:32 org.neo4j.server.plugins.PluginManager INFO: Loaded server plugin "SSC"
+20.06.12 16:17:32 org.neo4j.server.plugins.PluginManager INFO: Loaded server plugin "Admin"
+20.06.12 16:17:32 org.neo4j.server.modules.RESTApiModule INFO: Mounted REST API at [/db/data/]
+20.06.12 16:17:32 org.neo4j.server.web.Jetty6WebServer FINE: Adding JAXRS packages [org.neo4j.server.webadmin.rest] at [/db/manage]
+20.06.12 16:17:32 org.neo4j.server.modules.ManagementApiModule INFO: Mounted management API at [/db/manage/]
+20.06.12 16:17:32 org.neo4j.server.web.Jetty6WebServer FINE: Adding JAXRS packages [as.intellihome.neo4j.plugins.unmanaged] at [/plugins]
+20.06.12 16:17:32 org.neo4j.server.modules.ThirdPartyJAXRSModule INFO: Mounted third-party JAX-RS package [as.intellihome.neo4j.plugins.unmanaged] at [/plugins]
+20.06.12 16:17:33 org.neo4j.server.modules.WebAdminModule INFO: Mounted webadmin at [/webadmin]
+20.06.12 16:17:33 org.neo4j.server.web.Jetty6WebServer INFO: Mounting static content at [/webadmin] from [webadmin-html]
+20.06.12 16:17:33 org.neo4j.server.web.Jetty6WebServer FINE: Found [jar:file:/home/as/Pobrane/PROGRAMOWANIE/ProjectIntelliHome/frameworks/neo4j-community-1.8.M04/system/lib/neo4j-server-1.8.M04-static-web.jar!/webadmin-html]
+20.06.12 16:17:33 org.neo4j.server.web.Jetty6WebServer FINE: Mounting static content from [jar:file:/home/as/Pobrane/PROGRAMOWANIE/ProjectIntelliHome/frameworks/neo4j-community-1.8.M04/system/lib/neo4j-server-1.8.M04-static-web.jar!/webadmin-html] at [/webadmin]
+20.06.12 16:17:33 org.neo4j.server.web.Jetty6WebServer FINE: Mounting servlet at [/plugins]
+20.06.12 16:17:33 org.neo4j.server.web.Jetty6WebServer FINE: Mounting servlet at [/db/manage]
+20.06.12 16:17:33 org.neo4j.server.web.Jetty6WebServer FINE: Mounting servlet at [/db/data]
+20.06.12 16:17:33 org.neo4j.server.web.Jetty6WebServer FINE: Mounting servlet at [/]
+16:17:33.261 [main] INFO  org.mortbay.log - jetty-6.1.25
+16:17:33.804 [main] INFO  org.mortbay.log - NO JSP Support for /webadmin, did not find org.apache.jasper.servlet.JspServlet
+16:17:41.172 [main] INFO  org.mortbay.log - Started SelectChannelConnector@0.0.0.0:7474
+16:17:43.093 [main] INFO  org.mortbay.log - Started SslSocketConnector@0.0.0.0:7473
+20.06.12 16:17:43 org.neo4j.server.statistic.StatisticStartupListener INFO: adding statistic-filter to /webadmin
+20.06.12 16:17:43 org.neo4j.server.statistic.StatisticStartupListener INFO: adding statistic-filter to /plugins
+20.06.12 16:17:43 org.neo4j.server.statistic.StatisticStartupListener INFO: adding statistic-filter to /db/manage
+20.06.12 16:17:43 org.neo4j.server.statistic.StatisticStartupListener INFO: adding statistic-filter to /db/data
+20.06.12 16:17:43 org.neo4j.server.statistic.StatisticStartupListener INFO: adding statistic-filter to /
+20.06.12 16:17:43 org.neo4j.server.NeoServerWithEmbeddedWebServer INFO: Server started on [http://0.0.0.0:7474/]
+20.06.12 16:21:14 org.neo4j.server.NeoServerBootstrapper INFO: Neo4j Server shutdown initiated by kill signal
+16:21:14.675 [Thread-8] INFO  org.mortbay.log - Stopped SslSocketConnector@0.0.0.0:7473
+16:21:14.676 [Thread-8] INFO  org.mortbay.log - Stopped SelectChannelConnector@0.0.0.0:7474
+16:21:18.481 [main] DEBUG o.a.c.c.ConfigurationUtils - ConfigurationUtils.locate(): base is /home/as/Pobrane/PROGRAMOWANIE/ProjectIntelliHome/frameworks/neo4j-community-1.8.M04/conf, name is neo4j-server.properties
+16:21:18.504 [main] DEBUG o.a.c.c.ConfigurationUtils - Loading configuration from the path /home/as/Pobrane/PROGRAMOWANIE/ProjectIntelliHome/frameworks/neo4j-community-1.8.M04/conf/neo4j-server.properties
+20.06.12 16:21:18 org.neo4j.server.NeoServerWithEmbeddedWebServer INFO: Starting Neo Server on port [7474] with [40] threads available
+20.06.12 16:21:18 org.neo4j.server.NeoServerWithEmbeddedWebServer INFO: Enabling HTTPS on port [7473]
+16:21:19.467 [main] INFO  org.mortbay.log - Logging to Logger[org.mortbay.log] via org.mortbay.log.Slf4jLog
+16:21:19.470 [main] DEBUG org.mortbay.log - Container Server@6053c88e + SelectChannelConnector@0.0.0.0:7474 as connector
+16:21:19.500 [main] DEBUG org.mortbay.log - Container Server@6053c88e + SslSocketConnector@0.0.0.0:7473 as connector
+16:21:19.507 [main] DEBUG org.mortbay.log - Container Server@6053c88e + org.mortbay.thread.QueuedThreadPool@2e57c204 as threadpool
+20.06.12 16:21:19 org.neo4j.server.database.Database INFO: Using database at /home/as/Pobrane/PROGRAMOWANIE/ProjectIntelliHome/frameworks/neo4j-community-1.8.M04/data/graph.db
+16:21:20.341 [main] DEBUG neo4j.xafactory - Opened [/home/as/Pobrane/PROGRAMOWANIE/ProjectIntelliHome/frameworks/neo4j-community-1.8.M04/data/graph.db/nioneo_logical.log.1] clean empty log, version=25, lastTxId=112
+20.06.12 16:21:23 org.neo4j.server.web.Jetty6WebServer FINE: Adding JAXRS packages [org.neo4j.server.rest.discovery] at [/]
+20.06.12 16:21:23 org.neo4j.server.modules.DiscoveryModule INFO: Mounted discovery module at [/]
+20.06.12 16:21:23 org.neo4j.server.web.Jetty6WebServer FINE: Adding JAXRS packages [org.neo4j.server.rest.web] at [/db/data]
+20.06.12 16:21:23 org.neo4j.server.plugins.PluginManager INFO: Loaded server plugin "CypherPlugin"
+20.06.12 16:21:23 org.neo4j.server.plugins.PluginManager INFO: Loaded server plugin "GremlinPlugin"
+20.06.12 16:21:23 org.neo4j.server.plugins.PluginManager INFO: Loaded server plugin "SSC"
+20.06.12 16:21:23 org.neo4j.server.plugins.PluginManager INFO: Loaded server plugin "Admin"
+20.06.12 16:21:23 org.neo4j.server.modules.RESTApiModule INFO: Mounted REST API at [/db/data/]
+20.06.12 16:21:23 org.neo4j.server.web.Jetty6WebServer FINE: Adding JAXRS packages [org.neo4j.server.webadmin.rest] at [/db/manage]
+20.06.12 16:21:23 org.neo4j.server.modules.ManagementApiModule INFO: Mounted management API at [/db/manage/]
+20.06.12 16:21:23 org.neo4j.server.web.Jetty6WebServer FINE: Adding JAXRS packages [as.intellihome.neo4j.plugins.unmanaged] at [/plugins]
+20.06.12 16:21:23 org.neo4j.server.modules.ThirdPartyJAXRSModule INFO: Mounted third-party JAX-RS package [as.intellihome.neo4j.plugins.unmanaged] at [/plugins]
+20.06.12 16:21:23 org.neo4j.server.modules.WebAdminModule INFO: Mounted webadmin at [/webadmin]
+20.06.12 16:21:23 org.neo4j.server.web.Jetty6WebServer INFO: Mounting static content at [/webadmin] from [webadmin-html]
+20.06.12 16:21:23 org.neo4j.server.web.Jetty6WebServer FINE: Found [jar:file:/home/as/Pobrane/PROGRAMOWANIE/ProjectIntelliHome/frameworks/neo4j-community-1.8.M04/system/lib/neo4j-server-1.8.M04-static-web.jar!/webadmin-html]
+20.06.12 16:21:23 org.neo4j.server.web.Jetty6WebServer FINE: Mounting static content from [jar:file:/home/as/Pobrane/PROGRAMOWANIE/ProjectIntelliHome/frameworks/neo4j-community-1.8.M04/system/lib/neo4j-server-1.8.M04-static-web.jar!/webadmin-html] at [/webadmin]
+20.06.12 16:21:23 org.neo4j.server.web.Jetty6WebServer FINE: Mounting servlet at [/plugins]
+20.06.12 16:21:23 org.neo4j.server.web.Jetty6WebServer FINE: Mounting servlet at [/db/manage]
+20.06.12 16:21:23 org.neo4j.server.web.Jetty6WebServer FINE: Mounting servlet at [/db/data]
+20.06.12 16:21:23 org.neo4j.server.web.Jetty6WebServer FINE: Mounting servlet at [/]
+16:21:23.812 [main] INFO  org.mortbay.log - jetty-6.1.25
+16:21:24.278 [main] INFO  org.mortbay.log - NO JSP Support for /webadmin, did not find org.apache.jasper.servlet.JspServlet
+16:21:29.870 [main] INFO  org.mortbay.log - Started SelectChannelConnector@0.0.0.0:7474
+16:21:31.131 [main] INFO  org.mortbay.log - Started SslSocketConnector@0.0.0.0:7473
+20.06.12 16:21:31 org.neo4j.server.statistic.StatisticStartupListener INFO: adding statistic-filter to /webadmin
+20.06.12 16:21:31 org.neo4j.server.statistic.StatisticStartupListener INFO: adding statistic-filter to /plugins
+20.06.12 16:21:31 org.neo4j.server.statistic.StatisticStartupListener INFO: adding statistic-filter to /db/manage
+20.06.12 16:21:31 org.neo4j.server.statistic.StatisticStartupListener INFO: adding statistic-filter to /db/data
+20.06.12 16:21:31 org.neo4j.server.statistic.StatisticStartupListener INFO: adding statistic-filter to /
+20.06.12 16:21:31 org.neo4j.server.NeoServerWithEmbeddedWebServer INFO: Server started on [http://0.0.0.0:7474/]
+20.06.12 16:53:18 org.neo4j.server.NeoServerBootstrapper INFO: Neo4j Server shutdown initiated by kill signal
+16:53:19.000 [Thread-7] INFO  org.mortbay.log - Stopped SslSocketConnector@0.0.0.0:7473
+16:53:19.001 [Thread-7] INFO  org.mortbay.log - Stopped SelectChannelConnector@0.0.0.0:7474
+16:53:22.956 [main] DEBUG o.a.c.c.ConfigurationUtils - ConfigurationUtils.locate(): base is /home/as/Pobrane/PROGRAMOWANIE/ProjectIntelliHome/frameworks/neo4j-community-1.8.M04/conf, name is neo4j-server.properties
+16:53:22.979 [main] DEBUG o.a.c.c.ConfigurationUtils - Loading configuration from the path /home/as/Pobrane/PROGRAMOWANIE/ProjectIntelliHome/frameworks/neo4j-community-1.8.M04/conf/neo4j-server.properties
+20.06.12 16:53:23 org.neo4j.server.NeoServerWithEmbeddedWebServer INFO: Starting Neo Server on port [7474] with [40] threads available
+20.06.12 16:53:23 org.neo4j.server.NeoServerWithEmbeddedWebServer INFO: Enabling HTTPS on port [7473]
+16:53:24.049 [main] INFO  org.mortbay.log - Logging to Logger[org.mortbay.log] via org.mortbay.log.Slf4jLog
+16:53:24.052 [main] DEBUG org.mortbay.log - Container Server@5a21033c + SelectChannelConnector@0.0.0.0:7474 as connector
+16:53:24.083 [main] DEBUG org.mortbay.log - Container Server@5a21033c + SslSocketConnector@0.0.0.0:7473 as connector
+16:53:24.092 [main] DEBUG org.mortbay.log - Container Server@5a21033c + org.mortbay.thread.QueuedThreadPool@2f31a0ae as threadpool
+20.06.12 16:53:24 org.neo4j.server.database.Database INFO: Using database at /home/as/Pobrane/PROGRAMOWANIE/ProjectIntelliHome/frameworks/neo4j-community-1.8.M04/data/graph.db
+16:53:24.982 [main] DEBUG neo4j.xafactory - Opened [/home/as/Pobrane/PROGRAMOWANIE/ProjectIntelliHome/frameworks/neo4j-community-1.8.M04/data/graph.db/nioneo_logical.log.1] clean empty log, version=26, lastTxId=119
+20.06.12 16:53:27 org.neo4j.server.web.Jetty6WebServer FINE: Adding JAXRS packages [org.neo4j.server.rest.discovery] at [/]
+20.06.12 16:53:27 org.neo4j.server.modules.DiscoveryModule INFO: Mounted discovery module at [/]
+20.06.12 16:53:28 org.neo4j.server.web.Jetty6WebServer FINE: Adding JAXRS packages [org.neo4j.server.rest.web] at [/db/data]
+20.06.12 16:53:28 org.neo4j.server.plugins.PluginManager INFO: Loaded server plugin "CypherPlugin"
+20.06.12 16:53:28 org.neo4j.server.plugins.PluginManager INFO: Loaded server plugin "GremlinPlugin"
+20.06.12 16:53:28 org.neo4j.server.plugins.PluginManager INFO: Loaded server plugin "SSC"
+20.06.12 16:53:28 org.neo4j.server.plugins.PluginManager INFO: Loaded server plugin "Admin"
+20.06.12 16:53:28 org.neo4j.server.modules.RESTApiModule INFO: Mounted REST API at [/db/data/]
+20.06.12 16:53:28 org.neo4j.server.web.Jetty6WebServer FINE: Adding JAXRS packages [org.neo4j.server.webadmin.rest] at [/db/manage]
+20.06.12 16:53:28 org.neo4j.server.modules.ManagementApiModule INFO: Mounted management API at [/db/manage/]
+20.06.12 16:53:28 org.neo4j.server.web.Jetty6WebServer FINE: Adding JAXRS packages [as.intellihome.neo4j.plugins.unmanaged] at [/plugins]
+20.06.12 16:53:28 org.neo4j.server.modules.ThirdPartyJAXRSModule INFO: Mounted third-party JAX-RS package [as.intellihome.neo4j.plugins.unmanaged] at [/plugins]
+20.06.12 16:53:28 org.neo4j.server.modules.WebAdminModule INFO: Mounted webadmin at [/webadmin]
+20.06.12 16:53:28 org.neo4j.server.web.Jetty6WebServer INFO: Mounting static content at [/webadmin] from [webadmin-html]
+20.06.12 16:53:28 org.neo4j.server.web.Jetty6WebServer FINE: Found [jar:file:/home/as/Pobrane/PROGRAMOWANIE/ProjectIntelliHome/frameworks/neo4j-community-1.8.M04/system/lib/neo4j-server-1.8.M04-static-web.jar!/webadmin-html]
+20.06.12 16:53:28 org.neo4j.server.web.Jetty6WebServer FINE: Mounting static content from [jar:file:/home/as/Pobrane/PROGRAMOWANIE/ProjectIntelliHome/frameworks/neo4j-community-1.8.M04/system/lib/neo4j-server-1.8.M04-static-web.jar!/webadmin-html] at [/webadmin]
+20.06.12 16:53:28 org.neo4j.server.web.Jetty6WebServer FINE: Mounting servlet at [/plugins]
+20.06.12 16:53:28 org.neo4j.server.web.Jetty6WebServer FINE: Mounting servlet at [/db/manage]
+20.06.12 16:53:28 org.neo4j.server.web.Jetty6WebServer FINE: Mounting servlet at [/db/data]
+20.06.12 16:53:28 org.neo4j.server.web.Jetty6WebServer FINE: Mounting servlet at [/]
+16:53:28.575 [main] INFO  org.mortbay.log - jetty-6.1.25
+16:53:29.049 [main] INFO  org.mortbay.log - NO JSP Support for /webadmin, did not find org.apache.jasper.servlet.JspServlet
+16:53:34.928 [main] INFO  org.mortbay.log - Started SelectChannelConnector@0.0.0.0:7474
+16:53:36.261 [main] INFO  org.mortbay.log - Started SslSocketConnector@0.0.0.0:7473
+20.06.12 16:53:36 org.neo4j.server.statistic.StatisticStartupListener INFO: adding statistic-filter to /webadmin
+20.06.12 16:53:36 org.neo4j.server.statistic.StatisticStartupListener INFO: adding statistic-filter to /plugins
+20.06.12 16:53:36 org.neo4j.server.statistic.StatisticStartupListener INFO: adding statistic-filter to /db/manage
+20.06.12 16:53:36 org.neo4j.server.statistic.StatisticStartupListener INFO: adding statistic-filter to /db/data
+20.06.12 16:53:36 org.neo4j.server.statistic.StatisticStartupListener INFO: adding statistic-filter to /
+20.06.12 16:53:36 org.neo4j.server.NeoServerWithEmbeddedWebServer INFO: Server started on [http://0.0.0.0:7474/]
+as.intellihome.neo4j.utils.db.UserNode.deleteUser(): deleting node 18
+as.intellihome.neo4j.utils.db.UsersGroupNode.delete(): deleting node 18
+20.06.12 17:02:23 org.neo4j.server.NeoServerBootstrapper INFO: Neo4j Server shutdown initiated by kill signal
+17:02:23.969 [Thread-7] INFO  org.mortbay.log - Stopped SslSocketConnector@0.0.0.0:7473
+17:02:23.972 [Thread-7] INFO  org.mortbay.log - Stopped SelectChannelConnector@0.0.0.0:7474
+17:02:27.755 [main] DEBUG o.a.c.c.ConfigurationUtils - ConfigurationUtils.locate(): base is /home/as/Pobrane/PROGRAMOWANIE/ProjectIntelliHome/frameworks/neo4j-community-1.8.M04/conf, name is neo4j-server.properties
+17:02:27.776 [main] DEBUG o.a.c.c.ConfigurationUtils - Loading configuration from the path /home/as/Pobrane/PROGRAMOWANIE/ProjectIntelliHome/frameworks/neo4j-community-1.8.M04/conf/neo4j-server.properties
+20.06.12 17:02:27 org.neo4j.server.NeoServerWithEmbeddedWebServer INFO: Starting Neo Server on port [7474] with [40] threads available
+20.06.12 17:02:27 org.neo4j.server.NeoServerWithEmbeddedWebServer INFO: Enabling HTTPS on port [7473]
+17:02:28.747 [main] INFO  org.mortbay.log - Logging to Logger[org.mortbay.log] via org.mortbay.log.Slf4jLog
+17:02:28.750 [main] DEBUG org.mortbay.log - Container Server@26f20105 + SelectChannelConnector@0.0.0.0:7474 as connector
+17:02:28.778 [main] DEBUG org.mortbay.log - Container Server@26f20105 + SslSocketConnector@0.0.0.0:7473 as connector
+17:02:28.786 [main] DEBUG org.mortbay.log - Container Server@26f20105 + org.mortbay.thread.QueuedThreadPool@2f31a0ae as threadpool
+20.06.12 17:02:28 org.neo4j.server.database.Database INFO: Using database at /home/as/Pobrane/PROGRAMOWANIE/ProjectIntelliHome/frameworks/neo4j-community-1.8.M04/data/graph.db
+17:02:29.653 [main] DEBUG neo4j.xafactory - Opened [/home/as/Pobrane/PROGRAMOWANIE/ProjectIntelliHome/frameworks/neo4j-community-1.8.M04/data/graph.db/nioneo_logical.log.1] clean empty log, version=27, lastTxId=119
+20.06.12 17:02:32 org.neo4j.server.web.Jetty6WebServer FINE: Adding JAXRS packages [org.neo4j.server.rest.discovery] at [/]
+20.06.12 17:02:32 org.neo4j.server.modules.DiscoveryModule INFO: Mounted discovery module at [/]
+20.06.12 17:02:32 org.neo4j.server.web.Jetty6WebServer FINE: Adding JAXRS packages [org.neo4j.server.rest.web] at [/db/data]
+20.06.12 17:02:32 org.neo4j.server.plugins.PluginManager INFO: Loaded server plugin "CypherPlugin"
+20.06.12 17:02:32 org.neo4j.server.plugins.PluginManager INFO: Loaded server plugin "GremlinPlugin"
+20.06.12 17:02:32 org.neo4j.server.plugins.PluginManager INFO: Loaded server plugin "SSC"
+20.06.12 17:02:32 org.neo4j.server.plugins.PluginManager INFO: Loaded server plugin "Admin"
+20.06.12 17:02:32 org.neo4j.server.modules.RESTApiModule INFO: Mounted REST API at [/db/data/]
+20.06.12 17:02:32 org.neo4j.server.web.Jetty6WebServer FINE: Adding JAXRS packages [org.neo4j.server.webadmin.rest] at [/db/manage]
+20.06.12 17:02:32 org.neo4j.server.modules.ManagementApiModule INFO: Mounted management API at [/db/manage/]
+20.06.12 17:02:32 org.neo4j.server.web.Jetty6WebServer FINE: Adding JAXRS packages [as.intellihome.neo4j.plugins.unmanaged] at [/plugins]
+20.06.12 17:02:32 org.neo4j.server.modules.ThirdPartyJAXRSModule INFO: Mounted third-party JAX-RS package [as.intellihome.neo4j.plugins.unmanaged] at [/plugins]
+20.06.12 17:02:32 org.neo4j.server.modules.WebAdminModule INFO: Mounted webadmin at [/webadmin]
+20.06.12 17:02:33 org.neo4j.server.web.Jetty6WebServer INFO: Mounting static content at [/webadmin] from [webadmin-html]
+20.06.12 17:02:33 org.neo4j.server.web.Jetty6WebServer FINE: Found [jar:file:/home/as/Pobrane/PROGRAMOWANIE/ProjectIntelliHome/frameworks/neo4j-community-1.8.M04/system/lib/neo4j-server-1.8.M04-static-web.jar!/webadmin-html]
+20.06.12 17:02:33 org.neo4j.server.web.Jetty6WebServer FINE: Mounting static content from [jar:file:/home/as/Pobrane/PROGRAMOWANIE/ProjectIntelliHome/frameworks/neo4j-community-1.8.M04/system/lib/neo4j-server-1.8.M04-static-web.jar!/webadmin-html] at [/webadmin]
+20.06.12 17:02:33 org.neo4j.server.web.Jetty6WebServer FINE: Mounting servlet at [/plugins]
+20.06.12 17:02:33 org.neo4j.server.web.Jetty6WebServer FINE: Mounting servlet at [/db/manage]
+20.06.12 17:02:33 org.neo4j.server.web.Jetty6WebServer FINE: Mounting servlet at [/db/data]
+20.06.12 17:02:33 org.neo4j.server.web.Jetty6WebServer FINE: Mounting servlet at [/]
+17:02:33.134 [main] INFO  org.mortbay.log - jetty-6.1.25
+17:02:33.696 [main] INFO  org.mortbay.log - NO JSP Support for /webadmin, did not find org.apache.jasper.servlet.JspServlet
+17:02:39.007 [main] INFO  org.mortbay.log - Started SelectChannelConnector@0.0.0.0:7474
+17:02:40.244 [main] INFO  org.mortbay.log - Started SslSocketConnector@0.0.0.0:7473
+20.06.12 17:02:40 org.neo4j.server.statistic.StatisticStartupListener INFO: adding statistic-filter to /webadmin
+20.06.12 17:02:40 org.neo4j.server.statistic.StatisticStartupListener INFO: adding statistic-filter to /plugins
+20.06.12 17:02:40 org.neo4j.server.statistic.StatisticStartupListener INFO: adding statistic-filter to /db/manage
+20.06.12 17:02:40 org.neo4j.server.statistic.StatisticStartupListener INFO: adding statistic-filter to /db/data
+20.06.12 17:02:40 org.neo4j.server.statistic.StatisticStartupListener INFO: adding statistic-filter to /
+20.06.12 17:02:40 org.neo4j.server.NeoServerWithEmbeddedWebServer INFO: Server started on [http://0.0.0.0:7474/]
+as.intellihome.neo4j.utils.db.UserNode.deleteUser(): deleting node 20
+as.intellihome.neo4j.utils.db.UsersGroupNode.delete(): deleting node 18
+as.intellihome.neo4j.utils.db.UsersGroupNode.delete(): deleting node 50
+20.06.12 17:24:20 org.neo4j.server.NeoServerBootstrapper INFO: Neo4j Server shutdown initiated by kill signal
+17:24:20.310 [Thread-7] INFO  org.mortbay.log - Stopped SslSocketConnector@0.0.0.0:7473
+17:24:20.311 [Thread-7] INFO  org.mortbay.log - Stopped SelectChannelConnector@0.0.0.0:7474
+17:24:24.033 [main] DEBUG o.a.c.c.ConfigurationUtils - ConfigurationUtils.locate(): base is /home/as/Pobrane/PROGRAMOWANIE/ProjectIntelliHome/frameworks/neo4j-community-1.8.M04/conf, name is neo4j-server.properties
+17:24:24.057 [main] DEBUG o.a.c.c.ConfigurationUtils - Loading configuration from the path /home/as/Pobrane/PROGRAMOWANIE/ProjectIntelliHome/frameworks/neo4j-community-1.8.M04/conf/neo4j-server.properties
+20.06.12 17:24:24 org.neo4j.server.NeoServerWithEmbeddedWebServer INFO: Starting Neo Server on port [7474] with [40] threads available
+20.06.12 17:24:24 org.neo4j.server.NeoServerWithEmbeddedWebServer INFO: Enabling HTTPS on port [7473]
+17:24:25.136 [main] INFO  org.mortbay.log - Logging to Logger[org.mortbay.log] via org.mortbay.log.Slf4jLog
+17:24:25.139 [main] DEBUG org.mortbay.log - Container Server@580f78a5 + SelectChannelConnector@0.0.0.0:7474 as connector
+17:24:25.165 [main] DEBUG org.mortbay.log - Container Server@580f78a5 + SslSocketConnector@0.0.0.0:7473 as connector
+17:24:25.171 [main] DEBUG org.mortbay.log - Container Server@580f78a5 + org.mortbay.thread.QueuedThreadPool@129e76f3 as threadpool
+20.06.12 17:24:25 org.neo4j.server.database.Database INFO: Using database at /home/as/Pobrane/PROGRAMOWANIE/ProjectIntelliHome/frameworks/neo4j-community-1.8.M04/data/graph.db
+17:24:26.004 [main] DEBUG neo4j.xafactory - Opened [/home/as/Pobrane/PROGRAMOWANIE/ProjectIntelliHome/frameworks/neo4j-community-1.8.M04/data/graph.db/nioneo_logical.log.1] clean empty log, version=28, lastTxId=123
+20.06.12 17:24:28 org.neo4j.server.web.Jetty6WebServer FINE: Adding JAXRS packages [org.neo4j.server.rest.discovery] at [/]
+20.06.12 17:24:28 org.neo4j.server.modules.DiscoveryModule INFO: Mounted discovery module at [/]
+20.06.12 17:24:28 org.neo4j.server.web.Jetty6WebServer FINE: Adding JAXRS packages [org.neo4j.server.rest.web] at [/db/data]
+20.06.12 17:24:29 org.neo4j.server.plugins.PluginManager INFO: Loaded server plugin "CypherPlugin"
+20.06.12 17:24:29 org.neo4j.server.plugins.PluginManager INFO: Loaded server plugin "GremlinPlugin"
+20.06.12 17:24:29 org.neo4j.server.plugins.PluginManager INFO: Loaded server plugin "SSC"
+20.06.12 17:24:29 org.neo4j.server.plugins.PluginManager INFO: Loaded server plugin "Admin"
+20.06.12 17:24:29 org.neo4j.server.modules.RESTApiModule INFO: Mounted REST API at [/db/data/]
+20.06.12 17:24:29 org.neo4j.server.web.Jetty6WebServer FINE: Adding JAXRS packages [org.neo4j.server.webadmin.rest] at [/db/manage]
+20.06.12 17:24:29 org.neo4j.server.modules.ManagementApiModule INFO: Mounted management API at [/db/manage/]
+20.06.12 17:24:29 org.neo4j.server.web.Jetty6WebServer FINE: Adding JAXRS packages [as.intellihome.neo4j.plugins.unmanaged] at [/plugins]
+20.06.12 17:24:29 org.neo4j.server.modules.ThirdPartyJAXRSModule INFO: Mounted third-party JAX-RS package [as.intellihome.neo4j.plugins.unmanaged] at [/plugins]
+20.06.12 17:24:29 org.neo4j.server.modules.WebAdminModule INFO: Mounted webadmin at [/webadmin]
+20.06.12 17:24:29 org.neo4j.server.web.Jetty6WebServer INFO: Mounting static content at [/webadmin] from [webadmin-html]
+20.06.12 17:24:29 org.neo4j.server.web.Jetty6WebServer FINE: Found [jar:file:/home/as/Pobrane/PROGRAMOWANIE/ProjectIntelliHome/frameworks/neo4j-community-1.8.M04/system/lib/neo4j-server-1.8.M04-static-web.jar!/webadmin-html]
+20.06.12 17:24:29 org.neo4j.server.web.Jetty6WebServer FINE: Mounting static content from [jar:file:/home/as/Pobrane/PROGRAMOWANIE/ProjectIntelliHome/frameworks/neo4j-community-1.8.M04/system/lib/neo4j-server-1.8.M04-static-web.jar!/webadmin-html] at [/webadmin]
+20.06.12 17:24:29 org.neo4j.server.web.Jetty6WebServer FINE: Mounting servlet at [/plugins]
+20.06.12 17:24:29 org.neo4j.server.web.Jetty6WebServer FINE: Mounting servlet at [/db/manage]
+20.06.12 17:24:29 org.neo4j.server.web.Jetty6WebServer FINE: Mounting servlet at [/db/data]
+20.06.12 17:24:29 org.neo4j.server.web.Jetty6WebServer FINE: Mounting servlet at [/]
+17:24:29.481 [main] INFO  org.mortbay.log - jetty-6.1.25
+17:24:29.986 [main] INFO  org.mortbay.log - NO JSP Support for /webadmin, did not find org.apache.jasper.servlet.JspServlet
+17:24:35.678 [main] INFO  org.mortbay.log - Started SelectChannelConnector@0.0.0.0:7474
+17:24:37.097 [main] INFO  org.mortbay.log - Started SslSocketConnector@0.0.0.0:7473
+20.06.12 17:24:37 org.neo4j.server.statistic.StatisticStartupListener INFO: adding statistic-filter to /webadmin
+20.06.12 17:24:37 org.neo4j.server.statistic.StatisticStartupListener INFO: adding statistic-filter to /plugins
+20.06.12 17:24:37 org.neo4j.server.statistic.StatisticStartupListener INFO: adding statistic-filter to /db/manage
+20.06.12 17:24:37 org.neo4j.server.statistic.StatisticStartupListener INFO: adding statistic-filter to /db/data
+20.06.12 17:24:37 org.neo4j.server.statistic.StatisticStartupListener INFO: adding statistic-filter to /
+20.06.12 17:24:37 org.neo4j.server.NeoServerWithEmbeddedWebServer INFO: Server started on [http://0.0.0.0:7474/]
+17:25:36.405 [427039330@qtp-312375027-1 - Acceptor0 SelectChannelConnector@0.0.0.0:7474] INFO  org.mortbay.log - org.mortbay.io.nio.SelectorManager$SelectSet@7dfd8a1d JVM BUG(s) - injecting delay1 times
+17:25:36.417 [427039330@qtp-312375027-1 - Acceptor0 SelectChannelConnector@0.0.0.0:7474] INFO  org.mortbay.log - org.mortbay.io.nio.SelectorManager$SelectSet@7dfd8a1d JVM BUG(s) - recreating selector 1 times, canceled keys 368 times
+20.06.12 17:41:28 org.neo4j.server.NeoServerBootstrapper INFO: Neo4j Server shutdown initiated by kill signal
+17:41:28.111 [Thread-7] INFO  org.mortbay.log - Stopped SslSocketConnector@0.0.0.0:7473
+17:41:28.111 [Thread-7] INFO  org.mortbay.log - Stopped SelectChannelConnector@0.0.0.0:7474
+17:41:31.811 [main] DEBUG o.a.c.c.ConfigurationUtils - ConfigurationUtils.locate(): base is /home/as/Pobrane/PROGRAMOWANIE/ProjectIntelliHome/frameworks/neo4j-community-1.8.M04/conf, name is neo4j-server.properties
+17:41:31.834 [main] DEBUG o.a.c.c.ConfigurationUtils - Loading configuration from the path /home/as/Pobrane/PROGRAMOWANIE/ProjectIntelliHome/frameworks/neo4j-community-1.8.M04/conf/neo4j-server.properties
+20.06.12 17:41:31 org.neo4j.server.NeoServerWithEmbeddedWebServer INFO: Starting Neo Server on port [7474] with [40] threads available
+20.06.12 17:41:32 org.neo4j.server.NeoServerWithEmbeddedWebServer INFO: Enabling HTTPS on port [7473]
+17:41:32.897 [main] INFO  org.mortbay.log - Logging to Logger[org.mortbay.log] via org.mortbay.log.Slf4jLog
+17:41:32.900 [main] DEBUG org.mortbay.log - Container Server@2d5b865e + SelectChannelConnector@0.0.0.0:7474 as connector
+17:41:32.925 [main] DEBUG org.mortbay.log - Container Server@2d5b865e + SslSocketConnector@0.0.0.0:7473 as connector
+17:41:32.931 [main] DEBUG org.mortbay.log - Container Server@2d5b865e + org.mortbay.thread.QueuedThreadPool@632c17b6 as threadpool
+20.06.12 17:41:32 org.neo4j.server.database.Database INFO: Using database at /home/as/Pobrane/PROGRAMOWANIE/ProjectIntelliHome/frameworks/neo4j-community-1.8.M04/data/graph.db
+17:41:33.689 [main] DEBUG neo4j.xafactory - Opened [/home/as/Pobrane/PROGRAMOWANIE/ProjectIntelliHome/frameworks/neo4j-community-1.8.M04/data/graph.db/nioneo_logical.log.1] clean empty log, version=29, lastTxId=129
+20.06.12 17:41:36 org.neo4j.server.web.Jetty6WebServer FINE: Adding JAXRS packages [org.neo4j.server.rest.discovery] at [/]
+20.06.12 17:41:36 org.neo4j.server.modules.DiscoveryModule INFO: Mounted discovery module at [/]
+20.06.12 17:41:36 org.neo4j.server.web.Jetty6WebServer FINE: Adding JAXRS packages [org.neo4j.server.rest.web] at [/db/data]
+20.06.12 17:41:37 org.neo4j.server.plugins.PluginManager INFO: Loaded server plugin "CypherPlugin"
+20.06.12 17:41:37 org.neo4j.server.plugins.PluginManager INFO: Loaded server plugin "GremlinPlugin"
+20.06.12 17:41:37 org.neo4j.server.plugins.PluginManager INFO: Loaded server plugin "SSC"
+20.06.12 17:41:37 org.neo4j.server.plugins.PluginManager INFO: Loaded server plugin "Admin"
+20.06.12 17:41:37 org.neo4j.server.modules.RESTApiModule INFO: Mounted REST API at [/db/data/]
+20.06.12 17:41:37 org.neo4j.server.web.Jetty6WebServer FINE: Adding JAXRS packages [org.neo4j.server.webadmin.rest] at [/db/manage]
+20.06.12 17:41:37 org.neo4j.server.modules.ManagementApiModule INFO: Mounted management API at [/db/manage/]
+20.06.12 17:41:37 org.neo4j.server.web.Jetty6WebServer FINE: Adding JAXRS packages [as.intellihome.neo4j.plugins.unmanaged] at [/plugins]
+20.06.12 17:41:37 org.neo4j.server.modules.ThirdPartyJAXRSModule INFO: Mounted third-party JAX-RS package [as.intellihome.neo4j.plugins.unmanaged] at [/plugins]
+20.06.12 17:41:37 org.neo4j.server.modules.WebAdminModule INFO: Mounted webadmin at [/webadmin]
+20.06.12 17:41:37 org.neo4j.server.web.Jetty6WebServer INFO: Mounting static content at [/webadmin] from [webadmin-html]
+20.06.12 17:41:37 org.neo4j.server.web.Jetty6WebServer FINE: Found [jar:file:/home/as/Pobrane/PROGRAMOWANIE/ProjectIntelliHome/frameworks/neo4j-community-1.8.M04/system/lib/neo4j-server-1.8.M04-static-web.jar!/webadmin-html]
+20.06.12 17:41:37 org.neo4j.server.web.Jetty6WebServer FINE: Mounting static content from [jar:file:/home/as/Pobrane/PROGRAMOWANIE/ProjectIntelliHome/frameworks/neo4j-community-1.8.M04/system/lib/neo4j-server-1.8.M04-static-web.jar!/webadmin-html] at [/webadmin]
+20.06.12 17:41:37 org.neo4j.server.web.Jetty6WebServer FINE: Mounting servlet at [/plugins]
+20.06.12 17:41:37 org.neo4j.server.web.Jetty6WebServer FINE: Mounting servlet at [/db/manage]
+20.06.12 17:41:37 org.neo4j.server.web.Jetty6WebServer FINE: Mounting servlet at [/db/data]
+20.06.12 17:41:37 org.neo4j.server.web.Jetty6WebServer FINE: Mounting servlet at [/]
+17:41:37.600 [main] INFO  org.mortbay.log - jetty-6.1.25
+17:41:38.123 [main] INFO  org.mortbay.log - NO JSP Support for /webadmin, did not find org.apache.jasper.servlet.JspServlet
+17:41:43.971 [main] INFO  org.mortbay.log - Started SelectChannelConnector@0.0.0.0:7474
+17:41:45.227 [main] INFO  org.mortbay.log - Started SslSocketConnector@0.0.0.0:7473
+20.06.12 17:41:45 org.neo4j.server.statistic.StatisticStartupListener INFO: adding statistic-filter to /webadmin
+20.06.12 17:41:45 org.neo4j.server.statistic.StatisticStartupListener INFO: adding statistic-filter to /plugins
+20.06.12 17:41:45 org.neo4j.server.statistic.StatisticStartupListener INFO: adding statistic-filter to /db/manage
+20.06.12 17:41:45 org.neo4j.server.statistic.StatisticStartupListener INFO: adding statistic-filter to /db/data
+20.06.12 17:41:45 org.neo4j.server.statistic.StatisticStartupListener INFO: adding statistic-filter to /
+20.06.12 17:41:45 org.neo4j.server.NeoServerWithEmbeddedWebServer INFO: Server started on [http://0.0.0.0:7474/]
+17:45:44.692 [1501727724@qtp-1663834038-1 - Acceptor0 SelectChannelConnector@0.0.0.0:7474] INFO  org.mortbay.log - org.mortbay.io.nio.SelectorManager$SelectSet@43bc16f5 JVM BUG(s) - injecting delay8 times
+17:45:44.710 [1501727724@qtp-1663834038-1 - Acceptor0 SelectChannelConnector@0.0.0.0:7474] INFO  org.mortbay.log - org.mortbay.io.nio.SelectorManager$SelectSet@43bc16f5 JVM BUG(s) - recreating selector 8 times, canceled keys 307 times
+17:46:44.695 [1501727724@qtp-1663834038-1 - Acceptor0 SelectChannelConnector@0.0.0.0:7474] INFO  org.mortbay.log - org.mortbay.io.nio.SelectorManager$SelectSet@43bc16f5 JVM BUG(s) - injecting delay1 times
+17:46:44.709 [1501727724@qtp-1663834038-1 - Acceptor0 SelectChannelConnector@0.0.0.0:7474] INFO  org.mortbay.log - org.mortbay.io.nio.SelectorManager$SelectSet@43bc16f5 JVM BUG(s) - recreating selector 1 times, canceled keys 30 times
+17:47:45.170 [1501727724@qtp-1663834038-1 - Acceptor0 SelectChannelConnector@0.0.0.0:7474] INFO  org.mortbay.log - org.mortbay.io.nio.SelectorManager$SelectSet@43bc16f5 JVM BUG(s) - injecting delay5 times
+17:47:45.171 [1501727724@qtp-1663834038-1 - Acceptor0 SelectChannelConnector@0.0.0.0:7474] INFO  org.mortbay.log - org.mortbay.io.nio.SelectorManager$SelectSet@43bc16f5 JVM BUG(s) - recreating selector 5 times, canceled keys 221 times
+20.06.12 17:51:58 org.neo4j.server.NeoServerBootstrapper INFO: Neo4j Server shutdown initiated by kill signal
+17:51:58.517 [Thread-7] INFO  org.mortbay.log - Stopped SslSocketConnector@0.0.0.0:7473
+17:51:58.517 [Thread-7] INFO  org.mortbay.log - Stopped SelectChannelConnector@0.0.0.0:7474
+17:52:02.570 [main] DEBUG o.a.c.c.ConfigurationUtils - ConfigurationUtils.locate(): base is /home/as/Pobrane/PROGRAMOWANIE/ProjectIntelliHome/frameworks/neo4j-community-1.8.M04/conf, name is neo4j-server.properties
+17:52:02.594 [main] DEBUG o.a.c.c.ConfigurationUtils - Loading configuration from the path /home/as/Pobrane/PROGRAMOWANIE/ProjectIntelliHome/frameworks/neo4j-community-1.8.M04/conf/neo4j-server.properties
+20.06.12 17:52:02 org.neo4j.server.NeoServerWithEmbeddedWebServer INFO: Starting Neo Server on port [7474] with [40] threads available
+20.06.12 17:52:02 org.neo4j.server.NeoServerWithEmbeddedWebServer INFO: Enabling HTTPS on port [7473]
+17:52:03.636 [main] INFO  org.mortbay.log - Logging to Logger[org.mortbay.log] via org.mortbay.log.Slf4jLog
+17:52:03.639 [main] DEBUG org.mortbay.log - Container Server@53d29c95 + SelectChannelConnector@0.0.0.0:7474 as connector
+17:52:03.666 [main] DEBUG org.mortbay.log - Container Server@53d29c95 + SslSocketConnector@0.0.0.0:7473 as connector
+17:52:03.671 [main] DEBUG org.mortbay.log - Container Server@53d29c95 + org.mortbay.thread.QueuedThreadPool@63c8e097 as threadpool
+20.06.12 17:52:03 org.neo4j.server.database.Database INFO: Using database at /home/as/Pobrane/PROGRAMOWANIE/ProjectIntelliHome/frameworks/neo4j-community-1.8.M04/data/graph.db
+17:52:04.535 [main] DEBUG neo4j.xafactory - Opened [/home/as/Pobrane/PROGRAMOWANIE/ProjectIntelliHome/frameworks/neo4j-community-1.8.M04/data/graph.db/nioneo_logical.log.1] clean empty log, version=30, lastTxId=136
+20.06.12 17:52:07 org.neo4j.server.web.Jetty6WebServer FINE: Adding JAXRS packages [org.neo4j.server.rest.discovery] at [/]
+20.06.12 17:52:07 org.neo4j.server.modules.DiscoveryModule INFO: Mounted discovery module at [/]
+20.06.12 17:52:07 org.neo4j.server.web.Jetty6WebServer FINE: Adding JAXRS packages [org.neo4j.server.rest.web] at [/db/data]
+20.06.12 17:52:07 org.neo4j.server.plugins.PluginManager INFO: Loaded server plugin "CypherPlugin"
+20.06.12 17:52:07 org.neo4j.server.plugins.PluginManager INFO: Loaded server plugin "GremlinPlugin"
+20.06.12 17:52:07 org.neo4j.server.plugins.PluginManager INFO: Loaded server plugin "SSC"
+20.06.12 17:52:07 org.neo4j.server.plugins.PluginManager INFO: Loaded server plugin "Admin"
+20.06.12 17:52:07 org.neo4j.server.modules.RESTApiModule INFO: Mounted REST API at [/db/data/]
+20.06.12 17:52:07 org.neo4j.server.web.Jetty6WebServer FINE: Adding JAXRS packages [org.neo4j.server.webadmin.rest] at [/db/manage]
+20.06.12 17:52:07 org.neo4j.server.modules.ManagementApiModule INFO: Mounted management API at [/db/manage/]
+20.06.12 17:52:07 org.neo4j.server.web.Jetty6WebServer FINE: Adding JAXRS packages [as.intellihome.neo4j.plugins.unmanaged] at [/plugins]
+20.06.12 17:52:07 org.neo4j.server.modules.ThirdPartyJAXRSModule INFO: Mounted third-party JAX-RS package [as.intellihome.neo4j.plugins.unmanaged] at [/plugins]
+20.06.12 17:52:08 org.neo4j.server.modules.WebAdminModule INFO: Mounted webadmin at [/webadmin]
+20.06.12 17:52:08 org.neo4j.server.web.Jetty6WebServer INFO: Mounting static content at [/webadmin] from [webadmin-html]
+20.06.12 17:52:08 org.neo4j.server.web.Jetty6WebServer FINE: Found [jar:file:/home/as/Pobrane/PROGRAMOWANIE/ProjectIntelliHome/frameworks/neo4j-community-1.8.M04/system/lib/neo4j-server-1.8.M04-static-web.jar!/webadmin-html]
+20.06.12 17:52:08 org.neo4j.server.web.Jetty6WebServer FINE: Mounting static content from [jar:file:/home/as/Pobrane/PROGRAMOWANIE/ProjectIntelliHome/frameworks/neo4j-community-1.8.M04/system/lib/neo4j-server-1.8.M04-static-web.jar!/webadmin-html] at [/webadmin]
+20.06.12 17:52:08 org.neo4j.server.web.Jetty6WebServer FINE: Mounting servlet at [/plugins]
+20.06.12 17:52:08 org.neo4j.server.web.Jetty6WebServer FINE: Mounting servlet at [/db/manage]
+20.06.12 17:52:08 org.neo4j.server.web.Jetty6WebServer FINE: Mounting servlet at [/db/data]
+20.06.12 17:52:08 org.neo4j.server.web.Jetty6WebServer FINE: Mounting servlet at [/]
+17:52:08.348 [main] INFO  org.mortbay.log - jetty-6.1.25
+17:52:08.833 [main] INFO  org.mortbay.log - NO JSP Support for /webadmin, did not find org.apache.jasper.servlet.JspServlet
+17:52:14.932 [main] INFO  org.mortbay.log - Started SelectChannelConnector@0.0.0.0:7474
+17:52:16.559 [main] INFO  org.mortbay.log - Started SslSocketConnector@0.0.0.0:7473
+20.06.12 17:52:16 org.neo4j.server.statistic.StatisticStartupListener INFO: adding statistic-filter to /webadmin
+20.06.12 17:52:16 org.neo4j.server.statistic.StatisticStartupListener INFO: adding statistic-filter to /plugins
+20.06.12 17:52:16 org.neo4j.server.statistic.StatisticStartupListener INFO: adding statistic-filter to /db/manage
+20.06.12 17:52:16 org.neo4j.server.statistic.StatisticStartupListener INFO: adding statistic-filter to /db/data
+20.06.12 17:52:16 org.neo4j.server.statistic.StatisticStartupListener INFO: adding statistic-filter to /
+20.06.12 17:52:16 org.neo4j.server.NeoServerWithEmbeddedWebServer INFO: Server started on [http://0.0.0.0:7474/]
+20.06.12 18:03:27 org.neo4j.server.NeoServerBootstrapper INFO: Neo4j Server shutdown initiated by kill signal
+20.06.12 18:03:27 org.neo4j.server.statistic.StatisticStartupListener INFO: stopping filter
+18:03:27.018 [Thread-7] INFO  org.mortbay.log - Stopped SslSocketConnector@0.0.0.0:7473
+18:03:27.018 [Thread-7] INFO  org.mortbay.log - Stopped SelectChannelConnector@0.0.0.0:7474
+18:03:30.798 [main] DEBUG o.a.c.c.ConfigurationUtils - ConfigurationUtils.locate(): base is /home/as/Pobrane/PROGRAMOWANIE/ProjectIntelliHome/frameworks/neo4j-community-1.8.M04/conf, name is neo4j-server.properties
+18:03:30.826 [main] DEBUG o.a.c.c.ConfigurationUtils - Loading configuration from the path /home/as/Pobrane/PROGRAMOWANIE/ProjectIntelliHome/frameworks/neo4j-community-1.8.M04/conf/neo4j-server.properties
+20.06.12 18:03:30 org.neo4j.server.NeoServerWithEmbeddedWebServer INFO: Starting Neo Server on port [7474] with [40] threads available
+20.06.12 18:03:31 org.neo4j.server.NeoServerWithEmbeddedWebServer INFO: Enabling HTTPS on port [7473]
+18:03:31.775 [main] INFO  org.mortbay.log - Logging to Logger[org.mortbay.log] via org.mortbay.log.Slf4jLog
+18:03:31.778 [main] DEBUG org.mortbay.log - Container Server@26f20105 + SelectChannelConnector@0.0.0.0:7474 as connector
+18:03:31.802 [main] DEBUG org.mortbay.log - Container Server@26f20105 + SslSocketConnector@0.0.0.0:7473 as connector
+18:03:31.808 [main] DEBUG org.mortbay.log - Container Server@26f20105 + org.mortbay.thread.QueuedThreadPool@657430d3 as threadpool
+20.06.12 18:03:31 org.neo4j.server.database.Database INFO: Using database at /home/as/Pobrane/PROGRAMOWANIE/ProjectIntelliHome/frameworks/neo4j-community-1.8.M04/data/graph.db
+18:03:32.624 [main] DEBUG neo4j.xafactory - Opened [/home/as/Pobrane/PROGRAMOWANIE/ProjectIntelliHome/frameworks/neo4j-community-1.8.M04/data/graph.db/nioneo_logical.log.1] clean empty log, version=31, lastTxId=136
+20.06.12 18:03:35 org.neo4j.server.web.Jetty6WebServer FINE: Adding JAXRS packages [org.neo4j.server.rest.discovery] at [/]
+20.06.12 18:03:35 org.neo4j.server.modules.DiscoveryModule INFO: Mounted discovery module at [/]
+20.06.12 18:03:35 org.neo4j.server.web.Jetty6WebServer FINE: Adding JAXRS packages [org.neo4j.server.rest.web] at [/db/data]
+20.06.12 18:03:35 org.neo4j.server.plugins.PluginManager INFO: Loaded server plugin "CypherPlugin"
+20.06.12 18:03:35 org.neo4j.server.plugins.PluginManager INFO: Loaded server plugin "GremlinPlugin"
+20.06.12 18:03:35 org.neo4j.server.plugins.PluginManager INFO: Loaded server plugin "SSC"
+20.06.12 18:03:35 org.neo4j.server.plugins.PluginManager INFO: Loaded server plugin "Admin"
+20.06.12 18:03:35 org.neo4j.server.modules.RESTApiModule INFO: Mounted REST API at [/db/data/]
+20.06.12 18:03:35 org.neo4j.server.web.Jetty6WebServer FINE: Adding JAXRS packages [org.neo4j.server.webadmin.rest] at [/db/manage]
+20.06.12 18:03:35 org.neo4j.server.modules.ManagementApiModule INFO: Mounted management API at [/db/manage/]
+20.06.12 18:03:35 org.neo4j.server.web.Jetty6WebServer FINE: Adding JAXRS packages [as.intellihome.neo4j.plugins.unmanaged] at [/plugins]
+20.06.12 18:03:35 org.neo4j.server.modules.ThirdPartyJAXRSModule INFO: Mounted third-party JAX-RS package [as.intellihome.neo4j.plugins.unmanaged] at [/plugins]
+20.06.12 18:03:36 org.neo4j.server.modules.WebAdminModule INFO: Mounted webadmin at [/webadmin]
+20.06.12 18:03:36 org.neo4j.server.web.Jetty6WebServer INFO: Mounting static content at [/webadmin] from [webadmin-html]
+20.06.12 18:03:36 org.neo4j.server.web.Jetty6WebServer FINE: Found [jar:file:/home/as/Pobrane/PROGRAMOWANIE/ProjectIntelliHome/frameworks/neo4j-community-1.8.M04/system/lib/neo4j-server-1.8.M04-static-web.jar!/webadmin-html]
+20.06.12 18:03:36 org.neo4j.server.web.Jetty6WebServer FINE: Mounting static content from [jar:file:/home/as/Pobrane/PROGRAMOWANIE/ProjectIntelliHome/frameworks/neo4j-community-1.8.M04/system/lib/neo4j-server-1.8.M04-static-web.jar!/webadmin-html] at [/webadmin]
+20.06.12 18:03:36 org.neo4j.server.web.Jetty6WebServer FINE: Mounting servlet at [/plugins]
+20.06.12 18:03:36 org.neo4j.server.web.Jetty6WebServer FINE: Mounting servlet at [/db/manage]
+20.06.12 18:03:36 org.neo4j.server.web.Jetty6WebServer FINE: Mounting servlet at [/db/data]
+20.06.12 18:03:36 org.neo4j.server.web.Jetty6WebServer FINE: Mounting servlet at [/]
+18:03:36.274 [main] INFO  org.mortbay.log - jetty-6.1.25
+18:03:36.727 [main] INFO  org.mortbay.log - NO JSP Support for /webadmin, did not find org.apache.jasper.servlet.JspServlet
+18:03:42.057 [main] INFO  org.mortbay.log - Started SelectChannelConnector@0.0.0.0:7474
+18:03:43.307 [main] INFO  org.mortbay.log - Started SslSocketConnector@0.0.0.0:7473
+20.06.12 18:03:43 org.neo4j.server.statistic.StatisticStartupListener INFO: adding statistic-filter to /webadmin
+20.06.12 18:03:43 org.neo4j.server.statistic.StatisticStartupListener INFO: adding statistic-filter to /plugins
+20.06.12 18:03:43 org.neo4j.server.statistic.StatisticStartupListener INFO: adding statistic-filter to /db/manage
+20.06.12 18:03:43 org.neo4j.server.statistic.StatisticStartupListener INFO: adding statistic-filter to /db/data
+20.06.12 18:03:43 org.neo4j.server.statistic.StatisticStartupListener INFO: adding statistic-filter to /
+20.06.12 18:03:43 org.neo4j.server.NeoServerWithEmbeddedWebServer INFO: Server started on [http://0.0.0.0:7474/]

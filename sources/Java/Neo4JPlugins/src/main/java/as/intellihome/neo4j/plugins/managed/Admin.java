@@ -1,7 +1,8 @@
 package as.intellihome.neo4j.plugins.managed;
 
 import as.intellihome.neo4j.Config;
-import org.neo4j.graphdb.GraphDatabaseService;
+import as.intellihome.neo4j.utils.db.UserRights;
+import org.neo4j.graphdb.*;
 import org.neo4j.server.plugins.*;
 
 // ====================================================
@@ -58,7 +59,41 @@ public class Admin extends ServerPlugin
     public void shutdown( @Source GraphDatabaseService graphDb )
     {
         as.intellihome.neo4j.utils.Admin.shutdown( graphDb );
-    }     
+    }  
+    
+    // ================================================
+   
+    @Name( Config.pathFor_managedPlugin_admin_createUser )
+    @Description( Config.descriptionFor_managedPlugin_admin_createUser )
+    @PluginTarget( GraphDatabaseService.class )
+    public Node createUser(
+            @Source GraphDatabaseService graphDb , 
+            
+            @Parameter( name = "userName", optional = false )
+            @Description( "User name." )
+            String userName ,
+            
+            @Parameter( name = "userLogin", optional = false )
+            @Description( "User login." )
+            String userLogin ,
+            
+            @Parameter( name = "userPassword", optional = false )
+            @Description( "User password." )
+            String userPassword ,
+            
+            @Parameter( name = "enabled", optional = false )
+            @Description( "Mark if user is enabled." )
+            Boolean enabled ,   
+            
+            @Parameter( name = "userRights", optional = false )
+            @Description( "System rights for this user." )
+            String[] userRightsAsStringArray           
+        )
+    {
+        UserRights[] userRights = new UserRights[ userRightsAsStringArray.length ];   
+        for( int i = 0 ; i < userRights.length ; i++ ) userRights[ i ] = UserRights.valueOf( userRightsAsStringArray[ i ] );
+        return as.intellihome.neo4j.utils.db.GeneralDbOperations.createUser( graphDb , userName , userLogin , userPassword , enabled , userRights );
+    }      
     
     // ================================================    
 }

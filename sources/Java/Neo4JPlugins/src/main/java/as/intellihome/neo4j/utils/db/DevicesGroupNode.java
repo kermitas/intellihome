@@ -1,10 +1,6 @@
 package as.intellihome.neo4j.utils.db;
 
-import java.util.Iterator;
 import org.neo4j.graphdb.*;
-
-// ====================================================
-
 
 // ====================================================
 
@@ -57,7 +53,7 @@ public class DevicesGroupNode
     {
         if( !isDeviceInDevicesGroup( deviceNode ) )
         {   
-            deviceNode.createRelationshipTo( get( deviceNode.getGraphDatabase() ) , MemberOfRelationship.MEMBER_OF );
+            deviceNode.createRelationshipTo( get( deviceNode.getGraphDatabase() ) , DevicesGroup.MEMBER_OF_DEVICES_GROUP );
         }
     }
     
@@ -65,17 +61,7 @@ public class DevicesGroupNode
     
     public static boolean isDeviceInDevicesGroup( Node deviceNode )
     {
-        Node devicesGroupNode = get( deviceNode );
-        
-        Iterator< Relationship > iter = deviceNode.getRelationships( Direction.OUTGOING , MemberOfRelationship.MEMBER_OF ).iterator();
-        
-        while( iter.hasNext() )
-        {
-            Relationship r = iter.next();
-            if( r.getEndNode().getId() == devicesGroupNode.getId() ) return true;
-        }
-        
-        return false;
+        return deviceNode.hasRelationship( Direction.OUTGOING , DevicesGroup.MEMBER_OF_DEVICES_GROUP );
     } 
     
     // ================================================

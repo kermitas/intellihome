@@ -27,7 +27,7 @@ public class IntelliHomeNode
                 
         graphDb.getReferenceNode().createRelationshipTo( intelliHomeNode , IntelliHomeRelationships.INTELLI_HOME );
         
-        SystemRightsNode.createDefaultData( intelliHomeNode , addDescriptionProperty );
+        UserRightsNode.createDefaultData( intelliHomeNode , addDescriptionProperty );
         PhysicalityTypesNode.createDefaultData( intelliHomeNode , addDescriptionProperty );
         InSystemLocalizationTypesNode.createDefaultData( intelliHomeNode , addDescriptionProperty );
         DataIncomeTypesNode.createDefaultData( intelliHomeNode , addDescriptionProperty );
@@ -79,13 +79,15 @@ public class IntelliHomeNode
             Node intelliHomeNode = mainRelationshipToIntelliHomeNode.getEndNode();
 
             StartupNode.delete( intelliHomeNode );
-            SystemRightsNode.delete( intelliHomeNode );
+            UserRightsNode.delete( intelliHomeNode );
             PhysicalityTypesNode.delete( intelliHomeNode );
             InSystemLocalizationTypesNode.delete( intelliHomeNode );
             DataIncomeTypesNode.delete( intelliHomeNode );
             DataCollectingTypesNode.delete( intelliHomeNode );
             SensorsGroupNode.delete( intelliHomeNode );
             DevicesGroupNode.delete( intelliHomeNode );
+            
+            UserNode.deleteAllUsers( UsersGroupNode.get( graphDb ) );
             UsersGroupNode.delete( intelliHomeNode );  
             
             mainRelationshipToIntelliHomeNode.delete();

@@ -33,9 +33,9 @@ public class Config
     
     public static final String pathFor_managedPlugin_admin_install = "install";
     public static final String descriptionFor_managedPlugin_admin_install = "Install IntelliHome service (one time action should be executed just after startup; creates DB if not exists).";
-    
-    //public static final String pathFor_managedPlugin_admin_createDb = "createDb";
-    //public static final String descriptionFor_managedPlugin_admin_createDb = "Create database.";
+
+    public static final String pathFor_managedPlugin_admin_createUser = "createUser";
+    public static final String descriptionFor_managedPlugin_admin_createUser = "Create user.";
     
     public static final String pathFor_managedPlugin_admin_deleteDb = "deleteDb";
     public static final String descriptionFor_managedPlugin_admin_deleteDb = "Delete database.";
@@ -51,7 +51,7 @@ public class Config
     public static final String pathFor_unmanagedPlugins = "/plugins";
     public static final String pathFor_unmanagedPlugins_admin = "/Admin";
     public static final String pathFor_unmanagedPlugins_admin_install = "/" + pathFor_managedPlugin_admin_install;
-    //public static final String pathFor_unmanagedPlugins_admin_createDb = "/" + pathFor_managedPlugin_admin_createDb;
+    public static final String pathFor_unmanagedPlugins_admin_createUser = "/" + pathFor_managedPlugin_admin_createUser;
     public static final String pathFor_unmanagedPlugins_admin_deleteDb = "/" + pathFor_managedPlugin_admin_deleteDb;
     public static final String pathFor_unmanagedPlugins_admin_addDefaultDataToDb = "/" + pathFor_managedPlugin_admin_addDefaultDataToDb;
     public static final String pathFor_unmanagedPlugins_admin_shutdown = "/" + pathFor_managedPlugin_admin_shutdown;

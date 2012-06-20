@@ -1,10 +1,6 @@
 package as.intellihome.neo4j.utils.db;
 
-import java.util.Iterator;
 import org.neo4j.graphdb.*;
-
-// ====================================================
-
 
 // ====================================================
 
@@ -57,7 +53,7 @@ public class UsersGroupNode
     {
         if( !isUserInUsersGroup( userNode ) )
         {   
-            userNode.createRelationshipTo( get( userNode.getGraphDatabase() ) , MemberOfRelationship.MEMBER_OF );
+            userNode.createRelationshipTo( get( userNode.getGraphDatabase() ) , UsersGroup.MEMBER_OF_USERS_GROUP );
         }
     }
     
@@ -65,17 +61,7 @@ public class UsersGroupNode
     
     public static boolean isUserInUsersGroup( Node userNode )
     {
-        Node usersGroupNode = get( userNode );
-        
-        Iterator< Relationship > iter = userNode.getRelationships( Direction.OUTGOING , MemberOfRelationship.MEMBER_OF ).iterator();
-        
-        while( iter.hasNext() )
-        {
-            Relationship r = iter.next();
-            if( r.getEndNode().getId() == usersGroupNode.getId() ) return true;
-        }
-        
-        return false;
+        return userNode.hasRelationship( Direction.OUTGOING , UsersGroup.MEMBER_OF_USERS_GROUP );
     } 
     
     // ================================================

@@ -2,6 +2,7 @@ package as.intellihome.neo4j.utils.db;
 
 import as.intellihome.neo4j.Config;
 import org.neo4j.graphdb.GraphDatabaseService;
+import org.neo4j.graphdb.Node;
 import org.neo4j.graphdb.Transaction;
 
 // ====================================================
@@ -36,16 +37,32 @@ public class GeneralDbOperations
     
     public static void addDefaultDataToDb( GraphDatabaseService graphDb )
     {
-        // TODO
-        
-        // check somehow if default data is already added? how? for example check if user with login "DefaultUser" exists
-        
-        // add user 'DefaultUser'
-        // add device to this users
-        // add temperature sensor to this device
-        // add few temperature samples
-        
-        throw new UnsupportedOperationException( "not implemented yet" );      
+        if( !UserNode.existsByLogin( graphDb , "as" ) )
+        {
+            Transaction tx = graphDb.beginTx();
+            try
+            {
+
+                UserRights[] rights = { UserRights.CAN_LOGIN_TO_ADMIN , UserRights.CAN_CREATE_DEVICE , UserRights.CAN_CREATE_SENSOR };
+                Node userNode = createUserUnderActiveTransaction( graphDb , Config.addDescriptionPropertyToNodes , "Default User" , "as" , "as1" , true , rights );
+
+                // TODO
+
+                // add device to this users
+                // add temperature sensor to this device
+                // add few temperature samples
+
+                tx.success();
+            }
+            finally
+            {
+                tx.finish();
+            }  
+        }     
+        else
+        {
+            throw new RuntimeException( "Default data already exists." );
+        }
     }
     
     // ================================================
@@ -65,6 +82,32 @@ public class GeneralDbOperations
         {
             tx.finish();
         }         
+    }
+    
+    // ================================================
+    
+    public static Node createUser( GraphDatabaseService graphDb , String userName , String userLogin , String userPassword , boolean enabled , UserRights ... rights )
+    {
+        Transaction tx = graphDb.beginTx();
+        try
+        {
+            Node userNode = createUserUnderActiveTransaction( graphDb , Config.addDescriptionPropertyToNodes , userName , userLogin , userPassword , enabled , rights );
+            
+            tx.success();
+            
+            return userNode;
+        }
+        finally
+        {
+            tx.finish();
+        }         
+    }
+    
+    // ================================================
+    
+    private static Node createUserUnderActiveTransaction( GraphDatabaseService graphDb , boolean addDescriptionPropertyToNodes , String userName , String userLogin , String userPassword , boolean enabled , UserRights ... rights )
+    {
+        return UserNode.createUserNode( UsersGroupNode.get( graphDb ) , addDescriptionPropertyToNodes , userName , userLogin , userPassword , enabled , rights );         
     }
     
     // ================================================
