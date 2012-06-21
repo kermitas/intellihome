@@ -1,11 +1,8 @@
 package as.intellihome.neo4j.plugins.managed;
 
 import as.intellihome.neo4j.Config;
-import as.intellihome.neo4j.utils.db.DataIncomeTypes;
-import as.intellihome.neo4j.utils.db.InSystemLocalizationTypes;
-import as.intellihome.neo4j.utils.db.PhysicalityTypes;
-import as.intellihome.neo4j.utils.db.UserRights;
-import org.neo4j.graphdb.*;
+import org.neo4j.graphdb.GraphDatabaseService;
+import org.neo4j.graphdb.Node;
 import org.neo4j.server.plugins.*;
 
 // ====================================================
@@ -20,19 +17,8 @@ public class Admin extends ServerPlugin
     @PluginTarget( GraphDatabaseService.class )
     public void installService( @Source GraphDatabaseService graphDb )
     {
-        as.intellihome.neo4j.utils.Admin.install( graphDb );
+        as.intellihome.neo4j.Operations.install( graphDb );
     }
-    
-    // ================================================
-   
-    /*
-    @Name( Config.pathFor_managedPlugin_admin_createDb )
-    @Description( Config.descriptionFor_managedPlugin_admin_createDb )
-    @PluginTarget( GraphDatabaseService.class )
-    public void createDb( @Source GraphDatabaseService graphDb )
-    {
-        as.intellihome.neo4j.utils.db.GeneralDbOperations.createDb( graphDb );
-    }*/
     
     // ================================================
    
@@ -41,7 +27,7 @@ public class Admin extends ServerPlugin
     @PluginTarget( GraphDatabaseService.class )
     public void deleteDb( @Source GraphDatabaseService graphDb )
     {
-        as.intellihome.neo4j.utils.db.GeneralDbOperations.deleteDb( graphDb );
+        as.intellihome.neo4j.Operations.deleteDb( graphDb );           
     }  
     
     // ================================================
@@ -51,7 +37,7 @@ public class Admin extends ServerPlugin
     @PluginTarget( GraphDatabaseService.class )
     public void addDefaultDataToDb( @Source GraphDatabaseService graphDb )
     {
-        as.intellihome.neo4j.utils.db.GeneralDbOperations.addDefaultDataToDb( graphDb );
+        as.intellihome.neo4j.Operations.addDefaultDataToDb( graphDb );            
     } 
     
     // ================================================
@@ -61,7 +47,7 @@ public class Admin extends ServerPlugin
     @PluginTarget( GraphDatabaseService.class )
     public void shutdown( @Source GraphDatabaseService graphDb )
     {
-        as.intellihome.neo4j.utils.Admin.shutdown( graphDb );
+        as.intellihome.neo4j.Operations.shutdown( graphDb );
     }  
     
     // ================================================
@@ -72,17 +58,17 @@ public class Admin extends ServerPlugin
     public Node createUser(
             @Source GraphDatabaseService graphDb , 
             
-            @Parameter( name = "userLogin", optional = false )
+            @Parameter( name = "login", optional = false )
             @Description( "User login (must be uniqie)." )
-            String userLogin ,
+            String login ,
             
-            @Parameter( name = "userPassword", optional = false )
+            @Parameter( name = "password", optional = false )
             @Description( "User password." )
-            String userPassword ,
+            String password ,
             
-            @Parameter( name = "userName", optional = false )
+            @Parameter( name = "name", optional = false )
             @Description( "User name." )
-            String userName ,
+            String name ,
             
             @Parameter( name = "description", optional = false )
             @Description( "Description of this user." )
@@ -97,10 +83,8 @@ public class Admin extends ServerPlugin
             String[] userRightsAsStringArray           
         )
     {
-        UserRights[] userRights = new UserRights[ userRightsAsStringArray.length ];   
-        for( int i = 0 ; i < userRights.length ; i++ ) userRights[ i ] = UserRights.valueOf( userRightsAsStringArray[ i ] );
-        
-        return as.intellihome.neo4j.utils.db.GeneralDbOperations.createUser( graphDb , userLogin , userPassword , userName , description , enabled , userRights );
+        as.intellihome.neo4j.objects.User user = as.intellihome.neo4j.Operations.createUser( graphDb , login , password , name , description , enabled , userRightsAsStringArray );
+        return user.getNode();
     }      
     
     // ================================================ 
@@ -113,11 +97,11 @@ public class Admin extends ServerPlugin
             @Source Node ownerUserNode ,
             
             @Parameter( name = "name", optional = false )
-            @Description( "Short name for this device." )
+            @Description( "Short name for device." )
             String name ,
             
             @Parameter( name = "description", optional = false )
-            @Description( "Description of this device." )
+            @Description( "Description of device." )
             String description ,
             
             @Parameter( name = "enabled", optional = false )
@@ -125,15 +109,15 @@ public class Admin extends ServerPlugin
             Boolean enabled ,     
             
             @Parameter( name = "physicalityType", optional = false )
-            @Description( "Is this device is REAL or VIRTUAL." )
+            @Description( "Is this device REAL or VIRTUAL." )
             String physicalityTypeAsString ,       
             
             @Parameter( name = "dataIncomeType", optional = false )
-            @Description( "Is this device is DEVICE_PUSH or SERVER_TCPIP_PULL." )
+            @Description( "Is this device DEVICE_PUSH or SERVER_TCPIP_PULL." )
             String dataIncomeTypeAsString ,
             
             @Parameter( name = "inSystemLocalizationType", optional = false )
-            @Description( "Is this device is HEAD, PASS_THROUGH or END_POINT." )
+            @Description( "Is this device HEAD, PASS_THROUGH or END_POINT." )
             String inSystemLocalizationTypeAsString ,   
             
             @Parameter( name = "locationName", optional = false )
@@ -157,8 +141,71 @@ public class Admin extends ServerPlugin
             Double locationZ           
         )
     {
-        return as.intellihome.neo4j.utils.db.GeneralDbOperations.createDevice( ownerUserNode.getGraphDatabase() , ownerUserNode , name , description , enabled , PhysicalityTypes.valueOf( physicalityTypeAsString ) , DataIncomeTypes.valueOf( dataIncomeTypeAsString ) , InSystemLocalizationTypes.valueOf( inSystemLocalizationTypeAsString ) , locationName , locationDescription , locationX , locationY , locationZ );
+        as.intellihome.neo4j.objects.Device device = as.intellihome.neo4j.Operations.createDevice( ownerUserNode , name , description , enabled , physicalityTypeAsString , dataIncomeTypeAsString , inSystemLocalizationTypeAsString , locationName , locationDescription , locationX , locationY , locationZ );
+        return device.getNode();        
     }      
+    
+    // ================================================ 
+    
+    @Name( Config.pathFor_managedPlugin_admin_createSensor )
+    @Description( Config.descriptionFor_managedPlugin_admin_createSensor )
+    @PluginTarget( Node.class )
+    public Node createSensor(
+
+            @Source Node ownerDeviceNode ,
+            
+            @Parameter( name = "name", optional = false )
+            @Description( "Short name for sensor." )
+            String name ,
+            
+            @Parameter( name = "description", optional = false )
+            @Description( "Description of sensor." )
+            String description ,
+            
+            @Parameter( name = "enabled", optional = false )
+            @Description( "Mark if sensor is enabled." )
+            Boolean enabled ,     
+            
+            @Parameter( name = "physicalityType", optional = false )
+            @Description( "Is this sensor REAL or VIRTUAL." )
+            String physicalityTypeAsString ,       
+            
+            @Parameter( name = "dataCollectingType", optional = false )
+            @Description( "Are this sensor samples OVERRIDE or APPEND_UNLIMITED, ..." )
+            String dataCollectingTypeAsString ,
+            
+            @Parameter( name = "doorLocalizationType", optional = false )
+            @Description( "Is this senso INDOOR or OUTDOOR." )
+            String doorLocalizationTypeAsString ,   
+            
+            @Parameter( name = "sensorDataType", optional = false )
+            @Description( "Samples data type like BOOLEAN, BYTE, INT, STRING, ..." )
+            String sensorDataTypeAsString ,
+            
+            @Parameter( name = "locationName", optional = false )
+            @Description( "Short name for physical/geographical location name." )
+            String locationName , 
+            
+            @Parameter( name = "locationDescription", optional = false )
+            @Description( "Physical/geographical location description." )
+            String locationDescription ,      
+            
+            @Parameter( name = "locationX", optional = false )
+            @Description( "Location X." )
+            Double locationX ,   
+            
+            @Parameter( name = "locationY", optional = false )
+            @Description( "Location Y." )
+            Double locationY , 
+            
+            @Parameter( name = "locationZ", optional = false )
+            @Description( "Location Z." )
+            Double locationZ           
+        )
+    {
+        as.intellihome.neo4j.objects.Sensor sensor = as.intellihome.neo4j.Operations.createSensor( ownerDeviceNode , name , description , enabled , physicalityTypeAsString , dataCollectingTypeAsString , doorLocalizationTypeAsString , sensorDataTypeAsString , locationName , locationDescription , locationX , locationY , locationZ );
+        return sensor.getNode();        
+    }  
     
     // ================================================     
 }

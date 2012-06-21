@@ -25,12 +25,16 @@ public class Config
     
     public static final String pathFor_managedPlugin_sensorSamplesCollector_collectInteger = "i";
     public static final String pathFor_managedPlugin_sensorSamplesCollector_collectFloat = "f";
+    public static final String pathFor_managedPlugin_sensorSamplesCollector_collectDouble = "d";
     public static final String pathFor_managedPlugin_sensorSamplesCollector_collectBoolean = "b";
     public static final String pathFor_managedPlugin_sensorSamplesCollector_collectString = "s";
+    public static final String pathFor_managedPlugin_sensorSamplesCollector_collectChar = "c";
+    public static final String pathFor_managedPlugin_sensorSamplesCollector_collectShort = "sh";
+    public static final String pathFor_managedPlugin_sensorSamplesCollector_collectByte = "by";
     
     // ---
     
-    public static final String restParameterNameFor_sensorSamplesCollector_sensorId = "s";
+    //public static final String restParameterNameFor_sensorSamplesCollector_sensorId = "s";
     public static final String restParameterNameFor_sensorSamplesCollector_sensorValue = "v";
             
     // ---
@@ -43,6 +47,9 @@ public class Config
     
     public static final String pathFor_managedPlugin_admin_createDevice = "createDevice";
     public static final String descriptionFor_managedPlugin_admin_createDevice = "Create device.";
+    
+    public static final String pathFor_managedPlugin_admin_createSensor = "createSensor";
+    public static final String descriptionFor_managedPlugin_admin_createSensor = "Create sensor.";
     
     public static final String pathFor_managedPlugin_admin_deleteDb = "deleteDb";
     public static final String descriptionFor_managedPlugin_admin_deleteDb = "Delete database.";
@@ -60,6 +67,7 @@ public class Config
     public static final String pathFor_unmanagedPlugins_admin_install = "/" + pathFor_managedPlugin_admin_install;
     public static final String pathFor_unmanagedPlugins_admin_createUser = "/" + pathFor_managedPlugin_admin_createUser;
     public static final String pathFor_unmanagedPlugins_admin_createDevice = "/" + pathFor_managedPlugin_admin_createDevice;
+    public static final String pathFor_unmanagedPlugins_admin_createSensor = "/" + pathFor_managedPlugin_admin_createSensor;    
     public static final String pathFor_unmanagedPlugins_admin_deleteDb = "/" + pathFor_managedPlugin_admin_deleteDb;
     public static final String pathFor_unmanagedPlugins_admin_addDefaultDataToDb = "/" + pathFor_managedPlugin_admin_addDefaultDataToDb;
     public static final String pathFor_unmanagedPlugins_admin_shutdown = "/" + pathFor_managedPlugin_admin_shutdown;

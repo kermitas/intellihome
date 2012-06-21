@@ -39,7 +39,6 @@ public class Admin
         
         AdminHtml.renderButtonBasedOnForm( sb , Config.descriptionFor_managedPlugin_admin_install , Config.typeOfMethodForButtonsBaseOnForms , Config.pathFor_unmanagedPlugins + Config.pathFor_unmanagedPlugins_admin + Config.pathFor_unmanagedPlugins_admin_install );          
         AdminHtml.renderButtonBasedOnForm( sb , Config.descriptionFor_managedPlugin_admin_shutdown , Config.typeOfMethodForButtonsBaseOnForms , Config.pathFor_unmanagedPlugins + Config.pathFor_unmanagedPlugins_admin + Config.pathFor_unmanagedPlugins_admin_shutdown );          
-        //AdminHtml.renderButtonBasedOnForm( sb , Config.descriptionFor_managedPlugin_admin_createDb , Config.typeOfMethodForButtonsBaseOnForms , Config.pathFor_unmanagedPlugins + Config.pathFor_unmanagedPlugins_admin + Config.pathFor_unmanagedPlugins_admin_createDb );          
         AdminHtml.renderButtonBasedOnForm( sb , Config.descriptionFor_managedPlugin_admin_deleteDb , Config.typeOfMethodForButtonsBaseOnForms , Config.pathFor_unmanagedPlugins + Config.pathFor_unmanagedPlugins_admin + Config.pathFor_unmanagedPlugins_admin_deleteDb );          
         AdminHtml.renderButtonBasedOnForm( sb , Config.descriptionFor_managedPlugin_admin_addDefaultDataToDb , Config.typeOfMethodForButtonsBaseOnForms , Config.pathFor_unmanagedPlugins + Config.pathFor_unmanagedPlugins_admin + Config.pathFor_unmanagedPlugins_admin_addDefaultDataToDb );          
     
@@ -72,7 +71,8 @@ public class Admin
         
         try
         {
-            as.intellihome.neo4j.utils.Admin.install( graphDb );
+            as.intellihome.neo4j.Operations.install( graphDb );
+            
             sb.append( "OK!" );
         }
         catch( Exception e )
@@ -84,43 +84,6 @@ public class Admin
                   
         return sb.toString();
     }
-    
-    // ================================================
-    /*
-    @GET
-    @Path( Config.pathFor_unmanagedPlugins_admin_createDb )
-    @Produces( MediaType.TEXT_HTML )
-    public String createDbGET( @Context GraphDatabaseService graphDb ) { return createDb( graphDb ); }    
-    
-    // ================================================
-   
-    @POST
-    @Path( Config.pathFor_unmanagedPlugins_admin_createDb )
-    @Produces( MediaType.TEXT_HTML )
-    public String createDbPOST( @Context GraphDatabaseService graphDb ) { return createDb( graphDb ); }    
-    
-    // ================================================    
-    
-    private String createDb( @Context GraphDatabaseService graphDb )
-    {
-        StringBuilder sb = new StringBuilder();
-        
-        AdminHtml.renderPageTop( sb , getClass().getSimpleName() , Admin.class.getSimpleName() , Config.pathFor_unmanagedPlugins + Config.pathFor_unmanagedPlugins_admin );
-        
-        try
-        {
-            as.intellihome.neo4j.utils.db.GeneralDbOperations.createDb( graphDb );
-            sb.append( "OK!" );
-        }
-        catch( Exception e )
-        {
-            AdminHtml.renderException( sb , e );
-        }
-        
-        AdminHtml.renderPageBottom( sb , null , null );
-                  
-        return sb.toString();
-    }*/
     
     // ================================================
        
@@ -146,7 +109,8 @@ public class Admin
         
         try
         {
-            as.intellihome.neo4j.utils.db.GeneralDbOperations.deleteDb( graphDb );
+            as.intellihome.neo4j.Operations.deleteDb( graphDb );     
+            
             sb.append( "OK!" );
         }
         catch( Exception e )
@@ -183,7 +147,8 @@ public class Admin
         
         try
         {
-            as.intellihome.neo4j.utils.db.GeneralDbOperations.addDefaultDataToDb( graphDb );
+            as.intellihome.neo4j.Operations.addDefaultDataToDb( graphDb );             
+            
             sb.append( "OK!" );
         }
         catch( Exception e )
@@ -220,7 +185,8 @@ public class Admin
         
         try
         {
-            as.intellihome.neo4j.utils.Admin.shutdown( graphDb );
+            as.intellihome.neo4j.Operations.shutdown( graphDb );
+            
             sb.append( "OK!" );
         }
         catch( Exception e )
