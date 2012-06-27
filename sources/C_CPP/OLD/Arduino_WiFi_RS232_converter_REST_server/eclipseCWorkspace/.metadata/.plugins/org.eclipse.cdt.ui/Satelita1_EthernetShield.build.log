@@ -1,0 +1,145 @@
+
+**** Build of configuration Release for project Satelita1_EthernetShield ****
+
+make all 
+Building file: ../Dhcp.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"Dhcp.d" -MT"Dhcp.d" -c -o "Dhcp.o" -x c++ "../Dhcp.cpp"
+In file included from /home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/Udp.h:39:0,
+                 from ../EthernetUdp.h:40,
+                 from ../Dhcp.h:7,
+                 from ../Dhcp.cpp:8:
+/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/IPAddress.h: In member function 'IPAddress::operator uint32_t()':
+/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/IPAddress.h:51:55: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/IPAddress.h: In member function 'bool IPAddress::operator==(const IPAddress&)':
+/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/IPAddress.h:52:75: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/IPAddress.h:52:108: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+../Dhcp.cpp: In member function 'uint8_t DhcpClass::parseDHCPResponse(long unsigned int, uint32_t&)':
+../Dhcp.cpp:291:55: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+Finished building: ../Dhcp.cpp
+ 
+Building file: ../Dns.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"Dns.d" -MT"Dns.d" -c -o "Dns.o" -x c++ "../Dns.cpp"
+In file included from /home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/Udp.h:39:0,
+                 from ../EthernetUdp.h:40,
+                 from ../Dns.cpp:6:
+/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/IPAddress.h: In member function 'IPAddress::operator uint32_t()':
+/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/IPAddress.h:51:55: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/IPAddress.h: In member function 'bool IPAddress::operator==(const IPAddress&)':
+/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/IPAddress.h:52:75: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/IPAddress.h:52:108: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+../Dns.cpp: In member function 'uint16_t DNSClient::ProcessResponse(uint16_t, IPAddress&)':
+../Dns.cpp:285:29: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+../Dns.cpp:285:29: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+../Dns.cpp:287:50: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+../Dns.cpp:304:28: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+../Dns.cpp:304:28: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+Finished building: ../Dns.cpp
+../Dns.cpp:313:29: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+../Dns.cpp:313:29: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ 
+Building file: ../Ethernet.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"Ethernet.d" -MT"Ethernet.d" -c -o "Ethernet.o" -x c++ "../Ethernet.cpp"
+In file included from ../Ethernet.h:6:0,
+                 from ../Ethernet.cpp:2:
+/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/IPAddress.h: In member function 'IPAddress::operator uint32_t()':
+/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/IPAddress.h:51:55: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/IPAddress.h: In member function 'bool IPAddress::operator==(const IPAddress&)':
+/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/IPAddress.h:52:75: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/IPAddress.h:52:108: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+Finished building: ../Ethernet.cpp
+ 
+Building file: ../EthernetClient.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"EthernetClient.d" -MT"EthernetClient.d" -c -o "EthernetClient.o" -x c++ "../EthernetClient.cpp"
+In file included from ../Ethernet.h:6:0,
+                 from ../EthernetClient.cpp:10:
+/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/IPAddress.h: In member function 'IPAddress::operator uint32_t()':
+/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/IPAddress.h:51:55: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/IPAddress.h: In member function 'bool IPAddress::operator==(const IPAddress&)':
+/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/IPAddress.h:52:75: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/IPAddress.h:52:108: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+Finished building: ../EthernetClient.cpp
+ 
+Building file: ../EthernetServer.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"EthernetServer.d" -MT"EthernetServer.d" -c -o "EthernetServer.o" -x c++ "../EthernetServer.cpp"
+In file included from ../Ethernet.h:6:0,
+                 from ../EthernetServer.cpp:7:
+/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/IPAddress.h: In member function 'IPAddress::operator uint32_t()':
+/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/IPAddress.h:51:55: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+Finished building: ../EthernetServer.cpp
+/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/IPAddress.h: In member function 'bool IPAddress::operator==(const IPAddress&)':
+/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/IPAddress.h:52:75: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/IPAddress.h:52:108: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ 
+Building file: ../EthernetUdp.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"EthernetUdp.d" -MT"EthernetUdp.d" -c -o "EthernetUdp.o" -x c++ "../EthernetUdp.cpp"
+In file included from ../Ethernet.h:6:0,
+                 from ../EthernetUdp.cpp:31:
+/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/IPAddress.h: In member function 'IPAddress::operator uint32_t()':
+/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/IPAddress.h:51:55: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/IPAddress.h: In member function 'bool IPAddress::operator==(const IPAddress&)':
+/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/IPAddress.h:52:75: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/IPAddress.h:52:108: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+Finished building: ../EthernetUdp.cpp
+ 
+Building file: ../SPI.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"SPI.d" -MT"SPI.d" -c -o "SPI.o" -x c++ "../SPI.cpp"
+Finished building: ../SPI.cpp
+ 
+Building file: ../socket.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"socket.d" -MT"socket.d" -c -o "socket.o" -x c++ "../socket.cpp"
+../socket.cpp: In function 'uint16_t igmpsend(SOCKET, const uint8_t*, uint16_t)':
+../socket.cpp:316:11: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+Finished building: ../socket.cpp
+ 
+Building file: ../w5100.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"w5100.d" -MT"w5100.d" -c -o "w5100.o" -x c++ "../w5100.cpp"
+Finished building: ../w5100.cpp
+ 
+Building target: libSatelita1_EthernetShield.a
+Invoking: AVR Archiver
+avr-ar -r  "libSatelita1_EthernetShield.a"  ./Dhcp.o ./Dns.o ./Ethernet.o ./EthernetClient.o ./EthernetServer.o ./EthernetUdp.o ./SPI.o ./socket.o ./w5100.o  
+avr-ar: creating libSatelita1_EthernetShield.a
+Finished building target: libSatelita1_EthernetShield.a
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S libSatelita1_EthernetShield.a  >"libSatelita1_EthernetShield.lss"
+Finished building: libSatelita1_EthernetShield.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex libSatelita1_EthernetShield.a  "libSatelita1_EthernetShield.hex"
+avr-objcopy:libSatelita1_EthernetShield.hex: Invalid operation
+make: [libSatelita1_EthernetShield.hex] Błąd 1 (zignorowany)
+Finished building: libSatelita1_EthernetShield.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex libSatelita1_EthernetShield.a  "libSatelita1_EthernetShield.eep"
+avr-objcopy:libSatelita1_EthernetShield.eep: Invalid operation
+make: [libSatelita1_EthernetShield.eep] Błąd 1 (zignorowany)
+Finished building: libSatelita1_EthernetShield.eep
+ 
+Invoking: Print Size
+avr-size --format=berkeley -t libSatelita1_EthernetShield.a
+   text	   data	    bss	    dec	    hex	filename
+   2110	      7	      6	   2123	    84b	Dhcp.o (ex libSatelita1_EthernetShield.a)
+   1580	      0	      6	   1586	    632	Dns.o (ex libSatelita1_EthernetShield.a)
+   1134	      0	     24	   1158	    486	Ethernet.o (ex libSatelita1_EthernetShield.a)
+   1132	      2	      6	   1140	    474	EthernetClient.o (ex libSatelita1_EthernetShield.a)
+    880	      0	      6	    886	    376	EthernetServer.o (ex libSatelita1_EthernetShield.a)
+   1006	      0	      6	   1012	    3f4	EthernetUdp.o (ex libSatelita1_EthernetShield.a)
+    132	      0	      1	    133	     85	SPI.o (ex libSatelita1_EthernetShield.a)
+   1786	      0	      2	   1788	    6fc	socket.o (ex libSatelita1_EthernetShield.a)
+   1240	      0	     16	   1256	    4e8	w5100.o (ex libSatelita1_EthernetShield.a)
+  11000	      9	     73	  11082	   2b4a	(TOTALS)
+Finished building: sizedummy
+ 
+
+**** Build Finished ****

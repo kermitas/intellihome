@@ -1,0 +1,97 @@
+/*
+ * RWSubTaskSendRECVCommand.cpp
+ *
+ *  Created on: 21-05-2012
+ *      Author: root
+ */
+
+// =================================================
+
+#include "RWSubTaskSendRECVCommand.h"
+
+// =================================================
+
+//RWSubTaskSendRECVCommand::RWSubTaskSendRECVCommand( AnyBuffer< byte , byte >* _inputBuffer , StreamHFA11xRS232WiFiCRC* _crcStream , RWCommandSerialNumber* _rwCommandSerialNumber , RWSubTaskWaitForData* _rwSubTaskWaitForData , RWSubTaskReadRECVACKCommandHeader* _rwSubTaskReadRECVACKCommandHeader , RWSubTask* _rwSubTaskDecideToSendOutgoingData ) : dp( PSTR( "RWSubTaskSendRECVCommand" ) , DEBUG_LEVEL_ALL )
+RWSubTaskSendRECVCommand::RWSubTaskSendRECVCommand( RWStateMachineHelper* _rwStateMachineHelper ) : dp( PSTR( "RWSubTaskSendRECVCommand" ) , DEBUG_LEVEL_ALL )
+{
+	h = _rwStateMachineHelper;
+
+	//inputBuffer = _inputBuffer;
+	//crcStream = _crcStream;
+	//rwCommandSerialNumber = _rwCommandSerialNumber;
+	//rwSubTaskWaitForData = _rwSubTaskWaitForData;
+	//rwSubTaskReadRECVACKCommandHeader = _rwSubTaskReadRECVACKCommandHeader;
+	//rwSubTaskDecideToSendOutgoingData = _rwSubTaskDecideToSendOutgoingData;
+}
+
+// =================================================
+
+char* RWSubTaskSendRECVCommand::getSubTaskName()
+{
+	return "SendRECVCommand"
+}
+
+// =================================================
+
+void RWSubTaskSendRECVCommand::resetInternalState()
+{
+
+}
+
+// =================================================
+
+unsigned long RWSubTaskSendRECVCommand::getStateTimeout()
+{
+	return 2*1000;
+}
+
+// =================================================
+
+RWSubTask* RWSubTaskSendRECVCommand::getStateAfterTimeout()
+{
+	return rwSubTaskDecideToSendOutgoingData;
+}
+
+// =================================================
+
+RWSubTask* RWSubTaskSendRECVCommand::executeSubTask()
+{
+	// ---
+
+	h->crcStream->resetOutgoingState();
+
+	// ---
+
+	if(
+		// command
+			h->crcStream->write( (unsigned char)2 ) != 1 ||
+
+		// sn
+			h->crcStream->write( h->rwCommandSerialNumber->commandSerialNumber ) != 1 ||
+
+		// reserved two bytes (0 and 0)
+			h->crcStream->write( 0 ) != 1 ||
+			h->crcStream->write( 0 ) != 1 ||
+
+		// low byte of incomming buffer size
+			h->crcStream->write( h->inputBuffer->getUnusedSpace() ) != 1 ||
+
+		// high byte of incomming buffer size
+			h->crcStream->write( (unsigned char)0 ) != 1 ||
+
+		!h->crcStream->writeOutgoingDataCRCToStream()
+	)
+	{
+		return h->rwSubTaskDecideToSendOutgoingData;
+	}
+	else
+	{
+		h->rwSubTaskWaitForData->setWork( 6 , h->rwSubTaskReadRECVACKCommandHeader , 2*1000 , h->rwSubTaskDecideToSendOutgoingData );
+
+		return h->rwSubTaskWaitForData;
+	}
+}
+
+// =================================================
+
+

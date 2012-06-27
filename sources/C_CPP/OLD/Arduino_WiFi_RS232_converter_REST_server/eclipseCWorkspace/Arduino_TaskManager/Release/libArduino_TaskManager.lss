@@ -1,0 +1,3798 @@
+In archive libArduino_TaskManager.a:
+
+Arduino_TaskManager.o:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  00000000  00000000  00000034  2**0
+                  ALLOC
+  3 .stab         00000594  00000000  00000000  00000034  2**2
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  4 .stabstr      00002beb  00000000  00000000  000005c8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .text.setup   00000002  00000000  00000000  000031b3  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  6 .text.loop    00000002  00000000  00000000  000031b5  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+
+Disassembly of section .text.setup:
+
+00000000 <setup>:
+
+// The loop function is called in an endless loop
+void loop()
+{
+//Add your repeated code here
+}
+   0:	08 95       	ret
+
+Disassembly of section .text.loop:
+
+00000000 <loop>:
+   0:	08 95       	ret
+
+TaskManager.o:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000063  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  00000000  00000000  00000097  2**0
+                  ALLOC
+  3 .stab         00001008  00000000  00000000  00000098  2**2
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  4 .stabstr      00003f41  00000000  00000000  000010a0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .text.unlikely._ZNK9QueueListIP17TaskManagerRecordE4exitEPKc.isra.3 0000003a  00000000  00000000  00004fe1  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  6 .text._ZN11TaskManagerC2EP21TaskManagerStatistics 000000bc  00000000  00000000  0000501b  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  7 .text._ZN9QueueListIP17TaskManagerRecordE4pushES1_ 0000006a  00000000  00000000  000050d7  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  8 .text._ZN11TaskManager7addTaskEP29TaskManagerMemoryConfiguratorP20TaskManagerSchedulerP8Runnable 00000064  00000000  00000000  00005141  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  9 .text._ZN11TaskManager7addTaskEbbP20TaskManagerSchedulerP8Runnable 00000038  00000000  00000000  000051a5  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 10 .text._ZN9QueueListIP17TaskManagerRecordE3popEv 00000050  00000000  00000000  000051dd  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 11 .text._ZN11TaskManagerD2Ev 0000014c  00000000  00000000  0000522d  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 12 .text._ZN11TaskManagerD0Ev 00000016  00000000  00000000  00005379  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 13 .text._ZN11TaskManager17executeTasksQueueEv 000000c2  00000000  00000000  0000538f  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 14 .text._ZN11TaskManager7executeEv 00000092  00000000  00000000  00005451  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 15 .rodata._ZTV11TaskManager 00000008  00000000  00000000  000054e3  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+
+Disassembly of section .text.unlikely._ZNK9QueueListIP17TaskManagerRecordE4exitEPKc.isra.3:
+
+00000000 <_ZNK9QueueListIP17TaskManagerRecordE4exitEPKc.isra.3>:
+	else
+		tasksQueueB->push( record );
+}
+
+void TaskManager::execute()
+{
+   0:	00 97       	sbiw	r24, 0x00	; 0
+   2:	01 f0       	breq	.+0      	; 0x4 <_ZNK9QueueListIP17TaskManagerRecordE4exitEPKc.isra.3+0x4>
+   4:	0e 94 00 00 	call	0	; 0x0 <_ZNK9QueueListIP17TaskManagerRecordE4exitEPKc.isra.3>
+   8:	8d e0       	ldi	r24, 0x0D	; 13
+   a:	61 e0       	ldi	r22, 0x01	; 1
+   c:	0e 94 00 00 	call	0	; 0x0 <_ZNK9QueueListIP17TaskManagerRecordE4exitEPKc.isra.3>
+  10:	8d e0       	ldi	r24, 0x0D	; 13
+	if( taskManagerStatistics != NULL )
+  12:	61 e0       	ldi	r22, 0x01	; 1
+  14:	0e 94 00 00 	call	0	; 0x0 <_ZNK9QueueListIP17TaskManagerRecordE4exitEPKc.isra.3>
+  18:	6a ef       	ldi	r22, 0xFA	; 250
+	{
+		taskManagerStatistics->beforeTaskQueue();
+  1a:	70 e0       	ldi	r23, 0x00	; 0
+  1c:	80 e0       	ldi	r24, 0x00	; 0
+  1e:	90 e0       	ldi	r25, 0x00	; 0
+  20:	0e 94 00 00 	call	0	; 0x0 <_ZNK9QueueListIP17TaskManagerRecordE4exitEPKc.isra.3>
+  24:	8d e0       	ldi	r24, 0x0D	; 13
+  26:	60 e0       	ldi	r22, 0x00	; 0
+
+		int executedTasksCountInThisIteration = executeTasksQueue();
+  28:	0e 94 00 00 	call	0	; 0x0 <_ZNK9QueueListIP17TaskManagerRecordE4exitEPKc.isra.3>
+  2c:	6a ef       	ldi	r22, 0xFA	; 250
+	while( !tasksQueueA->isEmpty() ) delete( tasksQueueA->pop() );
+	while( !tasksQueueB->isEmpty() ) delete( tasksQueueA->pop() );
+
+	delete( tasksQueueA );
+	delete( tasksQueueB );
+}
+  2e:	70 e0       	ldi	r23, 0x00	; 0
+  30:	80 e0       	ldi	r24, 0x00	; 0
+  32:	90 e0       	ldi	r25, 0x00	; 0
+  34:	0e 94 00 00 	call	0	; 0x0 <_ZNK9QueueListIP17TaskManagerRecordE4exitEPKc.isra.3>
+	{
+		taskManagerStatistics->beforeTaskQueue();
+
+		int executedTasksCountInThisIteration = executeTasksQueue();
+
+		unsigned long checkedTasksCountInThisIteration = tasksQueueA->count() + tasksQueueB->count();
+  38:	00 c0       	rjmp	.+0      	; 0x3a <__zero_reg__+0x39>
+
+Disassembly of section .text._ZN11TaskManagerC2EP21TaskManagerStatistics:
+
+00000000 <_ZN11TaskManagerC1EP21TaskManagerStatistics>:
+	else
+		tasksQueueB->push( record );
+}
+
+void TaskManager::execute()
+{
+   0:	0f 93       	push	r16
+   2:	1f 93       	push	r17
+   4:	cf 93       	push	r28
+   6:	df 93       	push	r29
+   8:	ec 01       	movw	r28, r24
+   a:	80 e0       	ldi	r24, 0x00	; 0
+   c:	90 e0       	ldi	r25, 0x00	; 0
+   e:	99 83       	std	Y+1, r25	; 0x01
+  10:	88 83       	st	Y, r24
+	if( taskManagerStatistics != NULL )
+  12:	7b 83       	std	Y+3, r23	; 0x03
+  14:	6a 83       	std	Y+2, r22	; 0x02
+  16:	88 e0       	ldi	r24, 0x08	; 8
+  18:	90 e0       	ldi	r25, 0x00	; 0
+	{
+		taskManagerStatistics->beforeTaskQueue();
+  1a:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManagerC1EP21TaskManagerStatistics>
+  1e:	fc 01       	movw	r30, r24
+  20:	13 82       	std	Z+3, r1	; 0x03
+  22:	12 82       	std	Z+2, r1	; 0x02
+  24:	15 82       	std	Z+5, r1	; 0x05
+  26:	14 82       	std	Z+4, r1	; 0x04
+
+		int executedTasksCountInThisIteration = executeTasksQueue();
+  28:	17 82       	std	Z+7, r1	; 0x07
+  2a:	16 82       	std	Z+6, r1	; 0x06
+  2c:	11 82       	std	Z+1, r1	; 0x01
+	while( !tasksQueueA->isEmpty() ) delete( tasksQueueA->pop() );
+	while( !tasksQueueB->isEmpty() ) delete( tasksQueueA->pop() );
+
+	delete( tasksQueueA );
+	delete( tasksQueueB );
+}
+  2e:	10 82       	st	Z, r1
+  30:	9d 83       	std	Y+5, r25	; 0x05
+  32:	8c 83       	std	Y+4, r24	; 0x04
+  34:	88 e0       	ldi	r24, 0x08	; 8
+	{
+		taskManagerStatistics->beforeTaskQueue();
+
+		int executedTasksCountInThisIteration = executeTasksQueue();
+
+		unsigned long checkedTasksCountInThisIteration = tasksQueueA->count() + tasksQueueB->count();
+  36:	90 e0       	ldi	r25, 0x00	; 0
+  38:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManagerC1EP21TaskManagerStatistics>
+  3c:	fc 01       	movw	r30, r24
+  3e:	13 82       	std	Z+3, r1	; 0x03
+  40:	12 82       	std	Z+2, r1	; 0x02
+  42:	15 82       	std	Z+5, r1	; 0x05
+  44:	14 82       	std	Z+4, r1	; 0x04
+  46:	17 82       	std	Z+7, r1	; 0x07
+  48:	16 82       	std	Z+6, r1	; 0x06
+  4a:	11 82       	std	Z+1, r1	; 0x01
+  4c:	10 82       	st	Z, r1
+		taskManagerStatistics->afterTaskQueue( checkedTasksCountInThisIteration, executedTasksCountInThisIteration , checkedTasksCountInThisIteration-executedTasksCountInThisIteration );
+  4e:	9f 83       	std	Y+7, r25	; 0x07
+  50:	8e 83       	std	Y+6, r24	; 0x06
+  52:	85 e0       	ldi	r24, 0x05	; 5
+  54:	90 e0       	ldi	r25, 0x00	; 0
+  56:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManagerC1EP21TaskManagerStatistics>
+  5a:	8c 01       	movw	r16, r24
+  5c:	61 e0       	ldi	r22, 0x01	; 1
+  5e:	41 e0       	ldi	r20, 0x01	; 1
+  60:	20 e0       	ldi	r18, 0x00	; 0
+  62:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManagerC1EP21TaskManagerStatistics>
+  66:	19 87       	std	Y+9, r17	; 0x09
+  68:	08 87       	std	Y+8, r16	; 0x08
+  6a:	85 e0       	ldi	r24, 0x05	; 5
+  6c:	90 e0       	ldi	r25, 0x00	; 0
+  6e:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManagerC1EP21TaskManagerStatistics>
+  72:	8c 01       	movw	r16, r24
+  74:	61 e0       	ldi	r22, 0x01	; 1
+  76:	40 e0       	ldi	r20, 0x00	; 0
+  78:	20 e0       	ldi	r18, 0x00	; 0
+	}
+	else
+		executeTasksQueue();
+  7a:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManagerC1EP21TaskManagerStatistics>
+  7e:	1b 87       	std	Y+11, r17	; 0x0b
+}
+  80:	0a 87       	std	Y+10, r16	; 0x0a
+  82:	85 e0       	ldi	r24, 0x05	; 5
+  84:	90 e0       	ldi	r25, 0x00	; 0
+  86:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManagerC1EP21TaskManagerStatistics>
+  8a:	8c 01       	movw	r16, r24
+  8c:	60 e0       	ldi	r22, 0x00	; 0
+  8e:	41 e0       	ldi	r20, 0x01	; 1
+  90:	20 e0       	ldi	r18, 0x00	; 0
+  92:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManagerC1EP21TaskManagerStatistics>
+  96:	1d 87       	std	Y+13, r17	; 0x0d
+  98:	0c 87       	std	Y+12, r16	; 0x0c
+  9a:	85 e0       	ldi	r24, 0x05	; 5
+  9c:	90 e0       	ldi	r25, 0x00	; 0
+  9e:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManagerC1EP21TaskManagerStatistics>
+  a2:	8c 01       	movw	r16, r24
+  a4:	60 e0       	ldi	r22, 0x00	; 0
+  a6:	40 e0       	ldi	r20, 0x00	; 0
+  a8:	20 e0       	ldi	r18, 0x00	; 0
+  aa:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManagerC1EP21TaskManagerStatistics>
+  ae:	1f 87       	std	Y+15, r17	; 0x0f
+  b0:	0e 87       	std	Y+14, r16	; 0x0e
+  b2:	df 91       	pop	r29
+  b4:	cf 91       	pop	r28
+  b6:	1f 91       	pop	r17
+  b8:	0f 91       	pop	r16
+  ba:	08 95       	ret
+
+Disassembly of section .text._ZN9QueueListIP17TaskManagerRecordE4pushES1_:
+
+00000000 <_ZN9QueueListIP17TaskManagerRecordE4pushES1_>:
+	else
+		tasksQueueB->push( record );
+}
+
+void TaskManager::execute()
+{
+   0:	ef 92       	push	r14
+   2:	ff 92       	push	r15
+   4:	0f 93       	push	r16
+   6:	1f 93       	push	r17
+   8:	cf 93       	push	r28
+   a:	df 93       	push	r29
+   c:	ec 01       	movw	r28, r24
+   e:	8b 01       	movw	r16, r22
+  10:	ee 80       	ldd	r14, Y+6	; 0x06
+	if( taskManagerStatistics != NULL )
+  12:	ff 80       	ldd	r15, Y+7	; 0x07
+  14:	84 e0       	ldi	r24, 0x04	; 4
+  16:	90 e0       	ldi	r25, 0x00	; 0
+  18:	0e 94 00 00 	call	0	; 0x0 <_ZN9QueueListIP17TaskManagerRecordE4pushES1_>
+	{
+		taskManagerStatistics->beforeTaskQueue();
+  1c:	fc 01       	movw	r30, r24
+  1e:	9f 83       	std	Y+7, r25	; 0x07
+  20:	8e 83       	std	Y+6, r24	; 0x06
+  22:	00 97       	sbiw	r24, 0x00	; 0
+  24:	01 f4       	brne	.+0      	; 0x26 <_ZN9QueueListIP17TaskManagerRecordE4pushES1_+0x26>
+  26:	88 81       	ld	r24, Y
+
+		int executedTasksCountInThisIteration = executeTasksQueue();
+  28:	99 81       	ldd	r25, Y+1	; 0x01
+  2a:	60 e0       	ldi	r22, 0x00	; 0
+  2c:	70 e0       	ldi	r23, 0x00	; 0
+	while( !tasksQueueA->isEmpty() ) delete( tasksQueueA->pop() );
+	while( !tasksQueueB->isEmpty() ) delete( tasksQueueA->pop() );
+
+	delete( tasksQueueA );
+	delete( tasksQueueB );
+}
+  2e:	0e 94 00 00 	call	0	; 0x0 <_ZN9QueueListIP17TaskManagerRecordE4pushES1_>
+  32:	13 82       	std	Z+3, r1	; 0x03
+  34:	12 82       	std	Z+2, r1	; 0x02
+	{
+		taskManagerStatistics->beforeTaskQueue();
+
+		int executedTasksCountInThisIteration = executeTasksQueue();
+
+		unsigned long checkedTasksCountInThisIteration = tasksQueueA->count() + tasksQueueB->count();
+  36:	11 83       	std	Z+1, r17	; 0x01
+  38:	00 83       	st	Z, r16
+  3a:	8c 81       	ldd	r24, Y+4	; 0x04
+  3c:	9d 81       	ldd	r25, Y+5	; 0x05
+  3e:	00 97       	sbiw	r24, 0x00	; 0
+  40:	01 f4       	brne	.+0      	; 0x42 <_ZN9QueueListIP17TaskManagerRecordE4pushES1_+0x42>
+  42:	fd 83       	std	Y+5, r31	; 0x05
+  44:	ec 83       	std	Y+4, r30	; 0x04
+  46:	00 c0       	rjmp	.+0      	; 0x48 <_ZN9QueueListIP17TaskManagerRecordE4pushES1_+0x48>
+  48:	d7 01       	movw	r26, r14
+  4a:	13 96       	adiw	r26, 0x03	; 3
+  4c:	fc 93       	st	X, r31
+		taskManagerStatistics->afterTaskQueue( checkedTasksCountInThisIteration, executedTasksCountInThisIteration , checkedTasksCountInThisIteration-executedTasksCountInThisIteration );
+  4e:	ee 93       	st	-X, r30
+  50:	12 97       	sbiw	r26, 0x02	; 2
+  52:	8a 81       	ldd	r24, Y+2	; 0x02
+  54:	9b 81       	ldd	r25, Y+3	; 0x03
+  56:	01 96       	adiw	r24, 0x01	; 1
+  58:	9b 83       	std	Y+3, r25	; 0x03
+  5a:	8a 83       	std	Y+2, r24	; 0x02
+  5c:	df 91       	pop	r29
+  5e:	cf 91       	pop	r28
+  60:	1f 91       	pop	r17
+  62:	0f 91       	pop	r16
+  64:	ff 90       	pop	r15
+  66:	ef 90       	pop	r14
+  68:	08 95       	ret
+
+Disassembly of section .text._ZN11TaskManager7addTaskEP29TaskManagerMemoryConfiguratorP20TaskManagerSchedulerP8Runnable:
+
+00000000 <_ZN11TaskManager7addTaskEP29TaskManagerMemoryConfiguratorP20TaskManagerSchedulerP8Runnable>:
+	else
+		tasksQueueB->push( record );
+}
+
+void TaskManager::execute()
+{
+   0:	af 92       	push	r10
+   2:	bf 92       	push	r11
+   4:	cf 92       	push	r12
+   6:	df 92       	push	r13
+   8:	ef 92       	push	r14
+   a:	ff 92       	push	r15
+   c:	0f 93       	push	r16
+   e:	1f 93       	push	r17
+  10:	cf 93       	push	r28
+	if( taskManagerStatistics != NULL )
+  12:	df 93       	push	r29
+  14:	8c 01       	movw	r16, r24
+  16:	7b 01       	movw	r14, r22
+  18:	6a 01       	movw	r12, r20
+	{
+		taskManagerStatistics->beforeTaskQueue();
+  1a:	59 01       	movw	r10, r18
+  1c:	88 e0       	ldi	r24, 0x08	; 8
+  1e:	90 e0       	ldi	r25, 0x00	; 0
+  20:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager7addTaskEP29TaskManagerMemoryConfiguratorP20TaskManagerSchedulerP8Runnable>
+  24:	ec 01       	movw	r28, r24
+  26:	b7 01       	movw	r22, r14
+
+		int executedTasksCountInThisIteration = executeTasksQueue();
+  28:	a6 01       	movw	r20, r12
+  2a:	95 01       	movw	r18, r10
+  2c:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager7addTaskEP29TaskManagerMemoryConfiguratorP20TaskManagerSchedulerP8Runnable>
+	while( !tasksQueueA->isEmpty() ) delete( tasksQueueA->pop() );
+	while( !tasksQueueB->isEmpty() ) delete( tasksQueueA->pop() );
+
+	delete( tasksQueueA );
+	delete( tasksQueueB );
+}
+  30:	f8 01       	movw	r30, r16
+  32:	84 81       	ldd	r24, Z+4	; 0x04
+  34:	95 81       	ldd	r25, Z+5	; 0x05
+	{
+		taskManagerStatistics->beforeTaskQueue();
+
+		int executedTasksCountInThisIteration = executeTasksQueue();
+
+		unsigned long checkedTasksCountInThisIteration = tasksQueueA->count() + tasksQueueB->count();
+  36:	fc 01       	movw	r30, r24
+  38:	24 81       	ldd	r18, Z+4	; 0x04
+  3a:	35 81       	ldd	r19, Z+5	; 0x05
+  3c:	21 15       	cp	r18, r1
+  3e:	31 05       	cpc	r19, r1
+  40:	01 f4       	brne	.+0      	; 0x42 <_ZN11TaskManager7addTaskEP29TaskManagerMemoryConfiguratorP20TaskManagerSchedulerP8Runnable+0x42>
+  42:	f8 01       	movw	r30, r16
+  44:	86 81       	ldd	r24, Z+6	; 0x06
+  46:	97 81       	ldd	r25, Z+7	; 0x07
+  48:	be 01       	movw	r22, r28
+  4a:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager7addTaskEP29TaskManagerMemoryConfiguratorP20TaskManagerSchedulerP8Runnable>
+		taskManagerStatistics->afterTaskQueue( checkedTasksCountInThisIteration, executedTasksCountInThisIteration , checkedTasksCountInThisIteration-executedTasksCountInThisIteration );
+  4e:	df 91       	pop	r29
+  50:	cf 91       	pop	r28
+  52:	1f 91       	pop	r17
+  54:	0f 91       	pop	r16
+  56:	ff 90       	pop	r15
+  58:	ef 90       	pop	r14
+  5a:	df 90       	pop	r13
+  5c:	cf 90       	pop	r12
+  5e:	bf 90       	pop	r11
+  60:	af 90       	pop	r10
+  62:	08 95       	ret
+
+Disassembly of section .text._ZN11TaskManager7addTaskEbbP20TaskManagerSchedulerP8Runnable:
+
+00000000 <_ZN11TaskManager7addTaskEbbP20TaskManagerSchedulerP8Runnable>:
+	else
+		tasksQueueB->push( record );
+}
+
+void TaskManager::execute()
+{
+   0:	0f 93       	push	r16
+   2:	1f 93       	push	r17
+   4:	fc 01       	movw	r30, r24
+   6:	66 23       	and	r22, r22
+   8:	01 f0       	breq	.+0      	; 0xa <_ZN11TaskManager7addTaskEbbP20TaskManagerSchedulerP8Runnable+0xa>
+   a:	44 23       	and	r20, r20
+   c:	01 f0       	breq	.+0      	; 0xe <_ZN11TaskManager7addTaskEbbP20TaskManagerSchedulerP8Runnable+0xe>
+   e:	60 85       	ldd	r22, Z+8	; 0x08
+  10:	71 85       	ldd	r23, Z+9	; 0x09
+	if( taskManagerStatistics != NULL )
+  12:	00 c0       	rjmp	.+0      	; 0x14 <_ZN11TaskManager7addTaskEbbP20TaskManagerSchedulerP8Runnable+0x14>
+  14:	62 85       	ldd	r22, Z+10	; 0x0a
+  16:	73 85       	ldd	r23, Z+11	; 0x0b
+  18:	00 c0       	rjmp	.+0      	; 0x1a <_ZN11TaskManager7addTaskEbbP20TaskManagerSchedulerP8Runnable+0x1a>
+	{
+		taskManagerStatistics->beforeTaskQueue();
+  1a:	44 23       	and	r20, r20
+  1c:	01 f0       	breq	.+0      	; 0x1e <_ZN11TaskManager7addTaskEbbP20TaskManagerSchedulerP8Runnable+0x1e>
+  1e:	64 85       	ldd	r22, Z+12	; 0x0c
+  20:	75 85       	ldd	r23, Z+13	; 0x0d
+  22:	00 c0       	rjmp	.+0      	; 0x24 <_ZN11TaskManager7addTaskEbbP20TaskManagerSchedulerP8Runnable+0x24>
+  24:	66 85       	ldd	r22, Z+14	; 0x0e
+  26:	77 85       	ldd	r23, Z+15	; 0x0f
+
+		int executedTasksCountInThisIteration = executeTasksQueue();
+  28:	cf 01       	movw	r24, r30
+  2a:	a9 01       	movw	r20, r18
+  2c:	98 01       	movw	r18, r16
+	while( !tasksQueueA->isEmpty() ) delete( tasksQueueA->pop() );
+	while( !tasksQueueB->isEmpty() ) delete( tasksQueueA->pop() );
+
+	delete( tasksQueueA );
+	delete( tasksQueueB );
+}
+  2e:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager7addTaskEbbP20TaskManagerSchedulerP8Runnable>
+  32:	1f 91       	pop	r17
+  34:	0f 91       	pop	r16
+	{
+		taskManagerStatistics->beforeTaskQueue();
+
+		int executedTasksCountInThisIteration = executeTasksQueue();
+
+		unsigned long checkedTasksCountInThisIteration = tasksQueueA->count() + tasksQueueB->count();
+  36:	08 95       	ret
+
+Disassembly of section .text._ZN9QueueListIP17TaskManagerRecordE3popEv:
+
+00000000 <_ZN9QueueListIP17TaskManagerRecordE3popEv>:
+	else
+		tasksQueueB->push( record );
+}
+
+void TaskManager::execute()
+{
+   0:	ef 92       	push	r14
+   2:	ff 92       	push	r15
+   4:	0f 93       	push	r16
+   6:	1f 93       	push	r17
+   8:	cf 93       	push	r28
+   a:	df 93       	push	r29
+   c:	ec 01       	movw	r28, r24
+   e:	ec 81       	ldd	r30, Y+4	; 0x04
+  10:	fd 81       	ldd	r31, Y+5	; 0x05
+	if( taskManagerStatistics != NULL )
+  12:	30 97       	sbiw	r30, 0x00	; 0
+  14:	01 f4       	brne	.+0      	; 0x16 <_ZN9QueueListIP17TaskManagerRecordE3popEv+0x16>
+  16:	88 81       	ld	r24, Y
+  18:	99 81       	ldd	r25, Y+1	; 0x01
+	{
+		taskManagerStatistics->beforeTaskQueue();
+  1a:	60 e0       	ldi	r22, 0x00	; 0
+  1c:	70 e0       	ldi	r23, 0x00	; 0
+  1e:	0e 94 00 00 	call	0	; 0x0 <_ZN9QueueListIP17TaskManagerRecordE3popEv>
+  22:	e0 80       	ld	r14, Z
+  24:	f1 80       	ldd	r15, Z+1	; 0x01
+  26:	02 81       	ldd	r16, Z+2	; 0x02
+
+		int executedTasksCountInThisIteration = executeTasksQueue();
+  28:	13 81       	ldd	r17, Z+3	; 0x03
+  2a:	cf 01       	movw	r24, r30
+  2c:	0e 94 00 00 	call	0	; 0x0 <_ZN9QueueListIP17TaskManagerRecordE3popEv>
+	while( !tasksQueueA->isEmpty() ) delete( tasksQueueA->pop() );
+	while( !tasksQueueB->isEmpty() ) delete( tasksQueueA->pop() );
+
+	delete( tasksQueueA );
+	delete( tasksQueueB );
+}
+  30:	1d 83       	std	Y+5, r17	; 0x05
+  32:	0c 83       	std	Y+4, r16	; 0x04
+  34:	2a 81       	ldd	r18, Y+2	; 0x02
+	{
+		taskManagerStatistics->beforeTaskQueue();
+
+		int executedTasksCountInThisIteration = executeTasksQueue();
+
+		unsigned long checkedTasksCountInThisIteration = tasksQueueA->count() + tasksQueueB->count();
+  36:	3b 81       	ldd	r19, Y+3	; 0x03
+  38:	21 50       	subi	r18, 0x01	; 1
+  3a:	30 40       	sbci	r19, 0x00	; 0
+  3c:	3b 83       	std	Y+3, r19	; 0x03
+  3e:	2a 83       	std	Y+2, r18	; 0x02
+  40:	c7 01       	movw	r24, r14
+  42:	df 91       	pop	r29
+  44:	cf 91       	pop	r28
+  46:	1f 91       	pop	r17
+  48:	0f 91       	pop	r16
+  4a:	ff 90       	pop	r15
+  4c:	ef 90       	pop	r14
+		taskManagerStatistics->afterTaskQueue( checkedTasksCountInThisIteration, executedTasksCountInThisIteration , checkedTasksCountInThisIteration-executedTasksCountInThisIteration );
+  4e:	08 95       	ret
+
+Disassembly of section .text._ZN11TaskManagerD2Ev:
+
+00000000 <_ZN11TaskManagerD1Ev>:
+	else
+		tasksQueueB->push( record );
+}
+
+void TaskManager::execute()
+{
+   0:	ef 92       	push	r14
+   2:	ff 92       	push	r15
+   4:	0f 93       	push	r16
+   6:	1f 93       	push	r17
+   8:	cf 93       	push	r28
+   a:	df 93       	push	r29
+   c:	7c 01       	movw	r14, r24
+   e:	80 e0       	ldi	r24, 0x00	; 0
+  10:	90 e0       	ldi	r25, 0x00	; 0
+	if( taskManagerStatistics != NULL )
+  12:	d7 01       	movw	r26, r14
+  14:	11 96       	adiw	r26, 0x01	; 1
+  16:	9c 93       	st	X, r25
+  18:	8e 93       	st	-X, r24
+	{
+		taskManagerStatistics->beforeTaskQueue();
+  1a:	18 96       	adiw	r26, 0x08	; 8
+  1c:	8d 91       	ld	r24, X+
+  1e:	9c 91       	ld	r25, X
+  20:	19 97       	sbiw	r26, 0x09	; 9
+  22:	00 97       	sbiw	r24, 0x00	; 0
+  24:	01 f0       	breq	.+0      	; 0x26 <_ZN11TaskManagerD1Ev+0x26>
+  26:	dc 01       	movw	r26, r24
+
+		int executedTasksCountInThisIteration = executeTasksQueue();
+  28:	ed 91       	ld	r30, X+
+  2a:	fc 91       	ld	r31, X
+  2c:	02 80       	ldd	r0, Z+2	; 0x02
+	while( !tasksQueueA->isEmpty() ) delete( tasksQueueA->pop() );
+	while( !tasksQueueB->isEmpty() ) delete( tasksQueueA->pop() );
+
+	delete( tasksQueueA );
+	delete( tasksQueueB );
+}
+  2e:	f3 81       	ldd	r31, Z+3	; 0x03
+  30:	e0 2d       	mov	r30, r0
+  32:	09 95       	icall
+  34:	f7 01       	movw	r30, r14
+	{
+		taskManagerStatistics->beforeTaskQueue();
+
+		int executedTasksCountInThisIteration = executeTasksQueue();
+
+		unsigned long checkedTasksCountInThisIteration = tasksQueueA->count() + tasksQueueB->count();
+  36:	82 85       	ldd	r24, Z+10	; 0x0a
+  38:	93 85       	ldd	r25, Z+11	; 0x0b
+  3a:	00 97       	sbiw	r24, 0x00	; 0
+  3c:	01 f0       	breq	.+0      	; 0x3e <_ZN11TaskManagerD1Ev+0x3e>
+  3e:	dc 01       	movw	r26, r24
+  40:	ed 91       	ld	r30, X+
+  42:	fc 91       	ld	r31, X
+  44:	02 80       	ldd	r0, Z+2	; 0x02
+  46:	f3 81       	ldd	r31, Z+3	; 0x03
+  48:	e0 2d       	mov	r30, r0
+  4a:	09 95       	icall
+  4c:	f7 01       	movw	r30, r14
+		taskManagerStatistics->afterTaskQueue( checkedTasksCountInThisIteration, executedTasksCountInThisIteration , checkedTasksCountInThisIteration-executedTasksCountInThisIteration );
+  4e:	84 85       	ldd	r24, Z+12	; 0x0c
+  50:	95 85       	ldd	r25, Z+13	; 0x0d
+  52:	00 97       	sbiw	r24, 0x00	; 0
+  54:	01 f0       	breq	.+0      	; 0x56 <_ZN11TaskManagerD1Ev+0x56>
+  56:	dc 01       	movw	r26, r24
+  58:	ed 91       	ld	r30, X+
+  5a:	fc 91       	ld	r31, X
+  5c:	02 80       	ldd	r0, Z+2	; 0x02
+  5e:	f3 81       	ldd	r31, Z+3	; 0x03
+  60:	e0 2d       	mov	r30, r0
+  62:	09 95       	icall
+  64:	f7 01       	movw	r30, r14
+  66:	86 85       	ldd	r24, Z+14	; 0x0e
+  68:	97 85       	ldd	r25, Z+15	; 0x0f
+  6a:	00 c0       	rjmp	.+0      	; 0x6c <_ZN11TaskManagerD1Ev+0x6c>
+  6c:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManagerD1Ev>
+  70:	00 97       	sbiw	r24, 0x00	; 0
+  72:	01 f0       	breq	.+0      	; 0x74 <_ZN11TaskManagerD1Ev+0x74>
+  74:	dc 01       	movw	r26, r24
+  76:	ed 91       	ld	r30, X+
+  78:	fc 91       	ld	r31, X
+	}
+	else
+		executeTasksQueue();
+  7a:	02 80       	ldd	r0, Z+2	; 0x02
+  7c:	f3 81       	ldd	r31, Z+3	; 0x03
+  7e:	e0 2d       	mov	r30, r0
+}
+  80:	09 95       	icall
+  82:	f7 01       	movw	r30, r14
+  84:	84 81       	ldd	r24, Z+4	; 0x04
+  86:	95 81       	ldd	r25, Z+5	; 0x05
+  88:	dc 01       	movw	r26, r24
+  8a:	14 96       	adiw	r26, 0x04	; 4
+  8c:	2d 91       	ld	r18, X+
+  8e:	3c 91       	ld	r19, X
+  90:	15 97       	sbiw	r26, 0x05	; 5
+  92:	21 15       	cp	r18, r1
+  94:	31 05       	cpc	r19, r1
+  96:	01 f4       	brne	.+0      	; 0x98 <_ZN11TaskManagerD1Ev+0x98>
+  98:	00 c0       	rjmp	.+0      	; 0x9a <_ZN11TaskManagerD1Ev+0x9a>
+  9a:	ce 01       	movw	r24, r28
+  9c:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManagerD1Ev>
+  a0:	00 97       	sbiw	r24, 0x00	; 0
+  a2:	01 f0       	breq	.+0      	; 0xa4 <_ZN11TaskManagerD1Ev+0xa4>
+  a4:	dc 01       	movw	r26, r24
+  a6:	ed 91       	ld	r30, X+
+  a8:	fc 91       	ld	r31, X
+  aa:	02 80       	ldd	r0, Z+2	; 0x02
+  ac:	f3 81       	ldd	r31, Z+3	; 0x03
+  ae:	e0 2d       	mov	r30, r0
+  b0:	09 95       	icall
+  b2:	d7 01       	movw	r26, r14
+  b4:	16 96       	adiw	r26, 0x06	; 6
+  b6:	ed 91       	ld	r30, X+
+  b8:	fc 91       	ld	r31, X
+  ba:	17 97       	sbiw	r26, 0x07	; 7
+  bc:	84 81       	ldd	r24, Z+4	; 0x04
+  be:	95 81       	ldd	r25, Z+5	; 0x05
+  c0:	14 96       	adiw	r26, 0x04	; 4
+  c2:	cd 91       	ld	r28, X+
+  c4:	dc 91       	ld	r29, X
+  c6:	15 97       	sbiw	r26, 0x05	; 5
+  c8:	00 97       	sbiw	r24, 0x00	; 0
+  ca:	01 f4       	brne	.+0      	; 0xcc <_ZN11TaskManagerD1Ev+0xcc>
+  cc:	20 97       	sbiw	r28, 0x00	; 0
+  ce:	01 f0       	breq	.+0      	; 0xd0 <_ZN11TaskManagerD1Ev+0xd0>
+  d0:	0c 81       	ldd	r16, Y+4	; 0x04
+  d2:	1d 81       	ldd	r17, Y+5	; 0x05
+  d4:	00 c0       	rjmp	.+0      	; 0xd6 <_ZN11TaskManagerD1Ev+0xd6>
+  d6:	8c 81       	ldd	r24, Y+4	; 0x04
+  d8:	9d 81       	ldd	r25, Y+5	; 0x05
+  da:	fc 01       	movw	r30, r24
+  dc:	02 81       	ldd	r16, Z+2	; 0x02
+  de:	13 81       	ldd	r17, Z+3	; 0x03
+  e0:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManagerD1Ev>
+  e4:	1d 83       	std	Y+5, r17	; 0x05
+  e6:	0c 83       	std	Y+4, r16	; 0x04
+  e8:	01 15       	cp	r16, r1
+  ea:	11 05       	cpc	r17, r1
+  ec:	01 f4       	brne	.+0      	; 0xee <_ZN11TaskManagerD1Ev+0xee>
+  ee:	1b 82       	std	Y+3, r1	; 0x03
+  f0:	1a 82       	std	Y+2, r1	; 0x02
+  f2:	1f 82       	std	Y+7, r1	; 0x07
+  f4:	1e 82       	std	Y+6, r1	; 0x06
+  f6:	19 82       	std	Y+1, r1	; 0x01
+  f8:	18 82       	st	Y, r1
+  fa:	ce 01       	movw	r24, r28
+  fc:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManagerD1Ev>
+ 100:	d7 01       	movw	r26, r14
+ 102:	16 96       	adiw	r26, 0x06	; 6
+ 104:	cd 91       	ld	r28, X+
+ 106:	dc 91       	ld	r29, X
+ 108:	17 97       	sbiw	r26, 0x07	; 7
+ 10a:	20 97       	sbiw	r28, 0x00	; 0
+ 10c:	01 f0       	breq	.+0      	; 0x10e <_ZN11TaskManagerD1Ev+0x10e>
+ 10e:	0c 81       	ldd	r16, Y+4	; 0x04
+ 110:	1d 81       	ldd	r17, Y+5	; 0x05
+ 112:	00 c0       	rjmp	.+0      	; 0x114 <_ZN11TaskManagerD1Ev+0x114>
+ 114:	8c 81       	ldd	r24, Y+4	; 0x04
+ 116:	9d 81       	ldd	r25, Y+5	; 0x05
+ 118:	fc 01       	movw	r30, r24
+ 11a:	02 81       	ldd	r16, Z+2	; 0x02
+ 11c:	13 81       	ldd	r17, Z+3	; 0x03
+ 11e:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManagerD1Ev>
+ 122:	1d 83       	std	Y+5, r17	; 0x05
+ 124:	0c 83       	std	Y+4, r16	; 0x04
+ 126:	01 15       	cp	r16, r1
+ 128:	11 05       	cpc	r17, r1
+ 12a:	01 f4       	brne	.+0      	; 0x12c <_ZN11TaskManagerD1Ev+0x12c>
+ 12c:	1b 82       	std	Y+3, r1	; 0x03
+ 12e:	1a 82       	std	Y+2, r1	; 0x02
+ 130:	1f 82       	std	Y+7, r1	; 0x07
+ 132:	1e 82       	std	Y+6, r1	; 0x06
+ 134:	19 82       	std	Y+1, r1	; 0x01
+ 136:	18 82       	st	Y, r1
+ 138:	ce 01       	movw	r24, r28
+ 13a:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManagerD1Ev>
+ 13e:	df 91       	pop	r29
+ 140:	cf 91       	pop	r28
+ 142:	1f 91       	pop	r17
+ 144:	0f 91       	pop	r16
+ 146:	ff 90       	pop	r15
+ 148:	ef 90       	pop	r14
+ 14a:	08 95       	ret
+
+Disassembly of section .text._ZN11TaskManagerD0Ev:
+
+00000000 <_ZN11TaskManagerD0Ev>:
+	else
+		tasksQueueB->push( record );
+}
+
+void TaskManager::execute()
+{
+   0:	cf 93       	push	r28
+   2:	df 93       	push	r29
+   4:	ec 01       	movw	r28, r24
+   6:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManagerD0Ev>
+   a:	ce 01       	movw	r24, r28
+   c:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManagerD0Ev>
+  10:	df 91       	pop	r29
+	if( taskManagerStatistics != NULL )
+  12:	cf 91       	pop	r28
+  14:	08 95       	ret
+
+Disassembly of section .text._ZN11TaskManager17executeTasksQueueEv:
+
+00000000 <_ZN11TaskManager17executeTasksQueueEv>:
+	else
+		tasksQueueB->push( record );
+}
+
+void TaskManager::execute()
+{
+   0:	cf 92       	push	r12
+   2:	df 92       	push	r13
+   4:	ef 92       	push	r14
+   6:	ff 92       	push	r15
+   8:	0f 93       	push	r16
+   a:	1f 93       	push	r17
+   c:	cf 93       	push	r28
+   e:	df 93       	push	r29
+  10:	fc 01       	movw	r30, r24
+	if( taskManagerStatistics != NULL )
+  12:	04 81       	ldd	r16, Z+4	; 0x04
+  14:	15 81       	ldd	r17, Z+5	; 0x05
+  16:	d8 01       	movw	r26, r16
+  18:	14 96       	adiw	r26, 0x04	; 4
+	{
+		taskManagerStatistics->beforeTaskQueue();
+  1a:	8d 91       	ld	r24, X+
+  1c:	9c 91       	ld	r25, X
+  1e:	15 97       	sbiw	r26, 0x05	; 5
+  20:	36 81       	ldd	r19, Z+6	; 0x06
+  22:	27 81       	ldd	r18, Z+7	; 0x07
+  24:	00 97       	sbiw	r24, 0x00	; 0
+  26:	01 f0       	breq	.+0      	; 0x28 <_ZN11TaskManager17executeTasksQueueEv+0x28>
+
+		int executedTasksCountInThisIteration = executeTasksQueue();
+  28:	79 01       	movw	r14, r18
+  2a:	cc 24       	eor	r12, r12
+  2c:	dd 24       	eor	r13, r13
+	while( !tasksQueueA->isEmpty() ) delete( tasksQueueA->pop() );
+	while( !tasksQueueB->isEmpty() ) delete( tasksQueueA->pop() );
+
+	delete( tasksQueueA );
+	delete( tasksQueueB );
+}
+  2e:	00 c0       	rjmp	.+0      	; 0x30 <_ZN11TaskManager17executeTasksQueueEv+0x30>
+  30:	f0 2e       	mov	r15, r16
+  32:	e1 2e       	mov	r14, r17
+  34:	03 2f       	mov	r16, r19
+	{
+		taskManagerStatistics->beforeTaskQueue();
+
+		int executedTasksCountInThisIteration = executeTasksQueue();
+
+		unsigned long checkedTasksCountInThisIteration = tasksQueueA->count() + tasksQueueB->count();
+  36:	12 2f       	mov	r17, r18
+  38:	00 c0       	rjmp	.+0      	; 0x3a <_ZN11TaskManager17executeTasksQueueEv+0x3a>
+  3a:	c8 01       	movw	r24, r16
+  3c:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager17executeTasksQueueEv>
+  40:	ec 01       	movw	r28, r24
+  42:	8c 81       	ldd	r24, Y+4	; 0x04
+  44:	9d 81       	ldd	r25, Y+5	; 0x05
+  46:	dc 01       	movw	r26, r24
+  48:	ed 91       	ld	r30, X+
+  4a:	fc 91       	ld	r31, X
+  4c:	01 90       	ld	r0, Z+
+		taskManagerStatistics->afterTaskQueue( checkedTasksCountInThisIteration, executedTasksCountInThisIteration , checkedTasksCountInThisIteration-executedTasksCountInThisIteration );
+  4e:	f0 81       	ld	r31, Z
+  50:	e0 2d       	mov	r30, r0
+  52:	09 95       	icall
+  54:	88 23       	and	r24, r24
+  56:	01 f0       	breq	.+0      	; 0x58 <_ZN11TaskManager17executeTasksQueueEv+0x58>
+  58:	8e 81       	ldd	r24, Y+6	; 0x06
+  5a:	9f 81       	ldd	r25, Y+7	; 0x07
+  5c:	dc 01       	movw	r26, r24
+  5e:	ed 91       	ld	r30, X+
+  60:	fc 91       	ld	r31, X
+  62:	01 90       	ld	r0, Z+
+  64:	f0 81       	ld	r31, Z
+  66:	e0 2d       	mov	r30, r0
+  68:	09 95       	icall
+  6a:	08 94       	sec
+  6c:	c1 1c       	adc	r12, r1
+  6e:	d1 1c       	adc	r13, r1
+  70:	8c 81       	ldd	r24, Y+4	; 0x04
+  72:	9d 81       	ldd	r25, Y+5	; 0x05
+  74:	dc 01       	movw	r26, r24
+  76:	ed 91       	ld	r30, X+
+  78:	fc 91       	ld	r31, X
+	}
+	else
+		executeTasksQueue();
+  7a:	02 80       	ldd	r0, Z+2	; 0x02
+  7c:	f3 81       	ldd	r31, Z+3	; 0x03
+  7e:	e0 2d       	mov	r30, r0
+}
+  80:	09 95       	icall
+  82:	88 23       	and	r24, r24
+  84:	01 f0       	breq	.+0      	; 0x86 <_ZN11TaskManager17executeTasksQueueEv+0x86>
+  86:	20 97       	sbiw	r28, 0x00	; 0
+  88:	01 f0       	breq	.+0      	; 0x8a <_ZN11TaskManager17executeTasksQueueEv+0x8a>
+  8a:	e8 81       	ld	r30, Y
+  8c:	f9 81       	ldd	r31, Y+1	; 0x01
+  8e:	02 80       	ldd	r0, Z+2	; 0x02
+  90:	f3 81       	ldd	r31, Z+3	; 0x03
+  92:	e0 2d       	mov	r30, r0
+  94:	ce 01       	movw	r24, r28
+  96:	09 95       	icall
+  98:	00 c0       	rjmp	.+0      	; 0x9a <_ZN11TaskManager17executeTasksQueueEv+0x9a>
+  9a:	8f 2d       	mov	r24, r15
+  9c:	9e 2d       	mov	r25, r14
+  9e:	be 01       	movw	r22, r28
+  a0:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager17executeTasksQueueEv>
+  a4:	f8 01       	movw	r30, r16
+  a6:	84 81       	ldd	r24, Z+4	; 0x04
+  a8:	95 81       	ldd	r25, Z+5	; 0x05
+  aa:	00 97       	sbiw	r24, 0x00	; 0
+  ac:	01 f4       	brne	.+0      	; 0xae <_ZN11TaskManager17executeTasksQueueEv+0xae>
+  ae:	c6 01       	movw	r24, r12
+  b0:	df 91       	pop	r29
+  b2:	cf 91       	pop	r28
+  b4:	1f 91       	pop	r17
+  b6:	0f 91       	pop	r16
+  b8:	ff 90       	pop	r15
+  ba:	ef 90       	pop	r14
+  bc:	df 90       	pop	r13
+  be:	cf 90       	pop	r12
+  c0:	08 95       	ret
+
+Disassembly of section .text._ZN11TaskManager7executeEv:
+
+00000000 <_ZN11TaskManager7executeEv>:
+	else
+		tasksQueueB->push( record );
+}
+
+void TaskManager::execute()
+{
+   0:	cf 92       	push	r12
+   2:	df 92       	push	r13
+   4:	ef 92       	push	r14
+   6:	ff 92       	push	r15
+   8:	0f 93       	push	r16
+   a:	1f 93       	push	r17
+   c:	cf 93       	push	r28
+   e:	df 93       	push	r29
+  10:	ec 01       	movw	r28, r24
+	if( taskManagerStatistics != NULL )
+  12:	8a 81       	ldd	r24, Y+2	; 0x02
+  14:	9b 81       	ldd	r25, Y+3	; 0x03
+  16:	00 97       	sbiw	r24, 0x00	; 0
+  18:	01 f0       	breq	.+0      	; 0x1a <_ZN11TaskManager7executeEv+0x1a>
+	{
+		taskManagerStatistics->beforeTaskQueue();
+  1a:	dc 01       	movw	r26, r24
+  1c:	ed 91       	ld	r30, X+
+  1e:	fc 91       	ld	r31, X
+  20:	01 90       	ld	r0, Z+
+  22:	f0 81       	ld	r31, Z
+  24:	e0 2d       	mov	r30, r0
+  26:	09 95       	icall
+
+		int executedTasksCountInThisIteration = executeTasksQueue();
+  28:	ce 01       	movw	r24, r28
+  2a:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager7executeEv>
+	while( !tasksQueueA->isEmpty() ) delete( tasksQueueA->pop() );
+	while( !tasksQueueB->isEmpty() ) delete( tasksQueueA->pop() );
+
+	delete( tasksQueueA );
+	delete( tasksQueueB );
+}
+  2e:	ec 81       	ldd	r30, Y+4	; 0x04
+  30:	fd 81       	ldd	r31, Y+5	; 0x05
+  32:	ae 81       	ldd	r26, Y+6	; 0x06
+  34:	bf 81       	ldd	r27, Y+7	; 0x07
+	{
+		taskManagerStatistics->beforeTaskQueue();
+
+		int executedTasksCountInThisIteration = executeTasksQueue();
+
+		unsigned long checkedTasksCountInThisIteration = tasksQueueA->count() + tasksQueueB->count();
+  36:	42 81       	ldd	r20, Z+2	; 0x02
+  38:	53 81       	ldd	r21, Z+3	; 0x03
+  3a:	12 96       	adiw	r26, 0x02	; 2
+  3c:	2d 91       	ld	r18, X+
+  3e:	3c 91       	ld	r19, X
+  40:	13 97       	sbiw	r26, 0x03	; 3
+  42:	42 0f       	add	r20, r18
+  44:	53 1f       	adc	r21, r19
+  46:	66 27       	eor	r22, r22
+  48:	57 fd       	sbrc	r21, 7
+  4a:	60 95       	com	r22
+  4c:	76 2f       	mov	r23, r22
+		taskManagerStatistics->afterTaskQueue( checkedTasksCountInThisIteration, executedTasksCountInThisIteration , checkedTasksCountInThisIteration-executedTasksCountInThisIteration );
+  4e:	aa 81       	ldd	r26, Y+2	; 0x02
+  50:	bb 81       	ldd	r27, Y+3	; 0x03
+  52:	8c 01       	movw	r16, r24
+  54:	22 27       	eor	r18, r18
+  56:	17 fd       	sbrc	r17, 7
+  58:	20 95       	com	r18
+  5a:	32 2f       	mov	r19, r18
+  5c:	ed 91       	ld	r30, X+
+  5e:	fc 91       	ld	r31, X
+  60:	11 97       	sbiw	r26, 0x01	; 1
+  62:	6a 01       	movw	r12, r20
+  64:	7b 01       	movw	r14, r22
+  66:	c0 1a       	sub	r12, r16
+  68:	d1 0a       	sbc	r13, r17
+  6a:	e2 0a       	sbc	r14, r18
+  6c:	f3 0a       	sbc	r15, r19
+  6e:	02 80       	ldd	r0, Z+2	; 0x02
+  70:	f3 81       	ldd	r31, Z+3	; 0x03
+  72:	e0 2d       	mov	r30, r0
+  74:	cd 01       	movw	r24, r26
+  76:	09 95       	icall
+  78:	00 c0       	rjmp	.+0      	; 0x7a <_ZN11TaskManager7executeEv+0x7a>
+	}
+	else
+		executeTasksQueue();
+  7a:	ce 01       	movw	r24, r28
+  7c:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager7executeEv>
+}
+  80:	df 91       	pop	r29
+  82:	cf 91       	pop	r28
+  84:	1f 91       	pop	r17
+  86:	0f 91       	pop	r16
+  88:	ff 90       	pop	r15
+  8a:	ef 90       	pop	r14
+  8c:	df 90       	pop	r13
+  8e:	cf 90       	pop	r12
+  90:	08 95       	ret
+
+TaskManagerMemoryConfigurator.o:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  00000000  00000000  00000034  2**0
+                  ALLOC
+  3 .stab         000003e4  00000000  00000000  00000034  2**2
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  4 .stabstr      00000bb4  00000000  00000000  00000418  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .text._ZN29TaskManagerMemoryConfiguratorD2Ev 0000000c  00000000  00000000  00000fcc  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  6 .text._ZN29TaskManagerMemoryConfiguratorD0Ev 00000010  00000000  00000000  00000fd8  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  7 .text._ZN29TaskManagerMemoryConfiguratorC2Ebbb 00000012  00000000  00000000  00000fe8  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  8 .text._ZN29TaskManagerMemoryConfigurator27canTaskManagerFreeSchedulerEv 00000006  00000000  00000000  00000ffa  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  9 .text._ZN29TaskManagerMemoryConfigurator26canTaskManagerFreeRunnableEv 00000006  00000000  00000000  00001000  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 10 .text._ZN29TaskManagerMemoryConfigurator36canTaskManagerFreeMemoryConfiguratorEv 00000006  00000000  00000000  00001006  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 11 .rodata._ZTV29TaskManagerMemoryConfigurator 00000008  00000000  00000000  0000100c  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+
+Disassembly of section .text._ZN29TaskManagerMemoryConfiguratorD2Ev:
+
+00000000 <_ZN29TaskManagerMemoryConfiguratorD1Ev>:
+}
+
+bool TaskManagerMemoryConfigurator::canTaskManagerFreeMemoryConfigurator()
+{
+	return _canTaskManagerFreeMemoryConfigurator;
+}
+   0:	20 e0       	ldi	r18, 0x00	; 0
+   2:	30 e0       	ldi	r19, 0x00	; 0
+   4:	fc 01       	movw	r30, r24
+   6:	31 83       	std	Z+1, r19	; 0x01
+   8:	20 83       	st	Z, r18
+   a:	08 95       	ret
+
+Disassembly of section .text._ZN29TaskManagerMemoryConfiguratorD0Ev:
+
+00000000 <_ZN29TaskManagerMemoryConfiguratorD0Ev>:
+   0:	20 e0       	ldi	r18, 0x00	; 0
+   2:	30 e0       	ldi	r19, 0x00	; 0
+   4:	fc 01       	movw	r30, r24
+   6:	31 83       	std	Z+1, r19	; 0x01
+   8:	20 83       	st	Z, r18
+   a:	0e 94 00 00 	call	0	; 0x0 <_ZN29TaskManagerMemoryConfiguratorD0Ev>
+   e:	08 95       	ret
+
+Disassembly of section .text._ZN29TaskManagerMemoryConfiguratorC2Ebbb:
+
+00000000 <_ZN29TaskManagerMemoryConfiguratorC1Ebbb>:
+   0:	fc 01       	movw	r30, r24
+   2:	80 e0       	ldi	r24, 0x00	; 0
+   4:	90 e0       	ldi	r25, 0x00	; 0
+   6:	91 83       	std	Z+1, r25	; 0x01
+   8:	80 83       	st	Z, r24
+   a:	62 83       	std	Z+2, r22	; 0x02
+   c:	43 83       	std	Z+3, r20	; 0x03
+   e:	24 83       	std	Z+4, r18	; 0x04
+  10:	08 95       	ret
+
+Disassembly of section .text._ZN29TaskManagerMemoryConfigurator27canTaskManagerFreeSchedulerEv:
+
+00000000 <_ZN29TaskManagerMemoryConfigurator27canTaskManagerFreeSchedulerEv>:
+   0:	fc 01       	movw	r30, r24
+   2:	82 81       	ldd	r24, Z+2	; 0x02
+   4:	08 95       	ret
+
+Disassembly of section .text._ZN29TaskManagerMemoryConfigurator26canTaskManagerFreeRunnableEv:
+
+00000000 <_ZN29TaskManagerMemoryConfigurator26canTaskManagerFreeRunnableEv>:
+   0:	fc 01       	movw	r30, r24
+   2:	83 81       	ldd	r24, Z+3	; 0x03
+   4:	08 95       	ret
+
+Disassembly of section .text._ZN29TaskManagerMemoryConfigurator36canTaskManagerFreeMemoryConfiguratorEv:
+
+00000000 <_ZN29TaskManagerMemoryConfigurator36canTaskManagerFreeMemoryConfiguratorEv>:
+   0:	fc 01       	movw	r30, r24
+   2:	84 81       	ldd	r24, Z+4	; 0x04
+   4:	08 95       	ret
+
+TaskManagerRecord.o:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  00000000  00000000  00000034  2**0
+                  ALLOC
+  3 .stab         0000033c  00000000  00000000  00000034  2**2
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  4 .stabstr      00000965  00000000  00000000  00000370  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .text._ZN17TaskManagerRecordD2Ev 0000007a  00000000  00000000  00000cd5  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  6 .text._ZN17TaskManagerRecordD0Ev 00000016  00000000  00000000  00000d4f  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  7 .text._ZN17TaskManagerRecordC2EP29TaskManagerMemoryConfiguratorP20TaskManagerSchedulerP8Runnable 00000018  00000000  00000000  00000d65  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  8 .rodata._ZTV17TaskManagerRecord 00000008  00000000  00000000  00000d7d  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+
+Disassembly of section .text._ZN17TaskManagerRecordD2Ev:
+
+00000000 <_ZN17TaskManagerRecordD1Ev>:
+ *      Author: root
+ */
+
+#include "TaskManagerRecord.h"
+
+TaskManagerRecord::TaskManagerRecord( TaskManagerMemoryConfigurator* _taskManagerMemoryConfigurator , TaskManagerScheduler* _taskManagerScheduler , Runnable* _runnable )
+   0:	cf 93       	push	r28
+   2:	df 93       	push	r29
+   4:	ec 01       	movw	r28, r24
+   6:	80 e0       	ldi	r24, 0x00	; 0
+   8:	90 e0       	ldi	r25, 0x00	; 0
+{
+	taskManagerMemoryConfigurator = _taskManagerMemoryConfigurator;
+   a:	99 83       	std	Y+1, r25	; 0x01
+   c:	88 83       	st	Y, r24
+	taskManagerScheduler = _taskManagerScheduler;
+   e:	8a 81       	ldd	r24, Y+2	; 0x02
+  10:	9b 81       	ldd	r25, Y+3	; 0x03
+	runnable = _runnable;
+  12:	0e 94 00 00 	call	0	; 0x0 <_ZN17TaskManagerRecordD1Ev>
+}
+  16:	88 23       	and	r24, r24
+  18:	01 f0       	breq	.+0      	; 0x1a <_ZN17TaskManagerRecordD1Ev+0x1a>
+  1a:	8e 81       	ldd	r24, Y+6	; 0x06
+  1c:	9f 81       	ldd	r25, Y+7	; 0x07
+  1e:	00 97       	sbiw	r24, 0x00	; 0
+  20:	01 f0       	breq	.+0      	; 0x22 <_ZN17TaskManagerRecordD1Ev+0x22>
+  22:	dc 01       	movw	r26, r24
+  24:	ed 91       	ld	r30, X+
+  26:	fc 91       	ld	r31, X
+  28:	04 80       	ldd	r0, Z+4	; 0x04
+  2a:	f5 81       	ldd	r31, Z+5	; 0x05
+  2c:	e0 2d       	mov	r30, r0
+  2e:	09 95       	icall
+  30:	8a 81       	ldd	r24, Y+2	; 0x02
+  32:	9b 81       	ldd	r25, Y+3	; 0x03
+  34:	0e 94 00 00 	call	0	; 0x0 <_ZN17TaskManagerRecordD1Ev>
+  38:	88 23       	and	r24, r24
+  3a:	01 f0       	breq	.+0      	; 0x3c <_ZN17TaskManagerRecordD1Ev+0x3c>
+  3c:	8c 81       	ldd	r24, Y+4	; 0x04
+  3e:	9d 81       	ldd	r25, Y+5	; 0x05
+  40:	00 97       	sbiw	r24, 0x00	; 0
+  42:	01 f0       	breq	.+0      	; 0x44 <_ZN17TaskManagerRecordD1Ev+0x44>
+  44:	dc 01       	movw	r26, r24
+  46:	ed 91       	ld	r30, X+
+  48:	fc 91       	ld	r31, X
+  4a:	06 80       	ldd	r0, Z+6	; 0x06
+  4c:	f7 81       	ldd	r31, Z+7	; 0x07
+  4e:	e0 2d       	mov	r30, r0
+  50:	09 95       	icall
+  52:	8a 81       	ldd	r24, Y+2	; 0x02
+  54:	9b 81       	ldd	r25, Y+3	; 0x03
+  56:	0e 94 00 00 	call	0	; 0x0 <_ZN17TaskManagerRecordD1Ev>
+  5a:	88 23       	and	r24, r24
+  5c:	01 f0       	breq	.+0      	; 0x5e <_ZN17TaskManagerRecordD1Ev+0x5e>
+  5e:	8a 81       	ldd	r24, Y+2	; 0x02
+  60:	9b 81       	ldd	r25, Y+3	; 0x03
+  62:	00 97       	sbiw	r24, 0x00	; 0
+  64:	01 f0       	breq	.+0      	; 0x66 <_ZN17TaskManagerRecordD1Ev+0x66>
+  66:	dc 01       	movw	r26, r24
+  68:	ed 91       	ld	r30, X+
+  6a:	fc 91       	ld	r31, X
+  6c:	02 80       	ldd	r0, Z+2	; 0x02
+  6e:	f3 81       	ldd	r31, Z+3	; 0x03
+  70:	e0 2d       	mov	r30, r0
+  72:	09 95       	icall
+  74:	df 91       	pop	r29
+  76:	cf 91       	pop	r28
+  78:	08 95       	ret
+
+Disassembly of section .text._ZN17TaskManagerRecordD0Ev:
+
+00000000 <_ZN17TaskManagerRecordD0Ev>:
+ *      Author: root
+ */
+
+#include "TaskManagerRecord.h"
+
+TaskManagerRecord::TaskManagerRecord( TaskManagerMemoryConfigurator* _taskManagerMemoryConfigurator , TaskManagerScheduler* _taskManagerScheduler , Runnable* _runnable )
+   0:	cf 93       	push	r28
+   2:	df 93       	push	r29
+   4:	ec 01       	movw	r28, r24
+   6:	0e 94 00 00 	call	0	; 0x0 <_ZN17TaskManagerRecordD0Ev>
+{
+	taskManagerMemoryConfigurator = _taskManagerMemoryConfigurator;
+   a:	ce 01       	movw	r24, r28
+   c:	0e 94 00 00 	call	0	; 0x0 <_ZN17TaskManagerRecordD0Ev>
+	taskManagerScheduler = _taskManagerScheduler;
+  10:	df 91       	pop	r29
+	runnable = _runnable;
+  12:	cf 91       	pop	r28
+  14:	08 95       	ret
+
+Disassembly of section .text._ZN17TaskManagerRecordC2EP29TaskManagerMemoryConfiguratorP20TaskManagerSchedulerP8Runnable:
+
+00000000 <_ZN17TaskManagerRecordC1EP29TaskManagerMemoryConfiguratorP20TaskManagerSchedulerP8Runnable>:
+ *      Author: root
+ */
+
+#include "TaskManagerRecord.h"
+
+TaskManagerRecord::TaskManagerRecord( TaskManagerMemoryConfigurator* _taskManagerMemoryConfigurator , TaskManagerScheduler* _taskManagerScheduler , Runnable* _runnable )
+   0:	fc 01       	movw	r30, r24
+   2:	80 e0       	ldi	r24, 0x00	; 0
+   4:	90 e0       	ldi	r25, 0x00	; 0
+   6:	91 83       	std	Z+1, r25	; 0x01
+   8:	80 83       	st	Z, r24
+{
+	taskManagerMemoryConfigurator = _taskManagerMemoryConfigurator;
+   a:	73 83       	std	Z+3, r23	; 0x03
+   c:	62 83       	std	Z+2, r22	; 0x02
+	taskManagerScheduler = _taskManagerScheduler;
+   e:	55 83       	std	Z+5, r21	; 0x05
+  10:	44 83       	std	Z+4, r20	; 0x04
+	runnable = _runnable;
+  12:	37 83       	std	Z+7, r19	; 0x07
+  14:	26 83       	std	Z+6, r18	; 0x06
+}
+  16:	08 95       	ret
+
+TaskManagerScheduler.o:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  00000000  00000000  00000034  2**0
+                  ALLOC
+  3 .stab         0000033c  00000000  00000000  00000034  2**2
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  4 .stabstr      000008d8  00000000  00000000  00000370  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .text._ZN20TaskManagerScheduler10canExecuteEv 00000004  00000000  00000000  00000c48  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  6 .text._ZN20TaskManagerScheduler24canRemoveFromTaskManagerEv 00000004  00000000  00000000  00000c4c  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  7 .text._ZN20TaskManagerSchedulerD2Ev 0000000c  00000000  00000000  00000c50  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  8 .text._ZN20TaskManagerSchedulerD0Ev 00000010  00000000  00000000  00000c5c  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  9 .text._ZN20TaskManagerSchedulerC2Ev 0000000c  00000000  00000000  00000c6c  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 10 .rodata._ZTV20TaskManagerScheduler 0000000c  00000000  00000000  00000c78  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+
+Disassembly of section .text._ZN20TaskManagerScheduler10canExecuteEv:
+
+00000000 <_ZN20TaskManagerScheduler10canExecuteEv>:
+ *      Author: root
+ */
+
+#include "TaskManagerScheduler.h"
+
+TaskManagerScheduler::TaskManagerScheduler() {}
+   0:	81 e0       	ldi	r24, 0x01	; 1
+   2:	08 95       	ret
+
+Disassembly of section .text._ZN20TaskManagerScheduler24canRemoveFromTaskManagerEv:
+
+00000000 <_ZN20TaskManagerScheduler24canRemoveFromTaskManagerEv>:
+   0:	81 e0       	ldi	r24, 0x01	; 1
+   2:	08 95       	ret
+
+Disassembly of section .text._ZN20TaskManagerSchedulerD2Ev:
+
+00000000 <_ZN20TaskManagerSchedulerD1Ev>:
+   0:	20 e0       	ldi	r18, 0x00	; 0
+   2:	30 e0       	ldi	r19, 0x00	; 0
+   4:	fc 01       	movw	r30, r24
+   6:	31 83       	std	Z+1, r19	; 0x01
+   8:	20 83       	st	Z, r18
+   a:	08 95       	ret
+
+Disassembly of section .text._ZN20TaskManagerSchedulerD0Ev:
+
+00000000 <_ZN20TaskManagerSchedulerD0Ev>:
+   0:	20 e0       	ldi	r18, 0x00	; 0
+   2:	30 e0       	ldi	r19, 0x00	; 0
+   4:	fc 01       	movw	r30, r24
+   6:	31 83       	std	Z+1, r19	; 0x01
+   8:	20 83       	st	Z, r18
+   a:	0e 94 00 00 	call	0	; 0x0 <_ZN20TaskManagerSchedulerD0Ev>
+   e:	08 95       	ret
+
+Disassembly of section .text._ZN20TaskManagerSchedulerC2Ev:
+
+00000000 <_ZN20TaskManagerSchedulerC1Ev>:
+   0:	20 e0       	ldi	r18, 0x00	; 0
+   2:	30 e0       	ldi	r19, 0x00	; 0
+   4:	fc 01       	movw	r30, r24
+   6:	31 83       	std	Z+1, r19	; 0x01
+   8:	20 83       	st	Z, r18
+   a:	08 95       	ret
+
+TaskManagerSchedulerAndOr.o:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000063  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  00000000  00000000  00000097  2**0
+                  ALLOC
+  3 .stab         00000c84  00000000  00000000  00000098  2**2
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  4 .stabstr      00003b96  00000000  00000000  00000d1c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .text._ZN25TaskManagerSchedulerAndOrD2Ev 00000010  00000000  00000000  000048b2  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  6 .text._ZN25TaskManagerSchedulerAndOrD0Ev 00000020  00000000  00000000  000048c2  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  7 .text.unlikely._ZNK9QueueListIP20TaskManagerSchedulerE4exitEPKc.isra.2 0000003a  00000000  00000000  000048e2  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  8 .text._ZN25TaskManagerSchedulerAndOrC2EP9QueueListIP20TaskManagerSchedulerEb 0000003e  00000000  00000000  0000491c  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  9 .text._ZN9QueueListIP20TaskManagerSchedulerE3popEv 00000050  00000000  00000000  0000495a  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 10 .text._ZN9QueueListIP20TaskManagerSchedulerE4pushES1_ 0000006a  00000000  00000000  000049aa  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 11 .text._ZN25TaskManagerSchedulerAndOr8doActionEb 0000014e  00000000  00000000  00004a14  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 12 .text._ZN25TaskManagerSchedulerAndOr24canRemoveFromTaskManagerEv 00000008  00000000  00000000  00004b62  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 13 .text._ZN25TaskManagerSchedulerAndOr10canExecuteEv 00000008  00000000  00000000  00004b6a  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 14 .rodata._ZTV25TaskManagerSchedulerAndOr 0000000c  00000000  00000000  00004b72  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+
+Disassembly of section .text._ZN25TaskManagerSchedulerAndOrD2Ev:
+
+00000000 <_ZN25TaskManagerSchedulerAndOrD1Ev>:
+	return result;
+}
+
+bool TaskManagerSchedulerAndOr::canExecute()
+{
+	return doAction( true );
+   0:	20 e0       	ldi	r18, 0x00	; 0
+   2:	30 e0       	ldi	r19, 0x00	; 0
+   4:	fc 01       	movw	r30, r24
+}
+   6:	31 83       	std	Z+1, r19	; 0x01
+   8:	20 83       	st	Z, r18
+   a:	0e 94 00 00 	call	0	; 0x0 <_ZN25TaskManagerSchedulerAndOrD1Ev>
+   e:	08 95       	ret
+
+Disassembly of section .text._ZN25TaskManagerSchedulerAndOrD0Ev:
+
+00000000 <_ZN25TaskManagerSchedulerAndOrD0Ev>:
+	return result;
+}
+
+bool TaskManagerSchedulerAndOr::canExecute()
+{
+	return doAction( true );
+   0:	cf 93       	push	r28
+   2:	df 93       	push	r29
+   4:	ec 01       	movw	r28, r24
+}
+   6:	80 e0       	ldi	r24, 0x00	; 0
+   8:	90 e0       	ldi	r25, 0x00	; 0
+   a:	99 83       	std	Y+1, r25	; 0x01
+   c:	88 83       	st	Y, r24
+   e:	ce 01       	movw	r24, r28
+  10:	0e 94 00 00 	call	0	; 0x0 <_ZN25TaskManagerSchedulerAndOrD0Ev>
+  14:	ce 01       	movw	r24, r28
+  16:	0e 94 00 00 	call	0	; 0x0 <_ZN25TaskManagerSchedulerAndOrD0Ev>
+  1a:	df 91       	pop	r29
+  1c:	cf 91       	pop	r28
+  1e:	08 95       	ret
+
+Disassembly of section .text.unlikely._ZNK9QueueListIP20TaskManagerSchedulerE4exitEPKc.isra.2:
+
+00000000 <_ZNK9QueueListIP20TaskManagerSchedulerE4exitEPKc.isra.2>:
+	return result;
+}
+
+bool TaskManagerSchedulerAndOr::canExecute()
+{
+	return doAction( true );
+   0:	00 97       	sbiw	r24, 0x00	; 0
+   2:	01 f0       	breq	.+0      	; 0x4 <_ZNK9QueueListIP20TaskManagerSchedulerE4exitEPKc.isra.2+0x4>
+   4:	0e 94 00 00 	call	0	; 0x0 <_ZNK9QueueListIP20TaskManagerSchedulerE4exitEPKc.isra.2>
+}
+   8:	8d e0       	ldi	r24, 0x0D	; 13
+   a:	61 e0       	ldi	r22, 0x01	; 1
+   c:	0e 94 00 00 	call	0	; 0x0 <_ZNK9QueueListIP20TaskManagerSchedulerE4exitEPKc.isra.2>
+  10:	8d e0       	ldi	r24, 0x0D	; 13
+  12:	61 e0       	ldi	r22, 0x01	; 1
+  14:	0e 94 00 00 	call	0	; 0x0 <_ZNK9QueueListIP20TaskManagerSchedulerE4exitEPKc.isra.2>
+  18:	6a ef       	ldi	r22, 0xFA	; 250
+  1a:	70 e0       	ldi	r23, 0x00	; 0
+  1c:	80 e0       	ldi	r24, 0x00	; 0
+  1e:	90 e0       	ldi	r25, 0x00	; 0
+  20:	0e 94 00 00 	call	0	; 0x0 <_ZNK9QueueListIP20TaskManagerSchedulerE4exitEPKc.isra.2>
+  24:	8d e0       	ldi	r24, 0x0D	; 13
+  26:	60 e0       	ldi	r22, 0x00	; 0
+  28:	0e 94 00 00 	call	0	; 0x0 <_ZNK9QueueListIP20TaskManagerSchedulerE4exitEPKc.isra.2>
+  2c:	6a ef       	ldi	r22, 0xFA	; 250
+  2e:	70 e0       	ldi	r23, 0x00	; 0
+  30:	80 e0       	ldi	r24, 0x00	; 0
+  32:	90 e0       	ldi	r25, 0x00	; 0
+  34:	0e 94 00 00 	call	0	; 0x0 <_ZNK9QueueListIP20TaskManagerSchedulerE4exitEPKc.isra.2>
+  38:	00 c0       	rjmp	.+0      	; 0x3a <__zero_reg__+0x39>
+
+Disassembly of section .text._ZN25TaskManagerSchedulerAndOrC2EP9QueueListIP20TaskManagerSchedulerEb:
+
+00000000 <_ZN25TaskManagerSchedulerAndOrC1EP9QueueListIP20TaskManagerSchedulerEb>:
+	return result;
+}
+
+bool TaskManagerSchedulerAndOr::canExecute()
+{
+	return doAction( true );
+   0:	ef 92       	push	r14
+   2:	ff 92       	push	r15
+   4:	0f 93       	push	r16
+}
+   6:	1f 93       	push	r17
+   8:	cf 93       	push	r28
+   a:	df 93       	push	r29
+   c:	0f 92       	push	r0
+   e:	cd b7       	in	r28, 0x3d	; 61
+  10:	de b7       	in	r29, 0x3e	; 62
+  12:	7c 01       	movw	r14, r24
+  14:	8b 01       	movw	r16, r22
+  16:	49 83       	std	Y+1, r20	; 0x01
+  18:	0e 94 00 00 	call	0	; 0x0 <_ZN25TaskManagerSchedulerAndOrC1EP9QueueListIP20TaskManagerSchedulerEb>
+  1c:	80 e0       	ldi	r24, 0x00	; 0
+  1e:	90 e0       	ldi	r25, 0x00	; 0
+  20:	f7 01       	movw	r30, r14
+  22:	91 83       	std	Z+1, r25	; 0x01
+  24:	80 83       	st	Z, r24
+  26:	13 83       	std	Z+3, r17	; 0x03
+  28:	02 83       	std	Z+2, r16	; 0x02
+  2a:	49 81       	ldd	r20, Y+1	; 0x01
+  2c:	44 83       	std	Z+4, r20	; 0x04
+  2e:	0f 90       	pop	r0
+  30:	df 91       	pop	r29
+  32:	cf 91       	pop	r28
+  34:	1f 91       	pop	r17
+  36:	0f 91       	pop	r16
+  38:	ff 90       	pop	r15
+  3a:	ef 90       	pop	r14
+  3c:	08 95       	ret
+
+Disassembly of section .text._ZN9QueueListIP20TaskManagerSchedulerE3popEv:
+
+00000000 <_ZN9QueueListIP20TaskManagerSchedulerE3popEv>:
+	return result;
+}
+
+bool TaskManagerSchedulerAndOr::canExecute()
+{
+	return doAction( true );
+   0:	ef 92       	push	r14
+   2:	ff 92       	push	r15
+   4:	0f 93       	push	r16
+}
+   6:	1f 93       	push	r17
+   8:	cf 93       	push	r28
+   a:	df 93       	push	r29
+   c:	ec 01       	movw	r28, r24
+   e:	ec 81       	ldd	r30, Y+4	; 0x04
+  10:	fd 81       	ldd	r31, Y+5	; 0x05
+  12:	30 97       	sbiw	r30, 0x00	; 0
+  14:	01 f4       	brne	.+0      	; 0x16 <_ZN9QueueListIP20TaskManagerSchedulerE3popEv+0x16>
+  16:	88 81       	ld	r24, Y
+  18:	99 81       	ldd	r25, Y+1	; 0x01
+  1a:	60 e0       	ldi	r22, 0x00	; 0
+  1c:	70 e0       	ldi	r23, 0x00	; 0
+  1e:	0e 94 00 00 	call	0	; 0x0 <_ZN9QueueListIP20TaskManagerSchedulerE3popEv>
+  22:	e0 80       	ld	r14, Z
+  24:	f1 80       	ldd	r15, Z+1	; 0x01
+  26:	02 81       	ldd	r16, Z+2	; 0x02
+  28:	13 81       	ldd	r17, Z+3	; 0x03
+  2a:	cf 01       	movw	r24, r30
+  2c:	0e 94 00 00 	call	0	; 0x0 <_ZN9QueueListIP20TaskManagerSchedulerE3popEv>
+  30:	1d 83       	std	Y+5, r17	; 0x05
+  32:	0c 83       	std	Y+4, r16	; 0x04
+  34:	2a 81       	ldd	r18, Y+2	; 0x02
+  36:	3b 81       	ldd	r19, Y+3	; 0x03
+  38:	21 50       	subi	r18, 0x01	; 1
+  3a:	30 40       	sbci	r19, 0x00	; 0
+  3c:	3b 83       	std	Y+3, r19	; 0x03
+  3e:	2a 83       	std	Y+2, r18	; 0x02
+  40:	c7 01       	movw	r24, r14
+  42:	df 91       	pop	r29
+  44:	cf 91       	pop	r28
+  46:	1f 91       	pop	r17
+  48:	0f 91       	pop	r16
+  4a:	ff 90       	pop	r15
+  4c:	ef 90       	pop	r14
+  4e:	08 95       	ret
+
+Disassembly of section .text._ZN9QueueListIP20TaskManagerSchedulerE4pushES1_:
+
+00000000 <_ZN9QueueListIP20TaskManagerSchedulerE4pushES1_>:
+	return result;
+}
+
+bool TaskManagerSchedulerAndOr::canExecute()
+{
+	return doAction( true );
+   0:	ef 92       	push	r14
+   2:	ff 92       	push	r15
+   4:	0f 93       	push	r16
+}
+   6:	1f 93       	push	r17
+   8:	cf 93       	push	r28
+   a:	df 93       	push	r29
+   c:	ec 01       	movw	r28, r24
+   e:	8b 01       	movw	r16, r22
+  10:	ee 80       	ldd	r14, Y+6	; 0x06
+  12:	ff 80       	ldd	r15, Y+7	; 0x07
+  14:	84 e0       	ldi	r24, 0x04	; 4
+  16:	90 e0       	ldi	r25, 0x00	; 0
+  18:	0e 94 00 00 	call	0	; 0x0 <_ZN9QueueListIP20TaskManagerSchedulerE4pushES1_>
+  1c:	fc 01       	movw	r30, r24
+  1e:	9f 83       	std	Y+7, r25	; 0x07
+  20:	8e 83       	std	Y+6, r24	; 0x06
+  22:	00 97       	sbiw	r24, 0x00	; 0
+  24:	01 f4       	brne	.+0      	; 0x26 <_ZN9QueueListIP20TaskManagerSchedulerE4pushES1_+0x26>
+  26:	88 81       	ld	r24, Y
+  28:	99 81       	ldd	r25, Y+1	; 0x01
+  2a:	60 e0       	ldi	r22, 0x00	; 0
+  2c:	70 e0       	ldi	r23, 0x00	; 0
+  2e:	0e 94 00 00 	call	0	; 0x0 <_ZN9QueueListIP20TaskManagerSchedulerE4pushES1_>
+  32:	13 82       	std	Z+3, r1	; 0x03
+  34:	12 82       	std	Z+2, r1	; 0x02
+  36:	11 83       	std	Z+1, r17	; 0x01
+  38:	00 83       	st	Z, r16
+  3a:	8c 81       	ldd	r24, Y+4	; 0x04
+  3c:	9d 81       	ldd	r25, Y+5	; 0x05
+  3e:	00 97       	sbiw	r24, 0x00	; 0
+  40:	01 f4       	brne	.+0      	; 0x42 <_ZN9QueueListIP20TaskManagerSchedulerE4pushES1_+0x42>
+  42:	fd 83       	std	Y+5, r31	; 0x05
+  44:	ec 83       	std	Y+4, r30	; 0x04
+  46:	00 c0       	rjmp	.+0      	; 0x48 <_ZN9QueueListIP20TaskManagerSchedulerE4pushES1_+0x48>
+  48:	d7 01       	movw	r26, r14
+  4a:	13 96       	adiw	r26, 0x03	; 3
+  4c:	fc 93       	st	X, r31
+  4e:	ee 93       	st	-X, r30
+  50:	12 97       	sbiw	r26, 0x02	; 2
+  52:	8a 81       	ldd	r24, Y+2	; 0x02
+  54:	9b 81       	ldd	r25, Y+3	; 0x03
+  56:	01 96       	adiw	r24, 0x01	; 1
+  58:	9b 83       	std	Y+3, r25	; 0x03
+  5a:	8a 83       	std	Y+2, r24	; 0x02
+  5c:	df 91       	pop	r29
+  5e:	cf 91       	pop	r28
+  60:	1f 91       	pop	r17
+  62:	0f 91       	pop	r16
+  64:	ff 90       	pop	r15
+  66:	ef 90       	pop	r14
+  68:	08 95       	ret
+
+Disassembly of section .text._ZN25TaskManagerSchedulerAndOr8doActionEb:
+
+00000000 <_ZN25TaskManagerSchedulerAndOr8doActionEb>:
+	return result;
+}
+
+bool TaskManagerSchedulerAndOr::canExecute()
+{
+	return doAction( true );
+   0:	cf 92       	push	r12
+   2:	df 92       	push	r13
+   4:	ef 92       	push	r14
+}
+   6:	ff 92       	push	r15
+   8:	0f 93       	push	r16
+   a:	1f 93       	push	r17
+   c:	cf 93       	push	r28
+   e:	df 93       	push	r29
+  10:	6c 01       	movw	r12, r24
+  12:	06 2f       	mov	r16, r22
+  14:	88 e0       	ldi	r24, 0x08	; 8
+  16:	90 e0       	ldi	r25, 0x00	; 0
+  18:	0e 94 00 00 	call	0	; 0x0 <_ZN25TaskManagerSchedulerAndOr8doActionEb>
+  1c:	7c 01       	movw	r14, r24
+  1e:	fc 01       	movw	r30, r24
+  20:	13 82       	std	Z+3, r1	; 0x03
+  22:	12 82       	std	Z+2, r1	; 0x02
+  24:	15 82       	std	Z+5, r1	; 0x05
+  26:	14 82       	std	Z+4, r1	; 0x04
+  28:	17 82       	std	Z+7, r1	; 0x07
+  2a:	16 82       	std	Z+6, r1	; 0x06
+  2c:	11 82       	std	Z+1, r1	; 0x01
+  2e:	10 82       	st	Z, r1
+  30:	f6 01       	movw	r30, r12
+  32:	82 81       	ldd	r24, Z+2	; 0x02
+  34:	93 81       	ldd	r25, Z+3	; 0x03
+  36:	0e 94 00 00 	call	0	; 0x0 <_ZN25TaskManagerSchedulerAndOr8doActionEb>
+  3a:	ec 01       	movw	r28, r24
+  3c:	e8 81       	ld	r30, Y
+  3e:	f9 81       	ldd	r31, Y+1	; 0x01
+  40:	00 23       	and	r16, r16
+  42:	01 f0       	breq	.+0      	; 0x44 <_ZN25TaskManagerSchedulerAndOr8doActionEb+0x44>
+  44:	01 90       	ld	r0, Z+
+  46:	f0 81       	ld	r31, Z
+  48:	e0 2d       	mov	r30, r0
+  4a:	00 c0       	rjmp	.+0      	; 0x4c <_ZN25TaskManagerSchedulerAndOr8doActionEb+0x4c>
+  4c:	02 80       	ldd	r0, Z+2	; 0x02
+  4e:	f3 81       	ldd	r31, Z+3	; 0x03
+  50:	e0 2d       	mov	r30, r0
+  52:	ce 01       	movw	r24, r28
+  54:	09 95       	icall
+  56:	18 2f       	mov	r17, r24
+  58:	c7 01       	movw	r24, r14
+  5a:	be 01       	movw	r22, r28
+  5c:	0e 94 00 00 	call	0	; 0x0 <_ZN25TaskManagerSchedulerAndOr8doActionEb>
+  60:	f6 01       	movw	r30, r12
+  62:	84 81       	ldd	r24, Z+4	; 0x04
+  64:	88 23       	and	r24, r24
+  66:	01 f4       	brne	.+0      	; 0x68 <_ZN25TaskManagerSchedulerAndOr8doActionEb+0x68>
+  68:	00 c0       	rjmp	.+0      	; 0x6a <_ZN25TaskManagerSchedulerAndOr8doActionEb+0x6a>
+  6a:	0e 94 00 00 	call	0	; 0x0 <_ZN25TaskManagerSchedulerAndOr8doActionEb>
+  6e:	ec 01       	movw	r28, r24
+  70:	00 23       	and	r16, r16
+  72:	01 f0       	breq	.+0      	; 0x74 <_ZN25TaskManagerSchedulerAndOr8doActionEb+0x74>
+  74:	11 23       	and	r17, r17
+  76:	01 f0       	breq	.+0      	; 0x78 <_ZN25TaskManagerSchedulerAndOr8doActionEb+0x78>
+  78:	e8 81       	ld	r30, Y
+  7a:	f9 81       	ldd	r31, Y+1	; 0x01
+  7c:	01 90       	ld	r0, Z+
+  7e:	f0 81       	ld	r31, Z
+  80:	e0 2d       	mov	r30, r0
+  82:	00 c0       	rjmp	.+0      	; 0x84 <_ZN25TaskManagerSchedulerAndOr8doActionEb+0x84>
+  84:	11 23       	and	r17, r17
+  86:	01 f0       	breq	.+0      	; 0x88 <_ZN25TaskManagerSchedulerAndOr8doActionEb+0x88>
+  88:	e8 81       	ld	r30, Y
+  8a:	f9 81       	ldd	r31, Y+1	; 0x01
+  8c:	02 80       	ldd	r0, Z+2	; 0x02
+  8e:	f3 81       	ldd	r31, Z+3	; 0x03
+  90:	e0 2d       	mov	r30, r0
+  92:	ce 01       	movw	r24, r28
+  94:	09 95       	icall
+  96:	88 23       	and	r24, r24
+  98:	01 f4       	brne	.+0      	; 0x9a <_ZN25TaskManagerSchedulerAndOr8doActionEb+0x9a>
+  9a:	10 e0       	ldi	r17, 0x00	; 0
+  9c:	c7 01       	movw	r24, r14
+  9e:	be 01       	movw	r22, r28
+  a0:	0e 94 00 00 	call	0	; 0x0 <_ZN25TaskManagerSchedulerAndOr8doActionEb>
+  a4:	f6 01       	movw	r30, r12
+  a6:	82 81       	ldd	r24, Z+2	; 0x02
+  a8:	93 81       	ldd	r25, Z+3	; 0x03
+  aa:	fc 01       	movw	r30, r24
+  ac:	24 81       	ldd	r18, Z+4	; 0x04
+  ae:	35 81       	ldd	r19, Z+5	; 0x05
+  b0:	21 15       	cp	r18, r1
+  b2:	31 05       	cpc	r19, r1
+  b4:	01 f4       	brne	.+0      	; 0xb6 <_ZN25TaskManagerSchedulerAndOr8doActionEb+0xb6>
+  b6:	00 c0       	rjmp	.+0      	; 0xb8 <_ZN25TaskManagerSchedulerAndOr8doActionEb+0xb8>
+  b8:	0e 94 00 00 	call	0	; 0x0 <_ZN25TaskManagerSchedulerAndOr8doActionEb>
+  bc:	ec 01       	movw	r28, r24
+  be:	00 23       	and	r16, r16
+  c0:	01 f0       	breq	.+0      	; 0xc2 <_ZN25TaskManagerSchedulerAndOr8doActionEb+0xc2>
+  c2:	11 23       	and	r17, r17
+  c4:	01 f4       	brne	.+0      	; 0xc6 <_ZN25TaskManagerSchedulerAndOr8doActionEb+0xc6>
+  c6:	e8 81       	ld	r30, Y
+  c8:	f9 81       	ldd	r31, Y+1	; 0x01
+  ca:	01 90       	ld	r0, Z+
+  cc:	f0 81       	ld	r31, Z
+  ce:	e0 2d       	mov	r30, r0
+  d0:	00 c0       	rjmp	.+0      	; 0xd2 <_ZN25TaskManagerSchedulerAndOr8doActionEb+0xd2>
+  d2:	11 23       	and	r17, r17
+  d4:	01 f4       	brne	.+0      	; 0xd6 <_ZN25TaskManagerSchedulerAndOr8doActionEb+0xd6>
+  d6:	e8 81       	ld	r30, Y
+  d8:	f9 81       	ldd	r31, Y+1	; 0x01
+  da:	02 80       	ldd	r0, Z+2	; 0x02
+  dc:	f3 81       	ldd	r31, Z+3	; 0x03
+  de:	e0 2d       	mov	r30, r0
+  e0:	ce 01       	movw	r24, r28
+  e2:	09 95       	icall
+  e4:	81 11       	cpse	r24, r1
+  e6:	11 e0       	ldi	r17, 0x01	; 1
+  e8:	c7 01       	movw	r24, r14
+  ea:	be 01       	movw	r22, r28
+  ec:	0e 94 00 00 	call	0	; 0x0 <_ZN25TaskManagerSchedulerAndOr8doActionEb>
+  f0:	f6 01       	movw	r30, r12
+  f2:	82 81       	ldd	r24, Z+2	; 0x02
+  f4:	93 81       	ldd	r25, Z+3	; 0x03
+  f6:	fc 01       	movw	r30, r24
+  f8:	24 81       	ldd	r18, Z+4	; 0x04
+  fa:	35 81       	ldd	r19, Z+5	; 0x05
+  fc:	21 15       	cp	r18, r1
+  fe:	31 05       	cpc	r19, r1
+ 100:	01 f4       	brne	.+0      	; 0x102 <_ZN25TaskManagerSchedulerAndOr8doActionEb+0x102>
+ 102:	00 c0       	rjmp	.+0      	; 0x104 <_ZN25TaskManagerSchedulerAndOr8doActionEb+0x104>
+ 104:	f6 01       	movw	r30, r12
+ 106:	c2 81       	ldd	r28, Z+2	; 0x02
+ 108:	d3 81       	ldd	r29, Z+3	; 0x03
+ 10a:	c7 01       	movw	r24, r14
+ 10c:	0e 94 00 00 	call	0	; 0x0 <_ZN25TaskManagerSchedulerAndOr8doActionEb>
+ 110:	bc 01       	movw	r22, r24
+ 112:	ce 01       	movw	r24, r28
+ 114:	0e 94 00 00 	call	0	; 0x0 <_ZN25TaskManagerSchedulerAndOr8doActionEb>
+ 118:	f7 01       	movw	r30, r14
+ 11a:	84 81       	ldd	r24, Z+4	; 0x04
+ 11c:	95 81       	ldd	r25, Z+5	; 0x05
+ 11e:	00 97       	sbiw	r24, 0x00	; 0
+ 120:	01 f4       	brne	.+0      	; 0x122 <_ZN25TaskManagerSchedulerAndOr8doActionEb+0x122>
+ 122:	e1 14       	cp	r14, r1
+ 124:	f1 04       	cpc	r15, r1
+ 126:	01 f0       	breq	.+0      	; 0x128 <_ZN25TaskManagerSchedulerAndOr8doActionEb+0x128>
+ 128:	13 82       	std	Z+3, r1	; 0x03
+ 12a:	12 82       	std	Z+2, r1	; 0x02
+ 12c:	17 82       	std	Z+7, r1	; 0x07
+ 12e:	16 82       	std	Z+6, r1	; 0x06
+ 130:	11 82       	std	Z+1, r1	; 0x01
+ 132:	10 82       	st	Z, r1
+ 134:	c7 01       	movw	r24, r14
+ 136:	0e 94 00 00 	call	0	; 0x0 <_ZN25TaskManagerSchedulerAndOr8doActionEb>
+ 13a:	81 2f       	mov	r24, r17
+ 13c:	df 91       	pop	r29
+ 13e:	cf 91       	pop	r28
+ 140:	1f 91       	pop	r17
+ 142:	0f 91       	pop	r16
+ 144:	ff 90       	pop	r15
+ 146:	ef 90       	pop	r14
+ 148:	df 90       	pop	r13
+ 14a:	cf 90       	pop	r12
+ 14c:	08 95       	ret
+
+Disassembly of section .text._ZN25TaskManagerSchedulerAndOr24canRemoveFromTaskManagerEv:
+
+00000000 <_ZN25TaskManagerSchedulerAndOr24canRemoveFromTaskManagerEv>:
+	return result;
+}
+
+bool TaskManagerSchedulerAndOr::canExecute()
+{
+	return doAction( true );
+   0:	60 e0       	ldi	r22, 0x00	; 0
+   2:	0e 94 00 00 	call	0	; 0x0 <_ZN25TaskManagerSchedulerAndOr24canRemoveFromTaskManagerEv>
+}
+   6:	08 95       	ret
+
+Disassembly of section .text._ZN25TaskManagerSchedulerAndOr10canExecuteEv:
+
+00000000 <_ZN25TaskManagerSchedulerAndOr10canExecuteEv>:
+	return result;
+}
+
+bool TaskManagerSchedulerAndOr::canExecute()
+{
+	return doAction( true );
+   0:	61 e0       	ldi	r22, 0x01	; 1
+   2:	0e 94 00 00 	call	0	; 0x0 <_ZN25TaskManagerSchedulerAndOr10canExecuteEv>
+}
+   6:	08 95       	ret
+
+TaskManagerSchedulerOneAfterOne.o:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000096  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  00000000  00000000  000000ca  2**0
+                  ALLOC
+  3 .stab         00000c00  00000000  00000000  000000cc  2**2
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  4 .stabstr      00003c0d  00000000  00000000  00000ccc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .text._ZN31TaskManagerSchedulerOneAfterOne24canRemoveFromTaskManagerEv 0000001a  00000000  00000000  000048d9  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  6 .text._ZN31TaskManagerSchedulerOneAfterOneD2Ev 00000064  00000000  00000000  000048f3  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  7 .text._ZN31TaskManagerSchedulerOneAfterOneD0Ev 00000016  00000000  00000000  00004957  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  8 .text.unlikely._ZNK9QueueListIP20TaskManagerSchedulerE4exitEPKc.isra.2 0000003a  00000000  00000000  0000496d  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  9 .text._ZN31TaskManagerSchedulerOneAfterOneC2EP9QueueListIP20TaskManagerSchedulerE 00000066  00000000  00000000  000049a7  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 10 .text._ZN9QueueListIP20TaskManagerSchedulerE3popEv 00000050  00000000  00000000  00004a0d  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 11 .text._ZN9QueueListIP20TaskManagerSchedulerE4pushES1_ 0000006a  00000000  00000000  00004a5d  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 12 .text._ZN31TaskManagerSchedulerOneAfterOne10canExecuteEv 00000098  00000000  00000000  00004ac7  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 13 .rodata._ZTV31TaskManagerSchedulerOneAfterOne 0000000c  00000000  00000000  00004b5f  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+
+Disassembly of section .text._ZN31TaskManagerSchedulerOneAfterOne24canRemoveFromTaskManagerEv:
+
+00000000 <_ZN31TaskManagerSchedulerOneAfterOne24canRemoveFromTaskManagerEv>:
+
+	backupQueue = new QueueList<TaskManagerScheduler*>();
+}
+
+bool TaskManagerSchedulerOneAfterOne::canExecute()
+{
+   0:	dc 01       	movw	r26, r24
+   2:	14 96       	adiw	r26, 0x04	; 4
+   4:	8d 91       	ld	r24, X+
+   6:	9c 91       	ld	r25, X
+   8:	15 97       	sbiw	r26, 0x05	; 5
+   a:	dc 01       	movw	r26, r24
+	bool result = currentTask->canExecute();
+   c:	ed 91       	ld	r30, X+
+   e:	fc 91       	ld	r31, X
+  10:	02 80       	ldd	r0, Z+2	; 0x02
+  12:	f3 81       	ldd	r31, Z+3	; 0x03
+  14:	e0 2d       	mov	r30, r0
+  16:	09 95       	icall
+  18:	08 95       	ret
+
+Disassembly of section .text._ZN31TaskManagerSchedulerOneAfterOneD2Ev:
+
+00000000 <_ZN31TaskManagerSchedulerOneAfterOneD1Ev>:
+
+	backupQueue = new QueueList<TaskManagerScheduler*>();
+}
+
+bool TaskManagerSchedulerOneAfterOne::canExecute()
+{
+   0:	ef 92       	push	r14
+   2:	ff 92       	push	r15
+   4:	0f 93       	push	r16
+   6:	1f 93       	push	r17
+   8:	cf 93       	push	r28
+   a:	df 93       	push	r29
+	bool result = currentTask->canExecute();
+   c:	7c 01       	movw	r14, r24
+   e:	80 e0       	ldi	r24, 0x00	; 0
+  10:	90 e0       	ldi	r25, 0x00	; 0
+  12:	f7 01       	movw	r30, r14
+  14:	91 83       	std	Z+1, r25	; 0x01
+  16:	80 83       	st	Z, r24
+  18:	c6 81       	ldd	r28, Z+6	; 0x06
+  1a:	d7 81       	ldd	r29, Z+7	; 0x07
+  1c:	20 97       	sbiw	r28, 0x00	; 0
+  1e:	01 f0       	breq	.+0      	; 0x20 <_ZN31TaskManagerSchedulerOneAfterOneD1Ev+0x20>
+
+	if( result )
+  20:	0c 81       	ldd	r16, Y+4	; 0x04
+  22:	1d 81       	ldd	r17, Y+5	; 0x05
+	{
+		backupQueue->push( tasks->pop() );
+  24:	00 c0       	rjmp	.+0      	; 0x26 <_ZN31TaskManagerSchedulerOneAfterOneD1Ev+0x26>
+  26:	8c 81       	ldd	r24, Y+4	; 0x04
+  28:	9d 81       	ldd	r25, Y+5	; 0x05
+  2a:	fc 01       	movw	r30, r24
+  2c:	02 81       	ldd	r16, Z+2	; 0x02
+  2e:	13 81       	ldd	r17, Z+3	; 0x03
+  30:	0e 94 00 00 	call	0	; 0x0 <_ZN31TaskManagerSchedulerOneAfterOneD1Ev>
+  34:	1d 83       	std	Y+5, r17	; 0x05
+  36:	0c 83       	std	Y+4, r16	; 0x04
+}
+
+TaskManagerSchedulerOneAfterOne::~TaskManagerSchedulerOneAfterOne()
+{
+	delete( backupQueue );
+}
+  38:	01 15       	cp	r16, r1
+  3a:	11 05       	cpc	r17, r1
+	bool result = currentTask->canExecute();
+
+	if( result )
+	{
+		backupQueue->push( tasks->pop() );
+		if( tasks->isEmpty() ) while( !backupQueue->isEmpty() ) tasks->push( backupQueue->pop() );
+  3c:	01 f4       	brne	.+0      	; 0x3e <_ZN31TaskManagerSchedulerOneAfterOneD1Ev+0x3e>
+  3e:	1b 82       	std	Y+3, r1	; 0x03
+  40:	1a 82       	std	Y+2, r1	; 0x02
+  42:	1f 82       	std	Y+7, r1	; 0x07
+  44:	1e 82       	std	Y+6, r1	; 0x06
+  46:	19 82       	std	Y+1, r1	; 0x01
+  48:	18 82       	st	Y, r1
+  4a:	ce 01       	movw	r24, r28
+  4c:	0e 94 00 00 	call	0	; 0x0 <_ZN31TaskManagerSchedulerOneAfterOneD1Ev>
+  50:	c7 01       	movw	r24, r14
+  52:	0e 94 00 00 	call	0	; 0x0 <_ZN31TaskManagerSchedulerOneAfterOneD1Ev>
+  56:	df 91       	pop	r29
+  58:	cf 91       	pop	r28
+  5a:	1f 91       	pop	r17
+  5c:	0f 91       	pop	r16
+  5e:	ff 90       	pop	r15
+  60:	ef 90       	pop	r14
+  62:	08 95       	ret
+
+Disassembly of section .text._ZN31TaskManagerSchedulerOneAfterOneD0Ev:
+
+00000000 <_ZN31TaskManagerSchedulerOneAfterOneD0Ev>:
+
+	backupQueue = new QueueList<TaskManagerScheduler*>();
+}
+
+bool TaskManagerSchedulerOneAfterOne::canExecute()
+{
+   0:	cf 93       	push	r28
+   2:	df 93       	push	r29
+   4:	ec 01       	movw	r28, r24
+   6:	0e 94 00 00 	call	0	; 0x0 <_ZN31TaskManagerSchedulerOneAfterOneD0Ev>
+   a:	ce 01       	movw	r24, r28
+	bool result = currentTask->canExecute();
+   c:	0e 94 00 00 	call	0	; 0x0 <_ZN31TaskManagerSchedulerOneAfterOneD0Ev>
+  10:	df 91       	pop	r29
+  12:	cf 91       	pop	r28
+  14:	08 95       	ret
+
+Disassembly of section .text.unlikely._ZNK9QueueListIP20TaskManagerSchedulerE4exitEPKc.isra.2:
+
+00000000 <_ZNK9QueueListIP20TaskManagerSchedulerE4exitEPKc.isra.2>:
+
+	backupQueue = new QueueList<TaskManagerScheduler*>();
+}
+
+bool TaskManagerSchedulerOneAfterOne::canExecute()
+{
+   0:	00 97       	sbiw	r24, 0x00	; 0
+   2:	01 f0       	breq	.+0      	; 0x4 <_ZNK9QueueListIP20TaskManagerSchedulerE4exitEPKc.isra.2+0x4>
+   4:	0e 94 00 00 	call	0	; 0x0 <_ZNK9QueueListIP20TaskManagerSchedulerE4exitEPKc.isra.2>
+   8:	8d e0       	ldi	r24, 0x0D	; 13
+   a:	61 e0       	ldi	r22, 0x01	; 1
+	bool result = currentTask->canExecute();
+   c:	0e 94 00 00 	call	0	; 0x0 <_ZNK9QueueListIP20TaskManagerSchedulerE4exitEPKc.isra.2>
+  10:	8d e0       	ldi	r24, 0x0D	; 13
+  12:	61 e0       	ldi	r22, 0x01	; 1
+  14:	0e 94 00 00 	call	0	; 0x0 <_ZNK9QueueListIP20TaskManagerSchedulerE4exitEPKc.isra.2>
+  18:	6a ef       	ldi	r22, 0xFA	; 250
+  1a:	70 e0       	ldi	r23, 0x00	; 0
+  1c:	80 e0       	ldi	r24, 0x00	; 0
+  1e:	90 e0       	ldi	r25, 0x00	; 0
+
+	if( result )
+  20:	0e 94 00 00 	call	0	; 0x0 <_ZNK9QueueListIP20TaskManagerSchedulerE4exitEPKc.isra.2>
+	{
+		backupQueue->push( tasks->pop() );
+  24:	8d e0       	ldi	r24, 0x0D	; 13
+  26:	60 e0       	ldi	r22, 0x00	; 0
+  28:	0e 94 00 00 	call	0	; 0x0 <_ZNK9QueueListIP20TaskManagerSchedulerE4exitEPKc.isra.2>
+  2c:	6a ef       	ldi	r22, 0xFA	; 250
+  2e:	70 e0       	ldi	r23, 0x00	; 0
+  30:	80 e0       	ldi	r24, 0x00	; 0
+  32:	90 e0       	ldi	r25, 0x00	; 0
+  34:	0e 94 00 00 	call	0	; 0x0 <_ZNK9QueueListIP20TaskManagerSchedulerE4exitEPKc.isra.2>
+}
+
+TaskManagerSchedulerOneAfterOne::~TaskManagerSchedulerOneAfterOne()
+{
+	delete( backupQueue );
+}
+  38:	00 c0       	rjmp	.+0      	; 0x3a <__zero_reg__+0x39>
+
+Disassembly of section .text._ZN31TaskManagerSchedulerOneAfterOneC2EP9QueueListIP20TaskManagerSchedulerE:
+
+00000000 <_ZN31TaskManagerSchedulerOneAfterOneC1EP9QueueListIP20TaskManagerSchedulerE>:
+
+	backupQueue = new QueueList<TaskManagerScheduler*>();
+}
+
+bool TaskManagerSchedulerOneAfterOne::canExecute()
+{
+   0:	0f 93       	push	r16
+   2:	1f 93       	push	r17
+   4:	cf 93       	push	r28
+   6:	df 93       	push	r29
+   8:	ec 01       	movw	r28, r24
+   a:	8b 01       	movw	r16, r22
+	bool result = currentTask->canExecute();
+   c:	0e 94 00 00 	call	0	; 0x0 <_ZN31TaskManagerSchedulerOneAfterOneC1EP9QueueListIP20TaskManagerSchedulerE>
+  10:	80 e0       	ldi	r24, 0x00	; 0
+  12:	90 e0       	ldi	r25, 0x00	; 0
+  14:	99 83       	std	Y+1, r25	; 0x01
+  16:	88 83       	st	Y, r24
+  18:	1b 83       	std	Y+3, r17	; 0x03
+  1a:	0a 83       	std	Y+2, r16	; 0x02
+  1c:	d8 01       	movw	r26, r16
+  1e:	14 96       	adiw	r26, 0x04	; 4
+
+	if( result )
+  20:	ed 91       	ld	r30, X+
+  22:	fc 91       	ld	r31, X
+	{
+		backupQueue->push( tasks->pop() );
+  24:	15 97       	sbiw	r26, 0x05	; 5
+  26:	30 97       	sbiw	r30, 0x00	; 0
+  28:	01 f4       	brne	.+0      	; 0x2a <_ZN31TaskManagerSchedulerOneAfterOneC1EP9QueueListIP20TaskManagerSchedulerE+0x2a>
+  2a:	8d 91       	ld	r24, X+
+  2c:	9c 91       	ld	r25, X
+  2e:	60 e0       	ldi	r22, 0x00	; 0
+  30:	70 e0       	ldi	r23, 0x00	; 0
+  32:	0e 94 00 00 	call	0	; 0x0 <_ZN31TaskManagerSchedulerOneAfterOneC1EP9QueueListIP20TaskManagerSchedulerE>
+  36:	80 81       	ld	r24, Z
+}
+
+TaskManagerSchedulerOneAfterOne::~TaskManagerSchedulerOneAfterOne()
+{
+	delete( backupQueue );
+}
+  38:	91 81       	ldd	r25, Z+1	; 0x01
+  3a:	9d 83       	std	Y+5, r25	; 0x05
+	bool result = currentTask->canExecute();
+
+	if( result )
+	{
+		backupQueue->push( tasks->pop() );
+		if( tasks->isEmpty() ) while( !backupQueue->isEmpty() ) tasks->push( backupQueue->pop() );
+  3c:	8c 83       	std	Y+4, r24	; 0x04
+  3e:	88 e0       	ldi	r24, 0x08	; 8
+  40:	90 e0       	ldi	r25, 0x00	; 0
+  42:	0e 94 00 00 	call	0	; 0x0 <_ZN31TaskManagerSchedulerOneAfterOneC1EP9QueueListIP20TaskManagerSchedulerE>
+  46:	fc 01       	movw	r30, r24
+  48:	13 82       	std	Z+3, r1	; 0x03
+  4a:	12 82       	std	Z+2, r1	; 0x02
+  4c:	15 82       	std	Z+5, r1	; 0x05
+  4e:	14 82       	std	Z+4, r1	; 0x04
+  50:	17 82       	std	Z+7, r1	; 0x07
+  52:	16 82       	std	Z+6, r1	; 0x06
+  54:	11 82       	std	Z+1, r1	; 0x01
+  56:	10 82       	st	Z, r1
+  58:	9f 83       	std	Y+7, r25	; 0x07
+  5a:	8e 83       	std	Y+6, r24	; 0x06
+  5c:	df 91       	pop	r29
+  5e:	cf 91       	pop	r28
+  60:	1f 91       	pop	r17
+  62:	0f 91       	pop	r16
+  64:	08 95       	ret
+
+Disassembly of section .text._ZN9QueueListIP20TaskManagerSchedulerE3popEv:
+
+00000000 <_ZN9QueueListIP20TaskManagerSchedulerE3popEv>:
+
+	backupQueue = new QueueList<TaskManagerScheduler*>();
+}
+
+bool TaskManagerSchedulerOneAfterOne::canExecute()
+{
+   0:	ef 92       	push	r14
+   2:	ff 92       	push	r15
+   4:	0f 93       	push	r16
+   6:	1f 93       	push	r17
+   8:	cf 93       	push	r28
+   a:	df 93       	push	r29
+	bool result = currentTask->canExecute();
+   c:	ec 01       	movw	r28, r24
+   e:	ec 81       	ldd	r30, Y+4	; 0x04
+  10:	fd 81       	ldd	r31, Y+5	; 0x05
+  12:	30 97       	sbiw	r30, 0x00	; 0
+  14:	01 f4       	brne	.+0      	; 0x16 <_ZN9QueueListIP20TaskManagerSchedulerE3popEv+0x16>
+  16:	88 81       	ld	r24, Y
+  18:	99 81       	ldd	r25, Y+1	; 0x01
+  1a:	60 e0       	ldi	r22, 0x00	; 0
+  1c:	70 e0       	ldi	r23, 0x00	; 0
+  1e:	0e 94 00 00 	call	0	; 0x0 <_ZN9QueueListIP20TaskManagerSchedulerE3popEv>
+
+	if( result )
+  22:	e0 80       	ld	r14, Z
+	{
+		backupQueue->push( tasks->pop() );
+  24:	f1 80       	ldd	r15, Z+1	; 0x01
+  26:	02 81       	ldd	r16, Z+2	; 0x02
+  28:	13 81       	ldd	r17, Z+3	; 0x03
+  2a:	cf 01       	movw	r24, r30
+  2c:	0e 94 00 00 	call	0	; 0x0 <_ZN9QueueListIP20TaskManagerSchedulerE3popEv>
+  30:	1d 83       	std	Y+5, r17	; 0x05
+  32:	0c 83       	std	Y+4, r16	; 0x04
+  34:	2a 81       	ldd	r18, Y+2	; 0x02
+  36:	3b 81       	ldd	r19, Y+3	; 0x03
+}
+
+TaskManagerSchedulerOneAfterOne::~TaskManagerSchedulerOneAfterOne()
+{
+	delete( backupQueue );
+}
+  38:	21 50       	subi	r18, 0x01	; 1
+  3a:	30 40       	sbci	r19, 0x00	; 0
+	bool result = currentTask->canExecute();
+
+	if( result )
+	{
+		backupQueue->push( tasks->pop() );
+		if( tasks->isEmpty() ) while( !backupQueue->isEmpty() ) tasks->push( backupQueue->pop() );
+  3c:	3b 83       	std	Y+3, r19	; 0x03
+  3e:	2a 83       	std	Y+2, r18	; 0x02
+  40:	c7 01       	movw	r24, r14
+  42:	df 91       	pop	r29
+  44:	cf 91       	pop	r28
+  46:	1f 91       	pop	r17
+  48:	0f 91       	pop	r16
+  4a:	ff 90       	pop	r15
+  4c:	ef 90       	pop	r14
+  4e:	08 95       	ret
+
+Disassembly of section .text._ZN9QueueListIP20TaskManagerSchedulerE4pushES1_:
+
+00000000 <_ZN9QueueListIP20TaskManagerSchedulerE4pushES1_>:
+
+	backupQueue = new QueueList<TaskManagerScheduler*>();
+}
+
+bool TaskManagerSchedulerOneAfterOne::canExecute()
+{
+   0:	ef 92       	push	r14
+   2:	ff 92       	push	r15
+   4:	0f 93       	push	r16
+   6:	1f 93       	push	r17
+   8:	cf 93       	push	r28
+   a:	df 93       	push	r29
+	bool result = currentTask->canExecute();
+   c:	ec 01       	movw	r28, r24
+   e:	8b 01       	movw	r16, r22
+  10:	ee 80       	ldd	r14, Y+6	; 0x06
+  12:	ff 80       	ldd	r15, Y+7	; 0x07
+  14:	84 e0       	ldi	r24, 0x04	; 4
+  16:	90 e0       	ldi	r25, 0x00	; 0
+  18:	0e 94 00 00 	call	0	; 0x0 <_ZN9QueueListIP20TaskManagerSchedulerE4pushES1_>
+  1c:	fc 01       	movw	r30, r24
+  1e:	9f 83       	std	Y+7, r25	; 0x07
+
+	if( result )
+  20:	8e 83       	std	Y+6, r24	; 0x06
+  22:	00 97       	sbiw	r24, 0x00	; 0
+	{
+		backupQueue->push( tasks->pop() );
+  24:	01 f4       	brne	.+0      	; 0x26 <_ZN9QueueListIP20TaskManagerSchedulerE4pushES1_+0x26>
+  26:	88 81       	ld	r24, Y
+  28:	99 81       	ldd	r25, Y+1	; 0x01
+  2a:	60 e0       	ldi	r22, 0x00	; 0
+  2c:	70 e0       	ldi	r23, 0x00	; 0
+  2e:	0e 94 00 00 	call	0	; 0x0 <_ZN9QueueListIP20TaskManagerSchedulerE4pushES1_>
+  32:	13 82       	std	Z+3, r1	; 0x03
+  34:	12 82       	std	Z+2, r1	; 0x02
+  36:	11 83       	std	Z+1, r17	; 0x01
+}
+
+TaskManagerSchedulerOneAfterOne::~TaskManagerSchedulerOneAfterOne()
+{
+	delete( backupQueue );
+}
+  38:	00 83       	st	Z, r16
+  3a:	8c 81       	ldd	r24, Y+4	; 0x04
+	bool result = currentTask->canExecute();
+
+	if( result )
+	{
+		backupQueue->push( tasks->pop() );
+		if( tasks->isEmpty() ) while( !backupQueue->isEmpty() ) tasks->push( backupQueue->pop() );
+  3c:	9d 81       	ldd	r25, Y+5	; 0x05
+  3e:	00 97       	sbiw	r24, 0x00	; 0
+  40:	01 f4       	brne	.+0      	; 0x42 <_ZN9QueueListIP20TaskManagerSchedulerE4pushES1_+0x42>
+  42:	fd 83       	std	Y+5, r31	; 0x05
+  44:	ec 83       	std	Y+4, r30	; 0x04
+  46:	00 c0       	rjmp	.+0      	; 0x48 <_ZN9QueueListIP20TaskManagerSchedulerE4pushES1_+0x48>
+  48:	d7 01       	movw	r26, r14
+  4a:	13 96       	adiw	r26, 0x03	; 3
+  4c:	fc 93       	st	X, r31
+  4e:	ee 93       	st	-X, r30
+  50:	12 97       	sbiw	r26, 0x02	; 2
+  52:	8a 81       	ldd	r24, Y+2	; 0x02
+  54:	9b 81       	ldd	r25, Y+3	; 0x03
+  56:	01 96       	adiw	r24, 0x01	; 1
+  58:	9b 83       	std	Y+3, r25	; 0x03
+  5a:	8a 83       	std	Y+2, r24	; 0x02
+  5c:	df 91       	pop	r29
+  5e:	cf 91       	pop	r28
+  60:	1f 91       	pop	r17
+  62:	0f 91       	pop	r16
+  64:	ff 90       	pop	r15
+		currentTask = tasks->peek();
+  66:	ef 90       	pop	r14
+  68:	08 95       	ret
+
+Disassembly of section .text._ZN31TaskManagerSchedulerOneAfterOne10canExecuteEv:
+
+00000000 <_ZN31TaskManagerSchedulerOneAfterOne10canExecuteEv>:
+
+	backupQueue = new QueueList<TaskManagerScheduler*>();
+}
+
+bool TaskManagerSchedulerOneAfterOne::canExecute()
+{
+   0:	ff 92       	push	r15
+   2:	0f 93       	push	r16
+   4:	1f 93       	push	r17
+   6:	cf 93       	push	r28
+   8:	df 93       	push	r29
+   a:	ec 01       	movw	r28, r24
+	bool result = currentTask->canExecute();
+   c:	8c 81       	ldd	r24, Y+4	; 0x04
+   e:	9d 81       	ldd	r25, Y+5	; 0x05
+  10:	dc 01       	movw	r26, r24
+  12:	ed 91       	ld	r30, X+
+  14:	fc 91       	ld	r31, X
+  16:	01 90       	ld	r0, Z+
+  18:	f0 81       	ld	r31, Z
+  1a:	e0 2d       	mov	r30, r0
+  1c:	09 95       	icall
+  1e:	f8 2e       	mov	r15, r24
+
+	if( result )
+  20:	88 23       	and	r24, r24
+  22:	01 f0       	breq	.+0      	; 0x24 <_ZN31TaskManagerSchedulerOneAfterOne10canExecuteEv+0x24>
+	{
+		backupQueue->push( tasks->pop() );
+  24:	0e 81       	ldd	r16, Y+6	; 0x06
+  26:	1f 81       	ldd	r17, Y+7	; 0x07
+  28:	8a 81       	ldd	r24, Y+2	; 0x02
+  2a:	9b 81       	ldd	r25, Y+3	; 0x03
+  2c:	0e 94 00 00 	call	0	; 0x0 <_ZN31TaskManagerSchedulerOneAfterOne10canExecuteEv>
+  30:	bc 01       	movw	r22, r24
+  32:	c8 01       	movw	r24, r16
+  34:	0e 94 00 00 	call	0	; 0x0 <_ZN31TaskManagerSchedulerOneAfterOne10canExecuteEv>
+}
+
+TaskManagerSchedulerOneAfterOne::~TaskManagerSchedulerOneAfterOne()
+{
+	delete( backupQueue );
+}
+  38:	ea 81       	ldd	r30, Y+2	; 0x02
+  3a:	fb 81       	ldd	r31, Y+3	; 0x03
+	bool result = currentTask->canExecute();
+
+	if( result )
+	{
+		backupQueue->push( tasks->pop() );
+		if( tasks->isEmpty() ) while( !backupQueue->isEmpty() ) tasks->push( backupQueue->pop() );
+  3c:	84 81       	ldd	r24, Z+4	; 0x04
+  3e:	95 81       	ldd	r25, Z+5	; 0x05
+  40:	00 97       	sbiw	r24, 0x00	; 0
+  42:	01 f4       	brne	.+0      	; 0x44 <_ZN31TaskManagerSchedulerOneAfterOne10canExecuteEv+0x44>
+  44:	00 c0       	rjmp	.+0      	; 0x46 <_ZN31TaskManagerSchedulerOneAfterOne10canExecuteEv+0x46>
+  46:	0a 81       	ldd	r16, Y+2	; 0x02
+  48:	1b 81       	ldd	r17, Y+3	; 0x03
+  4a:	0e 94 00 00 	call	0	; 0x0 <_ZN31TaskManagerSchedulerOneAfterOne10canExecuteEv>
+  4e:	bc 01       	movw	r22, r24
+  50:	c8 01       	movw	r24, r16
+  52:	0e 94 00 00 	call	0	; 0x0 <_ZN31TaskManagerSchedulerOneAfterOne10canExecuteEv>
+  56:	8e 81       	ldd	r24, Y+6	; 0x06
+  58:	9f 81       	ldd	r25, Y+7	; 0x07
+  5a:	fc 01       	movw	r30, r24
+  5c:	24 81       	ldd	r18, Z+4	; 0x04
+  5e:	35 81       	ldd	r19, Z+5	; 0x05
+  60:	21 15       	cp	r18, r1
+  62:	31 05       	cpc	r19, r1
+  64:	01 f4       	brne	.+0      	; 0x66 <_ZN31TaskManagerSchedulerOneAfterOne10canExecuteEv+0x66>
+		currentTask = tasks->peek();
+  66:	aa 81       	ldd	r26, Y+2	; 0x02
+  68:	bb 81       	ldd	r27, Y+3	; 0x03
+}
+
+TaskManagerSchedulerOneAfterOne::~TaskManagerSchedulerOneAfterOne()
+{
+	delete( backupQueue );
+}
+  6a:	14 96       	adiw	r26, 0x04	; 4
+  6c:	ed 91       	ld	r30, X+
+  6e:	fc 91       	ld	r31, X
+  70:	15 97       	sbiw	r26, 0x05	; 5
+
+// get an item from the queue.
+template<typename T>
+T QueueList<T>::peek () const {
+  // check if the queue is empty.
+  if (isEmpty ())
+  72:	30 97       	sbiw	r30, 0x00	; 0
+  74:	01 f4       	brne	.+0      	; 0x76 <_ZN31TaskManagerSchedulerOneAfterOne10canExecuteEv+0x76>
+    exit ("QUEUE: can't peek item from queue: queue is empty.");
+  76:	8d 91       	ld	r24, X+
+  78:	9c 91       	ld	r25, X
+  7a:	60 e0       	ldi	r22, 0x00	; 0
+  7c:	70 e0       	ldi	r23, 0x00	; 0
+  7e:	0e 94 00 00 	call	0	; 0x0 <_ZN31TaskManagerSchedulerOneAfterOne10canExecuteEv>
+
+	if( result )
+	{
+		backupQueue->push( tasks->pop() );
+		if( tasks->isEmpty() ) while( !backupQueue->isEmpty() ) tasks->push( backupQueue->pop() );
+		currentTask = tasks->peek();
+  82:	80 81       	ld	r24, Z
+  84:	91 81       	ldd	r25, Z+1	; 0x01
+  86:	9d 83       	std	Y+5, r25	; 0x05
+  88:	8c 83       	std	Y+4, r24	; 0x04
+	}
+
+	return result;
+}
+  8a:	8f 2d       	mov	r24, r15
+  8c:	df 91       	pop	r29
+  8e:	cf 91       	pop	r28
+  90:	1f 91       	pop	r17
+  92:	0f 91       	pop	r16
+  94:	ff 90       	pop	r15
+  96:	08 95       	ret
+
+TaskManagerSchedulerOneExecution.o:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  00000000  00000000  00000034  2**0
+                  ALLOC
+  3 .stab         00000360  00000000  00000000  00000034  2**2
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  4 .stabstr      0000099b  00000000  00000000  00000394  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .text._ZN32TaskManagerSchedulerOneExecution10canExecuteEv 00000004  00000000  00000000  00000d2f  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  6 .text._ZN32TaskManagerSchedulerOneExecution24canRemoveFromTaskManagerEv 00000004  00000000  00000000  00000d33  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  7 .text._ZN32TaskManagerSchedulerOneExecutionD2Ev 00000010  00000000  00000000  00000d37  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  8 .text._ZN32TaskManagerSchedulerOneExecutionD0Ev 00000020  00000000  00000000  00000d47  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  9 .text._ZN32TaskManagerSchedulerOneExecutionC2Ev 00000018  00000000  00000000  00000d67  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 10 .rodata._ZTV32TaskManagerSchedulerOneExecution 0000000c  00000000  00000000  00000d7f  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+
+Disassembly of section .text._ZN32TaskManagerSchedulerOneExecution10canExecuteEv:
+
+00000000 <_ZN32TaskManagerSchedulerOneExecution10canExecuteEv>:
+ *      Author: root
+ */
+
+#include "TaskManagerSchedulerOneExecution.h"
+
+TaskManagerSchedulerOneExecution::TaskManagerSchedulerOneExecution()
+   0:	81 e0       	ldi	r24, 0x01	; 1
+   2:	08 95       	ret
+
+Disassembly of section .text._ZN32TaskManagerSchedulerOneExecution24canRemoveFromTaskManagerEv:
+
+00000000 <_ZN32TaskManagerSchedulerOneExecution24canRemoveFromTaskManagerEv>:
+   0:	81 e0       	ldi	r24, 0x01	; 1
+   2:	08 95       	ret
+
+Disassembly of section .text._ZN32TaskManagerSchedulerOneExecutionD2Ev:
+
+00000000 <_ZN32TaskManagerSchedulerOneExecutionD1Ev>:
+   0:	20 e0       	ldi	r18, 0x00	; 0
+   2:	30 e0       	ldi	r19, 0x00	; 0
+   4:	fc 01       	movw	r30, r24
+   6:	31 83       	std	Z+1, r19	; 0x01
+   8:	20 83       	st	Z, r18
+   a:	0e 94 00 00 	call	0	; 0x0 <_ZN32TaskManagerSchedulerOneExecutionD1Ev>
+   e:	08 95       	ret
+
+Disassembly of section .text._ZN32TaskManagerSchedulerOneExecutionD0Ev:
+
+00000000 <_ZN32TaskManagerSchedulerOneExecutionD0Ev>:
+   0:	cf 93       	push	r28
+   2:	df 93       	push	r29
+   4:	ec 01       	movw	r28, r24
+   6:	80 e0       	ldi	r24, 0x00	; 0
+   8:	90 e0       	ldi	r25, 0x00	; 0
+   a:	99 83       	std	Y+1, r25	; 0x01
+   c:	88 83       	st	Y, r24
+   e:	ce 01       	movw	r24, r28
+  10:	0e 94 00 00 	call	0	; 0x0 <_ZN32TaskManagerSchedulerOneExecutionD0Ev>
+{
+}
+  14:	ce 01       	movw	r24, r28
+  16:	0e 94 00 00 	call	0	; 0x0 <_ZN32TaskManagerSchedulerOneExecutionD0Ev>
+  1a:	df 91       	pop	r29
+  1c:	cf 91       	pop	r28
+  1e:	08 95       	ret
+
+Disassembly of section .text._ZN32TaskManagerSchedulerOneExecutionC2Ev:
+
+00000000 <_ZN32TaskManagerSchedulerOneExecutionC1Ev>:
+ *      Author: root
+ */
+
+#include "TaskManagerSchedulerOneExecution.h"
+
+TaskManagerSchedulerOneExecution::TaskManagerSchedulerOneExecution()
+   0:	cf 93       	push	r28
+   2:	df 93       	push	r29
+   4:	ec 01       	movw	r28, r24
+   6:	0e 94 00 00 	call	0	; 0x0 <_ZN32TaskManagerSchedulerOneExecutionC1Ev>
+   a:	80 e0       	ldi	r24, 0x00	; 0
+   c:	90 e0       	ldi	r25, 0x00	; 0
+   e:	99 83       	std	Y+1, r25	; 0x01
+  10:	88 83       	st	Y, r24
+{
+}
+  12:	df 91       	pop	r29
+  14:	cf 91       	pop	r28
+  16:	08 95       	ret
+
+TaskManagerSchedulerTimeIntervals.o:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000096  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  00000000  00000000  000000ca  2**0
+                  ALLOC
+  3 .stab         00000d5c  00000000  00000000  000000cc  2**2
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  4 .stabstr      00003c07  00000000  00000000  00000e28  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .text._ZN33TaskManagerSchedulerTimeIntervals24canRemoveFromTaskManagerEv 00000006  00000000  00000000  00004a2f  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  6 .text._ZN33TaskManagerSchedulerTimeIntervalsD2Ev 000000a4  00000000  00000000  00004a35  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  7 .text._ZN33TaskManagerSchedulerTimeIntervalsD0Ev 00000016  00000000  00000000  00004ad9  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  8 .text.unlikely._ZNK9QueueListImE4exitEPKc.isra.2 0000003a  00000000  00000000  00004aef  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  9 .text._ZN33TaskManagerSchedulerTimeIntervalsC2EP9QueueListImEbb 00000086  00000000  00000000  00004b29  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 10 .text._ZN33TaskManagerSchedulerTimeIntervals9setCyclicEb 00000006  00000000  00000000  00004baf  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 11 .text._ZN9QueueListImE3popEv 00000076  00000000  00000000  00004bb5  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 12 .text._ZN9QueueListImE4pushEm 00000078  00000000  00000000  00004c2b  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 13 .text._ZN33TaskManagerSchedulerTimeIntervals10canExecuteEv 000000ce  00000000  00000000  00004ca3  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 14 .rodata._ZTV33TaskManagerSchedulerTimeIntervals 0000000c  00000000  00000000  00004d71  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+
+Disassembly of section .text._ZN33TaskManagerSchedulerTimeIntervals24canRemoveFromTaskManagerEv:
+
+00000000 <_ZN33TaskManagerSchedulerTimeIntervals24canRemoveFromTaskManagerEv>:
+{
+	isCyclic = _isCyclic;
+}
+
+bool TaskManagerSchedulerTimeIntervals::canExecute()
+{
+   0:	fc 01       	movw	r30, r24
+   2:	84 85       	ldd	r24, Z+12	; 0x0c
+   4:	08 95       	ret
+
+Disassembly of section .text._ZN33TaskManagerSchedulerTimeIntervalsD2Ev:
+
+00000000 <_ZN33TaskManagerSchedulerTimeIntervalsD1Ev>:
+   0:	ef 92       	push	r14
+   2:	ff 92       	push	r15
+   4:	0f 93       	push	r16
+   6:	1f 93       	push	r17
+   8:	cf 93       	push	r28
+   a:	df 93       	push	r29
+   c:	7c 01       	movw	r14, r24
+   e:	80 e0       	ldi	r24, 0x00	; 0
+  10:	90 e0       	ldi	r25, 0x00	; 0
+	unsigned long currentMillis = millis();
+  12:	f7 01       	movw	r30, r14
+  14:	91 83       	std	Z+1, r25	; 0x01
+  16:	80 83       	st	Z, r24
+  18:	c4 81       	ldd	r28, Z+4	; 0x04
+
+	if( currentMillis - lastExecutionTime > queueA->peek() )
+  1a:	d5 81       	ldd	r29, Z+5	; 0x05
+  1c:	20 97       	sbiw	r28, 0x00	; 0
+  1e:	01 f0       	breq	.+0      	; 0x20 <_ZN33TaskManagerSchedulerTimeIntervalsD1Ev+0x20>
+  20:	0c 81       	ldd	r16, Y+4	; 0x04
+  22:	1d 81       	ldd	r17, Y+5	; 0x05
+  24:	00 c0       	rjmp	.+0      	; 0x26 <_ZN33TaskManagerSchedulerTimeIntervalsD1Ev+0x26>
+	if( shouldIFreeQueue )
+	{
+		//while( !queueA->isEmpty() ) delete( queueA->pop() );
+		delete( queueA );
+	}
+}
+  26:	8c 81       	ldd	r24, Y+4	; 0x04
+  28:	9d 81       	ldd	r25, Y+5	; 0x05
+
+// get an item from the queue.
+template<typename T>
+T QueueList<T>::peek () const {
+  // check if the queue is empty.
+  if (isEmpty ())
+  2a:	fc 01       	movw	r30, r24
+  2c:	04 81       	ldd	r16, Z+4	; 0x04
+  2e:	15 81       	ldd	r17, Z+5	; 0x05
+    exit ("QUEUE: can't peek item from queue: queue is empty.");
+  30:	0e 94 00 00 	call	0	; 0x0 <_ZN33TaskManagerSchedulerTimeIntervalsD1Ev>
+  34:	1d 83       	std	Y+5, r17	; 0x05
+  36:	0c 83       	std	Y+4, r16	; 0x04
+  38:	01 15       	cp	r16, r1
+  3a:	11 05       	cpc	r17, r1
+
+bool TaskManagerSchedulerTimeIntervals::canExecute()
+{
+	unsigned long currentMillis = millis();
+
+	if( currentMillis - lastExecutionTime > queueA->peek() )
+  3c:	01 f4       	brne	.+0      	; 0x3e <_ZN33TaskManagerSchedulerTimeIntervalsD1Ev+0x3e>
+  3e:	1b 82       	std	Y+3, r1	; 0x03
+  40:	1a 82       	std	Y+2, r1	; 0x02
+  42:	1f 82       	std	Y+7, r1	; 0x07
+  44:	1e 82       	std	Y+6, r1	; 0x06
+  46:	19 82       	std	Y+1, r1	; 0x01
+  48:	18 82       	st	Y, r1
+  4a:	ce 01       	movw	r24, r28
+  4c:	0e 94 00 00 	call	0	; 0x0 <_ZN33TaskManagerSchedulerTimeIntervalsD1Ev>
+  50:	f7 01       	movw	r30, r14
+  52:	87 81       	ldd	r24, Z+7	; 0x07
+  54:	88 23       	and	r24, r24
+  56:	01 f0       	breq	.+0      	; 0x58 <_ZN33TaskManagerSchedulerTimeIntervalsD1Ev+0x58>
+  58:	c2 81       	ldd	r28, Z+2	; 0x02
+  5a:	d3 81       	ldd	r29, Z+3	; 0x03
+  5c:	20 97       	sbiw	r28, 0x00	; 0
+	{
+		lastExecutionTime = currentMillis;
+  5e:	01 f0       	breq	.+0      	; 0x60 <_ZN33TaskManagerSchedulerTimeIntervalsD1Ev+0x60>
+  60:	0c 81       	ldd	r16, Y+4	; 0x04
+  62:	1d 81       	ldd	r17, Y+5	; 0x05
+  64:	00 c0       	rjmp	.+0      	; 0x66 <_ZN33TaskManagerSchedulerTimeIntervalsD1Ev+0x66>
+
+		queueB->push( queueA->pop() );
+  66:	8c 81       	ldd	r24, Y+4	; 0x04
+  68:	9d 81       	ldd	r25, Y+5	; 0x05
+  6a:	fc 01       	movw	r30, r24
+  6c:	04 81       	ldd	r16, Z+4	; 0x04
+  6e:	15 81       	ldd	r17, Z+5	; 0x05
+  70:	0e 94 00 00 	call	0	; 0x0 <_ZN33TaskManagerSchedulerTimeIntervalsD1Ev>
+  74:	1d 83       	std	Y+5, r17	; 0x05
+  76:	0c 83       	std	Y+4, r16	; 0x04
+  78:	01 15       	cp	r16, r1
+	if( shouldIFreeQueue )
+	{
+		//while( !queueA->isEmpty() ) delete( queueA->pop() );
+		delete( queueA );
+	}
+}
+  7a:	11 05       	cpc	r17, r1
+  7c:	01 f4       	brne	.+0      	; 0x7e <_ZN33TaskManagerSchedulerTimeIntervalsD1Ev+0x7e>
+	{
+		lastExecutionTime = currentMillis;
+
+		queueB->push( queueA->pop() );
+
+		if( queueA->isEmpty() )
+  7e:	1b 82       	std	Y+3, r1	; 0x03
+  80:	1a 82       	std	Y+2, r1	; 0x02
+  82:	1f 82       	std	Y+7, r1	; 0x07
+  84:	1e 82       	std	Y+6, r1	; 0x06
+  86:	19 82       	std	Y+1, r1	; 0x01
+	    {
+			while( !queueB->isEmpty() ) queueA->push( queueB->pop() );
+  88:	18 82       	st	Y, r1
+  8a:	ce 01       	movw	r24, r28
+  8c:	0e 94 00 00 	call	0	; 0x0 <_ZN33TaskManagerSchedulerTimeIntervalsD1Ev>
+  90:	c7 01       	movw	r24, r14
+  92:	0e 94 00 00 	call	0	; 0x0 <_ZN33TaskManagerSchedulerTimeIntervalsD1Ev>
+  96:	df 91       	pop	r29
+  98:	cf 91       	pop	r28
+  9a:	1f 91       	pop	r17
+  9c:	0f 91       	pop	r16
+  9e:	ff 90       	pop	r15
+  a0:	ef 90       	pop	r14
+  a2:	08 95       	ret
+
+Disassembly of section .text._ZN33TaskManagerSchedulerTimeIntervalsD0Ev:
+
+00000000 <_ZN33TaskManagerSchedulerTimeIntervalsD0Ev>:
+{
+	isCyclic = _isCyclic;
+}
+
+bool TaskManagerSchedulerTimeIntervals::canExecute()
+{
+   0:	cf 93       	push	r28
+   2:	df 93       	push	r29
+   4:	ec 01       	movw	r28, r24
+   6:	0e 94 00 00 	call	0	; 0x0 <_ZN33TaskManagerSchedulerTimeIntervalsD0Ev>
+   a:	ce 01       	movw	r24, r28
+   c:	0e 94 00 00 	call	0	; 0x0 <_ZN33TaskManagerSchedulerTimeIntervalsD0Ev>
+  10:	df 91       	pop	r29
+	unsigned long currentMillis = millis();
+  12:	cf 91       	pop	r28
+  14:	08 95       	ret
+
+Disassembly of section .text.unlikely._ZNK9QueueListImE4exitEPKc.isra.2:
+
+00000000 <_ZNK9QueueListImE4exitEPKc.isra.2>:
+{
+	isCyclic = _isCyclic;
+}
+
+bool TaskManagerSchedulerTimeIntervals::canExecute()
+{
+   0:	00 97       	sbiw	r24, 0x00	; 0
+   2:	01 f0       	breq	.+0      	; 0x4 <_ZNK9QueueListImE4exitEPKc.isra.2+0x4>
+   4:	0e 94 00 00 	call	0	; 0x0 <_ZNK9QueueListImE4exitEPKc.isra.2>
+   8:	8d e0       	ldi	r24, 0x0D	; 13
+   a:	61 e0       	ldi	r22, 0x01	; 1
+   c:	0e 94 00 00 	call	0	; 0x0 <_ZNK9QueueListImE4exitEPKc.isra.2>
+  10:	8d e0       	ldi	r24, 0x0D	; 13
+	unsigned long currentMillis = millis();
+  12:	61 e0       	ldi	r22, 0x01	; 1
+  14:	0e 94 00 00 	call	0	; 0x0 <_ZNK9QueueListImE4exitEPKc.isra.2>
+  18:	6a ef       	ldi	r22, 0xFA	; 250
+
+	if( currentMillis - lastExecutionTime > queueA->peek() )
+  1a:	70 e0       	ldi	r23, 0x00	; 0
+  1c:	80 e0       	ldi	r24, 0x00	; 0
+  1e:	90 e0       	ldi	r25, 0x00	; 0
+  20:	0e 94 00 00 	call	0	; 0x0 <_ZNK9QueueListImE4exitEPKc.isra.2>
+  24:	8d e0       	ldi	r24, 0x0D	; 13
+	if( shouldIFreeQueue )
+	{
+		//while( !queueA->isEmpty() ) delete( queueA->pop() );
+		delete( queueA );
+	}
+}
+  26:	60 e0       	ldi	r22, 0x00	; 0
+  28:	0e 94 00 00 	call	0	; 0x0 <_ZNK9QueueListImE4exitEPKc.isra.2>
+
+// get an item from the queue.
+template<typename T>
+T QueueList<T>::peek () const {
+  // check if the queue is empty.
+  if (isEmpty ())
+  2c:	6a ef       	ldi	r22, 0xFA	; 250
+  2e:	70 e0       	ldi	r23, 0x00	; 0
+    exit ("QUEUE: can't peek item from queue: queue is empty.");
+  30:	80 e0       	ldi	r24, 0x00	; 0
+  32:	90 e0       	ldi	r25, 0x00	; 0
+  34:	0e 94 00 00 	call	0	; 0x0 <_ZNK9QueueListImE4exitEPKc.isra.2>
+  38:	00 c0       	rjmp	.+0      	; 0x3a <__zero_reg__+0x39>
+
+Disassembly of section .text._ZN33TaskManagerSchedulerTimeIntervalsC2EP9QueueListImEbb:
+
+00000000 <_ZN33TaskManagerSchedulerTimeIntervalsC1EP9QueueListImEbb>:
+{
+	isCyclic = _isCyclic;
+}
+
+bool TaskManagerSchedulerTimeIntervals::canExecute()
+{
+   0:	ef 92       	push	r14
+   2:	ff 92       	push	r15
+   4:	0f 93       	push	r16
+   6:	1f 93       	push	r17
+   8:	cf 93       	push	r28
+   a:	df 93       	push	r29
+   c:	00 d0       	rcall	.+0      	; 0xe <_ZN33TaskManagerSchedulerTimeIntervalsC1EP9QueueListImEbb+0xe>
+   e:	cd b7       	in	r28, 0x3d	; 61
+  10:	de b7       	in	r29, 0x3e	; 62
+	unsigned long currentMillis = millis();
+  12:	7c 01       	movw	r14, r24
+  14:	8b 01       	movw	r16, r22
+  16:	2a 83       	std	Y+2, r18	; 0x02
+  18:	49 83       	std	Y+1, r20	; 0x01
+
+	if( currentMillis - lastExecutionTime > queueA->peek() )
+  1a:	0e 94 00 00 	call	0	; 0x0 <_ZN33TaskManagerSchedulerTimeIntervalsC1EP9QueueListImEbb>
+  1e:	80 e0       	ldi	r24, 0x00	; 0
+  20:	90 e0       	ldi	r25, 0x00	; 0
+  22:	d7 01       	movw	r26, r14
+  24:	11 96       	adiw	r26, 0x01	; 1
+	if( shouldIFreeQueue )
+	{
+		//while( !queueA->isEmpty() ) delete( queueA->pop() );
+		delete( queueA );
+	}
+}
+  26:	9c 93       	st	X, r25
+  28:	8e 93       	st	-X, r24
+
+// get an item from the queue.
+template<typename T>
+T QueueList<T>::peek () const {
+  // check if the queue is empty.
+  if (isEmpty ())
+  2a:	13 96       	adiw	r26, 0x03	; 3
+  2c:	1c 93       	st	X, r17
+  2e:	0e 93       	st	-X, r16
+    exit ("QUEUE: can't peek item from queue: queue is empty.");
+  30:	12 97       	sbiw	r26, 0x02	; 2
+  32:	49 81       	ldd	r20, Y+1	; 0x01
+  34:	16 96       	adiw	r26, 0x06	; 6
+  36:	4c 93       	st	X, r20
+  38:	16 97       	sbiw	r26, 0x06	; 6
+  3a:	2a 81       	ldd	r18, Y+2	; 0x02
+
+bool TaskManagerSchedulerTimeIntervals::canExecute()
+{
+	unsigned long currentMillis = millis();
+
+	if( currentMillis - lastExecutionTime > queueA->peek() )
+  3c:	17 96       	adiw	r26, 0x07	; 7
+  3e:	2c 93       	st	X, r18
+  40:	88 e0       	ldi	r24, 0x08	; 8
+  42:	90 e0       	ldi	r25, 0x00	; 0
+  44:	0e 94 00 00 	call	0	; 0x0 <_ZN33TaskManagerSchedulerTimeIntervalsC1EP9QueueListImEbb>
+  48:	fc 01       	movw	r30, r24
+  4a:	13 82       	std	Z+3, r1	; 0x03
+  4c:	12 82       	std	Z+2, r1	; 0x02
+  4e:	15 82       	std	Z+5, r1	; 0x05
+  50:	14 82       	std	Z+4, r1	; 0x04
+  52:	17 82       	std	Z+7, r1	; 0x07
+  54:	16 82       	std	Z+6, r1	; 0x06
+  56:	11 82       	std	Z+1, r1	; 0x01
+  58:	10 82       	st	Z, r1
+  5a:	d7 01       	movw	r26, r14
+  5c:	15 96       	adiw	r26, 0x05	; 5
+	{
+		lastExecutionTime = currentMillis;
+  5e:	9c 93       	st	X, r25
+  60:	8e 93       	st	-X, r24
+  62:	14 97       	sbiw	r26, 0x04	; 4
+  64:	1c 96       	adiw	r26, 0x0c	; 12
+
+		queueB->push( queueA->pop() );
+  66:	1c 92       	st	X, r1
+  68:	1c 97       	sbiw	r26, 0x0c	; 12
+  6a:	f7 01       	movw	r30, r14
+  6c:	10 86       	std	Z+8, r1	; 0x08
+  6e:	11 86       	std	Z+9, r1	; 0x09
+  70:	12 86       	std	Z+10, r1	; 0x0a
+  72:	13 86       	std	Z+11, r1	; 0x0b
+  74:	0f 90       	pop	r0
+  76:	0f 90       	pop	r0
+  78:	df 91       	pop	r29
+	if( shouldIFreeQueue )
+	{
+		//while( !queueA->isEmpty() ) delete( queueA->pop() );
+		delete( queueA );
+	}
+}
+  7a:	cf 91       	pop	r28
+  7c:	1f 91       	pop	r17
+	{
+		lastExecutionTime = currentMillis;
+
+		queueB->push( queueA->pop() );
+
+		if( queueA->isEmpty() )
+  7e:	0f 91       	pop	r16
+  80:	ff 90       	pop	r15
+  82:	ef 90       	pop	r14
+  84:	08 95       	ret
+
+Disassembly of section .text._ZN33TaskManagerSchedulerTimeIntervals9setCyclicEb:
+
+00000000 <_ZN33TaskManagerSchedulerTimeIntervals9setCyclicEb>:
+{
+	isCyclic = _isCyclic;
+}
+
+bool TaskManagerSchedulerTimeIntervals::canExecute()
+{
+   0:	fc 01       	movw	r30, r24
+   2:	66 83       	std	Z+6, r22	; 0x06
+   4:	08 95       	ret
+
+Disassembly of section .text._ZN9QueueListImE3popEv:
+
+00000000 <_ZN9QueueListImE3popEv>:
+   0:	cf 92       	push	r12
+   2:	df 92       	push	r13
+   4:	ef 92       	push	r14
+   6:	ff 92       	push	r15
+   8:	0f 93       	push	r16
+   a:	1f 93       	push	r17
+   c:	cf 93       	push	r28
+   e:	df 93       	push	r29
+  10:	00 d0       	rcall	.+0      	; 0x12 <_ZN9QueueListImE3popEv+0x12>
+	unsigned long currentMillis = millis();
+  12:	cd b7       	in	r28, 0x3d	; 61
+  14:	de b7       	in	r29, 0x3e	; 62
+  16:	6c 01       	movw	r12, r24
+  18:	dc 01       	movw	r26, r24
+
+	if( currentMillis - lastExecutionTime > queueA->peek() )
+  1a:	14 96       	adiw	r26, 0x04	; 4
+  1c:	ed 91       	ld	r30, X+
+  1e:	fc 91       	ld	r31, X
+  20:	15 97       	sbiw	r26, 0x05	; 5
+  22:	30 97       	sbiw	r30, 0x00	; 0
+  24:	01 f4       	brne	.+0      	; 0x26 <_ZN9QueueListImE3popEv+0x26>
+	if( shouldIFreeQueue )
+	{
+		//while( !queueA->isEmpty() ) delete( queueA->pop() );
+		delete( queueA );
+	}
+}
+  26:	8d 91       	ld	r24, X+
+  28:	9c 91       	ld	r25, X
+
+// get an item from the queue.
+template<typename T>
+T QueueList<T>::peek () const {
+  // check if the queue is empty.
+  if (isEmpty ())
+  2a:	60 e0       	ldi	r22, 0x00	; 0
+  2c:	70 e0       	ldi	r23, 0x00	; 0
+  2e:	0e 94 00 00 	call	0	; 0x0 <_ZN9QueueListImE3popEv>
+    exit ("QUEUE: can't peek item from queue: queue is empty.");
+  32:	60 81       	ld	r22, Z
+  34:	71 81       	ldd	r23, Z+1	; 0x01
+  36:	f2 80       	ldd	r15, Z+2	; 0x02
+  38:	e3 80       	ldd	r14, Z+3	; 0x03
+  3a:	04 81       	ldd	r16, Z+4	; 0x04
+
+bool TaskManagerSchedulerTimeIntervals::canExecute()
+{
+	unsigned long currentMillis = millis();
+
+	if( currentMillis - lastExecutionTime > queueA->peek() )
+  3c:	15 81       	ldd	r17, Z+5	; 0x05
+  3e:	cf 01       	movw	r24, r30
+  40:	69 83       	std	Y+1, r22	; 0x01
+  42:	7a 83       	std	Y+2, r23	; 0x02
+  44:	0e 94 00 00 	call	0	; 0x0 <_ZN9QueueListImE3popEv>
+  48:	f6 01       	movw	r30, r12
+  4a:	15 83       	std	Z+5, r17	; 0x05
+  4c:	04 83       	std	Z+4, r16	; 0x04
+  4e:	82 81       	ldd	r24, Z+2	; 0x02
+  50:	93 81       	ldd	r25, Z+3	; 0x03
+  52:	01 97       	sbiw	r24, 0x01	; 1
+  54:	93 83       	std	Z+3, r25	; 0x03
+  56:	82 83       	std	Z+2, r24	; 0x02
+  58:	69 81       	ldd	r22, Y+1	; 0x01
+  5a:	7a 81       	ldd	r23, Y+2	; 0x02
+  5c:	8f 2d       	mov	r24, r15
+	{
+		lastExecutionTime = currentMillis;
+  5e:	9e 2d       	mov	r25, r14
+  60:	0f 90       	pop	r0
+  62:	0f 90       	pop	r0
+  64:	df 91       	pop	r29
+
+		queueB->push( queueA->pop() );
+  66:	cf 91       	pop	r28
+  68:	1f 91       	pop	r17
+  6a:	0f 91       	pop	r16
+  6c:	ff 90       	pop	r15
+  6e:	ef 90       	pop	r14
+  70:	df 90       	pop	r13
+  72:	cf 90       	pop	r12
+  74:	08 95       	ret
+
+Disassembly of section .text._ZN9QueueListImE4pushEm:
+
+00000000 <_ZN9QueueListImE4pushEm>:
+{
+	isCyclic = _isCyclic;
+}
+
+bool TaskManagerSchedulerTimeIntervals::canExecute()
+{
+   0:	cf 92       	push	r12
+   2:	df 92       	push	r13
+   4:	ef 92       	push	r14
+   6:	ff 92       	push	r15
+   8:	0f 93       	push	r16
+   a:	1f 93       	push	r17
+   c:	cf 93       	push	r28
+   e:	df 93       	push	r29
+  10:	ec 01       	movw	r28, r24
+	unsigned long currentMillis = millis();
+  12:	6a 01       	movw	r12, r20
+  14:	7b 01       	movw	r14, r22
+  16:	0e 81       	ldd	r16, Y+6	; 0x06
+  18:	1f 81       	ldd	r17, Y+7	; 0x07
+
+	if( currentMillis - lastExecutionTime > queueA->peek() )
+  1a:	86 e0       	ldi	r24, 0x06	; 6
+  1c:	90 e0       	ldi	r25, 0x00	; 0
+  1e:	0e 94 00 00 	call	0	; 0x0 <_ZN9QueueListImE4pushEm>
+  22:	fc 01       	movw	r30, r24
+  24:	9f 83       	std	Y+7, r25	; 0x07
+	if( shouldIFreeQueue )
+	{
+		//while( !queueA->isEmpty() ) delete( queueA->pop() );
+		delete( queueA );
+	}
+}
+  26:	8e 83       	std	Y+6, r24	; 0x06
+  28:	00 97       	sbiw	r24, 0x00	; 0
+
+// get an item from the queue.
+template<typename T>
+T QueueList<T>::peek () const {
+  // check if the queue is empty.
+  if (isEmpty ())
+  2a:	01 f4       	brne	.+0      	; 0x2c <_ZN9QueueListImE4pushEm+0x2c>
+  2c:	88 81       	ld	r24, Y
+  2e:	99 81       	ldd	r25, Y+1	; 0x01
+    exit ("QUEUE: can't peek item from queue: queue is empty.");
+  30:	60 e0       	ldi	r22, 0x00	; 0
+  32:	70 e0       	ldi	r23, 0x00	; 0
+  34:	0e 94 00 00 	call	0	; 0x0 <_ZN9QueueListImE4pushEm>
+  38:	15 82       	std	Z+5, r1	; 0x05
+  3a:	14 82       	std	Z+4, r1	; 0x04
+
+bool TaskManagerSchedulerTimeIntervals::canExecute()
+{
+	unsigned long currentMillis = millis();
+
+	if( currentMillis - lastExecutionTime > queueA->peek() )
+  3c:	c0 82       	st	Z, r12
+  3e:	d1 82       	std	Z+1, r13	; 0x01
+  40:	e2 82       	std	Z+2, r14	; 0x02
+  42:	f3 82       	std	Z+3, r15	; 0x03
+  44:	8c 81       	ldd	r24, Y+4	; 0x04
+  46:	9d 81       	ldd	r25, Y+5	; 0x05
+  48:	00 97       	sbiw	r24, 0x00	; 0
+  4a:	01 f4       	brne	.+0      	; 0x4c <_ZN9QueueListImE4pushEm+0x4c>
+  4c:	fd 83       	std	Y+5, r31	; 0x05
+  4e:	ec 83       	std	Y+4, r30	; 0x04
+  50:	00 c0       	rjmp	.+0      	; 0x52 <_ZN9QueueListImE4pushEm+0x52>
+  52:	d8 01       	movw	r26, r16
+  54:	15 96       	adiw	r26, 0x05	; 5
+  56:	fc 93       	st	X, r31
+  58:	ee 93       	st	-X, r30
+  5a:	14 97       	sbiw	r26, 0x04	; 4
+  5c:	8a 81       	ldd	r24, Y+2	; 0x02
+	{
+		lastExecutionTime = currentMillis;
+  5e:	9b 81       	ldd	r25, Y+3	; 0x03
+  60:	01 96       	adiw	r24, 0x01	; 1
+  62:	9b 83       	std	Y+3, r25	; 0x03
+  64:	8a 83       	std	Y+2, r24	; 0x02
+
+		queueB->push( queueA->pop() );
+  66:	df 91       	pop	r29
+  68:	cf 91       	pop	r28
+  6a:	1f 91       	pop	r17
+  6c:	0f 91       	pop	r16
+  6e:	ff 90       	pop	r15
+  70:	ef 90       	pop	r14
+  72:	df 90       	pop	r13
+  74:	cf 90       	pop	r12
+  76:	08 95       	ret
+
+Disassembly of section .text._ZN33TaskManagerSchedulerTimeIntervals10canExecuteEv:
+
+00000000 <_ZN33TaskManagerSchedulerTimeIntervals10canExecuteEv>:
+{
+	isCyclic = _isCyclic;
+}
+
+bool TaskManagerSchedulerTimeIntervals::canExecute()
+{
+   0:	cf 92       	push	r12
+   2:	df 92       	push	r13
+   4:	ef 92       	push	r14
+   6:	ff 92       	push	r15
+   8:	0f 93       	push	r16
+   a:	1f 93       	push	r17
+   c:	cf 93       	push	r28
+   e:	df 93       	push	r29
+  10:	ec 01       	movw	r28, r24
+	unsigned long currentMillis = millis();
+  12:	0e 94 00 00 	call	0	; 0x0 <_ZN33TaskManagerSchedulerTimeIntervals10canExecuteEv>
+  16:	ab 01       	movw	r20, r22
+  18:	bc 01       	movw	r22, r24
+
+	if( currentMillis - lastExecutionTime > queueA->peek() )
+  1a:	88 85       	ldd	r24, Y+8	; 0x08
+  1c:	99 85       	ldd	r25, Y+9	; 0x09
+  1e:	aa 85       	ldd	r26, Y+10	; 0x0a
+  20:	bb 85       	ldd	r27, Y+11	; 0x0b
+  22:	ea 81       	ldd	r30, Y+2	; 0x02
+  24:	fb 81       	ldd	r31, Y+3	; 0x03
+	if( shouldIFreeQueue )
+	{
+		//while( !queueA->isEmpty() ) delete( queueA->pop() );
+		delete( queueA );
+	}
+}
+  26:	e4 80       	ldd	r14, Z+4	; 0x04
+  28:	f5 80       	ldd	r15, Z+5	; 0x05
+
+// get an item from the queue.
+template<typename T>
+T QueueList<T>::peek () const {
+  // check if the queue is empty.
+  if (isEmpty ())
+  2a:	e1 14       	cp	r14, r1
+  2c:	f1 04       	cpc	r15, r1
+  2e:	01 f4       	brne	.+0      	; 0x30 <_ZN33TaskManagerSchedulerTimeIntervals10canExecuteEv+0x30>
+    exit ("QUEUE: can't peek item from queue: queue is empty.");
+  30:	80 81       	ld	r24, Z
+  32:	91 81       	ldd	r25, Z+1	; 0x01
+  34:	60 e0       	ldi	r22, 0x00	; 0
+  36:	70 e0       	ldi	r23, 0x00	; 0
+  38:	0e 94 00 00 	call	0	; 0x0 <_ZN33TaskManagerSchedulerTimeIntervals10canExecuteEv>
+
+bool TaskManagerSchedulerTimeIntervals::canExecute()
+{
+	unsigned long currentMillis = millis();
+
+	if( currentMillis - lastExecutionTime > queueA->peek() )
+  3c:	8a 01       	movw	r16, r20
+  3e:	9b 01       	movw	r18, r22
+  40:	08 1b       	sub	r16, r24
+  42:	19 0b       	sbc	r17, r25
+  44:	2a 0b       	sbc	r18, r26
+  46:	3b 0b       	sbc	r19, r27
+  48:	d7 01       	movw	r26, r14
+  4a:	cd 90       	ld	r12, X+
+  4c:	dd 90       	ld	r13, X+
+  4e:	ed 90       	ld	r14, X+
+  50:	fc 90       	ld	r15, X
+  52:	13 97       	sbiw	r26, 0x03	; 3
+  54:	c0 16       	cp	r12, r16
+  56:	d1 06       	cpc	r13, r17
+  58:	e2 06       	cpc	r14, r18
+  5a:	f3 06       	cpc	r15, r19
+  5c:	00 f4       	brcc	.+0      	; 0x5e <_ZN33TaskManagerSchedulerTimeIntervals10canExecuteEv+0x5e>
+	{
+		lastExecutionTime = currentMillis;
+  5e:	48 87       	std	Y+8, r20	; 0x08
+  60:	59 87       	std	Y+9, r21	; 0x09
+  62:	6a 87       	std	Y+10, r22	; 0x0a
+  64:	7b 87       	std	Y+11, r23	; 0x0b
+
+		queueB->push( queueA->pop() );
+  66:	0c 81       	ldd	r16, Y+4	; 0x04
+  68:	1d 81       	ldd	r17, Y+5	; 0x05
+  6a:	cf 01       	movw	r24, r30
+  6c:	0e 94 00 00 	call	0	; 0x0 <_ZN33TaskManagerSchedulerTimeIntervals10canExecuteEv>
+  70:	ab 01       	movw	r20, r22
+  72:	bc 01       	movw	r22, r24
+  74:	c8 01       	movw	r24, r16
+  76:	0e 94 00 00 	call	0	; 0x0 <_ZN33TaskManagerSchedulerTimeIntervals10canExecuteEv>
+	if( shouldIFreeQueue )
+	{
+		//while( !queueA->isEmpty() ) delete( queueA->pop() );
+		delete( queueA );
+	}
+}
+  7a:	ea 81       	ldd	r30, Y+2	; 0x02
+  7c:	fb 81       	ldd	r31, Y+3	; 0x03
+	{
+		lastExecutionTime = currentMillis;
+
+		queueB->push( queueA->pop() );
+
+		if( queueA->isEmpty() )
+  7e:	84 81       	ldd	r24, Z+4	; 0x04
+  80:	95 81       	ldd	r25, Z+5	; 0x05
+  82:	00 97       	sbiw	r24, 0x00	; 0
+  84:	01 f4       	brne	.+0      	; 0x86 <_ZN33TaskManagerSchedulerTimeIntervals10canExecuteEv+0x86>
+  86:	00 c0       	rjmp	.+0      	; 0x88 <_ZN33TaskManagerSchedulerTimeIntervals10canExecuteEv+0x88>
+	    {
+			while( !queueB->isEmpty() ) queueA->push( queueB->pop() );
+  88:	0a 81       	ldd	r16, Y+2	; 0x02
+  8a:	1b 81       	ldd	r17, Y+3	; 0x03
+  8c:	0e 94 00 00 	call	0	; 0x0 <_ZN33TaskManagerSchedulerTimeIntervals10canExecuteEv>
+  90:	ab 01       	movw	r20, r22
+  92:	bc 01       	movw	r22, r24
+  94:	c8 01       	movw	r24, r16
+  96:	0e 94 00 00 	call	0	; 0x0 <_ZN33TaskManagerSchedulerTimeIntervals10canExecuteEv>
+  9a:	8c 81       	ldd	r24, Y+4	; 0x04
+  9c:	9d 81       	ldd	r25, Y+5	; 0x05
+  9e:	fc 01       	movw	r30, r24
+  a0:	24 81       	ldd	r18, Z+4	; 0x04
+  a2:	35 81       	ldd	r19, Z+5	; 0x05
+  a4:	21 15       	cp	r18, r1
+  a6:	31 05       	cpc	r19, r1
+  a8:	01 f4       	brne	.+0      	; 0xaa <_ZN33TaskManagerSchedulerTimeIntervals10canExecuteEv+0xaa>
+
+			if( !isCyclic ) wasWholeQueueExecuted = true;
+  aa:	8e 81       	ldd	r24, Y+6	; 0x06
+  ac:	88 23       	and	r24, r24
+  ae:	01 f4       	brne	.+0      	; 0xb0 <_ZN33TaskManagerSchedulerTimeIntervals10canExecuteEv+0xb0>
+  b0:	81 e0       	ldi	r24, 0x01	; 1
+  b2:	8c 87       	std	Y+12, r24	; 0x0c
+  b4:	00 c0       	rjmp	.+0      	; 0xb6 <_ZN33TaskManagerSchedulerTimeIntervals10canExecuteEv+0xb6>
+	    }
+
+		return true;
+	}
+	else
+		return false;
+  b6:	80 e0       	ldi	r24, 0x00	; 0
+  b8:	00 c0       	rjmp	.+0      	; 0xba <_ZN33TaskManagerSchedulerTimeIntervals10canExecuteEv+0xba>
+
+		if( queueA->isEmpty() )
+	    {
+			while( !queueB->isEmpty() ) queueA->push( queueB->pop() );
+
+			if( !isCyclic ) wasWholeQueueExecuted = true;
+  ba:	81 e0       	ldi	r24, 0x01	; 1
+
+		return true;
+	}
+	else
+		return false;
+}
+  bc:	df 91       	pop	r29
+  be:	cf 91       	pop	r28
+  c0:	1f 91       	pop	r17
+  c2:	0f 91       	pop	r16
+  c4:	ff 90       	pop	r15
+  c6:	ef 90       	pop	r14
+  c8:	df 90       	pop	r13
+  ca:	cf 90       	pop	r12
+  cc:	08 95       	ret
+
+TaskManagerStatistics.o:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  00000000  00000000  00000034  2**0
+                  ALLOC
+  3 .stab         00000360  00000000  00000000  00000034  2**2
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  4 .stabstr      0000097d  00000000  00000000  00000394  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .text._ZN21TaskManagerStatistics15beforeTaskQueueEv 00000002  00000000  00000000  00000d11  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  6 .text._ZN21TaskManagerStatistics14afterTaskQueueEmmm 00000002  00000000  00000000  00000d13  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  7 .text._ZN21TaskManagerStatisticsD2Ev 0000000c  00000000  00000000  00000d15  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  8 .text._ZN21TaskManagerStatisticsD0Ev 00000010  00000000  00000000  00000d21  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  9 .text._ZN21TaskManagerStatisticsC2Ev 0000000c  00000000  00000000  00000d31  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 10 .rodata._ZTV21TaskManagerStatistics 0000000c  00000000  00000000  00000d3d  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+
+Disassembly of section .text._ZN21TaskManagerStatistics15beforeTaskQueueEv:
+
+00000000 <_ZN21TaskManagerStatistics15beforeTaskQueueEv>:
+ *      Author: root
+ */
+
+#include "TaskManagerStatistics.h"
+
+TaskManagerStatistics::TaskManagerStatistics() {}
+   0:	08 95       	ret
+
+Disassembly of section .text._ZN21TaskManagerStatistics14afterTaskQueueEmmm:
+
+00000000 <_ZN21TaskManagerStatistics14afterTaskQueueEmmm>:
+   0:	08 95       	ret
+
+Disassembly of section .text._ZN21TaskManagerStatisticsD2Ev:
+
+00000000 <_ZN21TaskManagerStatisticsD1Ev>:
+   0:	20 e0       	ldi	r18, 0x00	; 0
+   2:	30 e0       	ldi	r19, 0x00	; 0
+   4:	fc 01       	movw	r30, r24
+   6:	31 83       	std	Z+1, r19	; 0x01
+   8:	20 83       	st	Z, r18
+   a:	08 95       	ret
+
+Disassembly of section .text._ZN21TaskManagerStatisticsD0Ev:
+
+00000000 <_ZN21TaskManagerStatisticsD0Ev>:
+   0:	20 e0       	ldi	r18, 0x00	; 0
+   2:	30 e0       	ldi	r19, 0x00	; 0
+   4:	fc 01       	movw	r30, r24
+   6:	31 83       	std	Z+1, r19	; 0x01
+   8:	20 83       	st	Z, r18
+   a:	0e 94 00 00 	call	0	; 0x0 <_ZN21TaskManagerStatisticsD0Ev>
+   e:	08 95       	ret
+
+Disassembly of section .text._ZN21TaskManagerStatisticsC2Ev:
+
+00000000 <_ZN21TaskManagerStatisticsC1Ev>:
+   0:	20 e0       	ldi	r18, 0x00	; 0
+   2:	30 e0       	ldi	r19, 0x00	; 0
+   4:	fc 01       	movw	r30, r24
+   6:	31 83       	std	Z+1, r19	; 0x01
+   8:	20 83       	st	Z, r18
+   a:	08 95       	ret
+
+TaskManagerStatisticsBasic.o:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         000000ec  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  00000000  00000000  00000120  2**0
+                  ALLOC
+  3 .stab         00000d80  00000000  00000000  00000120  2**2
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  4 .stabstr      0000401d  00000000  00000000  00000ea0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .text._ZN26TaskManagerStatisticsBasicD2Ev 00000010  00000000  00000000  00004ebd  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  6 .text._ZN26TaskManagerStatisticsBasicD0Ev 00000020  00000000  00000000  00004ecd  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  7 .text._ZN26TaskManagerStatisticsBasic15beforeTaskQueueEv 0000001c  00000000  00000000  00004eed  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  8 .text._ZN26TaskManagerStatisticsBasic15resetStatisticsEv 00000044  00000000  00000000  00004f09  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  9 .text._ZN26TaskManagerStatisticsBasicC2ER5Printm 00000048  00000000  00000000  00004f4d  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 10 .text._ZlsImER5PrintS1_T_ 0000001a  00000000  00000000  00004f95  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 11 .text._ZN26TaskManagerStatisticsBasic15printStatisticsEm 00000278  00000000  00000000  00004faf  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 12 .text._ZN26TaskManagerStatisticsBasic14afterTaskQueueEmmm 00000134  00000000  00000000  00005227  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 13 .rodata._ZTV26TaskManagerStatisticsBasic 0000000c  00000000  00000000  0000535b  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+ 14 .rodata._ZN26TaskManagerStatisticsBasic6prefixE 00000009  00000000  00000000  00005367  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+
+Disassembly of section .text._ZN26TaskManagerStatisticsBasicD2Ev:
+
+00000000 <_ZN26TaskManagerStatisticsBasicD1Ev>:
+{
+	executionOfMainLoopStartTime = millis();
+}
+
+void TaskManagerStatisticsBasic::afterTaskQueue( unsigned long howManyTasksWereCheckedInThisIteration , unsigned long howManyTasksWereExecutedInThisIteration , unsigned long howManyTasksWereNotExecutedInThisIteration )
+{
+   0:	20 e0       	ldi	r18, 0x00	; 0
+   2:	30 e0       	ldi	r19, 0x00	; 0
+   4:	fc 01       	movw	r30, r24
+   6:	31 83       	std	Z+1, r19	; 0x01
+   8:	20 83       	st	Z, r18
+   a:	0e 94 00 00 	call	0	; 0x0 <_ZN26TaskManagerStatisticsBasicD1Ev>
+   e:	08 95       	ret
+
+Disassembly of section .text._ZN26TaskManagerStatisticsBasicD0Ev:
+
+00000000 <_ZN26TaskManagerStatisticsBasicD0Ev>:
+   0:	cf 93       	push	r28
+   2:	df 93       	push	r29
+   4:	ec 01       	movw	r28, r24
+   6:	80 e0       	ldi	r24, 0x00	; 0
+   8:	90 e0       	ldi	r25, 0x00	; 0
+   a:	99 83       	std	Y+1, r25	; 0x01
+   c:	88 83       	st	Y, r24
+   e:	ce 01       	movw	r24, r28
+  10:	0e 94 00 00 	call	0	; 0x0 <_ZN26TaskManagerStatisticsBasicD0Ev>
+  14:	ce 01       	movw	r24, r28
+  16:	0e 94 00 00 	call	0	; 0x0 <_ZN26TaskManagerStatisticsBasicD0Ev>
+  1a:	df 91       	pop	r29
+  1c:	cf 91       	pop	r28
+  1e:	08 95       	ret
+
+Disassembly of section .text._ZN26TaskManagerStatisticsBasic15beforeTaskQueueEv:
+
+00000000 <_ZN26TaskManagerStatisticsBasic15beforeTaskQueueEv>:
+   0:	cf 93       	push	r28
+   2:	df 93       	push	r29
+   4:	ec 01       	movw	r28, r24
+   6:	0e 94 00 00 	call	0	; 0x0 <_ZN26TaskManagerStatisticsBasic15beforeTaskQueueEv>
+   a:	dc 01       	movw	r26, r24
+   c:	cb 01       	movw	r24, r22
+   e:	8c 87       	std	Y+12, r24	; 0x0c
+  10:	9d 87       	std	Y+13, r25	; 0x0d
+  12:	ae 87       	std	Y+14, r26	; 0x0e
+  14:	bf 87       	std	Y+15, r27	; 0x0f
+  16:	df 91       	pop	r29
+  18:	cf 91       	pop	r28
+  1a:	08 95       	ret
+
+Disassembly of section .text._ZN26TaskManagerStatisticsBasic15resetStatisticsEv:
+
+00000000 <_ZN26TaskManagerStatisticsBasic15resetStatisticsEv>:
+   0:	cf 93       	push	r28
+   2:	df 93       	push	r29
+   4:	ec 01       	movw	r28, r24
+   6:	1c 86       	std	Y+12, r1	; 0x0c
+   8:	1d 86       	std	Y+13, r1	; 0x0d
+   a:	1e 86       	std	Y+14, r1	; 0x0e
+   c:	1f 86       	std	Y+15, r1	; 0x0f
+   e:	18 a2       	std	Y+32, r1	; 0x20
+  10:	19 a2       	std	Y+33, r1	; 0x21
+  12:	1a a2       	std	Y+34, r1	; 0x22
+  14:	1b a2       	std	Y+35, r1	; 0x23
+  16:	1c 8a       	std	Y+20, r1	; 0x14
+  18:	1d 8a       	std	Y+21, r1	; 0x15
+  1a:	1e 8a       	std	Y+22, r1	; 0x16
+  1c:	1f 8a       	std	Y+23, r1	; 0x17
+  1e:	18 8e       	std	Y+24, r1	; 0x18
+  20:	19 8e       	std	Y+25, r1	; 0x19
+  22:	1a 8e       	std	Y+26, r1	; 0x1a
+  24:	1b 8e       	std	Y+27, r1	; 0x1b
+  26:	1c 8e       	std	Y+28, r1	; 0x1c
+  28:	1d 8e       	std	Y+29, r1	; 0x1d
+  2a:	1e 8e       	std	Y+30, r1	; 0x1e
+  2c:	1f 8e       	std	Y+31, r1	; 0x1f
+  2e:	0e 94 00 00 	call	0	; 0x0 <_ZN26TaskManagerStatisticsBasic15resetStatisticsEv>
+  32:	dc 01       	movw	r26, r24
+	timeSum += millis() - executionOfMainLoopStartTime;
+  34:	cb 01       	movw	r24, r22
+  36:	88 87       	std	Y+8, r24	; 0x08
+  38:	99 87       	std	Y+9, r25	; 0x09
+  3a:	aa 87       	std	Y+10, r26	; 0x0a
+  3c:	bb 87       	std	Y+11, r27	; 0x0b
+  3e:	df 91       	pop	r29
+  40:	cf 91       	pop	r28
+  42:	08 95       	ret
+
+Disassembly of section .text._ZN26TaskManagerStatisticsBasicC2ER5Printm:
+
+00000000 <_ZN26TaskManagerStatisticsBasicC1ER5Printm>:
+{
+	executionOfMainLoopStartTime = millis();
+}
+
+void TaskManagerStatisticsBasic::afterTaskQueue( unsigned long howManyTasksWereCheckedInThisIteration , unsigned long howManyTasksWereExecutedInThisIteration , unsigned long howManyTasksWereNotExecutedInThisIteration )
+{
+   0:	cf 92       	push	r12
+   2:	df 92       	push	r13
+   4:	ef 92       	push	r14
+   6:	ff 92       	push	r15
+   8:	0f 93       	push	r16
+   a:	1f 93       	push	r17
+   c:	cf 93       	push	r28
+   e:	df 93       	push	r29
+  10:	ec 01       	movw	r28, r24
+  12:	8b 01       	movw	r16, r22
+  14:	69 01       	movw	r12, r18
+  16:	7a 01       	movw	r14, r20
+  18:	0e 94 00 00 	call	0	; 0x0 <_ZN26TaskManagerStatisticsBasicC1ER5Printm>
+  1c:	80 e0       	ldi	r24, 0x00	; 0
+  1e:	90 e0       	ldi	r25, 0x00	; 0
+  20:	99 83       	std	Y+1, r25	; 0x01
+  22:	88 83       	st	Y, r24
+  24:	1b 83       	std	Y+3, r17	; 0x03
+  26:	0a 83       	std	Y+2, r16	; 0x02
+  28:	cc 82       	std	Y+4, r12	; 0x04
+  2a:	dd 82       	std	Y+5, r13	; 0x05
+  2c:	ee 82       	std	Y+6, r14	; 0x06
+  2e:	ff 82       	std	Y+7, r15	; 0x07
+  30:	ce 01       	movw	r24, r28
+  32:	0e 94 00 00 	call	0	; 0x0 <_ZN26TaskManagerStatisticsBasicC1ER5Printm>
+	timeSum += millis() - executionOfMainLoopStartTime;
+  36:	df 91       	pop	r29
+  38:	cf 91       	pop	r28
+  3a:	1f 91       	pop	r17
+  3c:	0f 91       	pop	r16
+  3e:	ff 90       	pop	r15
+  40:	ef 90       	pop	r14
+  42:	df 90       	pop	r13
+  44:	cf 90       	pop	r12
+  46:	08 95       	ret
+
+Disassembly of section .text._ZlsImER5PrintS1_T_:
+
+00000000 <_ZlsImER5PrintS1_T_>:
+{
+	executionOfMainLoopStartTime = millis();
+}
+
+void TaskManagerStatisticsBasic::afterTaskQueue( unsigned long howManyTasksWereCheckedInThisIteration , unsigned long howManyTasksWereExecutedInThisIteration , unsigned long howManyTasksWereNotExecutedInThisIteration )
+{
+   0:	cf 93       	push	r28
+   2:	df 93       	push	r29
+   4:	d8 2f       	mov	r29, r24
+   6:	c9 2f       	mov	r28, r25
+   8:	2a e0       	ldi	r18, 0x0A	; 10
+   a:	30 e0       	ldi	r19, 0x00	; 0
+   c:	0e 94 00 00 	call	0	; 0x0 <_ZlsImER5PrintS1_T_>
+  10:	8d 2f       	mov	r24, r29
+  12:	9c 2f       	mov	r25, r28
+  14:	df 91       	pop	r29
+  16:	cf 91       	pop	r28
+  18:	08 95       	ret
+
+Disassembly of section .text._ZN26TaskManagerStatisticsBasic15printStatisticsEm:
+
+00000000 <_ZN26TaskManagerStatisticsBasic15printStatisticsEm>:
+   0:	4f 92       	push	r4
+   2:	5f 92       	push	r5
+   4:	6f 92       	push	r6
+   6:	7f 92       	push	r7
+   8:	8f 92       	push	r8
+   a:	9f 92       	push	r9
+   c:	af 92       	push	r10
+   e:	bf 92       	push	r11
+  10:	cf 92       	push	r12
+  12:	df 92       	push	r13
+  14:	ef 92       	push	r14
+  16:	ff 92       	push	r15
+  18:	0f 93       	push	r16
+  1a:	1f 93       	push	r17
+  1c:	cf 93       	push	r28
+  1e:	df 93       	push	r29
+  20:	8c 01       	movw	r16, r24
+  22:	2a 01       	movw	r4, r20
+  24:	3b 01       	movw	r6, r22
+  26:	fc 01       	movw	r30, r24
+  28:	c2 81       	ldd	r28, Z+2	; 0x02
+  2a:	d3 81       	ldd	r29, Z+3	; 0x03
+  2c:	20 e0       	ldi	r18, 0x00	; 0
+  2e:	a2 2e       	mov	r10, r18
+  30:	20 e0       	ldi	r18, 0x00	; 0
+  32:	b2 2e       	mov	r11, r18
+	timeSum += millis() - executionOfMainLoopStartTime;
+  34:	ce 01       	movw	r24, r28
+  36:	b5 01       	movw	r22, r10
+  38:	0e 94 00 00 	call	0	; 0x0 <_ZN26TaskManagerStatisticsBasic15printStatisticsEm>
+  3c:	30 e0       	ldi	r19, 0x00	; 0
+  3e:	83 2e       	mov	r8, r19
+  40:	30 e0       	ldi	r19, 0x00	; 0
+  42:	93 2e       	mov	r9, r19
+  44:	ce 01       	movw	r24, r28
+  46:	b4 01       	movw	r22, r8
+  48:	0e 94 00 00 	call	0	; 0x0 <_ZN26TaskManagerStatisticsBasic15printStatisticsEm>
+  4c:	f8 01       	movw	r30, r16
+  4e:	c2 81       	ldd	r28, Z+2	; 0x02
+  50:	d3 81       	ldd	r29, Z+3	; 0x03
+  52:	ce 01       	movw	r24, r28
+  54:	b5 01       	movw	r22, r10
+  56:	0e 94 00 00 	call	0	; 0x0 <_ZN26TaskManagerStatisticsBasic15printStatisticsEm>
+  5a:	ce 01       	movw	r24, r28
+  5c:	60 e0       	ldi	r22, 0x00	; 0
+  5e:	70 e0       	ldi	r23, 0x00	; 0
+  60:	0e 94 00 00 	call	0	; 0x0 <_ZN26TaskManagerStatisticsBasic15printStatisticsEm>
+  64:	0e 94 00 00 	call	0	; 0x0 <_ZN26TaskManagerStatisticsBasic15printStatisticsEm>
+  68:	bc 01       	movw	r22, r24
+  6a:	ce 01       	movw	r24, r28
+
+	mainLoopExecutionsCount++;
+  6c:	4a e0       	ldi	r20, 0x0A	; 10
+  6e:	50 e0       	ldi	r21, 0x00	; 0
+  70:	0e 94 00 00 	call	0	; 0x0 <_ZN26TaskManagerStatisticsBasic15printStatisticsEm>
+  74:	ce 01       	movw	r24, r28
+  76:	60 e0       	ldi	r22, 0x00	; 0
+  78:	70 e0       	ldi	r23, 0x00	; 0
+  7a:	0e 94 00 00 	call	0	; 0x0 <_ZN26TaskManagerStatisticsBasic15printStatisticsEm>
+  7e:	ce 01       	movw	r24, r28
+  80:	0e 94 00 00 	call	0	; 0x0 <_ZN26TaskManagerStatisticsBasic15printStatisticsEm>
+
+	checkedTasksSum += howManyTasksWereCheckedInThisIteration;
+  84:	f8 01       	movw	r30, r16
+  86:	c2 81       	ldd	r28, Z+2	; 0x02
+  88:	d3 81       	ldd	r29, Z+3	; 0x03
+  8a:	ce 01       	movw	r24, r28
+  8c:	b5 01       	movw	r22, r10
+  8e:	0e 94 00 00 	call	0	; 0x0 <_ZN26TaskManagerStatisticsBasic15printStatisticsEm>
+  92:	ce 01       	movw	r24, r28
+  94:	60 e0       	ldi	r22, 0x00	; 0
+  96:	70 e0       	ldi	r23, 0x00	; 0
+  98:	0e 94 00 00 	call	0	; 0x0 <_ZN26TaskManagerStatisticsBasic15printStatisticsEm>
+	executedTasksSum += howManyTasksWereExecutedInThisIteration;
+  9c:	0e 94 00 00 	call	0	; 0x0 <_ZN26TaskManagerStatisticsBasic15printStatisticsEm>
+  a0:	ab 01       	movw	r20, r22
+  a2:	bc 01       	movw	r22, r24
+  a4:	ce 01       	movw	r24, r28
+  a6:	0e 94 00 00 	call	0	; 0x0 <_ZN26TaskManagerStatisticsBasic15printStatisticsEm>
+  aa:	0e 94 00 00 	call	0	; 0x0 <_ZN26TaskManagerStatisticsBasic15printStatisticsEm>
+  ae:	f8 01       	movw	r30, r16
+  b0:	c2 81       	ldd	r28, Z+2	; 0x02
+  b2:	d3 81       	ldd	r29, Z+3	; 0x03
+  b4:	ce 01       	movw	r24, r28
+	notExecutedTasksSum += howManyTasksWereNotExecutedInThisIteration;
+  b6:	b5 01       	movw	r22, r10
+  b8:	0e 94 00 00 	call	0	; 0x0 <_ZN26TaskManagerStatisticsBasic15printStatisticsEm>
+  bc:	ce 01       	movw	r24, r28
+  be:	60 e0       	ldi	r22, 0x00	; 0
+  c0:	70 e0       	ldi	r23, 0x00	; 0
+  c2:	0e 94 00 00 	call	0	; 0x0 <_ZN26TaskManagerStatisticsBasic15printStatisticsEm>
+  c6:	f8 01       	movw	r30, r16
+  c8:	44 81       	ldd	r20, Z+4	; 0x04
+  ca:	55 81       	ldd	r21, Z+5	; 0x05
+  cc:	66 81       	ldd	r22, Z+6	; 0x06
+
+	if( millis() - testStartTime > statisticsCreationIntervalInMs )
+  ce:	77 81       	ldd	r23, Z+7	; 0x07
+  d0:	ce 01       	movw	r24, r28
+  d2:	0e 94 00 00 	call	0	; 0x0 <_ZN26TaskManagerStatisticsBasic15printStatisticsEm>
+  d6:	0e 94 00 00 	call	0	; 0x0 <_ZN26TaskManagerStatisticsBasic15printStatisticsEm>
+  da:	f8 01       	movw	r30, r16
+  dc:	c2 81       	ldd	r28, Z+2	; 0x02
+  de:	d3 81       	ldd	r29, Z+3	; 0x03
+  e0:	ce 01       	movw	r24, r28
+  e2:	b5 01       	movw	r22, r10
+  e4:	0e 94 00 00 	call	0	; 0x0 <_ZN26TaskManagerStatisticsBasic15printStatisticsEm>
+  e8:	ce 01       	movw	r24, r28
+  ea:	60 e0       	ldi	r22, 0x00	; 0
+  ec:	70 e0       	ldi	r23, 0x00	; 0
+  ee:	0e 94 00 00 	call	0	; 0x0 <_ZN26TaskManagerStatisticsBasic15printStatisticsEm>
+  f2:	f8 01       	movw	r30, r16
+  f4:	40 a1       	ldd	r20, Z+32	; 0x20
+  f6:	51 a1       	ldd	r21, Z+33	; 0x21
+  f8:	62 a1       	ldd	r22, Z+34	; 0x22
+	{
+		printStatistics( howManyTasksWereCheckedInThisIteration );
+  fa:	73 a1       	ldd	r23, Z+35	; 0x23
+  fc:	ce 01       	movw	r24, r28
+  fe:	0e 94 00 00 	call	0	; 0x0 <_ZN26TaskManagerStatisticsBasic15printStatisticsEm>
+ 102:	0e 94 00 00 	call	0	; 0x0 <_ZN26TaskManagerStatisticsBasic15printStatisticsEm>
+		resetStatistics();
+ 106:	f8 01       	movw	r30, r16
+ 108:	c2 81       	ldd	r28, Z+2	; 0x02
+	}
+}
+ 10a:	d3 81       	ldd	r29, Z+3	; 0x03
+ 10c:	ce 01       	movw	r24, r28
+ 10e:	b5 01       	movw	r22, r10
+ 110:	0e 94 00 00 	call	0	; 0x0 <_ZN26TaskManagerStatisticsBasic15printStatisticsEm>
+ 114:	ce 01       	movw	r24, r28
+ 116:	60 e0       	ldi	r22, 0x00	; 0
+ 118:	70 e0       	ldi	r23, 0x00	; 0
+ 11a:	0e 94 00 00 	call	0	; 0x0 <_ZN26TaskManagerStatisticsBasic15printStatisticsEm>
+ 11e:	f8 01       	movw	r30, r16
+ 120:	40 89       	ldd	r20, Z+16	; 0x10
+ 122:	51 89       	ldd	r21, Z+17	; 0x11
+ 124:	62 89       	ldd	r22, Z+18	; 0x12
+ 126:	73 89       	ldd	r23, Z+19	; 0x13
+ 128:	ce 01       	movw	r24, r28
+ 12a:	0e 94 00 00 	call	0	; 0x0 <_ZN26TaskManagerStatisticsBasic15printStatisticsEm>
+ 12e:	0e 94 00 00 	call	0	; 0x0 <_ZN26TaskManagerStatisticsBasic15printStatisticsEm>
+ 132:	f8 01       	movw	r30, r16
+ 134:	60 a1       	ldd	r22, Z+32	; 0x20
+ 136:	71 a1       	ldd	r23, Z+33	; 0x21
+ 138:	82 a1       	ldd	r24, Z+34	; 0x22
+ 13a:	93 a1       	ldd	r25, Z+35	; 0x23
+ 13c:	0e 94 00 00 	call	0	; 0x0 <_ZN26TaskManagerStatisticsBasic15printStatisticsEm>
+ 140:	6b 01       	movw	r12, r22
+ 142:	7c 01       	movw	r14, r24
+ 144:	f8 01       	movw	r30, r16
+ 146:	60 89       	ldd	r22, Z+16	; 0x10
+ 148:	71 89       	ldd	r23, Z+17	; 0x11
+ 14a:	82 89       	ldd	r24, Z+18	; 0x12
+ 14c:	93 89       	ldd	r25, Z+19	; 0x13
+ 14e:	0e 94 00 00 	call	0	; 0x0 <_ZN26TaskManagerStatisticsBasic15printStatisticsEm>
+ 152:	9b 01       	movw	r18, r22
+ 154:	ac 01       	movw	r20, r24
+ 156:	c7 01       	movw	r24, r14
+ 158:	b6 01       	movw	r22, r12
+ 15a:	0e 94 00 00 	call	0	; 0x0 <_ZN26TaskManagerStatisticsBasic15printStatisticsEm>
+ 15e:	f6 2e       	mov	r15, r22
+ 160:	c7 2e       	mov	r12, r23
+ 162:	e8 2e       	mov	r14, r24
+ 164:	d9 2e       	mov	r13, r25
+ 166:	f8 01       	movw	r30, r16
+ 168:	c2 81       	ldd	r28, Z+2	; 0x02
+ 16a:	d3 81       	ldd	r29, Z+3	; 0x03
+ 16c:	ce 01       	movw	r24, r28
+ 16e:	b5 01       	movw	r22, r10
+ 170:	0e 94 00 00 	call	0	; 0x0 <_ZN26TaskManagerStatisticsBasic15printStatisticsEm>
+ 174:	ce 01       	movw	r24, r28
+ 176:	60 e0       	ldi	r22, 0x00	; 0
+ 178:	70 e0       	ldi	r23, 0x00	; 0
+ 17a:	0e 94 00 00 	call	0	; 0x0 <_ZN26TaskManagerStatisticsBasic15printStatisticsEm>
+ 17e:	ce 01       	movw	r24, r28
+ 180:	4f 2d       	mov	r20, r15
+ 182:	5c 2d       	mov	r21, r12
+ 184:	6e 2d       	mov	r22, r14
+ 186:	7d 2d       	mov	r23, r13
+ 188:	22 e0       	ldi	r18, 0x02	; 2
+ 18a:	30 e0       	ldi	r19, 0x00	; 0
+ 18c:	0e 94 00 00 	call	0	; 0x0 <_ZN26TaskManagerStatisticsBasic15printStatisticsEm>
+ 190:	ce 01       	movw	r24, r28
+ 192:	0e 94 00 00 	call	0	; 0x0 <_ZN26TaskManagerStatisticsBasic15printStatisticsEm>
+ 196:	f8 01       	movw	r30, r16
+ 198:	c2 81       	ldd	r28, Z+2	; 0x02
+ 19a:	d3 81       	ldd	r29, Z+3	; 0x03
+ 19c:	ce 01       	movw	r24, r28
+ 19e:	b5 01       	movw	r22, r10
+ 1a0:	0e 94 00 00 	call	0	; 0x0 <_ZN26TaskManagerStatisticsBasic15printStatisticsEm>
+ 1a4:	ce 01       	movw	r24, r28
+ 1a6:	60 e0       	ldi	r22, 0x00	; 0
+ 1a8:	70 e0       	ldi	r23, 0x00	; 0
+ 1aa:	0e 94 00 00 	call	0	; 0x0 <_ZN26TaskManagerStatisticsBasic15printStatisticsEm>
+ 1ae:	f8 01       	movw	r30, r16
+ 1b0:	44 89       	ldd	r20, Z+20	; 0x14
+ 1b2:	55 89       	ldd	r21, Z+21	; 0x15
+ 1b4:	66 89       	ldd	r22, Z+22	; 0x16
+ 1b6:	77 89       	ldd	r23, Z+23	; 0x17
+ 1b8:	ce 01       	movw	r24, r28
+ 1ba:	0e 94 00 00 	call	0	; 0x0 <_ZN26TaskManagerStatisticsBasic15printStatisticsEm>
+ 1be:	0e 94 00 00 	call	0	; 0x0 <_ZN26TaskManagerStatisticsBasic15printStatisticsEm>
+ 1c2:	f8 01       	movw	r30, r16
+ 1c4:	c2 81       	ldd	r28, Z+2	; 0x02
+ 1c6:	d3 81       	ldd	r29, Z+3	; 0x03
+ 1c8:	ce 01       	movw	r24, r28
+ 1ca:	b5 01       	movw	r22, r10
+ 1cc:	0e 94 00 00 	call	0	; 0x0 <_ZN26TaskManagerStatisticsBasic15printStatisticsEm>
+ 1d0:	ce 01       	movw	r24, r28
+ 1d2:	60 e0       	ldi	r22, 0x00	; 0
+ 1d4:	70 e0       	ldi	r23, 0x00	; 0
+ 1d6:	0e 94 00 00 	call	0	; 0x0 <_ZN26TaskManagerStatisticsBasic15printStatisticsEm>
+ 1da:	f8 01       	movw	r30, r16
+ 1dc:	40 8d       	ldd	r20, Z+24	; 0x18
+ 1de:	51 8d       	ldd	r21, Z+25	; 0x19
+ 1e0:	62 8d       	ldd	r22, Z+26	; 0x1a
+ 1e2:	73 8d       	ldd	r23, Z+27	; 0x1b
+ 1e4:	ce 01       	movw	r24, r28
+ 1e6:	0e 94 00 00 	call	0	; 0x0 <_ZN26TaskManagerStatisticsBasic15printStatisticsEm>
+ 1ea:	0e 94 00 00 	call	0	; 0x0 <_ZN26TaskManagerStatisticsBasic15printStatisticsEm>
+ 1ee:	f8 01       	movw	r30, r16
+ 1f0:	c2 81       	ldd	r28, Z+2	; 0x02
+ 1f2:	d3 81       	ldd	r29, Z+3	; 0x03
+ 1f4:	ce 01       	movw	r24, r28
+ 1f6:	b5 01       	movw	r22, r10
+ 1f8:	0e 94 00 00 	call	0	; 0x0 <_ZN26TaskManagerStatisticsBasic15printStatisticsEm>
+ 1fc:	ce 01       	movw	r24, r28
+ 1fe:	60 e0       	ldi	r22, 0x00	; 0
+ 200:	70 e0       	ldi	r23, 0x00	; 0
+ 202:	0e 94 00 00 	call	0	; 0x0 <_ZN26TaskManagerStatisticsBasic15printStatisticsEm>
+ 206:	f8 01       	movw	r30, r16
+ 208:	44 8d       	ldd	r20, Z+28	; 0x1c
+ 20a:	55 8d       	ldd	r21, Z+29	; 0x1d
+ 20c:	66 8d       	ldd	r22, Z+30	; 0x1e
+ 20e:	77 8d       	ldd	r23, Z+31	; 0x1f
+ 210:	ce 01       	movw	r24, r28
+ 212:	0e 94 00 00 	call	0	; 0x0 <_ZN26TaskManagerStatisticsBasic15printStatisticsEm>
+ 216:	0e 94 00 00 	call	0	; 0x0 <_ZN26TaskManagerStatisticsBasic15printStatisticsEm>
+ 21a:	f8 01       	movw	r30, r16
+ 21c:	c2 81       	ldd	r28, Z+2	; 0x02
+ 21e:	d3 81       	ldd	r29, Z+3	; 0x03
+ 220:	ce 01       	movw	r24, r28
+ 222:	b5 01       	movw	r22, r10
+ 224:	0e 94 00 00 	call	0	; 0x0 <_ZN26TaskManagerStatisticsBasic15printStatisticsEm>
+ 228:	ce 01       	movw	r24, r28
+ 22a:	60 e0       	ldi	r22, 0x00	; 0
+ 22c:	70 e0       	ldi	r23, 0x00	; 0
+ 22e:	0e 94 00 00 	call	0	; 0x0 <_ZN26TaskManagerStatisticsBasic15printStatisticsEm>
+ 232:	ce 01       	movw	r24, r28
+ 234:	b3 01       	movw	r22, r6
+ 236:	a2 01       	movw	r20, r4
+ 238:	0e 94 00 00 	call	0	; 0x0 <_ZN26TaskManagerStatisticsBasic15printStatisticsEm>
+ 23c:	0e 94 00 00 	call	0	; 0x0 <_ZN26TaskManagerStatisticsBasic15printStatisticsEm>
+ 240:	f8 01       	movw	r30, r16
+ 242:	c2 81       	ldd	r28, Z+2	; 0x02
+ 244:	d3 81       	ldd	r29, Z+3	; 0x03
+ 246:	ce 01       	movw	r24, r28
+ 248:	b5 01       	movw	r22, r10
+ 24a:	0e 94 00 00 	call	0	; 0x0 <_ZN26TaskManagerStatisticsBasic15printStatisticsEm>
+ 24e:	ce 01       	movw	r24, r28
+ 250:	b4 01       	movw	r22, r8
+ 252:	0e 94 00 00 	call	0	; 0x0 <_ZN26TaskManagerStatisticsBasic15printStatisticsEm>
+ 256:	df 91       	pop	r29
+ 258:	cf 91       	pop	r28
+ 25a:	1f 91       	pop	r17
+ 25c:	0f 91       	pop	r16
+ 25e:	ff 90       	pop	r15
+ 260:	ef 90       	pop	r14
+ 262:	df 90       	pop	r13
+ 264:	cf 90       	pop	r12
+ 266:	bf 90       	pop	r11
+ 268:	af 90       	pop	r10
+ 26a:	9f 90       	pop	r9
+ 26c:	8f 90       	pop	r8
+ 26e:	7f 90       	pop	r7
+ 270:	6f 90       	pop	r6
+ 272:	5f 90       	pop	r5
+ 274:	4f 90       	pop	r4
+ 276:	08 95       	ret
+
+Disassembly of section .text._ZN26TaskManagerStatisticsBasic14afterTaskQueueEmmm:
+
+00000000 <_ZN26TaskManagerStatisticsBasic14afterTaskQueueEmmm>:
+{
+	executionOfMainLoopStartTime = millis();
+}
+
+void TaskManagerStatisticsBasic::afterTaskQueue( unsigned long howManyTasksWereCheckedInThisIteration , unsigned long howManyTasksWereExecutedInThisIteration , unsigned long howManyTasksWereNotExecutedInThisIteration )
+{
+   0:	2f 92       	push	r2
+   2:	3f 92       	push	r3
+   4:	4f 92       	push	r4
+   6:	5f 92       	push	r5
+   8:	6f 92       	push	r6
+   a:	7f 92       	push	r7
+   c:	8f 92       	push	r8
+   e:	9f 92       	push	r9
+  10:	af 92       	push	r10
+  12:	bf 92       	push	r11
+  14:	cf 92       	push	r12
+  16:	df 92       	push	r13
+  18:	ef 92       	push	r14
+  1a:	ff 92       	push	r15
+  1c:	0f 93       	push	r16
+  1e:	1f 93       	push	r17
+  20:	cf 93       	push	r28
+  22:	df 93       	push	r29
+  24:	00 d0       	rcall	.+0      	; 0x26 <_ZN26TaskManagerStatisticsBasic14afterTaskQueueEmmm+0x26>
+  26:	cd b7       	in	r28, 0x3d	; 61
+  28:	de b7       	in	r29, 0x3e	; 62
+  2a:	1c 01       	movw	r2, r24
+  2c:	2a 01       	movw	r4, r20
+  2e:	3b 01       	movw	r6, r22
+  30:	46 01       	movw	r8, r12
+  32:	57 01       	movw	r10, r14
+	timeSum += millis() - executionOfMainLoopStartTime;
+  34:	fc 01       	movw	r30, r24
+  36:	c0 a0       	ldd	r12, Z+32	; 0x20
+  38:	d1 a0       	ldd	r13, Z+33	; 0x21
+  3a:	e2 a0       	ldd	r14, Z+34	; 0x22
+  3c:	f3 a0       	ldd	r15, Z+35	; 0x23
+  3e:	29 83       	std	Y+1, r18	; 0x01
+  40:	3a 83       	std	Y+2, r19	; 0x02
+  42:	0e 94 00 00 	call	0	; 0x0 <_ZN26TaskManagerStatisticsBasic14afterTaskQueueEmmm>
+  46:	ab 01       	movw	r20, r22
+  48:	bc 01       	movw	r22, r24
+  4a:	f1 01       	movw	r30, r2
+  4c:	84 85       	ldd	r24, Z+12	; 0x0c
+  4e:	95 85       	ldd	r25, Z+13	; 0x0d
+  50:	a6 85       	ldd	r26, Z+14	; 0x0e
+  52:	b7 85       	ldd	r27, Z+15	; 0x0f
+  54:	c8 1a       	sub	r12, r24
+  56:	d9 0a       	sbc	r13, r25
+  58:	ea 0a       	sbc	r14, r26
+  5a:	fb 0a       	sbc	r15, r27
+  5c:	c4 0e       	add	r12, r20
+  5e:	d5 1e       	adc	r13, r21
+  60:	e6 1e       	adc	r14, r22
+  62:	f7 1e       	adc	r15, r23
+  64:	c0 a2       	std	Z+32, r12	; 0x20
+  66:	d1 a2       	std	Z+33, r13	; 0x21
+  68:	e2 a2       	std	Z+34, r14	; 0x22
+  6a:	f3 a2       	std	Z+35, r15	; 0x23
+
+	mainLoopExecutionsCount++;
+  6c:	80 89       	ldd	r24, Z+16	; 0x10
+  6e:	91 89       	ldd	r25, Z+17	; 0x11
+  70:	a2 89       	ldd	r26, Z+18	; 0x12
+  72:	b3 89       	ldd	r27, Z+19	; 0x13
+  74:	01 96       	adiw	r24, 0x01	; 1
+  76:	a1 1d       	adc	r26, r1
+  78:	b1 1d       	adc	r27, r1
+  7a:	80 8b       	std	Z+16, r24	; 0x10
+  7c:	91 8b       	std	Z+17, r25	; 0x11
+  7e:	a2 8b       	std	Z+18, r26	; 0x12
+  80:	b3 8b       	std	Z+19, r27	; 0x13
+
+	checkedTasksSum += howManyTasksWereCheckedInThisIteration;
+  82:	84 89       	ldd	r24, Z+20	; 0x14
+  84:	95 89       	ldd	r25, Z+21	; 0x15
+  86:	a6 89       	ldd	r26, Z+22	; 0x16
+  88:	b7 89       	ldd	r27, Z+23	; 0x17
+  8a:	84 0d       	add	r24, r4
+  8c:	95 1d       	adc	r25, r5
+  8e:	a6 1d       	adc	r26, r6
+  90:	b7 1d       	adc	r27, r7
+  92:	84 8b       	std	Z+20, r24	; 0x14
+  94:	95 8b       	std	Z+21, r25	; 0x15
+  96:	a6 8b       	std	Z+22, r26	; 0x16
+  98:	b7 8b       	std	Z+23, r27	; 0x17
+	executedTasksSum += howManyTasksWereExecutedInThisIteration;
+  9a:	80 8d       	ldd	r24, Z+24	; 0x18
+  9c:	91 8d       	ldd	r25, Z+25	; 0x19
+  9e:	a2 8d       	ldd	r26, Z+26	; 0x1a
+  a0:	b3 8d       	ldd	r27, Z+27	; 0x1b
+  a2:	29 81       	ldd	r18, Y+1	; 0x01
+  a4:	3a 81       	ldd	r19, Y+2	; 0x02
+  a6:	80 0f       	add	r24, r16
+  a8:	91 1f       	adc	r25, r17
+  aa:	a2 1f       	adc	r26, r18
+  ac:	b3 1f       	adc	r27, r19
+  ae:	80 8f       	std	Z+24, r24	; 0x18
+  b0:	91 8f       	std	Z+25, r25	; 0x19
+  b2:	a2 8f       	std	Z+26, r26	; 0x1a
+  b4:	b3 8f       	std	Z+27, r27	; 0x1b
+	notExecutedTasksSum += howManyTasksWereNotExecutedInThisIteration;
+  b6:	84 8d       	ldd	r24, Z+28	; 0x1c
+  b8:	95 8d       	ldd	r25, Z+29	; 0x1d
+  ba:	a6 8d       	ldd	r26, Z+30	; 0x1e
+  bc:	b7 8d       	ldd	r27, Z+31	; 0x1f
+  be:	88 0d       	add	r24, r8
+  c0:	99 1d       	adc	r25, r9
+  c2:	aa 1d       	adc	r26, r10
+  c4:	bb 1d       	adc	r27, r11
+  c6:	84 8f       	std	Z+28, r24	; 0x1c
+  c8:	95 8f       	std	Z+29, r25	; 0x1d
+  ca:	a6 8f       	std	Z+30, r26	; 0x1e
+  cc:	b7 8f       	std	Z+31, r27	; 0x1f
+
+	if( millis() - testStartTime > statisticsCreationIntervalInMs )
+  ce:	0e 94 00 00 	call	0	; 0x0 <_ZN26TaskManagerStatisticsBasic14afterTaskQueueEmmm>
+  d2:	dc 01       	movw	r26, r24
+  d4:	cb 01       	movw	r24, r22
+  d6:	f1 01       	movw	r30, r2
+  d8:	40 85       	ldd	r20, Z+8	; 0x08
+  da:	51 85       	ldd	r21, Z+9	; 0x09
+  dc:	62 85       	ldd	r22, Z+10	; 0x0a
+  de:	73 85       	ldd	r23, Z+11	; 0x0b
+  e0:	84 1b       	sub	r24, r20
+  e2:	95 0b       	sbc	r25, r21
+  e4:	a6 0b       	sbc	r26, r22
+  e6:	b7 0b       	sbc	r27, r23
+  e8:	44 81       	ldd	r20, Z+4	; 0x04
+  ea:	55 81       	ldd	r21, Z+5	; 0x05
+  ec:	66 81       	ldd	r22, Z+6	; 0x06
+  ee:	77 81       	ldd	r23, Z+7	; 0x07
+  f0:	48 17       	cp	r20, r24
+  f2:	59 07       	cpc	r21, r25
+  f4:	6a 07       	cpc	r22, r26
+  f6:	7b 07       	cpc	r23, r27
+  f8:	00 f4       	brcc	.+0      	; 0xfa <_ZN26TaskManagerStatisticsBasic14afterTaskQueueEmmm+0xfa>
+	{
+		printStatistics( howManyTasksWereCheckedInThisIteration );
+  fa:	c1 01       	movw	r24, r2
+  fc:	b3 01       	movw	r22, r6
+  fe:	a2 01       	movw	r20, r4
+ 100:	0e 94 00 00 	call	0	; 0x0 <_ZN26TaskManagerStatisticsBasic14afterTaskQueueEmmm>
+		resetStatistics();
+ 104:	c1 01       	movw	r24, r2
+ 106:	0e 94 00 00 	call	0	; 0x0 <_ZN26TaskManagerStatisticsBasic14afterTaskQueueEmmm>
+	}
+}
+ 10a:	0f 90       	pop	r0
+ 10c:	0f 90       	pop	r0
+ 10e:	df 91       	pop	r29
+ 110:	cf 91       	pop	r28
+ 112:	1f 91       	pop	r17
+ 114:	0f 91       	pop	r16
+ 116:	ff 90       	pop	r15
+ 118:	ef 90       	pop	r14
+ 11a:	df 90       	pop	r13
+ 11c:	cf 90       	pop	r12
+ 11e:	bf 90       	pop	r11
+ 120:	af 90       	pop	r10
+ 122:	9f 90       	pop	r9
+ 124:	8f 90       	pop	r8
+ 126:	7f 90       	pop	r7
+ 128:	6f 90       	pop	r6
+ 12a:	5f 90       	pop	r5
+ 12c:	4f 90       	pop	r4
+ 12e:	3f 90       	pop	r3
+ 130:	2f 90       	pop	r2
+ 132:	08 95       	ret

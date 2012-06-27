@@ -1,0 +1,18 @@
+/*
+ * RWSubTaskDecideToReadIncommingData.cpp
+ *
+ *  Created on: 21-05-2012
+ *      Author: root
+ */
+
+#include "RWSubTaskDecideToReadIncommingData.h"
+
+RWSubTaskDecideToReadIncommingData::RWSubTaskDecideToReadIncommingData() {
+	// TODO Auto-generated constructor stub
+
+}
+
+RWSubTaskDecideToReadIncommingData::~RWSubTaskDecideToReadIncommingData() {
+	// TODO Auto-generated destructor stub
+}
+

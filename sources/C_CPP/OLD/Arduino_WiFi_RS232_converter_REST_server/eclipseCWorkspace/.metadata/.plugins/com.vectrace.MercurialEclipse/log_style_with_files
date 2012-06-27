@@ -1,0 +1,20 @@
+changeset = log_style_with_files.tmpl
+
+start_file_adds = ''
+file_add = '\n<f v="{file_add|escape}"/>'
+end_file_adds = ''
+
+start_file_dels = ''
+file_del = '\n<f v="{file_del|escape}"/>'
+end_file_dels = ''
+
+start_file_mods = ''
+file_mod = '\n<f v="{file_mod|escape}"/>'
+end_file_mods = ''
+
+start_file_copies = ''
+file_copy = '\n<f v="{name|escape}" s="{source|escape}"/>'
+end_file_copies = ''
+
+tag = '{tag}_,_'
+last_tag = '{tag}'

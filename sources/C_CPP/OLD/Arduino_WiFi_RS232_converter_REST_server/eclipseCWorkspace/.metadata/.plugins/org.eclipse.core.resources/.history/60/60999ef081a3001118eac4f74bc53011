@@ -1,0 +1,17 @@
+/*
+ * RWSubTaskSendRECVCommand.h
+ *
+ *  Created on: 21-05-2012
+ *      Author: root
+ */
+
+#ifndef RWSUBTASKSENDRECVCOMMAND_H_
+#define RWSUBTASKSENDRECVCOMMAND_H_
+
+class RWSubTaskSendRECVCommand {
+public:
+	RWSubTaskSendRECVCommand();
+	virtual ~RWSubTaskSendRECVCommand();
+};
+
+#endif /* RWSUBTASKSENDRECVCOMMAND_H_ */

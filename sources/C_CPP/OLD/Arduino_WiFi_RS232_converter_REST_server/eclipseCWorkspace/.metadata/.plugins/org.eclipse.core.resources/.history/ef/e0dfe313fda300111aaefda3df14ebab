@@ -1,0 +1,61 @@
+/*
+ * RWSubTaskDecideToReadIncommingData.cpp
+ *
+ *  Created on: 21-05-2012
+ *      Author: root
+ */
+
+// =================================================
+
+#include "RWSubTaskDecideToReadIncommingData.h"
+
+// =================================================
+
+//RWSubTaskDecideToReadIncommingData::RWSubTaskDecideToReadIncommingData( AnyBuffer< byte , byte >* _inputBuffer , RWSubTask* _rwSubTaskSendRECVCommand , RWSubTask* _rwSubTaskDecideToSendOutgoingData ) : dp( PSTR( "RWSubTaskDecideToReadIncommingData" ) , DEBUG_LEVEL_ALL )
+RWSubTaskDecideToReadIncommingData::RWSubTaskDecideToReadIncommingData( RWStateMachineHelper* _rwStateMachineHelper ) : dp( PSTR( "RWSubTaskDecideToReadIncommingData" ) , DEBUG_LEVEL_ALL )
+{
+	h = _rwStateMachineHelper;
+
+	//inputBuffer = _inputBuffer;
+	//rwSubTaskSendRECVCommand = _rwSubTaskSendRECVCommand;
+	//rwSubTaskDecideToSendOutgoingData = _rwSubTaskDecideToSendOutgoingData;
+}
+
+// =================================================
+
+char* RWSubTaskDecideToReadIncommingData::getSubTaskName()
+{
+	return "DecideToReadIncommingData"
+}
+
+// =================================================
+
+void RWSubTaskDecideToReadIncommingData::resetInternalState()
+{
+
+}
+
+// =================================================
+
+unsigned long RWSubTaskDecideToReadIncommingData::getStateTimeout()
+{
+	return 0;
+}
+
+// =================================================
+
+RWSubTask* RWSubTaskDecideToReadIncommingData::getStateAfterTimeout()
+{
+	return NULL;
+}
+
+// =================================================
+
+RWSubTask* RWSubTaskDecideToReadIncommingData::executeSubTask()
+{
+	return h->inputBuffer->getUnusedSpace() > 0 ? h->rwSubTaskSendRECVCommand : h->rwSubTaskDecideToSendOutgoingData;
+}
+
+// =================================================
+
+

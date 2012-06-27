@@ -1,0 +1,533 @@
+/*
+ * StreamHFA11xRS232WiFi3.cpp
+ *
+ *  Created on: 11-05-2012
+ *      Author: root
+ */
+
+// =================================================
+
+#include "StreamHFA11xRS232WiFi3.h"
+
+// =================================================
+
+StreamHFA11xRS232WiFi3::StreamHFA11xRS232WiFi3( AnyRingBuffer< byte >* _inputBuffer , AnyRingBuffer< byte >* _outputBuffer , StreamHFA11xRS232WiFiCRC* _crcStream ) : dp( PSTR( "StreamHFA11xRS232WiFi3" ) , DEBUG_LEVEL_ALL )
+{
+	inputBuffer = _inputBuffer;
+	outputBuffer = _outputBuffer;
+	crcStream = _crcStream;
+
+	arr[0] = 0; // command
+	arr[1] = 0; // sn
+	arr[2] = 0; // reserved
+	arr[3] = 0; // reserved
+	arr[4] = 0; // RECV: length to read, SEND: send data length
+	arr[5] = 0; // RECV: length to read, SEND: send data length
+}
+
+// =================================================
+
+void StreamHFA11xRS232WiFi3::resetInternalState()
+{
+	discardAnyWaitingDataInUnderlyingStream( true );
+	crcStream->resetInternalState();
+	inputBuffer->clear();
+	outputBuffer->clear();
+}
+
+// =================================================
+
+int StreamHFA11xRS232WiFi3::read()
+{
+	if( inputBuffer->getUsedSpace() == 0 ) doFullReadCycle();
+
+	if( inputBuffer->getUsedSpace() > 0 )
+	{
+		return inputBuffer->read();
+	}
+	else
+	{
+		return -1;
+	}
+}
+
+// =================================================
+
+int StreamHFA11xRS232WiFi3::peek()
+{
+	if( inputBuffer->getUsedSpace() == 0 ) doFullReadCycle();
+
+	if( inputBuffer->getUsedSpace() > 0 )
+	{
+		return inputBuffer->peek();
+	}
+	else
+	{
+		return -1;
+	}
+}
+
+// =================================================
+
+void StreamHFA11xRS232WiFi3::flush()
+{
+	for( byte sendWholeData = 0 ; sendWholeData < 10 && outputBuffer->getUsedSpace() > 0 ; sendWholeData++ )
+	{
+		doFullSendCycle();
+	}
+}
+
+// =================================================
+
+size_t StreamHFA11xRS232WiFi3::write( uint8_t b )
+{
+	while( outputBuffer->getFreeSpace() == 0 ) doFullSendCycle();
+
+	return outputBuffer->write( b );
+
+	//outputBuffer->array[ outputBuffer->limit++ ] = b;
+
+	//return 1;
+}
+
+// =================================================
+/*
+size_t StreamHFA11xRS232WiFi2::write( const uint8_t* buffer , size_t size )
+{
+	size_t oryginalSize = size;
+
+	while( size > 0 )
+	{
+		while( outputBuffer->getUnusedSpace() == 0 ) doFullSendCycle();
+
+		byte sizeToWrite = min( outputBuffer->getUnusedSpace() , size );
+
+		byte positionBefore = outputBuffer->position;
+
+		outputBuffer->setPositionAndLimit( outputBuffer->limit , outputBuffer->limit + sizeToWrite );
+
+		outputBuffer->put( (byte*)buffer , sizeToWrite );
+
+		outputBuffer->setPosition( positionBefore );
+
+		size -= sizeToWrite;
+	}
+
+	return oryginalSize;
+	*/
+	/*
+	if( outputBuffer->getUnusedSpace() == 0 ) rwStateMachine->doFullSendCycle();
+
+	if( outputBuffer->getUnusedSpace() == 0 )
+	{
+		byte sizeToWrite = min( outputBuffer->getUnusedSpace() , size );
+
+		byte positionBefore = outputBuffer->position;
+
+		outputBuffer->setPositionAndLimit( outputBuffer->limit , outputBuffer->limit + sizeToWrite );
+
+		outputBuffer->put( (byte*)buffer , sizeToWrite );
+
+		outputBuffer->setPosition( positionBefore );
+
+		return sizeToWrite;
+	}
+	else
+		return 0;
+	*/
+	/*
+	if( outputBuffer->getUnusedSpace() == 0 ) rwStateMachine->doFullSendCycle();
+
+	size_t countToWrite = min( size , outputBuffer->getUnusedSpace() );
+
+	memcpy( outputBuffer->array+outputBuffer->limit , buffer , countToWrite );
+
+	outputBuffer->limit += countToWrite;
+
+	return countToWrite;
+	*/
+//}
+
+// =================================================
+
+int StreamHFA11xRS232WiFi3::available()
+{
+	byte available = inputBuffer->getUsedSpace();
+
+	if( available == 0 )
+	{
+		doFullReadCycle();
+		return inputBuffer->getUsedSpace();
+	}
+	else
+	{
+		return available;
+	}
+}
+
+// =================================================
+
+void StreamHFA11xRS232WiFi3::discardAnyWaitingDataInUnderlyingStream( bool discardForAllSerialNumbers )
+{
+	static const PROGMEM prog_char functionName[] = "discardAnyWaitingDataInUnderlyingStream";
+
+	unsigned int discardedBytesCount = 0;
+
+	while( crcStream->underlyingStream->read() != -1 ) discardedBytesCount++; // discarding any data waiting in the stream
+
+	iln( "initially discarded %u bytes" , discardedBytesCount )
+
+	if( discardForAllSerialNumbers )
+	{
+		byte currentSeriaNumber = arr[1];
+
+		for( unsigned int i = 0; i < 256 ; i++ )
+		{
+			arr[0] = 2;
+			arr[1] = i;
+			arr[4] = 0;
+			arr[5] = 3;
+
+			crcStream->resetOutgoingState();
+			crcStream->write( arr , 6 );
+			crcStream->writeCRC();
+			crcStream->flush();
+
+			//delay( 25 );
+
+			for( byte i = 0 ; i < 5 && crcStream->underlyingStream->available() < 8 ; i++ ) delay( 5 );
+
+			discardedBytesCount = 0;
+			while( crcStream->underlyingStream->read() != -1 ) discardedBytesCount++;
+
+			iln( "for serial number %u discarded %u bytes" , i , discardedBytesCount )
+		}
+
+		arr[1] = currentSeriaNumber;
+	}
+}
+
+// =================================================
+
+void StreamHFA11xRS232WiFi3::doFullReadCycle()
+{
+	static const PROGMEM prog_char functionName[] = "doFullReadCycle";
+
+	byte sendREADAndReadRECVACKCommandMaxRetries = 20;
+
+	for( byte sendREADAndReadRECVACKCommandRetry = 0 ; sendREADAndReadRECVACKCommandRetry < sendREADAndReadRECVACKCommandMaxRetries ; sendREADAndReadRECVACKCommandRetry++ )
+	{
+		if( sendRECVAndReadRECVACK() )
+		{
+			return;
+		}
+		else
+		{
+			iln( "sending RECV again, retry %u / %u" , sendREADAndReadRECVACKCommandRetry , sendREADAndReadRECVACKCommandMaxRetries )
+		}
+	}
+}
+
+// =================================================
+
+bool StreamHFA11xRS232WiFi3::sendRECVAndReadRECVACK()
+{
+	static const PROGMEM prog_char functionName[] = "sendRECVAndReadRECVACK";
+
+	byte freeSpace = inputBuffer->getFreeSpace();
+
+	if( freeSpace > 0 )
+	{
+		iln( "a1 available=%u , freeSpace=%u, sn=%u" , crcStream->available() , freeSpace , arr[1] )
+		inputBuffer->printReport( "FROM StreamHFA11xRS232WiFi3::sendRECVAndReadRECVACK()");
+
+		discardAnyWaitingDataInUnderlyingStream( false );
+		//delay( 200 );
+		//discardAnyWaitingDataInUnderlyingStream( false );
+
+		// ---
+
+		iln( "a2 available=%u" , crcStream->available() )
+
+		crcStream->resetOutgoingState();
+
+		arr[0] = 2;
+		arr[4] = freeSpace;
+		arr[5] = 0;
+
+		if( crcStream->write( arr , 6 ) != 6 )
+		{
+			wln( "could not send 6 bytes of RECV command" )
+			return false;
+		}
+
+		iln( "a3 available=%u" , crcStream->available() )
+
+		discardAnyWaitingDataInUnderlyingStream( false );
+
+		if( !crcStream->writeCRC() )
+		{
+			wln( "could not send crc" )
+			return false;
+		}
+
+		//iln( "a4" )
+
+		crcStream->flush();
+
+		iln( "a5 available=%u" , crcStream->available() )
+
+		// ---
+
+		crcStream->resetIncommingState();
+
+		byte readByte = 0;
+
+		while( crcStream->available() < 6 );
+
+		//while( ( readByte = crcStream->read() ) == -1 );
+		if( ( readByte = crcStream->read() ) != 2 )
+		{
+			wln( "incomming command number (%u) not match 2" , readByte )
+			return false;
+		}
+
+		//iln( "a6 available=%u" , crcStream->available() )
+
+		//while( ( readByte = crcStream->read() ) == -1 );
+		if( ( readByte = crcStream->read() ) != arr[1] )
+		{
+			wln( "incomming serial number (%u) not match %u" , readByte , arr[1] )
+			return false;
+		}
+
+		//iln( "a7 available=%u" , crcStream->available() )
+
+		//while( ( readByte = crcStream->read() ) == -1 );
+		if( ( readByte = crcStream->read() ) != 0 )
+		{
+			wln( "incomming first reserved byte (%u) not match 0" , readByte )
+			return false;
+		}
+
+		//while( ( readByte = crcStream->read() ) == -1 );
+		if( ( readByte = crcStream->read() ) != 0 )
+		{
+			wln( "incomming second reserved byte (%u) not match 0" , readByte )
+			return false;
+		}
+
+		//iln( "a8 available=%u" , crcStream->available() )
+
+		unsigned int incommingDataSize = 0;
+
+		//while( ( readByte = crcStream->read() ) == -1 );
+		incommingDataSize += crcStream->read();
+		//while( ( readByte = crcStream->read() ) == -1 );
+		incommingDataSize += 256 * crcStream->read();
+
+		if( incommingDataSize > freeSpace )
+		{
+			wln( "incomming data size (%u) is greater than requested %u" , incommingDataSize , freeSpace )
+			return false;
+		}
+		else
+		{
+			iln( "requested %u bytes and received %u bytes" , freeSpace , incommingDataSize )
+		}
+
+		//byte limitBefore = inputBuffer->limit;
+		//unsigned int savedIncommingDataSize = incommingDataSize;
+
+		//while( crcStream->available() < incommingDataSize );
+
+		//byte ccc = 0;
+		//unsigned int writePosition = inputBuffer->getWritePosition();
+
+		unsigned int readBytesCount = 0;
+
+		while( readBytesCount < incommingDataSize )
+		{
+			//while( ( readByte = crcStream->read() ) == -1 );
+
+			if( crcStream->available() > 0 )
+			{
+				unsigned int toRead = min( crcStream->available() , incommingDataSize - readBytesCount );
+
+				unsigned int bytesReadFromStreamAndWroteToBuffer = inputBuffer->write( crcStream , toRead );
+
+				iln( "toRead = %u, bytesReadFromStreamAndWroteToBuffer = %u, readBytesCount = %u , incommingDataSize = %u" , toRead , bytesReadFromStreamAndWroteToBuffer , readBytesCount , incommingDataSize )
+
+				//incommingDataSize -= bytesReadFromStreamAndWroteToBuffer;
+				readBytesCount += bytesReadFromStreamAndWroteToBuffer;
+				/*
+				readByte = crcStream->read();
+
+				if( readByte )
+				{
+
+				}
+
+				inputBuffer->array[ inputBuffer->limit++ ] = readByte;
+				ccc++;
+
+				incommingDataSize--;
+				*/
+			}
+			else
+			{
+				iln( "waiting for available data while reading, readBytesCount = %u , incommingDataSize = %u" , readBytesCount , incommingDataSize )
+			}
+		}
+
+		//inputBuffer->setLimit( limitBefore );
+
+		//iln( "a9 available=%u, ccc=%u" , crcStream->available() , ccc )
+
+		while( crcStream->available() < 2 );
+
+		iln( "a10 available=%u" , crcStream->available() )
+
+		if( crcStream->isIncommingCRCMatch() )
+		{
+			arr[1]++;
+
+			//inputBuffer->setLimit( inputBuffer->limit + savedIncommingDataSize );
+
+			inputBuffer->printReport( "FROM StreamHFA11xRS232WiFi3::sendRECVAndReadRECVACK() AFTER READING");
+
+			//arr[1] = arr[1] + 1;
+
+			return true;
+		}
+		else
+		{
+			inputBuffer->discardLastBytes( readBytesCount );
+			wln( "crc sum not match! ! ! !" )
+			return false;
+		}
+	}
+	else
+	{
+		return true;
+	}
+}
+
+// =================================================
+
+void StreamHFA11xRS232WiFi3::doFullSendCycle()
+{
+	static const PROGMEM prog_char functionName[] = "doFullSendCycle";
+
+	byte sendSENDAndReadSENDACKCommandMaxRetries = 20;
+
+	for( byte sendSENDAndReadSENDACKCommandRetry = 0 ; sendSENDAndReadSENDACKCommandRetry < sendSENDAndReadSENDACKCommandMaxRetries ; sendSENDAndReadSENDACKCommandRetry++ )
+	{
+		if( sendSENDAndReadSENDACK() )
+		{
+			return;
+		}
+		else
+		{
+			iln( "sending SEND again, retry %u / %u" , sendSENDAndReadSENDACKCommandRetry , sendSENDAndReadSENDACKCommandMaxRetries )
+		}
+	}
+}
+
+// =================================================
+
+bool StreamHFA11xRS232WiFi3::sendSENDAndReadSENDACK()
+{
+	static const PROGMEM prog_char functionName[] = "sendSENDAndReadSENDACK";
+
+	byte waitingToSendDataCount = outputBuffer->getUsedSpace();
+
+	if( waitingToSendDataCount > 0 )
+	{
+		iln( "b1 available=%u , waitingToSendDataCount=%u, sn=%u" , crcStream->available() , waitingToSendDataCount , arr[1] )
+
+		discardAnyWaitingDataInUnderlyingStream( false );
+
+		iln( "b2 available=%u" , crcStream->available() )
+
+		// ---
+
+		crcStream->resetOutgoingState();
+
+		arr[0] = 1;
+		arr[4] = waitingToSendDataCount;
+		arr[5] = 0;
+
+		if( crcStream->write( arr , 6 ) != 6 )
+		{
+			wln( "could not send 6 bytes of SEND command" )
+			return false;
+		}
+
+		if( outputBuffer->readOrPeek( false , crcStream , waitingToSendDataCount ) != waitingToSendDataCount )
+		{
+			wln( "could not send %u bytes of data inside SEND command" , waitingToSendDataCount )
+			return false;
+		}
+
+		if( !crcStream->writeCRC() )
+		{
+			wln( "could not send crc" )
+			return false;
+		}
+
+		crcStream->flush();
+
+		// ---
+
+		while( crcStream->available() < 5 );
+
+		byte readByte = 0;
+
+		if( ( readByte = crcStream->underlyingStream->read() ) != 1 )
+		{
+			wln( "incomming command number (%u) not match 1" , readByte )
+			return false;
+		}
+
+		if( ( readByte = crcStream->underlyingStream->read() ) != arr[1] )
+		{
+			wln( "incomming serial number (%u) not match %u" , readByte , arr[1] )
+			return false;
+		}
+
+		if( ( readByte = crcStream->underlyingStream->read() ) != 0 )
+		{
+			wln( "incomming first reserved byte (%u) not match 0" , readByte )
+			return false;
+		}
+
+		if( ( readByte = crcStream->underlyingStream->read() ) != 0 )
+		{
+			wln( "incomming second reserved byte (%u) not match 0" , readByte )
+			return false;
+		}
+
+		byte ackInfo = crcStream->underlyingStream->read();
+
+		if( ackInfo == 0 )
+		{
+			outputBuffer->discardFirstBytes( waitingToSendDataCount );
+
+			arr[1]++;
+
+			return true;
+		}
+		else
+		{
+			wln( "ackInfo ERR :(((" )
+			return false;
+		}
+	}
+	else
+	{
+		return true;
+	}
+}
+
+// =================================================

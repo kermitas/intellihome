@@ -1,0 +1,109 @@
+/*
+ * HFA11xRS232WiFiCRC.cpp
+ *
+ *  Created on: 13-05-2012
+ *      Author: root
+ */
+
+// =================================================
+
+#include "HFA11xRS232WiFiCRC.h"
+
+// =================================================
+
+HFA11xRS232WiFiCRC::HFA11xRS232WiFiCRC() : dp( PSTR( "HFA11xRS232WiFiCRC" ) )
+{
+	reset();
+}
+
+// =================================================
+
+void HFA11xRS232WiFiCRC::reset()
+{
+	crcCounter = 0;
+	lastprocessedByte = 0;
+	oddByte = true;
+}
+
+// =================================================
+
+void HFA11xRS232WiFiCRC::processByte( unsigned char b )
+{
+	static const PROGMEM prog_char functionName[] = "processByte";
+
+	//crcCounter += oddByte ? b * 256 : b;
+
+	crcCounter += oddByte ? b : b * 256; /* A1 */
+
+	lastprocessedByte = b;
+
+	aln( "b = %c (%u), crcCounter = %lu" , b , b , crcCounter )
+
+	oddByte = !oddByte;
+}
+
+// =================================================
+
+unsigned char HFA11xRS232WiFiCRC::getCRCLowByte( unsigned int crcSum )
+{
+	return (crcSum) & 0xff;
+}
+
+// =================================================
+
+unsigned char HFA11xRS232WiFiCRC::getCRCHighByte( unsigned int crcSum )
+{
+	return (crcSum) >> 8;
+}
+
+// =================================================
+
+unsigned int HFA11xRS232WiFiCRC::getCRCSum()
+{
+	static const PROGMEM prog_char functionName[] = "getCRCSum";
+
+	unsigned long localCRCcounter = crcCounter;
+
+	if( !oddByte )
+	{
+		//localCRCcounter -= lastprocessedByte;
+		//localCRCcounter += lastprocessedByte * 256;
+
+		localCRCcounter -= lastprocessedByte * 256; /* A1 */
+		localCRCcounter += lastprocessedByte; /* A1 */
+
+	}
+
+	localCRCcounter = ( (localCRCcounter) >> 16 ) + ( (localCRCcounter) & 0xffff );
+	localCRCcounter += ( (localCRCcounter) >> 16 );
+	localCRCcounter = ~localCRCcounter;
+
+	unsigned int crcSum = (localCRCcounter) & 0xffff;
+
+	aln( "calculated crcSum = %u , oddByte = %u, localCRCcounter = %lu" , crcSum , oddByte , localCRCcounter )
+
+	return crcSum;
+}
+
+// =================================================
+
+bool HFA11xRS232WiFiCRC::writeCRCBytesToStream( Stream* stream )
+{
+	static const PROGMEM prog_char functionName[] = "writeCRCBytesToStream";
+
+	unsigned int crcSum = getCRCSum();
+	unsigned char highByte = getCRCHighByte( crcSum );
+	unsigned char lowByte = getCRCLowByte( crcSum );
+
+	aln( "writing to stream crc highByte = %u, lowByte = %u (in order: first LOW %u, then HIGH byte %u)" , highByte , lowByte , lowByte , highByte )
+
+	if( stream->write( lowByte ) != 1 || stream->write( highByte ) != 1 ) return false;
+
+	return true;
+}
+
+// =================================================
+
+
+
+

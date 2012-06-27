@@ -1,0 +1,58 @@
+/*
+ * RWSubTaskSendRECVCommand.cpp
+ *
+ *  Created on: 21-05-2012
+ *      Author: root
+ */
+
+// =================================================
+
+#include "RWSubTaskSendRECVCommand.h"
+
+// =================================================
+
+RWSubTaskSendRECVCommand::RWSubTaskSendRECVCommand( AnyBuffer< byte , byte >* _inputBuffer , Stream* _stream , RWSubTaskWaitForData* _waitForDataSubTask , RWSubTask* _decideToSendOutgingData ) : dp( PSTR( "RWSubTaskSendRECVCommand" ) , DEBUG_LEVEL_ALL )
+{
+	inputBuffer = _inputBuffer;
+	waitForDataSubTask = _waitForDataSubTask;
+	decideToSendOutgingData = _decideToSendOutgingData;
+}
+
+// =================================================
+
+char* RWSubTaskSendRECVCommand::getSubTaskName()
+{
+	return "SendRECVCommand"
+}
+
+// =================================================
+
+void RWSubTaskSendRECVCommand::resetInternalState()
+{
+
+}
+
+// =================================================
+
+unsigned long RWSubTaskSendRECVCommand::getStateTimeout()
+{
+	return 2*1000;
+}
+
+// =================================================
+
+RWSubTask* RWSubTaskSendRECVCommand::getStateAfterTimeout()
+{
+	return decideToSendOutgingData;
+}
+
+// =================================================
+
+RWSubTask* RWSubTaskSendRECVCommand::executeSubTask()
+{
+	return inputBuffer->getUnusedSpace() > 0 ? sendRECVCommandSubTask : decideToSendOutgingData;
+}
+
+// =================================================
+
+

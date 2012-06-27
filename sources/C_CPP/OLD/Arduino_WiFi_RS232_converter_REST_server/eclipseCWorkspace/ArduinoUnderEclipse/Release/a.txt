@@ -1,0 +1,98 @@
+Stable Library
+=========================================
+Native lib Version = RXTX-2.1-7
+Java lib Version   = RXTX-2.1-7
+avr-g++ -c -g -Os -Wall -fno-exceptions -ffunction-sections -fdata-sections -mmcu=atmega2560 -DF_CPU=16000000L -DARDUINO=100 -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/variants/mega /tmp/build1205420529024561130.tmp/Blink.cpp -o/tmp/build1205420529024561130.tmp/Blink.cpp.o 
+avr-gcc -c -g -Os -Wall -ffunction-sections -fdata-sections -mmcu=atmega2560 -DF_CPU=16000000L -DARDUINO=100 -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/variants/mega /home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino/wiring.c -o/tmp/build1205420529024561130.tmp/wiring.c.o 
+avr-gcc -c -g -Os -Wall -ffunction-sections -fdata-sections -mmcu=atmega2560 -DF_CPU=16000000L -DARDUINO=100 -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/variants/mega /home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino/wiring_digital.c -o/tmp/build1205420529024561130.tmp/wiring_digital.c.o 
+avr-gcc -c -g -Os -Wall -ffunction-sections -fdata-sections -mmcu=atmega2560 -DF_CPU=16000000L -DARDUINO=100 -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/variants/mega /home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino/wiring_shift.c -o/tmp/build1205420529024561130.tmp/wiring_shift.c.o 
+avr-gcc -c -g -Os -Wall -ffunction-sections -fdata-sections -mmcu=atmega2560 -DF_CPU=16000000L -DARDUINO=100 -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/variants/mega /home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino/wiring_pulse.c -o/tmp/build1205420529024561130.tmp/wiring_pulse.c.o 
+avr-gcc -c -g -Os -Wall -ffunction-sections -fdata-sections -mmcu=atmega2560 -DF_CPU=16000000L -DARDUINO=100 -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/variants/mega /home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino/wiring_analog.c -o/tmp/build1205420529024561130.tmp/wiring_analog.c.o 
+avr-gcc -c -g -Os -Wall -ffunction-sections -fdata-sections -mmcu=atmega2560 -DF_CPU=16000000L -DARDUINO=100 -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/variants/mega /home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino/WInterrupts.c -o/tmp/build1205420529024561130.tmp/WInterrupts.c.o 
+avr-g++ -c -g -Os -Wall -fno-exceptions -ffunction-sections -fdata-sections -mmcu=atmega2560 -DF_CPU=16000000L -DARDUINO=100 -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/variants/mega /home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino/USBCore.cpp -o/tmp/build1205420529024561130.tmp/USBCore.cpp.o 
+avr-g++ -c -g -Os -Wall -fno-exceptions -ffunction-sections -fdata-sections -mmcu=atmega2560 -DF_CPU=16000000L -DARDUINO=100 -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/variants/mega /home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino/HardwareSerial.cpp -o/tmp/build1205420529024561130.tmp/HardwareSerial.cpp.o 
+avr-g++ -c -g -Os -Wall -fno-exceptions -ffunction-sections -fdata-sections -mmcu=atmega2560 -DF_CPU=16000000L -DARDUINO=100 -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/variants/mega /home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino/Stream.cpp -o/tmp/build1205420529024561130.tmp/Stream.cpp.o 
+avr-g++ -c -g -Os -Wall -fno-exceptions -ffunction-sections -fdata-sections -mmcu=atmega2560 -DF_CPU=16000000L -DARDUINO=100 -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/variants/mega /home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino/WMath.cpp -o/tmp/build1205420529024561130.tmp/WMath.cpp.o 
+avr-g++ -c -g -Os -Wall -fno-exceptions -ffunction-sections -fdata-sections -mmcu=atmega2560 -DF_CPU=16000000L -DARDUINO=100 -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/variants/mega /home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino/main.cpp -o/tmp/build1205420529024561130.tmp/main.cpp.o 
+avr-g++ -c -g -Os -Wall -fno-exceptions -ffunction-sections -fdata-sections -mmcu=atmega2560 -DF_CPU=16000000L -DARDUINO=100 -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/variants/mega /home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino/HID.cpp -o/tmp/build1205420529024561130.tmp/HID.cpp.o 
+avr-g++ -c -g -Os -Wall -fno-exceptions -ffunction-sections -fdata-sections -mmcu=atmega2560 -DF_CPU=16000000L -DARDUINO=100 -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/variants/mega /home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino/IPAddress.cpp -o/tmp/build1205420529024561130.tmp/IPAddress.cpp.o 
+avr-g++ -c -g -Os -Wall -fno-exceptions -ffunction-sections -fdata-sections -mmcu=atmega2560 -DF_CPU=16000000L -DARDUINO=100 -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/variants/mega /home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino/new.cpp -o/tmp/build1205420529024561130.tmp/new.cpp.o 
+avr-g++ -c -g -Os -Wall -fno-exceptions -ffunction-sections -fdata-sections -mmcu=atmega2560 -DF_CPU=16000000L -DARDUINO=100 -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/variants/mega /home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino/Tone.cpp -o/tmp/build1205420529024561130.tmp/Tone.cpp.o 
+avr-g++ -c -g -Os -Wall -fno-exceptions -ffunction-sections -fdata-sections -mmcu=atmega2560 -DF_CPU=16000000L -DARDUINO=100 -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/variants/mega /home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino/CDC.cpp -o/tmp/build1205420529024561130.tmp/CDC.cpp.o 
+avr-g++ -c -g -Os -Wall -fno-exceptions -ffunction-sections -fdata-sections -mmcu=atmega2560 -DF_CPU=16000000L -DARDUINO=100 -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/variants/mega /home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino/Print.cpp -o/tmp/build1205420529024561130.tmp/Print.cpp.o 
+avr-g++ -c -g -Os -Wall -fno-exceptions -ffunction-sections -fdata-sections -mmcu=atmega2560 -DF_CPU=16000000L -DARDUINO=100 -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/variants/mega /home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino/WString.cpp -o/tmp/build1205420529024561130.tmp/WString.cpp.o 
+avr-ar rcs /tmp/build1205420529024561130.tmp/core.a /tmp/build1205420529024561130.tmp/wiring.c.o 
+avr-ar rcs /tmp/build1205420529024561130.tmp/core.a /tmp/build1205420529024561130.tmp/wiring_digital.c.o 
+avr-ar rcs /tmp/build1205420529024561130.tmp/core.a /tmp/build1205420529024561130.tmp/wiring_shift.c.o 
+avr-ar rcs /tmp/build1205420529024561130.tmp/core.a /tmp/build1205420529024561130.tmp/wiring_pulse.c.o 
+avr-ar rcs /tmp/build1205420529024561130.tmp/core.a /tmp/build1205420529024561130.tmp/wiring_analog.c.o 
+avr-ar rcs /tmp/build1205420529024561130.tmp/core.a /tmp/build1205420529024561130.tmp/WInterrupts.c.o 
+avr-ar rcs /tmp/build1205420529024561130.tmp/core.a /tmp/build1205420529024561130.tmp/USBCore.cpp.o 
+avr-ar rcs /tmp/build1205420529024561130.tmp/core.a /tmp/build1205420529024561130.tmp/HardwareSerial.cpp.o 
+avr-ar rcs /tmp/build1205420529024561130.tmp/core.a /tmp/build1205420529024561130.tmp/Stream.cpp.o 
+avr-ar rcs /tmp/build1205420529024561130.tmp/core.a /tmp/build1205420529024561130.tmp/WMath.cpp.o 
+avr-ar rcs /tmp/build1205420529024561130.tmp/core.a /tmp/build1205420529024561130.tmp/main.cpp.o 
+avr-ar rcs /tmp/build1205420529024561130.tmp/core.a /tmp/build1205420529024561130.tmp/HID.cpp.o 
+avr-ar rcs /tmp/build1205420529024561130.tmp/core.a /tmp/build1205420529024561130.tmp/IPAddress.cpp.o 
+avr-ar rcs /tmp/build1205420529024561130.tmp/core.a /tmp/build1205420529024561130.tmp/new.cpp.o 
+avr-ar rcs /tmp/build1205420529024561130.tmp/core.a /tmp/build1205420529024561130.tmp/Tone.cpp.o 
+avr-ar rcs /tmp/build1205420529024561130.tmp/core.a /tmp/build1205420529024561130.tmp/CDC.cpp.o 
+avr-ar rcs /tmp/build1205420529024561130.tmp/core.a /tmp/build1205420529024561130.tmp/Print.cpp.o 
+avr-ar rcs /tmp/build1205420529024561130.tmp/core.a /tmp/build1205420529024561130.tmp/WString.cpp.o 
+avr-gcc -Os -Wl,--gc-sections -mmcu=atmega2560 -o /tmp/build1205420529024561130.tmp/Blink.cpp.elf /tmp/build1205420529024561130.tmp/Blink.cpp.o /tmp/build1205420529024561130.tmp/core.a -L/tmp/build1205420529024561130.tmp -lm 
+avr-objcopy -O ihex -j .eeprom --set-section-flags=.eeprom=alloc,load --no-change-warnings --change-section-lma .eeprom=0 /tmp/build1205420529024561130.tmp/Blink.cpp.elf /tmp/build1205420529024561130.tmp/Blink.cpp.eep 
+avr-objcopy -O ihex -R .eeprom /tmp/build1205420529024561130.tmp/Blink.cpp.elf /tmp/build1205420529024561130.tmp/Blink.cpp.hex 
+Binary sketch size: 1586 bytes (of a 258048 byte maximum)
+/home/as/ARDUINO/arduino-1.0-IDE/hardware/tools/avrdude -C/home/as/ARDUINO/arduino-1.0-IDE/hardware/tools/avrdude.conf -v -v -v -v -patmega2560 -cstk500v2 -P/dev/ttyS0 -b115200 -D -Uflash:w:/tmp/build1205420529024561130.tmp/Blink.cpp.hex:i 
+
+
+
+
+
+
+
+
+
+
+avr-g++ -c -g -Os -Wall -fno-exceptions -ffunction-sections -fdata-sections -mmcu=atmega2560 -DF_CPU=16000000L -DARDUINO=100 -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/variants/mega /tmp/build1205420529024561130.tmp/Blink.cpp -o/tmp/build1205420529024561130.tmp/Blink.cpp.o 
+avr-gcc -c -g -Os -Wall -ffunction-sections -fdata-sections -mmcu=atmega2560 -DF_CPU=16000000L -DARDUINO=100 -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/variants/mega /home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino/wiring.c -o/tmp/build1205420529024561130.tmp/wiring.c.o 
+avr-gcc -c -g -Os -Wall -ffunction-sections -fdata-sections -mmcu=atmega2560 -DF_CPU=16000000L -DARDUINO=100 -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/variants/mega /home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino/wiring_digital.c -o/tmp/build1205420529024561130.tmp/wiring_digital.c.o 
+avr-gcc -c -g -Os -Wall -ffunction-sections -fdata-sections -mmcu=atmega2560 -DF_CPU=16000000L -DARDUINO=100 -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/variants/mega /home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino/wiring_shift.c -o/tmp/build1205420529024561130.tmp/wiring_shift.c.o 
+avr-gcc -c -g -Os -Wall -ffunction-sections -fdata-sections -mmcu=atmega2560 -DF_CPU=16000000L -DARDUINO=100 -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/variants/mega /home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino/wiring_pulse.c -o/tmp/build1205420529024561130.tmp/wiring_pulse.c.o 
+avr-gcc -c -g -Os -Wall -ffunction-sections -fdata-sections -mmcu=atmega2560 -DF_CPU=16000000L -DARDUINO=100 -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/variants/mega /home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino/wiring_analog.c -o/tmp/build1205420529024561130.tmp/wiring_analog.c.o 
+avr-gcc -c -g -Os -Wall -ffunction-sections -fdata-sections -mmcu=atmega2560 -DF_CPU=16000000L -DARDUINO=100 -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/variants/mega /home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino/WInterrupts.c -o/tmp/build1205420529024561130.tmp/WInterrupts.c.o 
+avr-g++ -c -g -Os -Wall -fno-exceptions -ffunction-sections -fdata-sections -mmcu=atmega2560 -DF_CPU=16000000L -DARDUINO=100 -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/variants/mega /home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino/USBCore.cpp -o/tmp/build1205420529024561130.tmp/USBCore.cpp.o 
+avr-g++ -c -g -Os -Wall -fno-exceptions -ffunction-sections -fdata-sections -mmcu=atmega2560 -DF_CPU=16000000L -DARDUINO=100 -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/variants/mega /home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino/HardwareSerial.cpp -o/tmp/build1205420529024561130.tmp/HardwareSerial.cpp.o 
+avr-g++ -c -g -Os -Wall -fno-exceptions -ffunction-sections -fdata-sections -mmcu=atmega2560 -DF_CPU=16000000L -DARDUINO=100 -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/variants/mega /home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino/Stream.cpp -o/tmp/build1205420529024561130.tmp/Stream.cpp.o 
+avr-g++ -c -g -Os -Wall -fno-exceptions -ffunction-sections -fdata-sections -mmcu=atmega2560 -DF_CPU=16000000L -DARDUINO=100 -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/variants/mega /home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino/WMath.cpp -o/tmp/build1205420529024561130.tmp/WMath.cpp.o 
+avr-g++ -c -g -Os -Wall -fno-exceptions -ffunction-sections -fdata-sections -mmcu=atmega2560 -DF_CPU=16000000L -DARDUINO=100 -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/variants/mega /home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino/main.cpp -o/tmp/build1205420529024561130.tmp/main.cpp.o 
+avr-g++ -c -g -Os -Wall -fno-exceptions -ffunction-sections -fdata-sections -mmcu=atmega2560 -DF_CPU=16000000L -DARDUINO=100 -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/variants/mega /home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino/HID.cpp -o/tmp/build1205420529024561130.tmp/HID.cpp.o 
+avr-g++ -c -g -Os -Wall -fno-exceptions -ffunction-sections -fdata-sections -mmcu=atmega2560 -DF_CPU=16000000L -DARDUINO=100 -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/variants/mega /home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino/IPAddress.cpp -o/tmp/build1205420529024561130.tmp/IPAddress.cpp.o 
+avr-g++ -c -g -Os -Wall -fno-exceptions -ffunction-sections -fdata-sections -mmcu=atmega2560 -DF_CPU=16000000L -DARDUINO=100 -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/variants/mega /home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino/new.cpp -o/tmp/build1205420529024561130.tmp/new.cpp.o 
+avr-g++ -c -g -Os -Wall -fno-exceptions -ffunction-sections -fdata-sections -mmcu=atmega2560 -DF_CPU=16000000L -DARDUINO=100 -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/variants/mega /home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino/Tone.cpp -o/tmp/build1205420529024561130.tmp/Tone.cpp.o 
+avr-g++ -c -g -Os -Wall -fno-exceptions -ffunction-sections -fdata-sections -mmcu=atmega2560 -DF_CPU=16000000L -DARDUINO=100 -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/variants/mega /home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino/CDC.cpp -o/tmp/build1205420529024561130.tmp/CDC.cpp.o 
+avr-g++ -c -g -Os -Wall -fno-exceptions -ffunction-sections -fdata-sections -mmcu=atmega2560 -DF_CPU=16000000L -DARDUINO=100 -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/variants/mega /home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino/Print.cpp -o/tmp/build1205420529024561130.tmp/Print.cpp.o 
+avr-g++ -c -g -Os -Wall -fno-exceptions -ffunction-sections -fdata-sections -mmcu=atmega2560 -DF_CPU=16000000L -DARDUINO=100 -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino -I/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/variants/mega /home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino/WString.cpp -o/tmp/build1205420529024561130.tmp/WString.cpp.o 
+avr-ar rcs /tmp/build1205420529024561130.tmp/core.a /tmp/build1205420529024561130.tmp/wiring.c.o 
+avr-ar rcs /tmp/build1205420529024561130.tmp/core.a /tmp/build1205420529024561130.tmp/wiring_digital.c.o 
+avr-ar rcs /tmp/build1205420529024561130.tmp/core.a /tmp/build1205420529024561130.tmp/wiring_shift.c.o 
+avr-ar rcs /tmp/build1205420529024561130.tmp/core.a /tmp/build1205420529024561130.tmp/wiring_pulse.c.o 
+avr-ar rcs /tmp/build1205420529024561130.tmp/core.a /tmp/build1205420529024561130.tmp/wiring_analog.c.o 
+avr-ar rcs /tmp/build1205420529024561130.tmp/core.a /tmp/build1205420529024561130.tmp/WInterrupts.c.o 
+avr-ar rcs /tmp/build1205420529024561130.tmp/core.a /tmp/build1205420529024561130.tmp/USBCore.cpp.o 
+avr-ar rcs /tmp/build1205420529024561130.tmp/core.a /tmp/build1205420529024561130.tmp/HardwareSerial.cpp.o 
+avr-ar rcs /tmp/build1205420529024561130.tmp/core.a /tmp/build1205420529024561130.tmp/Stream.cpp.o 
+avr-ar rcs /tmp/build1205420529024561130.tmp/core.a /tmp/build1205420529024561130.tmp/WMath.cpp.o 
+avr-ar rcs /tmp/build1205420529024561130.tmp/core.a /tmp/build1205420529024561130.tmp/main.cpp.o 
+avr-ar rcs /tmp/build1205420529024561130.tmp/core.a /tmp/build1205420529024561130.tmp/HID.cpp.o 
+avr-ar rcs /tmp/build1205420529024561130.tmp/core.a /tmp/build1205420529024561130.tmp/IPAddress.cpp.o 
+avr-ar rcs /tmp/build1205420529024561130.tmp/core.a /tmp/build1205420529024561130.tmp/new.cpp.o 
+avr-ar rcs /tmp/build1205420529024561130.tmp/core.a /tmp/build1205420529024561130.tmp/Tone.cpp.o 
+avr-ar rcs /tmp/build1205420529024561130.tmp/core.a /tmp/build1205420529024561130.tmp/CDC.cpp.o 
+avr-ar rcs /tmp/build1205420529024561130.tmp/core.a /tmp/build1205420529024561130.tmp/Print.cpp.o 
+avr-ar rcs /tmp/build1205420529024561130.tmp/core.a /tmp/build1205420529024561130.tmp/WString.cpp.o 
+avr-gcc -Os -Wl,--gc-sections -mmcu=atmega2560 -o /tmp/build1205420529024561130.tmp/Blink.cpp.elf /tmp/build1205420529024561130.tmp/Blink.cpp.o /tmp/build1205420529024561130.tmp/core.a -L/tmp/build1205420529024561130.tmp -lm 
+avr-objcopy -O ihex -j .eeprom --set-section-flags=.eeprom=alloc,load --no-change-warnings --change-section-lma .eeprom=0 /tmp/build1205420529024561130.tmp/Blink.cpp.elf /tmp/build1205420529024561130.tmp/Blink.cpp.eep 
+avr-objcopy -O ihex -R .eeprom /tmp/build1205420529024561130.tmp/Blink.cpp.elf /tmp/build1205420529024561130.tmp/Blink.cpp.hex 
+Binary sketch size: 1586 bytes (of a 258048 byte maximum)
+Experimental:  JNI_OnLoad called.

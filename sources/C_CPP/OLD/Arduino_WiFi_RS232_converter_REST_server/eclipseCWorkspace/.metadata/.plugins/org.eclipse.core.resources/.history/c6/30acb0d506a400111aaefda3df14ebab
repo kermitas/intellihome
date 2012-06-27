@@ -1,0 +1,17 @@
+/*
+ * RWSubTaskReadSENDACKCommand.h
+ *
+ *  Created on: 22-05-2012
+ *      Author: root
+ */
+
+#ifndef RWSUBTASKREADSENDACKCOMMAND_H_
+#define RWSUBTASKREADSENDACKCOMMAND_H_
+
+class RWSubTaskReadSENDACKCommand {
+public:
+	RWSubTaskReadSENDACKCommand();
+	virtual ~RWSubTaskReadSENDACKCommand();
+};
+
+#endif /* RWSUBTASKREADSENDACKCOMMAND_H_ */

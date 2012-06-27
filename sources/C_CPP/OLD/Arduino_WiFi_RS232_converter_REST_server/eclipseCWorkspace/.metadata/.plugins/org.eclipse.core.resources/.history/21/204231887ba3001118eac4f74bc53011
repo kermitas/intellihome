@@ -1,0 +1,29 @@
+/*
+ * HFA11XRS232WiFiSubTask.h
+ *
+ *  Created on: 21-05-2012
+ *      Author: root
+ */
+
+#ifndef HFA11XRS232WIFISUBTASK_H_
+#define HFA11XRS232WIFISUBTASK_H_
+
+// =================================================
+
+class HFA11XRS232WiFiSubTask
+{
+	public:
+
+		virtual char* getSubTaskName() = 0;
+
+		virtual void resetInternalState() = 0;
+
+		virtual unsigned long getStateTimeout() = 0; // 0 means no timeout
+		virtual HFA11XRS232WiFiSubTask* getTimeoutState() = 0;
+
+		virtual HFA11XRS232WiFiSubTask* executeSubTask( Stream* stream ) = 0;
+};
+
+// =================================================
+
+#endif /* HFA11XRS232WIFISUBTASK_H_ */

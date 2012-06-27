@@ -1,0 +1,105 @@
+/*
+ * RWSubTaskSendRECVCommand.cpp
+ *
+ *  Created on: 21-05-2012
+ *      Author: root
+ */
+
+// =================================================
+
+#include "RWSubTaskSendRECVCommand.h"
+
+// =================================================
+
+RWSubTaskSendRECVCommand::RWSubTaskSendRECVCommand( AnyBuffer< byte , byte >* _inputBuffer , StreamHFA11xRS232WiFiCRC* _crcStream , RWCommandSerialNumber* _rwCommandSerialNumber , RWSubTaskWaitForData* _rwSubTaskWaitForData , RWSubTaskReadRECVACKCommandHeader* _rwSubTaskReadRECVACKCommandHeader , RWSubTask* _subTaskOnFail ) : dp( PSTR( "RWSubTaskSendRECVCommand" ) , DEBUG_LEVEL_ALL )
+{
+	inputBuffer = _inputBuffer;
+	crcStream = _crcStream;
+	rwCommandSerialNumber = _rwCommandSerialNumber;
+	rwSubTaskWaitForData = _rwSubTaskWaitForData;
+	rwSubTaskReadRECVACKCommandHeader = _rwSubTaskReadRECVACKCommandHeader;
+	subTaskOnFail = _subTaskOnFail;
+}
+
+// =================================================
+
+char* RWSubTaskSendRECVCommand::getSubTaskName()
+{
+	return "SendRECVCommand";
+}
+
+// =================================================
+
+void RWSubTaskSendRECVCommand::resetInternalState()
+{
+
+}
+
+// =================================================
+
+unsigned long RWSubTaskSendRECVCommand::getStateTimeout()
+{
+	return 2*1000;
+}
+
+// =================================================
+
+RWSubTask* RWSubTaskSendRECVCommand::getStateAfterTimeout()
+{
+	return subTaskOnFail;
+}
+
+// =================================================
+
+RWSubTask* RWSubTaskSendRECVCommand::executeSubTask()
+{
+	// ---
+
+	// discarding any waiting unread data
+	while( crcStream->mainStream->available() > 0 ) crcStream->mainStream->read();
+
+	// ---
+
+	crcStream->resetOutgoingState();
+
+	// ---
+
+	if(
+		// command
+		crcStream->write( (unsigned char)2 ) != 1 ||
+
+		// sn
+		crcStream->write( rwCommandSerialNumber->commandSerialNumber ) != 1 ||
+
+		// reserved two bytes (0 and 0)
+		crcStream->write( 0 ) != 1 ||
+		crcStream->write( 0 ) != 1 ||
+
+		// low byte of incomming buffer size
+		crcStream->write( inputBuffer->getUnusedSpace() ) != 1 ||
+
+		// high byte of incomming buffer size
+		crcStream->write( (unsigned char)0 ) != 1 ||
+
+		!crcStream->writeCRC()
+	)
+	{
+		return subTaskOnFail;
+	}
+	else
+	{
+		if( crcStream->available() >= 6 )
+		{
+			return rwSubTaskReadRECVACKCommandHeader;
+		}
+		else
+		{
+			rwSubTaskWaitForData->setWork( 6 , rwSubTaskReadRECVACKCommandHeader , 2*1000 , subTaskOnFail );
+			return rwSubTaskWaitForData;
+		}
+	}
+}
+
+// =================================================
+
+

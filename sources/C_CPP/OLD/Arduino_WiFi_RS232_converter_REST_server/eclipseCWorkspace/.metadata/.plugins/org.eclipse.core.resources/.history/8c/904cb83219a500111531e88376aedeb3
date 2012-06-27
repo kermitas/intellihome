@@ -1,0 +1,87 @@
+/*
+ * RWSubTaskDecideToReadIncommingData.cpp
+ *
+ *  Created on: 21-05-2012
+ *      Author: root
+ */
+
+// =================================================
+
+#include "RWSubTaskDecideToReadIncommingData.h"
+
+// =================================================
+
+RWSubTaskDecideToReadIncommingData::RWSubTaskDecideToReadIncommingData( AnyBuffer< byte , byte >* _inputBuffer , RWSubTask* _subTaskIfReadIncommingData , RWSubTask* _subTaskIfNotReadIncommingData ) : dp( PSTR( "RWSubTaskDecideToReadIncommingData" ) , DEBUG_LEVEL_ALL )
+{
+	inputBuffer = _inputBuffer;
+	subTaskIfReadIncommingData = _subTaskIfReadIncommingData;
+	subTaskIfNotReadIncommingData = _subTaskIfNotReadIncommingData;
+}
+
+// =================================================
+
+char* RWSubTaskDecideToReadIncommingData::getSubTaskName()
+{
+	return "DecideToReadIncommingData";
+}
+
+// =================================================
+
+void RWSubTaskDecideToReadIncommingData::resetInternalState()
+{
+
+}
+
+// =================================================
+
+unsigned long RWSubTaskDecideToReadIncommingData::getStateTimeout()
+{
+	return 0;
+}
+
+// =================================================
+
+RWSubTask* RWSubTaskDecideToReadIncommingData::getStateAfterTimeout()
+{
+	return NULL;
+}
+
+// =================================================
+
+RWSubTask* RWSubTaskDecideToReadIncommingData::executeSubTask()
+{
+	static const PROGMEM prog_char functionName[] = "executeSubTask";
+
+	//if( inputBuffer->position == inputBuffer->limit == inputBuffer->capacity ) inputBuffer->setPositionAndLimit( 0 , 0 );
+
+	if( inputBuffer->position == inputBuffer->limit )
+	{
+		if( inputBuffer->limit == inputBuffer->capacity )
+		{
+			inputBuffer->setPositionAndLimit( 0 , 0 );
+		}
+	}
+
+
+	inputBuffer->printReport( "inputBuffer FROM RWSubTaskDecideToReadIncommingData::executeSubTask()" ); // todo to remove
+
+	/*
+	if( inputBuffer->getUnusedSpace() > 0 )
+	{
+		iln( "%u free bytes in input buffer (unused space), decided to ask if there are incomming data (RECV commnad)" , inputBuffer->getUnusedSpace() );
+
+		return subTaskIfReadIncommingData;
+	}
+	else
+	{
+		iln( "%u free bytes in input buffer (unused space), decided NOT to ask if there are incomming data" , inputBuffer->getUnusedSpace() );
+
+		return subTaskIfNotReadIncommingData;
+	}*/
+
+	return inputBuffer->getUnusedSpace() > 0 ? subTaskIfReadIncommingData : subTaskIfNotReadIncommingData;
+}
+
+// =================================================
+
+

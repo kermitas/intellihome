@@ -1,0 +1,149 @@
+
+**** Build of configuration Release for project Satelita1 ****
+
+make all 
+Building file: ../DallasTemperature.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_TaskManager" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_RestServer" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_HFA11xRS232WiFi" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"DallasTemperature.d" -MT"DallasTemperature.d" -c -o "DallasTemperature.o" -x c++ "../DallasTemperature.cpp"
+../DallasTemperature.cpp: In member function 'float DallasTemperature::calculateTemperature(uint8_t*, uint8_t*)':
+../DallasTemperature.cpp:456:1: warning: control reaches end of non-void function [-Wreturn-type]
+Finished building: ../DallasTemperature.cpp
+ 
+Building file: ../HeartBeatBuzzerOnOffRestService.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_TaskManager" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_RestServer" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_HFA11xRS232WiFi" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"HeartBeatBuzzerOnOffRestService.d" -MT"HeartBeatBuzzerOnOffRestService.d" -c -o "HeartBeatBuzzerOnOffRestService.o" -x c++ "../HeartBeatBuzzerOnOffRestService.cpp"
+Finished building: ../HeartBeatBuzzerOnOffRestService.cpp
+ 
+Building file: ../HeartBeatLedOnOffRestService.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_TaskManager" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_RestServer" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_HFA11xRS232WiFi" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"HeartBeatLedOnOffRestService.d" -MT"HeartBeatLedOnOffRestService.d" -c -o "HeartBeatLedOnOffRestService.o" -x c++ "../HeartBeatLedOnOffRestService.cpp"
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h: In member function 'virtual void HeartBeatRunnable::run()':
+Finished building: ../HeartBeatLedOnOffRestService.cpp
+ 
+Building file: ../HeartBeatRunnable.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_TaskManager" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_RestServer" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_HFA11xRS232WiFi" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"HeartBeatRunnable.d" -MT"HeartBeatRunnable.d" -c -o "HeartBeatRunnable.o" -x c++ "../HeartBeatRunnable.cpp"
+Finished building: ../HeartBeatRunnable.cpp
+ 
+Building file: ../HeartBeatSpeedRestService.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_TaskManager" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_RestServer" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_HFA11xRS232WiFi" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"HeartBeatSpeedRestService.d" -MT"HeartBeatSpeedRestService.d" -c -o "HeartBeatSpeedRestService.o" -x c++ "../HeartBeatSpeedRestService.cpp"
+Finished building: ../HeartBeatSpeedRestService.cpp
+ 
+Building file: ../LocalTimeRestService.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_TaskManager" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_RestServer" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_HFA11xRS232WiFi" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"LocalTimeRestService.d" -MT"LocalTimeRestService.d" -c -o "LocalTimeRestService.o" -x c++ "../LocalTimeRestService.cpp"
+Finished building: ../LocalTimeRestService.cpp
+ 
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h:55:57: warning: uninitialized variable 'DebugPrinter::debugLevelPrefixForALL' put into program memory area [-Wuninitialized]
+Building file: ../OneWire.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_TaskManager" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_RestServer" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_HFA11xRS232WiFi" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"OneWire.d" -MT"OneWire.d" -c -o "OneWire.o" -x c++ "../OneWire.cpp"
+Finished building: ../OneWire.cpp
+ 
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h:50:42: warning: uninitialized variable 'DebugPrinter::newLine' put into program memory area [-Wuninitialized]
+/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/Arduino.h: In constructor 'OneWire::OneWire(uint8_t)':
+/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/Arduino.h:132:30: warning: uninitialized variable 'digital_pin_to_bit_mask_PGM' put into program memory area [-Wuninitialized]
+/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/Arduino.h:130:30: warning: uninitialized variable 'digital_pin_to_port_PGM' put into program memory area [-Wuninitialized]
+/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/Arduino.h:127:31: warning: uninitialized variable 'port_to_input_PGM' put into program memory area [-Wuninitialized]
+../RS232ToWiFiStreamTask.cpp: In member function 'virtual void RS232ToWiFiStreamTask::run()':
+../RS232ToWiFiStreamTask.cpp:22:33: warning: unused variable 'functionName' [-Wunused-variable]
+In file included from /home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_RestServer/RestServer.h:24:0,
+                 from ../RS232ToWiFiTask.h:21,
+                 from ../RS232ToWiFiTask.cpp:10:
+Building file: ../PinGetterSetterRestService.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_TaskManager" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_RestServer" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_HFA11xRS232WiFi" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"PinGetterSetterRestService.d" -MT"PinGetterSetterRestService.d" -c -o "PinGetterSetterRestService.o" -x c++ "../PinGetterSetterRestService.cpp"
+Finished building: ../PinGetterSetterRestService.cpp
+ 
+Building file: ../RS232ToWiFiStreamTask.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_TaskManager" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_RestServer" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_HFA11xRS232WiFi" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"RS232ToWiFiStreamTask.d" -MT"RS232ToWiFiStreamTask.d" -c -o "RS232ToWiFiStreamTask.o" -x c++ "../RS232ToWiFiStreamTask.cpp"
+Finished building: ../RS232ToWiFiStreamTask.cpp
+ 
+Building file: ../RS232ToWiFiTask.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_TaskManager" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_RestServer" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_HFA11xRS232WiFi" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"RS232ToWiFiTask.d" -MT"RS232ToWiFiTask.d" -c -o "RS232ToWiFiTask.o" -x c++ "../RS232ToWiFiTask.cpp"
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_RestServer/RestServerCommon.h:43:1: warning: 'typedef' was ignored in this declaration [enabled by default]
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h: In member function 'virtual void RS232ToWiFiTask::run()':
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h:55:57: warning: uninitialized variable 'DebugPrinter::debugLevelPrefixForALL' put into program memory area [-Wuninitialized]
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h:50:42: warning: uninitialized variable 'DebugPrinter::newLine' put into program memory area [-Wuninitialized]
+Finished building: ../RS232ToWiFiTask.cpp
+ 
+Building file: ../ResetRestService.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_TaskManager" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_RestServer" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_HFA11xRS232WiFi" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"ResetRestService.d" -MT"ResetRestService.d" -c -o "ResetRestService.o" -x c++ "../ResetRestService.cpp"
+Finished building: ../ResetRestService.cpp
+ 
+Building file: ../ResponseGenerationTimeRestService.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_TaskManager" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_RestServer" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_HFA11xRS232WiFi" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"ResponseGenerationTimeRestService.d" -MT"ResponseGenerationTimeRestService.d" -c -o "ResponseGenerationTimeRestService.o" -x c++ "../ResponseGenerationTimeRestService.cpp"
+Finished building: ../ResponseGenerationTimeRestService.cpp
+ 
+Building file: ../Satelita1.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_TaskManager" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_RestServer" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_HFA11xRS232WiFi" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"Satelita1.d" -MT"Satelita1.d" -c -o "Satelita1.o" -x c++ "../Satelita1.cpp"
+Finished building: ../Satelita1.cpp
+ 
+Building file: ../_RestServerTask.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_TaskManager" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_RestServer" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_HFA11xRS232WiFi" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"_RestServerTask.d" -MT"_RestServerTask.d" -c -o "_RestServerTask.o" -x c++ "../_RestServerTask.cpp"
+Finished building: ../_RestServerTask.cpp
+ 
+Building file: ../_SingleEthernetConnectionRestServerTask.cpp
+../ResetRestService.h: In constructor 'ResetRestService::ResetRestService(unsigned char, const char*)':
+../ResetRestService.h:35:16: warning: 'ResetRestService::dp' will be initialized after [-Wreorder]
+../ResetRestService.cpp:14:197: warning:   base 'RestService' [-Wreorder]
+../ResetRestService.cpp:14:1: warning:   when initialized here [-Wreorder]
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h: In member function 'virtual void ResetRestService::setBooleanValue(bool)':
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h:57:61: warning: uninitialized variable 'DebugPrinter::debugLevelPrefixForWARNING' put into program memory area [-Wuninitialized]
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h:50:42: warning: uninitialized variable 'DebugPrinter::newLine' put into program memory area [-Wuninitialized]
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_TaskManager" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_RestServer" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_HFA11xRS232WiFi" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"_SingleEthernetConnectionRestServerTask.d" -MT"_SingleEthernetConnectionRestServerTask.d" -c -o "_SingleEthernetConnectionRestServerTask.o" -x c++ "../_SingleEthernetConnectionRestServerTask.cpp"
+Finished building: ../_SingleEthernetConnectionRestServerTask.cpp
+ 
+Building target: Satelita1.elf
+Invoking: AVR C++ Linker
+In file included from ../Satelita1.h:61:0,
+                 from ../Satelita1.cpp:1:
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_TaskManager/SampleTaskRunnable.h:29:48: warning: '__progmem__' attribute ignored [-Wattributes]
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_TaskManager/SampleTaskRunnable.h:39:28: warning: '__progmem__' attribute ignored [-Wattributes]
+In file included from /home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_RestServer/RestServer.h:24:0,
+                 from ../Satelita1.h:85,
+                 from ../Satelita1.cpp:1:
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_RestServer/RestServerCommon.h:43:1: warning: 'typedef' was ignored in this declaration [enabled by default]
+../Satelita1.cpp: In function 'void userSetup()':
+../Satelita1.cpp:63:33: warning: unused variable 'functionName' [-Wunused-variable]
+avr-gcc -Os -Wl,--gc-sections  -L"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_RestServer/Release" -L"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/Release" -L"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_HFA11xRS232WiFi/Release" -L"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_TaskManager/Release" -L"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Arduino_Mega_2560_or_Mega_ADK/Release" -mmcu=atmega2560 -o"Satelita1.elf"  ./DallasTemperature.o ./HeartBeatBuzzerOnOffRestService.o ./HeartBeatLedOnOffRestService.o ./HeartBeatRunnable.o ./HeartBeatSpeedRestService.o ./LocalTimeRestService.o ./OneWire.o ./PinGetterSetterRestService.o ./RS232ToWiFiStreamTask.o ./RS232ToWiFiTask.o ./ResetRestService.o ./ResponseGenerationTimeRestService.o ./Satelita1.o ./_RestServerTask.o ./_SingleEthernetConnectionRestServerTask.o   -lSatelita1_HFA11xRS232WiFi -lSatelita1_RestServer -lSatelita1_Utils -lSatelita1_TaskManager -l"Arduino_Mega_2560_or_Mega_ADK" -lm
+Finished building target: Satelita1.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Satelita1.elf  >"Satelita1.lss"
+Finished building: Satelita1.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex Satelita1.elf  "Satelita1.hex"
+Finished building: Satelita1.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex Satelita1.elf  "Satelita1.eep"
+Finished building: Satelita1.eep
+ 
+Invoking: Print Size
+avr-size --format=berkeley -t Satelita1.elf
+   text	   data	    bss	    dec	    hex	filename
+../Satelita1.cpp: In function 'int redirectedOutPrintFunction(char, __file*)':
+../Satelita1.cpp:410:1: warning: no return statement in function returning non-void [-Wreturn-type]
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h: In function 'void printReport()':
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h:57:61: warning: uninitialized variable 'DebugPrinter::debugLevelPrefixForWARNING' put into program memory area [-Wuninitialized]
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h:50:42: warning: uninitialized variable 'DebugPrinter::newLine' put into program memory area [-Wuninitialized]
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h: In function 'void hardReset()':
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h:58:59: warning: uninitialized variable 'DebugPrinter::debugLevelPrefixForERROR' put into program memory area [-Wuninitialized]
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h: In function 'void addTaskToTaskManager(TaskManagerRecord*, const char*)':
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h:56:58: warning: uninitialized variable 'DebugPrinter::debugLevelPrefixForINFO' put into program memory area [-Wuninitialized]
+  39372	   3542	   2455	  45369	   b139	Satelita1.elf
+  39372	   3542	   2455	  45369	   b139	(TOTALS)
+Finished building: sizedummy
+ 
+
+**** Build Finished ****

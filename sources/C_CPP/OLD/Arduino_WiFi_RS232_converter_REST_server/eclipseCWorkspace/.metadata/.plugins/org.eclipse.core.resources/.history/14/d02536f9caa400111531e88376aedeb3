@@ -1,0 +1,18 @@
+/*
+ * StreamHFA11xRS232WiFi.cpp
+ *
+ *  Created on: 23-05-2012
+ *      Author: root
+ */
+
+#include "StreamHFA11xRS232WiFi.h"
+
+StreamHFA11xRS232WiFi::StreamHFA11xRS232WiFi() {
+	// TODO Auto-generated constructor stub
+
+}
+
+StreamHFA11xRS232WiFi::~StreamHFA11xRS232WiFi() {
+	// TODO Auto-generated destructor stub
+}
+

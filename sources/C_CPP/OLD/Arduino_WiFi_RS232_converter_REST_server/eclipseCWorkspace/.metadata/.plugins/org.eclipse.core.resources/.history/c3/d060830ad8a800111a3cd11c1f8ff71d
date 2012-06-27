@@ -1,0 +1,115 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+-include ../makefile.init
+
+RM := rm -rf
+
+# All of the sources participating in the build are defined here
+-include sources.mk
+-include subdir.mk
+-include objects.mk
+
+ifneq ($(MAKECMDGOALS),clean)
+ifneq ($(strip $(C++_DEPS)),)
+-include $(C++_DEPS)
+endif
+ifneq ($(strip $(C_DEPS)),)
+-include $(C_DEPS)
+endif
+ifneq ($(strip $(ASM_DEPS)),)
+-include $(ASM_DEPS)
+endif
+ifneq ($(strip $(CC_DEPS)),)
+-include $(CC_DEPS)
+endif
+ifneq ($(strip $(CPP_DEPS)),)
+-include $(CPP_DEPS)
+endif
+ifneq ($(strip $(S_DEPS)),)
+-include $(S_DEPS)
+endif
+ifneq ($(strip $(CXX_DEPS)),)
+-include $(CXX_DEPS)
+endif
+ifneq ($(strip $(C_UPPER_DEPS)),)
+-include $(C_UPPER_DEPS)
+endif
+ifneq ($(strip $(S_UPPER_DEPS)),)
+-include $(S_UPPER_DEPS)
+endif
+endif
+
+-include ../makefile.defs
+
+# Add inputs and outputs from these tool invocations to the build variables 
+LSS += \
+Satelita1.lss \
+
+FLASH_IMAGE += \
+Satelita1.hex \
+
+EEPROM_IMAGE += \
+Satelita1.eep \
+
+SIZEDUMMY += \
+sizedummy \
+
+
+# All Target
+all: Satelita1.elf secondary-outputs
+
+dependents:
+	-cd /home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/Release && $(MAKE) clean all
+	-cd /home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_TaskManager/Release && $(MAKE) clean all
+	-cd /home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Arduino_Mega_2560_or_Mega_ADK/Release && $(MAKE) clean all
+	-cd /home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_RestServer/Release && $(MAKE) clean all
+
+# Tool invocations
+Satelita1.elf: $(OBJS) $(USER_OBJS) /home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/Release/libSatelita1_Utils.a /home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_TaskManager/Release/libSatelita1_TaskManager.a /home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Arduino_Mega_2560_or_Mega_ADK/Release/libArduino_Mega_2560_or_Mega_ADK.a /home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_RestServer/Release/libSatelita1_RestServer.a
+	@echo 'Building target: $@'
+	@echo 'Invoking: AVR C++ Linker'
+	avr-gcc -Os -Wl,--gc-sections  -L"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_RestServer/Release" -L"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/Release" -L"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_HFA11xRS232WiFi/Release" -L"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_TaskManager/Release" -L"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Arduino_Mega_2560_or_Mega_ADK/Release" -mmcu=atmega2560 -o"Satelita1.elf" $(OBJS) $(USER_OBJS) $(LIBS) -lm
+	@echo 'Finished building target: $@'
+	@echo ' '
+
+Satelita1.lss: Satelita1.elf
+	@echo 'Invoking: AVR Create Extended Listing'
+	-avr-objdump -h -S Satelita1.elf  >"Satelita1.lss"
+	@echo 'Finished building: $@'
+	@echo ' '
+
+Satelita1.hex: Satelita1.elf
+	@echo 'Create Flash image (ihex format)'
+	-avr-objcopy -R .eeprom -O ihex Satelita1.elf  "Satelita1.hex"
+	@echo 'Finished building: $@'
+	@echo ' '
+
+Satelita1.eep: Satelita1.elf
+	@echo 'Create eeprom image (ihex format)'
+	-avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex Satelita1.elf  "Satelita1.eep"
+	@echo 'Finished building: $@'
+	@echo ' '
+
+sizedummy: Satelita1.elf
+	@echo 'Invoking: Print Size'
+	-avr-size --format=berkeley -t Satelita1.elf
+	@echo 'Finished building: $@'
+	@echo ' '
+
+# Other Targets
+clean:
+	-$(RM) $(OBJS)$(C_DEPS)$(EEPROM_IMAGE)$(ELFS)$(FLASH_IMAGE)$(LSS)$(S_DEPS)$(CXX_DEPS)$(S_UPPER_DEPS)$(C++_DEPS)$(ASM_DEPS)$(CC_DEPS)$(CPP_DEPS)$(C_UPPER_DEPS)$(SIZEDUMMY) Satelita1.elf
+	-@echo ' '
+
+secondary-outputs: $(LSS) $(FLASH_IMAGE) $(EEPROM_IMAGE) $(SIZEDUMMY)
+
+.PHONY: all clean dependents
+.SECONDARY:
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/Release/libSatelita1_Utils.a:
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_TaskManager/Release/libSatelita1_TaskManager.a:
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Arduino_Mega_2560_or_Mega_ADK/Release/libArduino_Mega_2560_or_Mega_ADK.a:
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_RestServer/Release/libSatelita1_RestServer.a:
+
+-include ../makefile.targets

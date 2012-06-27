@@ -1,0 +1,18 @@
+/*
+ * RWSubTaskGoBackToFirstSubTask.cpp
+ *
+ *  Created on: 22-05-2012
+ *      Author: root
+ */
+
+#include "RWSubTaskGoBackToFirstSubTask.h"
+
+RWSubTaskGoBackToFirstSubTask::RWSubTaskGoBackToFirstSubTask() {
+	// TODO Auto-generated constructor stub
+
+}
+
+RWSubTaskGoBackToFirstSubTask::~RWSubTaskGoBackToFirstSubTask() {
+	// TODO Auto-generated destructor stub
+}
+

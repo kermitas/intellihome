@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Delete 2 resources" deleteContents="false" description="Delete 2 resources" element1="/Satelita1_Utils/StreamHFA11xRS232WiFiIncommingCommandDecoder.cpp" element2="/Satelita1_Utils/StreamHFA11xRS232WiFiIncommingCommandDecoder.h" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="2" stamp="1336992867833"/>&#x0A;<refactoring comment="Delete resource &apos;Satelita1_Utils/PrintUtils.h&apos;" deleteContents="false" description="Delete resource &apos;Satelita1_Utils/PrintUtils.h&apos;" element1="/Satelita1_Utils/PrintUtils.h" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1337021812177"/>
+</session>

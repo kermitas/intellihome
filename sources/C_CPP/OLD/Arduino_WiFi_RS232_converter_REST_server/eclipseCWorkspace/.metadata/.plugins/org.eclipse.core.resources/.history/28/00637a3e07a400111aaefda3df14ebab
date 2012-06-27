@@ -1,0 +1,18 @@
+/*
+ * RWSubTaskReadSENDACKCommand.cpp
+ *
+ *  Created on: 22-05-2012
+ *      Author: root
+ */
+
+#include "RWSubTaskReadSENDACKCommand.h"
+
+RWSubTaskReadSENDACKCommand::RWSubTaskReadSENDACKCommand() {
+	// TODO Auto-generated constructor stub
+
+}
+
+RWSubTaskReadSENDACKCommand::~RWSubTaskReadSENDACKCommand() {
+	// TODO Auto-generated destructor stub
+}
+

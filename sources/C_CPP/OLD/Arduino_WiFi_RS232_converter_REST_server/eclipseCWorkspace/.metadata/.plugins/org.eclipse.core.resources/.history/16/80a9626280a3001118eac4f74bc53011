@@ -1,0 +1,56 @@
+/*
+ * RWSubTaskDecideToReadIncommingData.cpp
+ *
+ *  Created on: 21-05-2012
+ *      Author: root
+ */
+
+// =================================================
+
+#include "RWSubTaskDecideToReadIncommingData.h"
+
+// =================================================
+
+RWSubTaskDecideToReadIncommingData::RWSubTaskDecideToReadIncommingData( AnyBuffer< byte , byte >* _inputBuffer ) : dp( PSTR( "RWSubTaskDecideToReadIncommingData" ) , DEBUG_LEVEL_ALL )
+{
+	inputBuffer = _inputBuffer;
+}
+
+// =================================================
+
+char* RWSubTaskDecideToReadIncommingData::getSubTaskName()
+{
+	return "DecideToReadIncommingData"
+}
+
+// =================================================
+
+void RWSubTaskDecideToReadIncommingData::resetInternalState()
+{
+
+}
+
+// =================================================
+
+unsigned long RWSubTaskDecideToReadIncommingData::getStateTimeout()
+{
+	return 0;
+}
+
+// =================================================
+
+RWSubTask* RWSubTaskDecideToReadIncommingData::getStateAfterTimeout()
+{
+	return NULL;
+}
+
+// =================================================
+
+RWSubTask* RWSubTaskDecideToReadIncommingData::executeSubTask()
+{
+
+}
+
+// =================================================
+
+

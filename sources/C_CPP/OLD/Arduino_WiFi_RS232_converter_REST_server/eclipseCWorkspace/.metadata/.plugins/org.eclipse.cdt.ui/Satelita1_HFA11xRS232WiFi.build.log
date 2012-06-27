@@ -1,0 +1,243 @@
+
+**** Build of configuration Release for project Satelita1_HFA11xRS232WiFi ****
+
+make all 
+Building file: ../HFA11xRS232WiFiCRC.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_HFA11xRS232WiFi" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"HFA11xRS232WiFiCRC.d" -MT"HFA11xRS232WiFiCRC.d" -c -o "HFA11xRS232WiFiCRC.o" -x c++ "../HFA11xRS232WiFiCRC.cpp"
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h: In member function 'unsigned int HFA11xRS232WiFiCRC::getCRCSum()':
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h:55:57: warning: uninitialized variable 'DebugPrinter::debugLevelPrefixForALL' put into program memory area [-Wuninitialized]
+Finished building: ../HFA11xRS232WiFiCRC.cpp
+ 
+Building file: ../RWCommandSerialNumber.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_HFA11xRS232WiFi" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"RWCommandSerialNumber.d" -MT"RWCommandSerialNumber.d" -c -o "RWCommandSerialNumber.o" -x c++ "../RWCommandSerialNumber.cpp"
+Finished building: ../RWCommandSerialNumber.cpp
+ 
+Building file: ../RWStateMachine.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_HFA11xRS232WiFi" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"RWStateMachine.d" -MT"RWStateMachine.d" -c -o "RWStateMachine.o" -x c++ "../RWStateMachine.cpp"
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h:50:42: warning: uninitialized variable 'DebugPrinter::newLine' put into program memory area [-Wuninitialized]
+Finished building: ../RWStateMachine.cpp
+ 
+Building file: ../RWSubTaskDecideToReadIncommingData.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_HFA11xRS232WiFi" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"RWSubTaskDecideToReadIncommingData.d" -MT"RWSubTaskDecideToReadIncommingData.d" -c -o "RWSubTaskDecideToReadIncommingData.o" -x c++ "../RWSubTaskDecideToReadIncommingData.cpp"
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h: In member function 'void RWStateMachine::goToStateWithVerbose(RWSubTask*)':
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h:55:57: warning: uninitialized variable 'DebugPrinter::debugLevelPrefixForALL' put into program memory area [-Wuninitialized]
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h:50:42: warning: uninitialized variable 'DebugPrinter::newLine' put into program memory area [-Wuninitialized]
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h: In member function 'virtual void RWStateMachine::run()':
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h:57:61: warning: uninitialized variable 'DebugPrinter::debugLevelPrefixForWARNING' put into program memory area [-Wuninitialized]
+../RWSubTaskDecideToReadIncommingData.cpp: In member function 'virtual char* RWSubTaskDecideToReadIncommingData::getSubTaskName()':
+../RWSubTaskDecideToReadIncommingData.cpp:25:9: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../RWSubTaskDecideToReadIncommingData.cpp: In member function 'virtual RWSubTask* RWSubTaskDecideToReadIncommingData::executeSubTask()':
+../RWSubTaskDecideToReadIncommingData.cpp:53:33: warning: unused variable 'functionName' [-Wunused-variable]
+Finished building: ../RWSubTaskDecideToReadIncommingData.cpp
+ 
+Building file: ../RWSubTaskDecideToSendOutgoingData.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_HFA11xRS232WiFi" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"RWSubTaskDecideToSendOutgoingData.d" -MT"RWSubTaskDecideToSendOutgoingData.d" -c -o "RWSubTaskDecideToSendOutgoingData.o" -x c++ "../RWSubTaskDecideToSendOutgoingData.cpp"
+Finished building: ../RWSubTaskDecideToSendOutgoingData.cpp
+ 
+Building file: ../RWSubTaskGoBackToFirstSubTask.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_HFA11xRS232WiFi" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"RWSubTaskGoBackToFirstSubTask.d" -MT"RWSubTaskGoBackToFirstSubTask.d" -c -o "RWSubTaskGoBackToFirstSubTask.o" -x c++ "../RWSubTaskGoBackToFirstSubTask.cpp"
+Finished building: ../RWSubTaskGoBackToFirstSubTask.cpp
+ 
+Building file: ../RWSubTaskReadRECVACKCommandData.cpp
+Invoking: AVR C++ Compiler
+../RWSubTaskDecideToSendOutgoingData.cpp: In member function 'virtual char* RWSubTaskDecideToSendOutgoingData::getSubTaskName()':
+../RWSubTaskDecideToSendOutgoingData.cpp:26:9: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../RWSubTaskDecideToSendOutgoingData.cpp: In member function 'virtual RWSubTask* RWSubTaskDecideToSendOutgoingData::executeSubTask()':
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_HFA11xRS232WiFi" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"RWSubTaskReadRECVACKCommandData.d" -MT"RWSubTaskReadRECVACKCommandData.d" -c -o "RWSubTaskReadRECVACKCommandData.o" -x c++ "../RWSubTaskReadRECVACKCommandData.cpp"
+../RWSubTaskDecideToSendOutgoingData.cpp:54:33: warning: unused variable 'functionName' [-Wunused-variable]
+../RWSubTaskGoBackToFirstSubTask.cpp: In member function 'virtual char* RWSubTaskGoBackToFirstSubTask::getSubTaskName()':
+../RWSubTaskGoBackToFirstSubTask.cpp:22:9: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+Finished building: ../RWSubTaskReadRECVACKCommandData.cpp
+ 
+Building file: ../RWSubTaskReadRECVACKCommandHeader.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_HFA11xRS232WiFi" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"RWSubTaskReadRECVACKCommandHeader.d" -MT"RWSubTaskReadRECVACKCommandHeader.d" -c -o "RWSubTaskReadRECVACKCommandHeader.o" -x c++ "../RWSubTaskReadRECVACKCommandHeader.cpp"
+Finished building: ../RWSubTaskReadRECVACKCommandHeader.cpp
+ 
+Building file: ../RWSubTaskReadSENDACKCommand.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_HFA11xRS232WiFi" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"RWSubTaskReadSENDACKCommand.d" -MT"RWSubTaskReadSENDACKCommand.d" -c -o "RWSubTaskReadSENDACKCommand.o" -x c++ "../RWSubTaskReadSENDACKCommand.cpp"
+Finished building: ../RWSubTaskReadSENDACKCommand.cpp
+ 
+Building file: ../RWSubTaskSendRECVCommand.cpp
+Invoking: AVR C++ Compiler
+../RWSubTaskReadRECVACKCommandData.cpp: In member function 'virtual char* RWSubTaskReadRECVACKCommandData::getSubTaskName()':
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_HFA11xRS232WiFi" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"RWSubTaskSendRECVCommand.d" -MT"RWSubTaskSendRECVCommand.d" -c -o "RWSubTaskSendRECVCommand.o" -x c++ "../RWSubTaskSendRECVCommand.cpp"
+Finished building: ../RWSubTaskSendRECVCommand.cpp
+ 
+Building file: ../RWSubTaskSendSENDCommand.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_HFA11xRS232WiFi" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"RWSubTaskSendSENDCommand.d" -MT"RWSubTaskSendSENDCommand.d" -c -o "RWSubTaskSendSENDCommand.o" -x c++ "../RWSubTaskSendSENDCommand.cpp"
+Finished building: ../RWSubTaskSendSENDCommand.cpp
+ 
+Building file: ../RWSubTaskWaitForData.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_HFA11xRS232WiFi" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"RWSubTaskWaitForData.d" -MT"RWSubTaskWaitForData.d" -c -o "RWSubTaskWaitForData.o" -x c++ "../RWSubTaskWaitForData.cpp"
+Finished building: ../RWSubTaskWaitForData.cpp
+ 
+Building file: ../StreamHFA11xRS232WiFi.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_HFA11xRS232WiFi" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"StreamHFA11xRS232WiFi.d" -MT"StreamHFA11xRS232WiFi.d" -c -o "StreamHFA11xRS232WiFi.o" -x c++ "../StreamHFA11xRS232WiFi.cpp"
+Finished building: ../StreamHFA11xRS232WiFi.cpp
+ 
+Building file: ../StreamHFA11xRS232WiFi2.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_HFA11xRS232WiFi" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"StreamHFA11xRS232WiFi2.d" -MT"StreamHFA11xRS232WiFi2.d" -c -o "StreamHFA11xRS232WiFi2.o" -x c++ "../StreamHFA11xRS232WiFi2.cpp"
+../RWSubTaskReadRECVACKCommandData.cpp:28:9: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../RWSubTaskReadRECVACKCommandData.cpp: In member function 'virtual RWSubTask* RWSubTaskReadRECVACKCommandData::executeSubTask()':
+../RWSubTaskReadRECVACKCommandData.cpp:84:66: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../RWSubTaskReadRECVACKCommandData.cpp:130:45: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../RWSubTaskReadRECVACKCommandData.cpp:143:46: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+In file included from ../RWSubTaskReadRECVACKCommandData.h:19:0,
+Finished building: ../StreamHFA11xRS232WiFi2.cpp
+ 
+Building file: ../StreamHFA11xRS232WiFi3.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_HFA11xRS232WiFi" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"StreamHFA11xRS232WiFi3.d" -MT"StreamHFA11xRS232WiFi3.d" -c -o "StreamHFA11xRS232WiFi3.o" -x c++ "../StreamHFA11xRS232WiFi3.cpp"
+Finished building: ../StreamHFA11xRS232WiFi3.cpp
+                 from ../RWSubTaskReadRECVACKCommandData.cpp:10:
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h: In member function 'void AnyBuffer<DataType, SizeType>::printReport(char*) [with DataType = unsigned char, SizeType = unsigned char]':
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h:56:58: warning: uninitialized variable 'DebugPrinter::debugLevelPrefixForINFO' put into program memory area [-Wuninitialized]
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h:50:42: warning: uninitialized variable 'DebugPrinter::newLine' put into program memory area [-Wuninitialized]
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h: In member function 'void RWSubTaskReadRECVACKCommandData::setWork(unsigned int)':
+ 
+Building file: ../StreamHFA11xRS232WiFiCRC.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_HFA11xRS232WiFi" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"StreamHFA11xRS232WiFiCRC.d" -MT"StreamHFA11xRS232WiFiCRC.d" -c -o "StreamHFA11xRS232WiFiCRC.o" -x c++ "../StreamHFA11xRS232WiFiCRC.cpp"
+Finished building: ../StreamHFA11xRS232WiFiCRC.cpp
+ 
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h:55:57: warning: uninitialized variable 'DebugPrinter::debugLevelPrefixForALL' put into program memory area [-Wuninitialized]
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h: In member function 'virtual RWSubTask* RWSubTaskReadRECVACKCommandData::executeSubTask()':
+Building file: ../_StreamHFA11xRS232WiFi.cpp
+Invoking: AVR C++ Compiler
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h:57:61: warning: uninitialized variable 'DebugPrinter::debugLevelPrefixForWARNING' put into program memory area [-Wuninitialized]
+../RWSubTaskReadRECVACKCommandHeader.cpp: In member function 'virtual char* RWSubTaskReadRECVACKCommandHeader::getSubTaskName()':
+../RWSubTaskReadRECVACKCommandHeader.cpp:28:9: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../RWSubTaskReadRECVACKCommandHeader.cpp: In member function 'virtual RWSubTask* RWSubTaskReadRECVACKCommandHeader::executeSubTask()':
+../RWSubTaskReadRECVACKCommandHeader.cpp:87:50: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+../RWSubTaskReadSENDACKCommand.cpp: In member function 'virtual char* RWSubTaskReadSENDACKCommand::getSubTaskName()':
+../RWSubTaskReadSENDACKCommand.cpp:28:9: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h: In member function 'virtual RWSubTask* RWSubTaskReadSENDACKCommand::executeSubTask()':
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h:57:61: warning: uninitialized variable 'DebugPrinter::debugLevelPrefixForWARNING' put into program memory area [-Wuninitialized]
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_HFA11xRS232WiFi" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"_StreamHFA11xRS232WiFi.d" -MT"_StreamHFA11xRS232WiFi.d" -c -o "_StreamHFA11xRS232WiFi.o" -x c++ "../_StreamHFA11xRS232WiFi.cpp"
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h:50:42: warning: uninitialized variable 'DebugPrinter::newLine' put into program memory area [-Wuninitialized]
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h: In member function 'void RWSubTaskReadSENDACKCommand::setWork(byte, RWSubTask*)':
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h:56:58: warning: uninitialized variable 'DebugPrinter::debugLevelPrefixForINFO' put into program memory area [-Wuninitialized]
+../RWSubTaskSendRECVCommand.cpp: In member function 'virtual char* RWSubTaskSendRECVCommand::getSubTaskName()':
+../RWSubTaskSendRECVCommand.cpp:33:9: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+Finished building: ../_StreamHFA11xRS232WiFi.cpp
+ 
+Building file: ../_StreamHFA11xRS232WiFiCRC.cpp
+Invoking: AVR C++ Compiler
+../RWSubTaskSendSENDCommand.cpp: In member function 'virtual char* RWSubTaskSendSENDCommand::getSubTaskName()':
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_HFA11xRS232WiFi" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"_StreamHFA11xRS232WiFiCRC.d" -MT"_StreamHFA11xRS232WiFiCRC.d" -c -o "_StreamHFA11xRS232WiFiCRC.o" -x c++ "../_StreamHFA11xRS232WiFiCRC.cpp"
+../RWSubTaskSendSENDCommand.cpp:33:9: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h: In member function 'virtual RWSubTask* RWSubTaskSendSENDCommand::executeSubTask()':
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h:57:61: warning: uninitialized variable 'DebugPrinter::debugLevelPrefixForWARNING' put into program memory area [-Wuninitialized]
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h:50:42: warning: uninitialized variable 'DebugPrinter::newLine' put into program memory area [-Wuninitialized]
+Finished building: ../_StreamHFA11xRS232WiFiCRC.cpp
+ 
+Building target: libSatelita1_HFA11xRS232WiFi.a
+Invoking: AVR Archiver
+avr-ar -r  "libSatelita1_HFA11xRS232WiFi.a"  ./HFA11xRS232WiFiCRC.o ./RWCommandSerialNumber.o ./RWStateMachine.o ./RWSubTaskDecideToReadIncommingData.o ./RWSubTaskDecideToSendOutgoingData.o ./RWSubTaskGoBackToFirstSubTask.o ./RWSubTaskReadRECVACKCommandData.o ./RWSubTaskReadRECVACKCommandHeader.o ./RWSubTaskReadSENDACKCommand.o ./RWSubTaskSendRECVCommand.o ./RWSubTaskSendSENDCommand.o ./RWSubTaskWaitForData.o ./StreamHFA11xRS232WiFi.o ./StreamHFA11xRS232WiFi2.o ./StreamHFA11xRS232WiFi3.o ./StreamHFA11xRS232WiFiCRC.o ./_StreamHFA11xRS232WiFi.o ./_StreamHFA11xRS232WiFiCRC.o  
+Finished building target: libSatelita1_HFA11xRS232WiFi.a
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S libSatelita1_HFA11xRS232WiFi.a  >"libSatelita1_HFA11xRS232WiFi.lss"
+Finished building: libSatelita1_HFA11xRS232WiFi.lss
+ 
+Create Flash image (ihex format)
+../RWSubTaskWaitForData.cpp: In member function 'virtual char* RWSubTaskWaitForData::getSubTaskName()':
+../RWSubTaskWaitForData.cpp:47:9: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../RWSubTaskWaitForData.cpp: In member function 'virtual RWSubTask* RWSubTaskWaitForData::executeSubTask()':
+../RWSubTaskWaitForData.cpp:75:32: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h: In member function 'void RWSubTaskWaitForData::setWork(unsigned int, RWSubTask*, long unsigned int, RWSubTask*)':
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h:55:57: warning: uninitialized variable 'DebugPrinter::debugLevelPrefixForALL' put into program memory area [-Wuninitialized]
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h:50:42: warning: uninitialized variable 'DebugPrinter::newLine' put into program memory area [-Wuninitialized]
+../StreamHFA11xRS232WiFi2.cpp: In member function 'virtual int StreamHFA11xRS232WiFi2::read()':
+avr-objcopy -R .eeprom -O ihex libSatelita1_HFA11xRS232WiFi.a  "libSatelita1_HFA11xRS232WiFi.hex"
+Finished building: libSatelita1_HFA11xRS232WiFi.hex
+../StreamHFA11xRS232WiFi2.cpp:49:67: warning: suggest parentheses around comparison in operand of '==' [-Wparentheses]
+../StreamHFA11xRS232WiFi2.cpp: In member function 'void StreamHFA11xRS232WiFi2::discardAnyWaitingDataInUnderlyingStream(bool)':
+../StreamHFA11xRS232WiFi2.cpp:203:4: warning: name lookup of 'i' changed [enabled by default]
+../StreamHFA11xRS232WiFi2.cpp:184:21: warning:   matches this 'i' under ISO standard rules [enabled by default]
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex libSatelita1_HFA11xRS232WiFi.a  "libSatelita1_HFA11xRS232WiFi.eep"
+Finished building: libSatelita1_HFA11xRS232WiFi.eep
+ 
+Invoking: Print Size
+avr-size --format=berkeley -t libSatelita1_HFA11xRS232WiFi.a
+../StreamHFA11xRS232WiFi2.cpp:198:14: warning:   matches this 'i' under old rules [enabled by default]
+../StreamHFA11xRS232WiFi2.cpp: In member function 'bool StreamHFA11xRS232WiFi2::sendRECVAndReadRECVACK()':
+../StreamHFA11xRS232WiFi2.cpp:242:85: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../StreamHFA11xRS232WiFi2.cpp:370:100: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../StreamHFA11xRS232WiFi2.cpp: In member function 'void StreamHFA11xRS232WiFi2::doFullSendCycle()':
+   text	   data	    bss	    dec	    hex	filename
+    844	      0	      0	    844	    34c	HFA11xRS232WiFiCRC.o (ex libSatelita1_HFA11xRS232WiFi.a)
+      6	      0	      0	      6	      6	RWCommandSerialNumber.o (ex libSatelita1_HFA11xRS232WiFi.a)
+   1849	      7	      0	   1856	    740	RWStateMachine.o (ex libSatelita1_HFA11xRS232WiFi.a)
+    237	     26	      0	    263	    107	RWSubTaskDecideToReadIncommingData.o (ex libSatelita1_HFA11xRS232WiFi.a)
+    212	     25	      0	    237	     ed	RWSubTaskDecideToSendOutgoingData.o (ex libSatelita1_HFA11xRS232WiFi.a)
+     44	     21	      0	     65	     41	RWSubTaskGoBackToFirstSubTask.o (ex libSatelita1_HFA11xRS232WiFi.a)
+   1588	     86	      0	   1674	    68a	RWSubTaskReadRECVACKCommandData.o (ex libSatelita1_HFA11xRS232WiFi.a)
+    479	     25	      0	    504	    1f8	RWSubTaskReadRECVACKCommandHeader.o (ex libSatelita1_HFA11xRS232WiFi.a)
+    726	     19	      0	    745	    2e9	RWSubTaskReadSENDACKCommand.o (ex libSatelita1_HFA11xRS232WiFi.a)
+    423	     16	      0	    439	    1b7	RWSubTaskSendRECVCommand.o (ex libSatelita1_HFA11xRS232WiFi.a)
+../StreamHFA11xRS232WiFi2.cpp:392:33: warning: unused variable 'functionName' [-Wunused-variable]
+../StreamHFA11xRS232WiFi2.cpp: In member function 'bool StreamHFA11xRS232WiFi2::sendSENDAndReadSENDACK()':
+../StreamHFA11xRS232WiFi2.cpp:449:71: warning: suggest parentheses around comparison in operand of '==' [-Wparentheses]
+In file included from ../StreamHFA11xRS232WiFi2.h:18:0,
+                 from ../StreamHFA11xRS232WiFi2.cpp:10:
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h: In member function 'void AnyBuffer<DataType, SizeType>::printReport(char*) [with DataType = unsigned char, SizeType = unsigned char]':
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h:56:58: warning: uninitialized variable 'DebugPrinter::debugLevelPrefixForINFO' put into program memory area [-Wuninitialized]
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h:50:42: warning: uninitialized variable 'DebugPrinter::newLine' put into program memory area [-Wuninitialized]
+    755	     16	      0	    771	    303	RWSubTaskSendSENDCommand.o (ex libSatelita1_HFA11xRS232WiFi.a)
+    512	     19	      0	    531	    213	RWSubTaskWaitForData.o (ex libSatelita1_HFA11xRS232WiFi.a)
+    666	      0	      0	    666	    29a	StreamHFA11xRS232WiFi.o (ex libSatelita1_HFA11xRS232WiFi.a)
+   4289	    124	      0	   4413	   113d	StreamHFA11xRS232WiFi2.o (ex libSatelita1_HFA11xRS232WiFi.a)
+   7632	      0	      0	   7632	   1dd0	StreamHFA11xRS232WiFi3.o (ex libSatelita1_HFA11xRS232WiFi.a)
+    599	      0	      0	    599	    257	StreamHFA11xRS232WiFiCRC.o (ex libSatelita1_HFA11xRS232WiFi.a)
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h: In member function 'bool StreamHFA11xRS232WiFi2::sendRECVAndReadRECVACK()':
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h:57:61: warning: uninitialized variable 'DebugPrinter::debugLevelPrefixForWARNING' put into program memory area [-Wuninitialized]
+../StreamHFA11xRS232WiFi3.cpp: In member function 'void StreamHFA11xRS232WiFi3::discardAnyWaitingDataInUnderlyingStream(bool)':
+      0	      0	      0	      0	      0	_StreamHFA11xRS232WiFi.o (ex libSatelita1_HFA11xRS232WiFi.a)
+      0	      0	      0	      0	      0	_StreamHFA11xRS232WiFiCRC.o (ex libSatelita1_HFA11xRS232WiFi.a)
+  20861	    384	      0	  21245	   52fd	(TOTALS)
+Finished building: sizedummy
+ 
+../StreamHFA11xRS232WiFi3.cpp:204:4: warning: name lookup of 'i' changed [enabled by default]
+../StreamHFA11xRS232WiFi3.cpp:185:21: warning:   matches this 'i' under ISO standard rules [enabled by default]
+../StreamHFA11xRS232WiFi3.cpp:199:14: warning:   matches this 'i' under old rules [enabled by default]
+In file included from ../StreamHFA11xRS232WiFi3.h:18:0,
+                 from ../StreamHFA11xRS232WiFi3.cpp:10:
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/AnyRingBuffer.h: In member function 'unsigned int AnyRingBuffer<DataType>::write(Stream*, unsigned int) [with DataType = unsigned char]':
+../StreamHFA11xRS232WiFi3.cpp:362:95:   instantiated from here
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/AnyRingBuffer.h:381:18: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/AnyRingBuffer.h: In member function 'unsigned int AnyRingBuffer<DataType>::readOrPeek(bool, Stream*, unsigned int) [with DataType = unsigned char]':
+../StreamHFA11xRS232WiFi3.cpp:472:76:   instantiated from here
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/AnyRingBuffer.h:552:17: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/AnyRingBuffer.h: In member function 'unsigned int AnyRingBuffer<DataType>::discardFirstBytes(unsigned int) [with DataType = unsigned char]':
+../StreamHFA11xRS232WiFi3.cpp:520:60:   instantiated from here
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/AnyRingBuffer.h:208:12: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h: In member function 'void StreamHFA11xRS232WiFi3::discardAnyWaitingDataInUnderlyingStream(bool)':
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h:55:57: warning: uninitialized variable 'DebugPrinter::debugLevelPrefixForALL' put into program memory area [-Wuninitialized]
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h:50:42: warning: uninitialized variable 'DebugPrinter::newLine' put into program memory area [-Wuninitialized]
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h:56:58: warning: uninitialized variable 'DebugPrinter::debugLevelPrefixForINFO' put into program memory area [-Wuninitialized]
+In file included from ../StreamHFA11xRS232WiFi3.h:18:0,
+                 from ../StreamHFA11xRS232WiFi3.cpp:10:
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h: In member function 'DataType AnyRingBuffer<DataType>::peek() [with DataType = unsigned char]':
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h:57:61: warning: uninitialized variable 'DebugPrinter::debugLevelPrefixForWARNING' put into program memory area [-Wuninitialized]
+avr-ar: creating libSatelita1_HFA11xRS232WiFi.a
+avr-objcopy:libSatelita1_HFA11xRS232WiFi.hex: Invalid operation
+make: [libSatelita1_HFA11xRS232WiFi.hex] Błąd 1 (zignorowany)
+avr-objcopy:libSatelita1_HFA11xRS232WiFi.eep: Invalid operation
+make: [libSatelita1_HFA11xRS232WiFi.eep] Błąd 1 (zignorowany)
+
+**** Build Finished ****

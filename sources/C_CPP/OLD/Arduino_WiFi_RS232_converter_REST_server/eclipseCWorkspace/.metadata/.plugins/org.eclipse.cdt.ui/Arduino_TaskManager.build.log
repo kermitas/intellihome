@@ -1,0 +1,35 @@
+
+**** Build of configuration Release for project Arduino_TaskManager ****
+
+make all 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex libArduino_TaskManager.a  "libArduino_TaskManager.hex"
+avr-objcopy:libArduino_TaskManager.hex: Invalid operation
+make: [libArduino_TaskManager.hex] Błąd 1 (zignorowany)
+Finished building: libArduino_TaskManager.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex libArduino_TaskManager.a  "libArduino_TaskManager.eep"
+avr-objcopy:libArduino_TaskManager.eep: Invalid operation
+Finished building: libArduino_TaskManager.eep
+ 
+make: [libArduino_TaskManager.eep] Błąd 1 (zignorowany)
+Invoking: Print Size
+avr-size --format=berkeley -t libArduino_TaskManager.a
+   text	   data	    bss	    dec	    hex	filename
+      4	      0	      0	      4	      4	Arduino_TaskManager.o (ex libArduino_TaskManager.a)
+   1290	     99	      0	   1389	    56d	TaskManager.o (ex libArduino_TaskManager.a)
+     72	      0	      0	     72	     48	TaskManagerMemoryConfigurator.o (ex libArduino_TaskManager.a)
+    176	      0	      0	    176	     b0	TaskManagerRecord.o (ex libArduino_TaskManager.a)
+     60	      0	      0	     60	     3c	TaskManagerScheduler.o (ex libArduino_TaskManager.a)
+    716	     99	      0	    815	    32f	TaskManagerSchedulerAndOr.o (ex libArduino_TaskManager.a)
+    658	    150	      0	    808	    328	TaskManagerSchedulerOneAfterOne.o (ex libArduino_TaskManager.a)
+     92	      0	      0	     92	     5c	TaskManagerSchedulerOneExecution.o (ex libArduino_TaskManager.a)
+    846	    150	      0	    996	    3e4	TaskManagerSchedulerTimeIntervals.o (ex libArduino_TaskManager.a)
+     56	      0	      0	     56	     38	TaskManagerStatistics.o (ex libArduino_TaskManager.a)
+   1203	    236	      0	   1439	    59f	TaskManagerStatisticsBasic.o (ex libArduino_TaskManager.a)
+   5173	    734	      0	   5907	   1713	(TOTALS)
+Finished building: sizedummy
+ 
+
+**** Build Finished ****

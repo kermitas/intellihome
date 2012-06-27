@@ -1,0 +1,32 @@
+
+**** Build of configuration Release for project Statelita1_EthernetShield ****
+
+make all 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex libStatelita1_EthernetShield.a  "libStatelita1_EthernetShield.hex"
+avr-objcopy:libStatelita1_EthernetShield.hex: Invalid operation
+make: [libStatelita1_EthernetShield.hex] Błąd 1 (zignorowany)
+Finished building: libStatelita1_EthernetShield.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex libStatelita1_EthernetShield.a  "libStatelita1_EthernetShield.eep"
+avr-objcopy:libStatelita1_EthernetShield.eep: Invalid operation
+Finished building: libStatelita1_EthernetShield.eep
+ 
+make: [libStatelita1_EthernetShield.eep] Błąd 1 (zignorowany)
+Invoking: Print Size
+avr-size --format=berkeley -t libStatelita1_EthernetShield.a
+   text	   data	    bss	    dec	    hex	filename
+   2110	      7	      6	   2123	    84b	Dhcp.o (ex libStatelita1_EthernetShield.a)
+   1580	      0	      6	   1586	    632	Dns.o (ex libStatelita1_EthernetShield.a)
+   1134	      0	     24	   1158	    486	Ethernet.o (ex libStatelita1_EthernetShield.a)
+   1132	      2	      6	   1140	    474	EthernetClient.o (ex libStatelita1_EthernetShield.a)
+    880	      0	      6	    886	    376	EthernetServer.o (ex libStatelita1_EthernetShield.a)
+   1006	      0	      6	   1012	    3f4	EthernetUdp.o (ex libStatelita1_EthernetShield.a)
+   1786	      0	      2	   1788	    6fc	socket.o (ex libStatelita1_EthernetShield.a)
+   1240	      0	     16	   1256	    4e8	w5100.o (ex libStatelita1_EthernetShield.a)
+  10868	      9	     72	  10949	   2ac5	(TOTALS)
+Finished building: sizedummy
+ 
+
+**** Build Finished ****

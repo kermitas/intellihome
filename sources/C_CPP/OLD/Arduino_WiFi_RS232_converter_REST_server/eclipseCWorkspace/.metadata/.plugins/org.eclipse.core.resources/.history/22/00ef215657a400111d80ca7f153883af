@@ -1,0 +1,133 @@
+/*
+ * HFA11xRS232WiFiCRCStateMachine.cpp
+ *
+ *  Created on: 21-05-2012
+ *      Author: root
+ */
+
+// =================================================
+
+#include "RWStateMachine.h"
+
+// =================================================
+
+RWStateMachine::RWStateMachine( AnyBuffer< byte , byte >* _inputBuffer , AnyBuffer< byte , byte >* _outputBuffer , Stream* stream )
+	: dp( PSTR( "RWStateMachine" ) , DEBUG_LEVEL_ALL ) ,
+	  crcStream( stream ) ,
+	  rwSubTaskWaitForData( stream ) ,
+	  rwSubTaskReadSENDACKCommand( _outputBuffer ,  &crcStream , &rwCommandSerialNumber , &rwSubTaskGoBackToFirstSubTask , &rwSubTaskGoBackToFirstSubTask ) ,
+	  rwSubTaskSendSENDCommand( _outputBuffer , &crcStream , &rwCommandSerialNumber , &rwSubTaskWaitForData , &rwSubTaskReadSENDACKCommand , &rwSubTaskGoBackToFirstSubTask ) ,
+	  rwSubTaskDecideToSendOutgoingData( _outputBuffer , &rwSubTaskSendSENDCommand , &rwSubTaskGoBackToFirstSubTask ) ,
+	  rwSubTaskReadRECVACKCommandData( _inputBuffer , &crcStream , &rwCommandSerialNumber , &rwSubTaskDecideToSendOutgoingData , &rwSubTaskDecideToSendOutgoingData ) ,
+	  rwSubTaskReadRECVACKCommandHeader( _inputBuffer , &crcStream , &rwCommandSerialNumber , &rwSubTaskWaitForData , &rwSubTaskReadRECVACKCommandData , &rwSubTaskDecideToSendOutgoingData ) ,
+	  rwSubTaskSendRECVCommand( _inputBuffer , &crcStream , &rwCommandSerialNumber , &rwSubTaskWaitForData , &rwSubTaskReadRECVACKCommandHeader , &rwSubTaskDecideToSendOutgoingData ) ,
+	  rwSubTaskDecideToReadIncommingData( _inputBuffer , &rwSubTaskSendRECVCommand , &rwSubTaskDecideToSendOutgoingData )
+{
+	// ---
+
+	//firstState = &rwSubTaskDecideToReadIncommingData;
+
+	inputBuffer = _inputBuffer; // todo tmp
+	outputBuffer = _outputBuffer; // todo tmp
+
+	inputBuffer->setPositionAndLimit( 4 , 5 );
+
+	// todo wrrrr czy to nie dziala czy jak, czy napewno ustawia limit na zero?
+	outputBuffer->setPositionAndLimit( 2 , 3 );
+	//_outputBuffer->setLimit( 2 );
+	//_outputBuffer->setPosition( 1 );
+
+	currentState = &rwSubTaskDecideToReadIncommingData;
+	goToState( currentState );
+}
+
+// =================================================
+
+void RWStateMachine::goToStateWithVerbose( RWSubTask* nextState )
+{
+	static const PROGMEM prog_char functionName[] = "goToState";
+
+	iln( "current state '%s' will be replaced by '%s'" , currentState->getSubTaskName() , nextState->getSubTaskName() )
+
+	goToState( nextState );
+
+	if( stateTimeoutTime > 0 )
+	{
+		//RWSubTask* stateAfterTimeout = currentState->getStateAfterTimeout();
+
+		if( currentState->getStateAfterTimeout() != NULL )
+		{
+			iln( "current (new) state '%s' has set timeout to %ums (on timeout will be replaced by '%s')" , currentState->getSubTaskName() , currentState->getStateTimeout() , currentState->getStateAfterTimeout()->getSubTaskName() )
+		}
+		else
+		{
+			iln( "current (new) state '%s' has set timeout to %ums (on timeout will be replaced by '-null-')" , currentState->getSubTaskName() , currentState->getStateTimeout() )
+		}
+	}
+}
+
+// =================================================
+
+void RWStateMachine::goToState( RWSubTask* nextState )
+{
+	currentState = nextState;
+	currentState->resetInternalState();
+
+	unsigned long stateTimeout = currentState->getStateTimeout();
+
+	if( stateTimeout > 0 )
+	{
+		stateTimeoutTime = millis() + stateTimeout;
+	}
+	else
+	{
+		stateTimeoutTime = 0;
+	}
+
+
+	//outputBuffer->printReport( "FROM RWStateMachine::goToState()" ); // todo tmp
+}
+
+// =================================================
+
+void RWStateMachine::run()
+{
+	static const PROGMEM prog_char functionName[] = "run";
+
+	iln( "just test '%s', '%s'" , currentState->getSubTaskName() ,&rwSubTaskDecideToSendOutgoingData.getSubTaskName() , rwSubTaskReadRECVACKCommandData.getStateTimeout()->getSubTaskName() ) // todo tmp
+	inputBuffer->printReport( "inputBuffer FROM RWStateMachine::run()" ); // todo tmp
+	outputBuffer->printReport( "outputBuffer FROM RWStateMachine::run()" ); // todo tmp
+
+	if( stateTimeoutTime > 0 && millis() >= stateTimeoutTime )
+	{
+		wln( "timeout of state '%s'" , currentState->getSubTaskName() )
+		RWSubTask* stateAfterTimeout = currentState->getStateAfterTimeout();
+		goToStateWithVerbose( stateAfterTimeout != NULL ? stateAfterTimeout : &rwSubTaskDecideToReadIncommingData );
+	}
+	else
+	{
+		RWSubTask* nextState = currentState->executeSubTask();
+
+		if( nextState != NULL )
+		{
+			if( nextState == &rwSubTaskGoBackToFirstSubTask )
+			{
+				goToStateWithVerbose( &rwSubTaskDecideToReadIncommingData );
+			}
+			else
+			{
+				goToStateWithVerbose( nextState );
+			}
+
+			//goToStateWithVerbose( nextState == &rwSubTaskGoBackToFirstSubTask ? &rwSubTaskDecideToReadIncommingData : nextState );
+		}
+		else
+		{
+			iln( "current state '%s' will be executed in future" , currentState->getSubTaskName() )
+		}
+	}
+}
+
+// =================================================
+
+

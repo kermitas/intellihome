@@ -1,0 +1,58 @@
+
+**** Build of configuration Release for project Arduino_Utils2 ****
+
+make all 
+Building file: ../Arduino_Utils2.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/standard" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Arduino_Utils2" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"Arduino_Utils2.d" -MT"Arduino_Utils2.d" -c -o "Arduino_Utils2.o" -x c++ "../Arduino_Utils2.cpp"
+Finished building: ../Arduino_Utils2.cpp
+ 
+Building file: ../MemoryFree.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/standard" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Arduino_Utils2" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"MemoryFree.d" -MT"MemoryFree.d" -c -o "MemoryFree.o" -x c++ "../MemoryFree.cpp"
+Finished building: ../MemoryFree.cpp
+avr-ar: creating libArduino_Utils2.a
+avr-objcopy:libArduino_Utils2.hex: Invalid operation
+make: [libArduino_Utils2.hex] Błąd 1 (zignorowany)
+avr-objcopy:libArduino_Utils2.eep: Invalid operation
+make: [libArduino_Utils2.eep] Błąd 1 (zignorowany)
+ 
+Building file: ../PinHighLowRunnable.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/standard" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Arduino_Utils2" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"PinHighLowRunnable.d" -MT"PinHighLowRunnable.d" -c -o "PinHighLowRunnable.o" -x c++ "../PinHighLowRunnable.cpp"
+Finished building: ../PinHighLowRunnable.cpp
+ 
+Building file: ../Runnable.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/standard" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Arduino_Utils2" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"Runnable.d" -MT"Runnable.d" -c -o "Runnable.o" -x c++ "../Runnable.cpp"
+Finished building: ../Runnable.cpp
+ 
+Building target: libArduino_Utils2.a
+Invoking: AVR Archiver
+avr-ar -r  "libArduino_Utils2.a"  ./Arduino_Utils2.o ./MemoryFree.o ./PinHighLowRunnable.o ./Runnable.o  
+Finished building target: libArduino_Utils2.a
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S libArduino_Utils2.a  >"libArduino_Utils2.lss"
+Finished building: libArduino_Utils2.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex libArduino_Utils2.a  "libArduino_Utils2.hex"
+Finished building: libArduino_Utils2.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex libArduino_Utils2.a  "libArduino_Utils2.eep"
+Finished building: libArduino_Utils2.eep
+ 
+Invoking: Print Size
+avr-size --format=berkeley -t libArduino_Utils2.a
+   text	   data	    bss	    dec	    hex	filename
+      4	      0	      0	      4	      4	Arduino_Utils2.o (ex libArduino_Utils2.a)
+     56	      0	      0	     56	     38	MemoryFree.o (ex libArduino_Utils2.a)
+    196	      0	      0	    196	     c4	PinHighLowRunnable.o (ex libArduino_Utils2.a)
+     52	      0	      0	     52	     34	Runnable.o (ex libArduino_Utils2.a)
+    308	      0	      0	    308	    134	(TOTALS)
+Finished building: sizedummy
+ 
+
+**** Build Finished ****

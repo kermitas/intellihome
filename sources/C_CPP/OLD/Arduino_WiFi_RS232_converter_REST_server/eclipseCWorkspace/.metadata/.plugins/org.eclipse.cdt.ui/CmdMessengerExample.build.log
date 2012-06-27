@@ -1,0 +1,18 @@
+
+**** Build of configuration Release for project CmdMessengerExample ****
+
+make all 
+Building target: CmdMessengerExample.elf
+Invoking: AVR C++ Linker
+avr-gcc -Os -Wl,--gc-sections  -L"/home/as/Pobrane/workspaceC/Arduino_Mega_2560_or_Mega_ADK/Release" -mmcu=atmega2560 -o"CmdMessengerExample.elf"  ./A.o ./CmdMessengerExample.o   -l"Arduino_Mega_2560_or_Mega_ADK" -lm
+./A.o: In function `_GLOBAL__sub_I_cmdMessenger':
+/home/as/Pobrane/workspaceC/CmdMessengerExample/Release/../A.cpp:203: undefined reference to `CmdMessenger::sendCmd(int, char*, unsigned char, char*, int, int, int)'
+/home/as/Pobrane/workspaceC/CmdMessengerExample/Release/../A.cpp:203: undefined reference to `CmdMessenger::print_LF_CR()'
+/home/as/Pobrane/workspaceC/CmdMessengerExample/Release/../A.cpp:203: undefined reference to `CmdMessenger::attach(unsigned char, void (*)())'
+./A.o: In function `_GLOBAL__sub_I_cmdMessenger':
+/home/as/Pobrane/workspaceC/CmdMessengerExample/Release/../A.h:25: undefined reference to `CmdMessenger::feedinSerialData()'
+/home/as/Pobrane/workspaceC/CmdMessengerExample/Release/../A.h:25: undefined reference to `CmdMessenger::CmdMessenger(Stream&, char, char)'
+collect2: ld returned 1 exit status
+make: *** [CmdMessengerExample.elf] Błąd 1
+
+**** Build Finished ****

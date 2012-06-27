@@ -1,0 +1,7 @@
+#Mon Mar 05 14:18:26 CET 2012
+version=1
+pathvariable.Arduino_Unoarduino=/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores
+pathvariable.Arduino_Mega_2560_or_Mega_ADKmega=/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants
+eclipse.preferences.version=1
+pathvariable.Arduino_Mega_2560_or_Mega_ADKarduino=/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores
+pathvariable.Arduino_Unostandard=/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants

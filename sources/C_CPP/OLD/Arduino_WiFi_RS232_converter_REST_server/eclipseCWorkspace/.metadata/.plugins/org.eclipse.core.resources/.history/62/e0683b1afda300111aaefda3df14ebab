@@ -1,0 +1,16 @@
+/*
+ * RWStateMachineHelper.cpp
+ *
+ *  Created on: 22-05-2012
+ *      Author: root
+ */
+
+// =================================================
+
+#include "RWStateMachineHelper.h"
+
+// =================================================
+
+RWStateMachineHelper::RWStateMachineHelper() { }
+
+// =================================================

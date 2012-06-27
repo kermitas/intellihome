@@ -1,0 +1,255 @@
+/*
+ * AnyBuffer.h
+ *
+ *  Created on: 17-05-2012
+ *      Author: root
+ */
+
+#ifndef AnyBuffer_H_
+#define AnyBuffer_H_
+
+// =================================================
+
+#include <Arduino.h>
+
+// =================================================
+
+#include "DebugPrinter.h"
+
+// =================================================
+
+template< typename DataType , typename SizeType >
+class AnyBuffer
+{
+	public:
+
+		AnyBuffer( DataType* _array , SizeType _capacity );
+		AnyBuffer( DataType* _array , SizeType _capacity , SizeType _position , SizeType _limit );
+
+		void setPosition( SizeType _position );
+		void setLimit( SizeType _limit );
+		void setPositionAndLimit( SizeType _position , SizeType _limit );
+
+		SizeType getRemaining();
+		SizeType getUnusedSpace(); // unised space is from 'limit' to 'capacity'
+
+		void clearArray(); // sets all elements in array to 0 starting from 'position' and finishing on 'limit'
+		void clearArray( SizeType fromIndex , SizeType toIndex ); // sets array to 0
+
+		bool canGet();
+		DataType get();
+		//DataType get( SizeType index ); <- please use DataType dt = buffer.array[ index ] ;
+
+		bool canPut();
+		void put( DataType data );
+		//void put( DataType data  , SizeType index );  <- please use buffer.array[ index ] = data;
+
+		bool writeToStream( Stream* stream );
+
+		// you can look but you can't touch
+		DataType* array;
+		SizeType capacity;
+		SizeType position;
+		SizeType limit;
+
+		void printReport();
+		void printReport( char* prefix );
+
+	protected:
+
+		DebugPrinter dp;
+
+		void init( DataType* _array , SizeType _capacity , SizeType _position , SizeType _limit );
+};
+
+
+// =================================================
+
+// plik .cpp wstawiony tutaj ze wzgledu na to, ze w C++ sa problemy z
+// klasami template jesli sa w oddzielnych plikach (.h i .cpp).
+
+// =================================================
+
+template< typename DataType , typename SizeType >
+AnyBuffer<DataType,SizeType>::AnyBuffer( DataType* _array , SizeType _capacity ) : dp( PSTR( "AnyBuffer" ) )
+{
+	init( _array , _capacity , 0 , _capacity );
+}
+
+// =================================================
+
+template< typename DataType , typename SizeType >
+AnyBuffer<DataType,SizeType>::AnyBuffer( DataType* _array , SizeType _capacity , SizeType _position , SizeType _limit ) : dp( PSTR( "AnyBuffer" ) )
+{
+	init( _array , _capacity , _position , _limit );
+}
+
+// =================================================
+
+template< typename DataType , typename SizeType >
+void AnyBuffer<DataType,SizeType>::init( DataType* _array , SizeType _capacity , SizeType _position , SizeType _limit )
+{
+	array = _array;
+	capacity = _capacity;
+
+	position = 0;
+	limit = 0;
+
+	setPositionAndLimit( _position , _limit );
+}
+
+// =================================================
+
+template< typename DataType , typename SizeType >
+void AnyBuffer<DataType,SizeType>::setPosition( SizeType _position )
+{
+	position = _position > limit ? limit : ( _position < 0 ? 0 : _position );
+}
+
+// =================================================
+
+template< typename DataType , typename SizeType >
+void AnyBuffer<DataType,SizeType>::setLimit( SizeType _limit )
+{
+	limit = _limit < 0 ? 0 : ( _limit > capacity ? capacity : _limit );
+
+	if( position > limit ) position = limit;
+}
+
+// =================================================
+
+template< typename DataType , typename SizeType >
+SizeType AnyBuffer<DataType,SizeType>::getRemaining()
+{
+	return limit - position;
+}
+
+// =================================================
+
+template< typename DataType , typename SizeType >
+SizeType AnyBuffer<DataType,SizeType>::getUnusedSpace()
+{
+	return capacity - limit;
+}
+
+// =================================================
+
+template< typename DataType , typename SizeType >
+void AnyBuffer<DataType,SizeType>::setPositionAndLimit( SizeType _position , SizeType _limit )
+{
+	setLimit( _limit );
+	setPosition( _position );
+}
+
+// =================================================
+
+template< typename DataType , typename SizeType >
+void AnyBuffer<DataType,SizeType>::clearArray()
+{
+	clearArray( position , limit );
+}
+
+// =================================================
+
+template< typename DataType , typename SizeType >
+void AnyBuffer<DataType,SizeType>::clearArray( SizeType fromIndex , SizeType toIndex )
+{
+	if( fromIndex < 0 ) fromIndex = 0;
+	if( toIndex >= capacity ) toIndex = capacity-1;
+
+	for( SizeType i = fromIndex ; i <= toIndex ; i++ ) array[i] = 0;
+}
+
+// =================================================
+
+template< typename DataType , typename SizeType >
+bool AnyBuffer<DataType,SizeType>::canGet()
+{
+	return position < limit;
+}
+
+// =================================================
+
+
+template< typename DataType , typename SizeType >
+DataType AnyBuffer<DataType,SizeType>::get()
+{
+	if( position >= limit )
+	{
+		// todo tu przydalby sie predzej exception!
+		return array[ limit - 1 ];
+	}
+	else
+	{
+		return array[ position++ ];
+	}
+}
+
+// =================================================
+
+template< typename DataType , typename SizeType >
+bool AnyBuffer<DataType,SizeType>::canPut()
+{
+	return position < limit;
+}
+
+// =================================================
+
+template< typename DataType , typename SizeType >
+void AnyBuffer<DataType,SizeType>::put( DataType data )
+{
+	if( position >= limit )
+	{
+		// todo tu przydalby sie predzej exception!
+		array[ limit - 1 ] = data;
+	}
+	else
+	{
+		array[ position++ ] = data;
+	}
+}
+
+// =================================================
+
+template< typename DataType , typename SizeType >
+bool AnyBuffer<DataType,SizeType>::writeToStream( Stream* stream )
+{
+	while( position < limit )
+	{
+		if( stream->write( array[ position++ ] ) != 1 )
+		{
+			return false;
+		}
+		//else
+		//{
+		//	delay( 3 ); // todo to remove
+		//}
+	}
+
+	return true;
+}
+
+// =================================================
+
+template< typename DataType , typename SizeType >
+void AnyBuffer<DataType,SizeType>::printReport()
+{
+	static const PROGMEM prog_char functionName[] = "printReport";
+
+	iln( "pos=%u , lim=%u, capacity=%u, remaining=%u, unusedSpace=%u" , position , limit , capacity , getRemaining() , getUnusedSpace() )
+}
+
+// =================================================
+
+template< typename DataType , typename SizeType >
+void AnyBuffer<DataType,SizeType>::printReport( char* prefix )
+{
+	static const PROGMEM prog_char functionName[] = "printReport";
+
+	iln( "%s : pos=%u , lim=%u, capacity=%u, remaining=%u, unusedSpace=%u" , prefix , position , limit , capacity , getRemaining() , getUnusedSpace() )
+}
+
+// =================================================
+
+#endif /* AnyBuffer_H_ */
+

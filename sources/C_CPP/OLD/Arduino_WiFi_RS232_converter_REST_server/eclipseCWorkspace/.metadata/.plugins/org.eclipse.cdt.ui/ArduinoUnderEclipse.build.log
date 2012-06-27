@@ -1,0 +1,42 @@
+
+**** Build of configuration Release for project ArduinoUnderEclipse ****
+
+make all 
+Building file: ../ArduinoUnderEclipse.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino" -I"/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/variants/mega" -I"/home/as/Pobrane/workspaceC/ArduinoUnderEclipse" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"ArduinoUnderEclipse.d" -MT"ArduinoUnderEclipse.d" -c -o "ArduinoUnderEclipse.o" -x c++ "../ArduinoUnderEclipse.cpp"
+../ArduinoUnderEclipse.cpp: In function 'void setup2(Print&)':
+../ArduinoUnderEclipse.cpp:83:33: warning: unused variable 'taskMemoryConfFreeRunnable' [-Wunused-variable]
+Finished building: ../ArduinoUnderEclipse.cpp
+ 
+Building file: ../OptexMX40PTCheckRunnable.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino" -I"/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/variants/mega" -I"/home/as/Pobrane/workspaceC/ArduinoUnderEclipse" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"OptexMX40PTCheckRunnable.d" -MT"OptexMX40PTCheckRunnable.d" -c -o "OptexMX40PTCheckRunnable.o" -x c++ "../OptexMX40PTCheckRunnable.cpp"
+Finished building: ../OptexMX40PTCheckRunnable.cpp
+ 
+Building target: ArduinoUnderEclipse.elf
+Invoking: AVR C++ Linker
+avr-gcc -Os -Wl,--gc-sections  -L"/home/as/Pobrane/workspaceC/Arduino_Mega_2560_or_Mega_ADK/Release" -mmcu=atmega2560 -o"ArduinoUnderEclipse.elf"  ./ArduinoUnderEclipse.o ./MemoryFree.o ./OptexMX40PTCheckRunnable.o ./PinHighLowRunnable.o ./Runnable.o ./TaskManager.o ./TaskManagerMemoryConfigurator.o ./TaskManagerRecord.o ./TaskManagerScheduler.o ./TaskManagerSchedulerAndOr.o ./TaskManagerSchedulerOneAfterOne.o ./TaskManagerSchedulerOneExecution.o ./TaskManagerSchedulerTimeIntervals.o ./TaskManagerStatistics.o ./TaskManagerStatisticsBasic.o ./_EEPROMData.o ./_InternalEEPROM.o ./_Led.o ./_LedDotLoopTask.o ./_LoopTaskInterface.o ./_PrinterDebug.o ./_PrinterSimple.o ./_TimeATimeBTaskManagerTaskExecutionInfo.o ./__InternalEEPROM.o ./__InternalEEPROMDataToWrite.o ./__InternalEEPROMIdDataOrganisation.o ./__InternalEEPROMMemoryMapRecord.o ./_ePIR.o ./_ePIRCheckMotionDetectionRunnable.o ./_ePirConfigureRunnable.o ./_ePirOperationResult.o   -l"Arduino_Mega_2560_or_Mega_ADK" -lm
+Finished building target: ArduinoUnderEclipse.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S ArduinoUnderEclipse.elf  >"ArduinoUnderEclipse.lss"
+Finished building: ArduinoUnderEclipse.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex ArduinoUnderEclipse.elf  "ArduinoUnderEclipse.hex"
+Finished building: ArduinoUnderEclipse.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex ArduinoUnderEclipse.elf  "ArduinoUnderEclipse.eep"
+Finished building: ArduinoUnderEclipse.eep
+ 
+Invoking: Print Size
+avr-size --format=berkeley -t ArduinoUnderEclipse.elf
+   text	   data	    bss	    dec	    hex	filename
+  12300	    872	    683	  13855	   361f	ArduinoUnderEclipse.elf
+  12300	    872	    683	  13855	   361f	(TOTALS)
+Finished building: sizedummy
+ 
+
+**** Build Finished ****

@@ -1,0 +1,17 @@
+#Mon Mar 05 15:31:51 CET 2012
+avrtarget/avrdude/BitBangDelay=
+avrtarget/avrdude/Bitclock=
+avrtarget/avrdude/EEPROMFile=
+avrtarget/avrdude/EEPROMFromConfig=true
+avrtarget/avrdude/FlashFile=
+avrtarget/avrdude/FlashFromConfig=true
+avrtarget/avrdude/NoChipErase=false
+avrtarget/avrdude/NoSigCheck=false
+avrtarget/avrdude/NoVerify=false
+avrtarget/avrdude/NoWrite=false
+avrtarget/avrdude/OtherOptions=
+avrtarget/avrdude/ProgrammerID=programmerconfig.4
+avrtarget/avrdude/UseCounter=false
+avrtarget/avrdude/WriteEEPROM=false
+avrtarget/avrdude/WriteFlash=true
+eclipse.preferences.version=1

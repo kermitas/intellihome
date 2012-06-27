@@ -1,0 +1,100 @@
+
+**** Build of configuration Release for project Arduino_Utils ****
+
+make all 
+Building file: ../DallasTemperature.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/standard" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"DallasTemperature.d" -MT"DallasTemperature.d" -c -o "DallasTemperature.o" -x c++ "../DallasTemperature.cpp"
+../DallasTemperature.cpp: In member function 'float DallasTemperature::calculateTemperature(uint8_t*, uint8_t*)':
+../DallasTemperature.cpp:456:1: warning: control reaches end of non-void function [-Wreturn-type]
+Finished building: ../DallasTemperature.cpp
+ 
+Building file: ../File.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/standard" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"File.d" -MT"File.d" -c -o "File.o" -x c++ "../File.cpp"
+Finished building: ../File.cpp
+ 
+Building file: ../MemoryFree.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/standard" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"MemoryFree.d" -MT"MemoryFree.d" -c -o "MemoryFree.o" -x c++ "../MemoryFree.cpp"
+Finished building: ../MemoryFree.cpp
+ 
+Building file: ../OneWire.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/standard" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"OneWire.d" -MT"OneWire.d" -c -o "OneWire.o" -x c++ "../OneWire.cpp"
+/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/Arduino.h: In constructor 'OneWire::OneWire(uint8_t)':
+/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/Arduino.h:132:30: warning: uninitialized variable 'digital_pin_to_bit_mask_PGM' put into program memory area [-Wuninitialized]
+/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/Arduino.h:130:30: warning: uninitialized variable 'digital_pin_to_port_PGM' put into program memory area [-Wuninitialized]
+/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/Arduino.h:127:31: warning: uninitialized variable 'port_to_input_PGM' put into program memory area [-Wuninitialized]
+Finished building: ../OneWire.cpp
+ 
+Building file: ../PinHighLowRunnable.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/standard" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"PinHighLowRunnable.d" -MT"PinHighLowRunnable.d" -c -o "PinHighLowRunnable.o" -x c++ "../PinHighLowRunnable.cpp"
+Finished building: ../PinHighLowRunnable.cpp
+ 
+Building file: ../Runnable.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/standard" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"Runnable.d" -MT"Runnable.d" -c -o "Runnable.o" -x c++ "../Runnable.cpp"
+Finished building: ../Runnable.cpp
+ 
+Building file: ../SD.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/standard" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"SD.d" -MT"SD.d" -c -o "SD.o" -x c++ "../SD.cpp"
+Finished building: ../SD.cpp
+ 
+Building file: ../Sd2Card.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/standard" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"Sd2Card.d" -MT"Sd2Card.d" -c -o "Sd2Card.o" -x c++ "../Sd2Card.cpp"
+Finished building: ../Sd2Card.cpp
+ 
+Building file: ../SdFile.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/standard" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"SdFile.d" -MT"SdFile.d" -c -o "SdFile.o" -x c++ "../SdFile.cpp"
+Finished building: ../SdFile.cpp
+ 
+Building file: ../SdVolume.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/standard" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"SdVolume.d" -MT"SdVolume.d" -c -o "SdVolume.o" -x c++ "../SdVolume.cpp"
+Finished building: ../SdVolume.cpp
+ 
+Building target: libArduino_Utils.a
+Invoking: AVR Archiver
+avr-ar -r  "libArduino_Utils.a"  ./DallasTemperature.o ./File.o ./MemoryFree.o ./OneWire.o ./PinHighLowRunnable.o ./Runnable.o ./SD.o ./Sd2Card.o ./SdFile.o ./SdVolume.o  
+avr-ar: creating libArduino_Utils.a
+Finished building target: libArduino_Utils.a
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S libArduino_Utils.a  >"libArduino_Utils.lss"
+Finished building: libArduino_Utils.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex libArduino_Utils.a  "libArduino_Utils.hex"
+avr-objcopy:libArduino_Utils.hex: Invalid operation
+make: [libArduino_Utils.hex] Błąd 1 (zignorowany)
+Finished building: libArduino_Utils.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex libArduino_Utils.a  "libArduino_Utils.eep"
+avr-objcopy:libArduino_Utils.eep: Invalid operation
+make: [libArduino_Utils.eep] Błąd 1 (zignorowany)
+Finished building: libArduino_Utils.eep
+ 
+Invoking: Print Size
+avr-size --format=berkeley -t libArduino_Utils.a
+   text	   data	    bss	    dec	    hex	filename
+   3464	      0	      0	   3464	    d88	DallasTemperature.o (ex libArduino_Utils.a)
+    818	      0	      0	    818	    332	File.o (ex libArduino_Utils.a)
+     56	      0	      0	     56	     38	MemoryFree.o (ex libArduino_Utils.a)
+   1694	      0	      0	   1694	    69e	OneWire.o (ex libArduino_Utils.a)
+    196	      0	      0	    196	     c4	PinHighLowRunnable.o (ex libArduino_Utils.a)
+     52	      0	      0	     52	     34	Runnable.o (ex libArduino_Utils.a)
+   1968	      2	     73	   2043	    7fb	SD.o (ex libArduino_Utils.a)
+   2480	      0	      0	   2480	    9b0	Sd2Card.o (ex libArduino_Utils.a)
+   7034	      0	      4	   7038	   1b7e	SdFile.o (ex libArduino_Utils.a)
+   2476	      4	    519	   2999	    bb7	SdVolume.o (ex libArduino_Utils.a)
+  20238	      6	    596	  20840	   5168	(TOTALS)
+Finished building: sizedummy
+ 
+
+**** Build Finished ****

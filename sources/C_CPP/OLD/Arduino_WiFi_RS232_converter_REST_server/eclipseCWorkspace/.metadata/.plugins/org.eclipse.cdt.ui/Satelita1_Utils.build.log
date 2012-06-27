@@ -1,0 +1,126 @@
+
+**** Build of configuration Release for project Satelita1_Utils ****
+
+make all 
+Building file: ../Configuration.c
+Invoking: AVR Compiler
+avr-gcc -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"Configuration.d" -MT"Configuration.d" -c -o "Configuration.o" -x c++ "../Configuration.c"
+Finished building: ../Configuration.c
+ 
+Building file: ../DebugPrinter.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"DebugPrinter.d" -MT"DebugPrinter.d" -c -o "DebugPrinter.o" -x c++ "../DebugPrinter.cpp"
+../DebugPrinter.h: In member function 'virtual void PinHighLowRunnable::run()':
+../DebugPrinter.h:55:57: warning: uninitialized variable 'DebugPrinter::debugLevelPrefixForALL' put into program memory area [-Wuninitialized]
+Finished building: ../DebugPrinter.cpp
+ 
+Building file: ../MemoryFree.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"MemoryFree.d" -MT"MemoryFree.d" -c -o "MemoryFree.o" -x c++ "../MemoryFree.cpp"
+../DebugPrinter.h:50:42: warning: uninitialized variable 'DebugPrinter::newLine' put into program memory area [-Wuninitialized]
+../DebugPrinter.h: In member function 'virtual void PinHighLowRunnable::setPin(unsigned char)':
+Finished building: ../MemoryFree.cpp
+ 
+Building file: ../PinHighLowRunnable.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"PinHighLowRunnable.d" -MT"PinHighLowRunnable.d" -c -o "PinHighLowRunnable.o" -x c++ "../PinHighLowRunnable.cpp"
+../DebugPrinter.h:57:61: warning: uninitialized variable 'DebugPrinter::debugLevelPrefixForWARNING' put into program memory area [-Wuninitialized]
+Finished building: ../PinHighLowRunnable.cpp
+ 
+Building file: ../StreamConsolePrinter.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"StreamConsolePrinter.d" -MT"StreamConsolePrinter.d" -c -o "StreamConsolePrinter.o" -x c++ "../StreamConsolePrinter.cpp"
+Finished building: ../StreamConsolePrinter.cpp
+ 
+Building file: ../StreamHttpChunkedTransferEncoding.cpp
+../DebugPrinter.h: In member function 'virtual int StreamConsolePrinter::available()':
+../DebugPrinter.h:55:57: warning: uninitialized variable 'DebugPrinter::debugLevelPrefixForALL' put into program memory area [-Wuninitialized]
+../DebugPrinter.h:50:42: warning: uninitialized variable 'DebugPrinter::newLine' put into program memory area [-Wuninitialized]
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"StreamHttpChunkedTransferEncoding.d" -MT"StreamHttpChunkedTransferEncoding.d" -c -o "StreamHttpChunkedTransferEncoding.o" -x c++ "../StreamHttpChunkedTransferEncoding.cpp"
+Finished building: ../StreamHttpChunkedTransferEncoding.cpp
+ 
+Building file: ../StreamReadBytesCounting.cpp
+../DebugPrinter.h: In member function 'virtual int StreamReadHttpMethod::read()':
+../DebugPrinter.h:55:57: warning: uninitialized variable 'DebugPrinter::debugLevelPrefixForALL' put into program memory area [-Wuninitialized]
+../DebugPrinter.h:50:42: warning: uninitialized variable 'DebugPrinter::newLine' put into program memory area [-Wuninitialized]
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"StreamReadBytesCounting.d" -MT"StreamReadBytesCounting.d" -c -o "StreamReadBytesCounting.o" -x c++ "../StreamReadBytesCounting.cpp"
+Finished building: ../StreamReadBytesCounting.cpp
+ 
+Building file: ../StreamReadHttpMethod.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"StreamReadHttpMethod.d" -MT"StreamReadHttpMethod.d" -c -o "StreamReadHttpMethod.o" -x c++ "../StreamReadHttpMethod.cpp"
+Finished building: ../StreamReadHttpMethod.cpp
+ 
+Building file: ../StreamReadUntilByte.cpp
+Invoking: AVR C++ Compiler
+../DebugPrinter.h: In member function 'virtual int StreamSkipBytes::read()':
+../DebugPrinter.h:56:58: warning: uninitialized variable 'DebugPrinter::debugLevelPrefixForINFO' put into program memory area [-Wuninitialized]
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"StreamReadUntilByte.d" -MT"StreamReadUntilByte.d" -c -o "StreamReadUntilByte.o" -x c++ "../StreamReadUntilByte.cpp"
+Finished building: ../StreamReadUntilByte.cpp
+ 
+Building file: ../StreamSkipBytes.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"StreamSkipBytes.d" -MT"StreamSkipBytes.d" -c -o "StreamSkipBytes.o" -x c++ "../StreamSkipBytes.cpp"
+Finished building: ../StreamSkipBytes.cpp
+ 
+Building file: ../TimeMeasurement.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"TimeMeasurement.d" -MT"TimeMeasurement.d" -c -o "TimeMeasurement.o" -x c++ "../TimeMeasurement.cpp"
+Finished building: ../TimeMeasurement.cpp
+ 
+Building file: ../_AnyBuffer.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"_AnyBuffer.d" -MT"_AnyBuffer.d" -c -o "_AnyBuffer.o" -x c++ "../_AnyBuffer.cpp"
+Finished building: ../_AnyBuffer.cpp
+../DebugPrinter.h:50:42: warning: uninitialized variable 'DebugPrinter::newLine' put into program memory area [-Wuninitialized]
+ 
+Building file: ../_Runnable.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"_Runnable.d" -MT"_Runnable.d" -c -o "_Runnable.o" -x c++ "../_Runnable.cpp"
+avr-ar: creating libSatelita1_Utils.a
+avr-objcopy:libSatelita1_Utils.hex: Invalid operation
+make: [libSatelita1_Utils.hex] Błąd 1 (zignorowany)
+avr-objcopy:libSatelita1_Utils.eep: Invalid operation
+make: [libSatelita1_Utils.eep] Błąd 1 (zignorowany)
+Finished building: ../_Runnable.cpp
+ 
+Building target: libSatelita1_Utils.a
+Invoking: AVR Archiver
+avr-ar -r  "libSatelita1_Utils.a"  ./Configuration.o ./DebugPrinter.o ./MemoryFree.o ./PinHighLowRunnable.o ./StreamConsolePrinter.o ./StreamHttpChunkedTransferEncoding.o ./StreamReadBytesCounting.o ./StreamReadHttpMethod.o ./StreamReadUntilByte.o ./StreamSkipBytes.o ./TimeMeasurement.o ./_AnyBuffer.o ./_Runnable.o  
+Finished building target: libSatelita1_Utils.a
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S libSatelita1_Utils.a  >"libSatelita1_Utils.lss"
+Finished building: libSatelita1_Utils.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex libSatelita1_Utils.a  "libSatelita1_Utils.hex"
+Finished building: libSatelita1_Utils.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex libSatelita1_Utils.a  "libSatelita1_Utils.eep"
+Finished building: libSatelita1_Utils.eep
+ 
+Invoking: Print Size
+avr-size --format=berkeley -t libSatelita1_Utils.a
+   text	   data	    bss	    dec	    hex	filename
+      0	      0	      0	      0	      0	Configuration.o (ex libSatelita1_Utils.a)
+    152	      0	      0	    152	     98	DebugPrinter.o (ex libSatelita1_Utils.a)
+     58	      0	      0	     58	     3a	MemoryFree.o (ex libSatelita1_Utils.a)
+    613	      0	      0	    613	    265	PinHighLowRunnable.o (ex libSatelita1_Utils.a)
+    948	      0	      0	    948	    3b4	StreamConsolePrinter.o (ex libSatelita1_Utils.a)
+    660	      9	      0	    669	    29d	StreamHttpChunkedTransferEncoding.o (ex libSatelita1_Utils.a)
+    250	      0	      0	    250	     fa	StreamReadBytesCounting.o (ex libSatelita1_Utils.a)
+    446	      0	      0	    446	    1be	StreamReadHttpMethod.o (ex libSatelita1_Utils.a)
+    370	      0	      0	    370	    172	StreamReadUntilByte.o (ex libSatelita1_Utils.a)
+   1171	      0	      0	   1171	    493	StreamSkipBytes.o (ex libSatelita1_Utils.a)
+     76	      0	      0	     76	     4c	TimeMeasurement.o (ex libSatelita1_Utils.a)
+      0	      0	      0	      0	      0	_AnyBuffer.o (ex libSatelita1_Utils.a)
+      0	      0	      0	      0	      0	_Runnable.o (ex libSatelita1_Utils.a)
+   4744	      9	      0	   4753	   1291	(TOTALS)
+Finished building: sizedummy
+ 
+
+**** Build Finished ****

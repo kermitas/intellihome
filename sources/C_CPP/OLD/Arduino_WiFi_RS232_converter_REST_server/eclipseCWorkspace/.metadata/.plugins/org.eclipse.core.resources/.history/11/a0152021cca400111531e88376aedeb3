@@ -1,0 +1,90 @@
+/*
+ * StreamHFA11xRS232WiFi.cpp
+ *
+ *  Created on: 11-05-2012
+ *      Author: root
+ */
+
+// =================================================
+
+#include "StreamHFA11xRS232WiFi.h"
+
+// =================================================
+
+StreamHFA11xRS232WiFi::StreamHFA11xRS232WiFi( AnyBuffer< byte , byte >* _inputBuffer , AnyBuffer< byte , byte >* _outputBuffer ) : dp( PSTR( "StreamHFA11xRS232WiFi" ) )
+{
+	inputBuffer = _inputBuffer;
+	outputBuffer = _outputBuffer;
+}
+
+// =================================================
+
+int StreamHFA11xRS232WiFi::readOrPeek( bool justDoPeek )
+{
+	if( read_error == 0 )
+	{
+		if( inputBuffer->getRemaining() == 0 ) sendRECVndReadRECVACK();
+
+		if( inputBuffer->getRemaining() > 0 )
+		{
+			return justDoPeek ? inputBuffer->array[ inputBuffer->position ] : inputBuffer->get();
+		}
+	}
+
+	return -1;
+}
+
+// =================================================
+
+int StreamHFA11xRS232WiFi::read()
+{
+	return readOrPeek( false );
+}
+
+// =================================================
+
+int StreamHFA11xRS232WiFi::peek()
+{
+	return readOrPeek( true );
+}
+
+// =================================================
+
+void StreamHFA11xRS232WiFi::flush()
+{
+	sendSENDAndReadSENDACK();
+}
+
+// =================================================
+
+size_t StreamHFA11xRS232WiFi::write( uint8_t b )
+{
+	if( getWriteError() == 0 )
+	{
+		if( outputBuffer->getRemaining() == 0 )
+		{
+			sendSENDAndReadSENDACK();
+
+			if( outputBuffer->getRemaining() == 0 || getWriteError() != 0 ) return 0;
+		}
+
+		outputBuffer->put( b );
+
+		if( outputBuffer->getRemaining() == 0 ) sendSENDAndReadSENDACK();
+
+		return 1;
+	}
+	else
+	{
+		return 0;
+	}
+}
+
+// =================================================
+
+int StreamHFA11xRS232WiFi::available()
+{
+	return inputBuffer->getRemaining();
+}
+
+// =================================================

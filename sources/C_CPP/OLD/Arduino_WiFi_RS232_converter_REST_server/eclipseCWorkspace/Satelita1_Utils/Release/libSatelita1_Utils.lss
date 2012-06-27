@@ -1,0 +1,2996 @@
+In archive libSatelita1_Utils.a:
+
+Configuration.o:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  00000000  00000000  00000034  2**0
+                  ALLOC
+  3 .stab         000003c0  00000000  00000000  00000034  2**2
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  4 .stabstr      00000aa2  00000000  00000000  000003f4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+DebugPrinter.o:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  00000000  00000000  00000034  2**0
+                  ALLOC
+  3 .stab         000007d4  00000000  00000000  00000034  2**2
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  4 .stabstr      0000335d  00000000  00000000  00000808  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .text._ZN12DebugPrinterC2EPKc 0000000c  00000000  00000000  00003b65  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  6 .text._ZN12DebugPrinterC2EPKch 0000000a  00000000  00000000  00003b71  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  7 .text._ZN12DebugPrinter8setLevelEh 00000006  00000000  00000000  00003b7b  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  8 .text._ZN12DebugPrinter8preMacroEPKcS1_ 00000066  00000000  00000000  00003b81  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  9 .progmem.data 00000016  00000000  00000000  00003be7  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+
+Disassembly of section .text._ZN12DebugPrinterC2EPKc:
+
+00000000 <_ZN12DebugPrinterC1EPKc>:
+}
+
+// =================================================
+
+void DebugPrinter::preMacro( const prog_char* debugLevelPrefix , const prog_char* functionName )
+{
+   0:	fc 01       	movw	r30, r24
+   2:	71 83       	std	Z+1, r23	; 0x01
+   4:	60 83       	st	Z, r22
+   6:	84 e1       	ldi	r24, 0x14	; 20
+   8:	82 83       	std	Z+2, r24	; 0x02
+   a:	08 95       	ret
+
+Disassembly of section .text._ZN12DebugPrinterC2EPKch:
+
+00000000 <_ZN12DebugPrinterC1EPKch>:
+   0:	fc 01       	movw	r30, r24
+   2:	71 83       	std	Z+1, r23	; 0x01
+   4:	60 83       	st	Z, r22
+   6:	42 83       	std	Z+2, r20	; 0x02
+   8:	08 95       	ret
+
+Disassembly of section .text._ZN12DebugPrinter8setLevelEh:
+
+00000000 <_ZN12DebugPrinter8setLevelEh>:
+   0:	fc 01       	movw	r30, r24
+   2:	62 83       	std	Z+2, r22	; 0x02
+   4:	08 95       	ret
+
+Disassembly of section .text._ZN12DebugPrinter8preMacroEPKcS1_:
+
+00000000 <_ZN12DebugPrinter8preMacroEPKcS1_>:
+   0:	0f 93       	push	r16
+   2:	1f 93       	push	r17
+   4:	cf 93       	push	r28
+   6:	df 93       	push	r29
+   8:	ec 01       	movw	r28, r24
+   a:	8a 01       	movw	r16, r20
+	printf_P( debugLevelPrefix );
+   c:	0f 92       	push	r0
+   e:	0f 92       	push	r0
+  10:	ed b7       	in	r30, 0x3d	; 61
+  12:	fe b7       	in	r31, 0x3e	; 62
+  14:	72 83       	std	Z+2, r23	; 0x02
+  16:	61 83       	std	Z+1, r22	; 0x01
+  18:	0e 94 00 00 	call	0	; 0x0 <_ZN12DebugPrinter8preMacroEPKcS1_>
+
+	printf_P( className );
+  1c:	88 81       	ld	r24, Y
+  1e:	99 81       	ldd	r25, Y+1	; 0x01
+  20:	ed b7       	in	r30, 0x3d	; 61
+  22:	fe b7       	in	r31, 0x3e	; 62
+  24:	92 83       	std	Z+2, r25	; 0x02
+  26:	81 83       	std	Z+1, r24	; 0x01
+  28:	0e 94 00 00 	call	0	; 0x0 <_ZN12DebugPrinter8preMacroEPKcS1_>
+
+	printf_P( classNameAndFunctionNameSpacer );
+  2c:	80 e0       	ldi	r24, 0x00	; 0
+  2e:	90 e0       	ldi	r25, 0x00	; 0
+  30:	ed b7       	in	r30, 0x3d	; 61
+  32:	fe b7       	in	r31, 0x3e	; 62
+  34:	92 83       	std	Z+2, r25	; 0x02
+  36:	81 83       	std	Z+1, r24	; 0x01
+  38:	0e 94 00 00 	call	0	; 0x0 <_ZN12DebugPrinter8preMacroEPKcS1_>
+
+	printf_P( functionName );
+  3c:	ed b7       	in	r30, 0x3d	; 61
+  3e:	fe b7       	in	r31, 0x3e	; 62
+  40:	12 83       	std	Z+2, r17	; 0x02
+  42:	01 83       	std	Z+1, r16	; 0x01
+  44:	0e 94 00 00 	call	0	; 0x0 <_ZN12DebugPrinter8preMacroEPKcS1_>
+
+	printf_P( functionNamePostfix );
+  48:	80 e0       	ldi	r24, 0x00	; 0
+  4a:	90 e0       	ldi	r25, 0x00	; 0
+  4c:	ed b7       	in	r30, 0x3d	; 61
+  4e:	fe b7       	in	r31, 0x3e	; 62
+  50:	92 83       	std	Z+2, r25	; 0x02
+  52:	81 83       	std	Z+1, r24	; 0x01
+  54:	0e 94 00 00 	call	0	; 0x0 <_ZN12DebugPrinter8preMacroEPKcS1_>
+  58:	0f 90       	pop	r0
+  5a:	0f 90       	pop	r0
+}
+  5c:	df 91       	pop	r29
+  5e:	cf 91       	pop	r28
+  60:	1f 91       	pop	r17
+  62:	0f 91       	pop	r16
+  64:	08 95       	ret
+
+MemoryFree.o:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  00000000  00000000  00000034  2**0
+                  ALLOC
+  3 .stab         0000021c  00000000  00000000  00000034  2**2
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  4 .stabstr      000004aa  00000000  00000000  00000250  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .text.freeRamMemory 0000003a  00000000  00000000  000006fa  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+
+Disassembly of section .text.freeRamMemory:
+
+00000000 <freeRamMemory>:
+extern void *__brkval;
+
+#include "MemoryFree.h"
+
+int freeRamMemory()
+{
+   0:	cf 93       	push	r28
+   2:	df 93       	push	r29
+   4:	0f 92       	push	r0
+   6:	0f 92       	push	r0
+   8:	cd b7       	in	r28, 0x3d	; 61
+   a:	de b7       	in	r29, 0x3e	; 62
+  int free_memory;
+
+  if((int)__brkval == 0)
+   c:	80 91 00 00 	lds	r24, 0x0000
+  10:	90 91 00 00 	lds	r25, 0x0000
+  14:	9e 01       	movw	r18, r28
+  16:	2f 5f       	subi	r18, 0xFF	; 255
+  18:	3f 4f       	sbci	r19, 0xFF	; 255
+  1a:	00 97       	sbiw	r24, 0x00	; 0
+  1c:	01 f4       	brne	.+0      	; 0x1e <freeRamMemory+0x1e>
+     free_memory = ((int)&free_memory) - ((int)&__bss_end);
+  1e:	20 50       	subi	r18, 0x00	; 0
+  20:	30 40       	sbci	r19, 0x00	; 0
+  22:	00 c0       	rjmp	.+0      	; 0x24 <freeRamMemory+0x24>
+  else
+    free_memory = ((int)&free_memory) - ((int)__brkval);
+  24:	28 1b       	sub	r18, r24
+  26:	39 0b       	sbc	r19, r25
+  28:	3a 83       	std	Y+2, r19	; 0x02
+  2a:	29 83       	std	Y+1, r18	; 0x01
+
+  return free_memory;
+}
+  2c:	89 81       	ldd	r24, Y+1	; 0x01
+  2e:	9a 81       	ldd	r25, Y+2	; 0x02
+  30:	0f 90       	pop	r0
+  32:	0f 90       	pop	r0
+  34:	df 91       	pop	r29
+  36:	cf 91       	pop	r28
+  38:	08 95       	ret
+
+PinHighLowRunnable.o:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  00000000  00000000  00000034  2**0
+                  ALLOC
+  3 .stab         00000804  00000000  00000000  00000034  2**2
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  4 .stabstr      000038d3  00000000  00000000  00000838  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .text._ZThn2_N18PinHighLowRunnable6getPinEv 00000008  00000000  00000000  0000410b  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  6 .text._ZN18PinHighLowRunnable6getPinEv 00000006  00000000  00000000  00004113  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  7 .text._ZN18PinHighLowRunnable3runEv 000000ac  00000000  00000000  00004119  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  8 .text._ZThn2_N18PinHighLowRunnable6setPinEh 00000008  00000000  00000000  000041c5  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  9 .text._ZN18PinHighLowRunnable6setPinEh 0000006c  00000000  00000000  000041cd  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 10 .text._ZN18PinHighLowRunnableC2Ehb 0000006c  00000000  00000000  00004239  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 11 .rodata._ZTV18PinHighLowRunnable 00000012  00000000  00000000  000042a5  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+ 12 .rodata._ZTV8Runnable 00000006  00000000  00000000  000042b7  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+ 13 .rodata._ZTV15PinGetterSetter 00000008  00000000  00000000  000042bd  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+ 14 .progmem.data 000000ab  00000000  00000000  000042c5  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+
+Disassembly of section .text._ZThn2_N18PinHighLowRunnable6getPinEv:
+
+00000000 <_ZThn2_N18PinHighLowRunnable6getPinEv>:
+
+//const PROGMEM prog_char PinHighLowRunnable::className[] = "PinHighLowRunnable";
+
+// =================================================
+
+PinHighLowRunnable::PinHighLowRunnable( unsigned char _pin , bool isStartStateHigh ) : dp( PSTR( "PinHighLowRunnable" ) )//: p(_p)
+   0:	02 97       	sbiw	r24, 0x02	; 2
+   2:	0e 94 00 00 	call	0	; 0x0 <_ZThn2_N18PinHighLowRunnable6getPinEv>
+   6:	08 95       	ret
+
+Disassembly of section .text._ZN18PinHighLowRunnable6getPinEv:
+
+00000000 <_ZN18PinHighLowRunnable6getPinEv>:
+   0:	fc 01       	movw	r30, r24
+   2:	87 81       	ldd	r24, Z+7	; 0x07
+   4:	08 95       	ret
+
+Disassembly of section .text._ZN18PinHighLowRunnable3runEv:
+
+00000000 <_ZN18PinHighLowRunnable3runEv>:
+   0:	cf 93       	push	r28
+   2:	df 93       	push	r29
+   4:	ec 01       	movw	r28, r24
+   6:	8e 81       	ldd	r24, Y+6	; 0x06
+   8:	8b 30       	cpi	r24, 0x0B	; 11
+   a:	00 f4       	brcc	.+0      	; 0xc <_ZN18PinHighLowRunnable3runEv+0xc>
+   c:	ce 01       	movw	r24, r28
+   e:	04 96       	adiw	r24, 0x04	; 4
+  10:	60 e0       	ldi	r22, 0x00	; 0
+  12:	70 e0       	ldi	r23, 0x00	; 0
+  14:	40 e0       	ldi	r20, 0x00	; 0
+  16:	50 e0       	ldi	r21, 0x00	; 0
+  18:	0e 94 00 00 	call	0	; 0x0 <_ZN18PinHighLowRunnable3runEv>
+  1c:	28 85       	ldd	r18, Y+8	; 0x08
+  1e:	39 85       	ldd	r19, Y+9	; 0x09
+  20:	8d b7       	in	r24, 0x3d	; 61
+  22:	9e b7       	in	r25, 0x3e	; 62
+  24:	08 97       	sbiw	r24, 0x08	; 8
+  26:	0f b6       	in	r0, 0x3f	; 63
+  28:	f8 94       	cli
+  2a:	9e bf       	out	0x3e, r25	; 62
+  2c:	0f be       	out	0x3f, r0	; 63
+  2e:	8d bf       	out	0x3d, r24	; 61
+  30:	ed b7       	in	r30, 0x3d	; 61
+{
+	pin = _pin;
+  32:	fe b7       	in	r31, 0x3e	; 62
+  34:	31 96       	adiw	r30, 0x01	; 1
+
+	if( isStartStateHigh )
+  36:	80 e0       	ldi	r24, 0x00	; 0
+  38:	90 e0       	ldi	r25, 0x00	; 0
+  3a:	ad b7       	in	r26, 0x3d	; 61
+		state = HIGH;
+  3c:	be b7       	in	r27, 0x3e	; 62
+  3e:	12 96       	adiw	r26, 0x02	; 2
+  40:	9c 93       	st	X, r25
+  42:	8e 93       	st	-X, r24
+  44:	11 97       	sbiw	r26, 0x01	; 1
+	else
+		state = LOW;
+  46:	8f 81       	ldd	r24, Y+7	; 0x07
+  48:	82 83       	std	Z+2, r24	; 0x02
+  4a:	13 82       	std	Z+3, r1	; 0x03
+
+	pinMode( pin , OUTPUT );
+  4c:	35 83       	std	Z+5, r19	; 0x05
+  4e:	24 83       	std	Z+4, r18	; 0x04
+  50:	81 e0       	ldi	r24, 0x01	; 1
+  52:	90 e0       	ldi	r25, 0x00	; 0
+	digitalWrite( pin , state );
+  54:	21 15       	cp	r18, r1
+  56:	31 05       	cpc	r19, r1
+  58:	01 f0       	breq	.+0      	; 0x5a <_ZN18PinHighLowRunnable3runEv+0x5a>
+  5a:	80 e0       	ldi	r24, 0x00	; 0
+  5c:	90 e0       	ldi	r25, 0x00	; 0
+}
+  5e:	97 83       	std	Z+7, r25	; 0x07
+  60:	86 83       	std	Z+6, r24	; 0x06
+  62:	0e 94 00 00 	call	0	; 0x0 <_ZN18PinHighLowRunnable3runEv>
+  66:	ed b7       	in	r30, 0x3d	; 61
+  68:	fe b7       	in	r31, 0x3e	; 62
+  6a:	36 96       	adiw	r30, 0x06	; 6
+  6c:	0f b6       	in	r0, 0x3f	; 63
+  6e:	f8 94       	cli
+  70:	fe bf       	out	0x3e, r31	; 62
+  72:	0f be       	out	0x3f, r0	; 63
+  74:	ed bf       	out	0x3d, r30	; 61
+  76:	80 e0       	ldi	r24, 0x00	; 0
+  78:	90 e0       	ldi	r25, 0x00	; 0
+  7a:	92 83       	std	Z+2, r25	; 0x02
+  7c:	81 83       	std	Z+1, r24	; 0x01
+  7e:	0e 94 00 00 	call	0	; 0x0 <_ZN18PinHighLowRunnable3runEv>
+  82:	0f 90       	pop	r0
+  84:	0f 90       	pop	r0
+  86:	88 85       	ldd	r24, Y+8	; 0x08
+  88:	99 85       	ldd	r25, Y+9	; 0x09
+  8a:	81 30       	cpi	r24, 0x01	; 1
+  8c:	91 05       	cpc	r25, r1
+  8e:	01 f4       	brne	.+0      	; 0x90 <_ZN18PinHighLowRunnable3runEv+0x90>
+  90:	19 86       	std	Y+9, r1	; 0x09
+  92:	18 86       	std	Y+8, r1	; 0x08
+  94:	00 c0       	rjmp	.+0      	; 0x96 <_ZN18PinHighLowRunnable3runEv+0x96>
+  96:	81 e0       	ldi	r24, 0x01	; 1
+  98:	90 e0       	ldi	r25, 0x00	; 0
+  9a:	99 87       	std	Y+9, r25	; 0x09
+  9c:	88 87       	std	Y+8, r24	; 0x08
+  9e:	8f 81       	ldd	r24, Y+7	; 0x07
+  a0:	68 85       	ldd	r22, Y+8	; 0x08
+  a2:	0e 94 00 00 	call	0	; 0x0 <_ZN18PinHighLowRunnable3runEv>
+  a6:	df 91       	pop	r29
+  a8:	cf 91       	pop	r28
+  aa:	08 95       	ret
+
+Disassembly of section .text._ZThn2_N18PinHighLowRunnable6setPinEh:
+
+00000000 <_ZThn2_N18PinHighLowRunnable6setPinEh>:
+
+//const PROGMEM prog_char PinHighLowRunnable::className[] = "PinHighLowRunnable";
+
+// =================================================
+
+PinHighLowRunnable::PinHighLowRunnable( unsigned char _pin , bool isStartStateHigh ) : dp( PSTR( "PinHighLowRunnable" ) )//: p(_p)
+   0:	02 97       	sbiw	r24, 0x02	; 2
+   2:	0e 94 00 00 	call	0	; 0x0 <_ZThn2_N18PinHighLowRunnable6setPinEh>
+   6:	08 95       	ret
+
+Disassembly of section .text._ZN18PinHighLowRunnable6setPinEh:
+
+00000000 <_ZN18PinHighLowRunnable6setPinEh>:
+   0:	1f 93       	push	r17
+   2:	cf 93       	push	r28
+   4:	df 93       	push	r29
+   6:	ec 01       	movw	r28, r24
+   8:	16 2f       	mov	r17, r22
+   a:	8e 81       	ldd	r24, Y+6	; 0x06
+   c:	8f 31       	cpi	r24, 0x1F	; 31
+   e:	00 f4       	brcc	.+0      	; 0x10 <_ZN18PinHighLowRunnable6setPinEh+0x10>
+  10:	ce 01       	movw	r24, r28
+  12:	04 96       	adiw	r24, 0x04	; 4
+  14:	60 e0       	ldi	r22, 0x00	; 0
+  16:	70 e0       	ldi	r23, 0x00	; 0
+  18:	40 e0       	ldi	r20, 0x00	; 0
+  1a:	50 e0       	ldi	r21, 0x00	; 0
+  1c:	0e 94 00 00 	call	0	; 0x0 <_ZN18PinHighLowRunnable6setPinEh>
+  20:	00 d0       	rcall	.+0      	; 0x22 <_ZN18PinHighLowRunnable6setPinEh+0x22>
+  22:	00 d0       	rcall	.+0      	; 0x24 <_ZN18PinHighLowRunnable6setPinEh+0x24>
+  24:	ed b7       	in	r30, 0x3d	; 61
+  26:	fe b7       	in	r31, 0x3e	; 62
+  28:	31 96       	adiw	r30, 0x01	; 1
+  2a:	80 e0       	ldi	r24, 0x00	; 0
+  2c:	90 e0       	ldi	r25, 0x00	; 0
+  2e:	ad b7       	in	r26, 0x3d	; 61
+  30:	be b7       	in	r27, 0x3e	; 62
+{
+	pin = _pin;
+  32:	12 96       	adiw	r26, 0x02	; 2
+  34:	9c 93       	st	X, r25
+
+	if( isStartStateHigh )
+  36:	8e 93       	st	-X, r24
+  38:	11 97       	sbiw	r26, 0x01	; 1
+  3a:	8f 81       	ldd	r24, Y+7	; 0x07
+		state = HIGH;
+  3c:	82 83       	std	Z+2, r24	; 0x02
+  3e:	13 82       	std	Z+3, r1	; 0x03
+  40:	14 83       	std	Z+4, r17	; 0x04
+  42:	15 82       	std	Z+5, r1	; 0x05
+  44:	0e 94 00 00 	call	0	; 0x0 <_ZN18PinHighLowRunnable6setPinEh>
+	else
+		state = LOW;
+  48:	0f 90       	pop	r0
+  4a:	0f 90       	pop	r0
+
+	pinMode( pin , OUTPUT );
+  4c:	0f 90       	pop	r0
+  4e:	0f 90       	pop	r0
+  50:	80 e0       	ldi	r24, 0x00	; 0
+  52:	90 e0       	ldi	r25, 0x00	; 0
+	digitalWrite( pin , state );
+  54:	ed b7       	in	r30, 0x3d	; 61
+  56:	fe b7       	in	r31, 0x3e	; 62
+  58:	92 83       	std	Z+2, r25	; 0x02
+  5a:	81 83       	std	Z+1, r24	; 0x01
+  5c:	0e 94 00 00 	call	0	; 0x0 <_ZN18PinHighLowRunnable6setPinEh>
+}
+  60:	0f 90       	pop	r0
+  62:	0f 90       	pop	r0
+  64:	df 91       	pop	r29
+  66:	cf 91       	pop	r28
+  68:	1f 91       	pop	r17
+  6a:	08 95       	ret
+
+Disassembly of section .text._ZN18PinHighLowRunnableC2Ehb:
+
+00000000 <_ZN18PinHighLowRunnableC1Ehb>:
+
+//const PROGMEM prog_char PinHighLowRunnable::className[] = "PinHighLowRunnable";
+
+// =================================================
+
+PinHighLowRunnable::PinHighLowRunnable( unsigned char _pin , bool isStartStateHigh ) : dp( PSTR( "PinHighLowRunnable" ) )//: p(_p)
+   0:	ef 92       	push	r14
+   2:	ff 92       	push	r15
+   4:	1f 93       	push	r17
+   6:	cf 93       	push	r28
+   8:	df 93       	push	r29
+   a:	0f 92       	push	r0
+   c:	cd b7       	in	r28, 0x3d	; 61
+   e:	de b7       	in	r29, 0x3e	; 62
+  10:	7c 01       	movw	r14, r24
+  12:	16 2f       	mov	r17, r22
+  14:	80 e0       	ldi	r24, 0x00	; 0
+  16:	90 e0       	ldi	r25, 0x00	; 0
+  18:	f7 01       	movw	r30, r14
+  1a:	91 83       	std	Z+1, r25	; 0x01
+  1c:	80 83       	st	Z, r24
+  1e:	0a 96       	adiw	r24, 0x0a	; 10
+  20:	93 83       	std	Z+3, r25	; 0x03
+  22:	82 83       	std	Z+2, r24	; 0x02
+  24:	c7 01       	movw	r24, r14
+  26:	04 96       	adiw	r24, 0x04	; 4
+  28:	60 e0       	ldi	r22, 0x00	; 0
+  2a:	70 e0       	ldi	r23, 0x00	; 0
+  2c:	49 83       	std	Y+1, r20	; 0x01
+  2e:	0e 94 00 00 	call	0	; 0x0 <_ZN18PinHighLowRunnableC1Ehb>
+{
+	pin = _pin;
+  32:	f7 01       	movw	r30, r14
+  34:	17 83       	std	Z+7, r17	; 0x07
+
+	if( isStartStateHigh )
+  36:	49 81       	ldd	r20, Y+1	; 0x01
+  38:	44 23       	and	r20, r20
+  3a:	01 f0       	breq	.+0      	; 0x3c <_ZN18PinHighLowRunnableC1Ehb+0x3c>
+		state = HIGH;
+  3c:	81 e0       	ldi	r24, 0x01	; 1
+  3e:	90 e0       	ldi	r25, 0x00	; 0
+  40:	91 87       	std	Z+9, r25	; 0x09
+  42:	80 87       	std	Z+8, r24	; 0x08
+  44:	00 c0       	rjmp	.+0      	; 0x46 <_ZN18PinHighLowRunnableC1Ehb+0x46>
+	else
+		state = LOW;
+  46:	f7 01       	movw	r30, r14
+  48:	11 86       	std	Z+9, r1	; 0x09
+  4a:	10 86       	std	Z+8, r1	; 0x08
+
+	pinMode( pin , OUTPUT );
+  4c:	81 2f       	mov	r24, r17
+  4e:	61 e0       	ldi	r22, 0x01	; 1
+  50:	0e 94 00 00 	call	0	; 0x0 <_ZN18PinHighLowRunnableC1Ehb>
+	digitalWrite( pin , state );
+  54:	f7 01       	movw	r30, r14
+  56:	87 81       	ldd	r24, Z+7	; 0x07
+  58:	60 85       	ldd	r22, Z+8	; 0x08
+  5a:	0e 94 00 00 	call	0	; 0x0 <_ZN18PinHighLowRunnableC1Ehb>
+}
+  5e:	0f 90       	pop	r0
+  60:	df 91       	pop	r29
+  62:	cf 91       	pop	r28
+  64:	1f 91       	pop	r17
+  66:	ff 90       	pop	r15
+  68:	ef 90       	pop	r14
+  6a:	08 95       	ret
+
+StreamConsolePrinter.o:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  00000000  00000000  00000034  2**0
+                  ALLOC
+  3 .stab         00000a5c  00000000  00000000  00000034  2**2
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  4 .stabstr      00003998  00000000  00000000  00000a90  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .text._ZN20StreamConsolePrinter9availableEv 0000007e  00000000  00000000  00004428  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  6 .text._ZN20StreamConsolePrinter5writeEh 0000009c  00000000  00000000  000044a6  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  7 .text._ZN20StreamConsolePrinter5flushEv 00000060  00000000  00000000  00004542  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  8 .text._ZN20StreamConsolePrinter4peekEv 0000008e  00000000  00000000  000045a2  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  9 .text._ZN20StreamConsolePrinter4readEv 0000008e  00000000  00000000  00004630  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 10 .text._ZN20StreamConsolePrinterC2Ev 0000003a  00000000  00000000  000046be  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 11 .text._ZN20StreamConsolePrinterC2EP6Stream 00000044  00000000  00000000  000046f8  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 12 .text._ZN20StreamConsolePrinter9setStreamEP6Stream 00000008  00000000  00000000  0000473c  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 13 .rodata._ZTV20StreamConsolePrinter 00000010  00000000  00000000  00004744  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+ 14 .rodata._ZTV6Stream 00000010  00000000  00000000  00004754  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+ 15 .progmem.data 00000078  00000000  00000000  00004764  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+
+Disassembly of section .text._ZN20StreamConsolePrinter9availableEv:
+
+00000000 <_ZN20StreamConsolePrinter9availableEv>:
+
+// =================================================
+
+void StreamConsolePrinter::setStream( Stream* _underlyingStream )
+{
+	underlyingStream = _underlyingStream;
+   0:	0f 93       	push	r16
+   2:	1f 93       	push	r17
+   4:	cf 93       	push	r28
+}
+   6:	df 93       	push	r29
+   8:	ec 01       	movw	r28, r24
+   a:	8c 85       	ldd	r24, Y+12	; 0x0c
+   c:	9d 85       	ldd	r25, Y+13	; 0x0d
+   e:	dc 01       	movw	r26, r24
+  10:	ed 91       	ld	r30, X+
+  12:	fc 91       	ld	r31, X
+  14:	04 80       	ldd	r0, Z+4	; 0x04
+  16:	f5 81       	ldd	r31, Z+5	; 0x05
+  18:	e0 2d       	mov	r30, r0
+  1a:	19 95       	eicall
+  1c:	18 2f       	mov	r17, r24
+  1e:	09 2f       	mov	r16, r25
+  20:	88 89       	ldd	r24, Y+16	; 0x10
+  22:	8b 30       	cpi	r24, 0x0B	; 11
+  24:	00 f4       	brcc	.+0      	; 0x26 <_ZN20StreamConsolePrinter9availableEv+0x26>
+  26:	ce 01       	movw	r24, r28
+  28:	0e 96       	adiw	r24, 0x0e	; 14
+  2a:	60 e0       	ldi	r22, 0x00	; 0
+  2c:	70 e0       	ldi	r23, 0x00	; 0
+  2e:	40 e0       	ldi	r20, 0x00	; 0
+  30:	50 e0       	ldi	r21, 0x00	; 0
+  32:	0e 94 00 00 	call	0	; 0x0 <_ZN20StreamConsolePrinter9availableEv>
+  36:	00 d0       	rcall	.+0      	; 0x38 <_ZN20StreamConsolePrinter9availableEv+0x38>
+  38:	0f 92       	push	r0
+  3a:	ed b7       	in	r30, 0x3d	; 61
+  3c:	fe b7       	in	r31, 0x3e	; 62
+  3e:	31 96       	adiw	r30, 0x01	; 1
+  40:	80 e0       	ldi	r24, 0x00	; 0
+  42:	90 e0       	ldi	r25, 0x00	; 0
+  44:	ad b7       	in	r26, 0x3d	; 61
+  46:	be b7       	in	r27, 0x3e	; 62
+  48:	12 96       	adiw	r26, 0x02	; 2
+  4a:	9c 93       	st	X, r25
+  4c:	8e 93       	st	-X, r24
+  4e:	11 97       	sbiw	r26, 0x01	; 1
+  50:	12 83       	std	Z+2, r17	; 0x02
+  52:	03 83       	std	Z+3, r16	; 0x03
+  54:	0e 94 00 00 	call	0	; 0x0 <_ZN20StreamConsolePrinter9availableEv>
+  58:	0f 90       	pop	r0
+  5a:	0f 90       	pop	r0
+  5c:	80 e0       	ldi	r24, 0x00	; 0
+  5e:	90 e0       	ldi	r25, 0x00	; 0
+  60:	ed b7       	in	r30, 0x3d	; 61
+  62:	fe b7       	in	r31, 0x3e	; 62
+  64:	92 83       	std	Z+2, r25	; 0x02
+  66:	81 83       	std	Z+1, r24	; 0x01
+  68:	0e 94 00 00 	call	0	; 0x0 <_ZN20StreamConsolePrinter9availableEv>
+  6c:	0f 90       	pop	r0
+  6e:	0f 90       	pop	r0
+  70:	81 2f       	mov	r24, r17
+  72:	90 2f       	mov	r25, r16
+  74:	df 91       	pop	r29
+  76:	cf 91       	pop	r28
+  78:	1f 91       	pop	r17
+  7a:	0f 91       	pop	r16
+  7c:	08 95       	ret
+
+Disassembly of section .text._ZN20StreamConsolePrinter5writeEh:
+
+00000000 <_ZN20StreamConsolePrinter5writeEh>:
+
+// =================================================
+
+void StreamConsolePrinter::setStream( Stream* _underlyingStream )
+{
+	underlyingStream = _underlyingStream;
+   0:	ff 92       	push	r15
+   2:	0f 93       	push	r16
+   4:	1f 93       	push	r17
+}
+   6:	cf 93       	push	r28
+   8:	df 93       	push	r29
+   a:	ec 01       	movw	r28, r24
+   c:	f6 2e       	mov	r15, r22
+   e:	8c 85       	ldd	r24, Y+12	; 0x0c
+  10:	9d 85       	ldd	r25, Y+13	; 0x0d
+  12:	dc 01       	movw	r26, r24
+  14:	ed 91       	ld	r30, X+
+  16:	fc 91       	ld	r31, X
+  18:	01 90       	ld	r0, Z+
+  1a:	f0 81       	ld	r31, Z
+  1c:	e0 2d       	mov	r30, r0
+  1e:	19 95       	eicall
+  20:	18 2f       	mov	r17, r24
+  22:	09 2f       	mov	r16, r25
+  24:	88 89       	ldd	r24, Y+16	; 0x10
+  26:	8b 30       	cpi	r24, 0x0B	; 11
+  28:	00 f4       	brcc	.+0      	; 0x2a <_ZN20StreamConsolePrinter5writeEh+0x2a>
+  2a:	ce 01       	movw	r24, r28
+  2c:	0e 96       	adiw	r24, 0x0e	; 14
+  2e:	60 e0       	ldi	r22, 0x00	; 0
+  30:	70 e0       	ldi	r23, 0x00	; 0
+  32:	40 e0       	ldi	r20, 0x00	; 0
+  34:	50 e0       	ldi	r21, 0x00	; 0
+  36:	0e 94 00 00 	call	0	; 0x0 <_ZN20StreamConsolePrinter5writeEh>
+  3a:	ed b7       	in	r30, 0x3d	; 61
+  3c:	fe b7       	in	r31, 0x3e	; 62
+  3e:	38 97       	sbiw	r30, 0x08	; 8
+  40:	0f b6       	in	r0, 0x3f	; 63
+  42:	f8 94       	cli
+  44:	fe bf       	out	0x3e, r31	; 62
+  46:	0f be       	out	0x3f, r0	; 63
+  48:	ed bf       	out	0x3d, r30	; 61
+  4a:	31 96       	adiw	r30, 0x01	; 1
+  4c:	80 e0       	ldi	r24, 0x00	; 0
+  4e:	90 e0       	ldi	r25, 0x00	; 0
+  50:	ad b7       	in	r26, 0x3d	; 61
+  52:	be b7       	in	r27, 0x3e	; 62
+  54:	12 96       	adiw	r26, 0x02	; 2
+  56:	9c 93       	st	X, r25
+  58:	8e 93       	st	-X, r24
+  5a:	11 97       	sbiw	r26, 0x01	; 1
+  5c:	f2 82       	std	Z+2, r15	; 0x02
+  5e:	13 82       	std	Z+3, r1	; 0x03
+  60:	f4 82       	std	Z+4, r15	; 0x04
+  62:	15 82       	std	Z+5, r1	; 0x05
+  64:	16 83       	std	Z+6, r17	; 0x06
+  66:	07 83       	std	Z+7, r16	; 0x07
+  68:	0e 94 00 00 	call	0	; 0x0 <_ZN20StreamConsolePrinter5writeEh>
+  6c:	ed b7       	in	r30, 0x3d	; 61
+  6e:	fe b7       	in	r31, 0x3e	; 62
+  70:	36 96       	adiw	r30, 0x06	; 6
+  72:	0f b6       	in	r0, 0x3f	; 63
+  74:	f8 94       	cli
+  76:	fe bf       	out	0x3e, r31	; 62
+  78:	0f be       	out	0x3f, r0	; 63
+  7a:	ed bf       	out	0x3d, r30	; 61
+  7c:	80 e0       	ldi	r24, 0x00	; 0
+  7e:	90 e0       	ldi	r25, 0x00	; 0
+  80:	92 83       	std	Z+2, r25	; 0x02
+  82:	81 83       	std	Z+1, r24	; 0x01
+  84:	0e 94 00 00 	call	0	; 0x0 <_ZN20StreamConsolePrinter5writeEh>
+  88:	0f 90       	pop	r0
+  8a:	0f 90       	pop	r0
+  8c:	81 2f       	mov	r24, r17
+  8e:	90 2f       	mov	r25, r16
+  90:	df 91       	pop	r29
+  92:	cf 91       	pop	r28
+  94:	1f 91       	pop	r17
+  96:	0f 91       	pop	r16
+  98:	ff 90       	pop	r15
+  9a:	08 95       	ret
+
+Disassembly of section .text._ZN20StreamConsolePrinter5flushEv:
+
+00000000 <_ZN20StreamConsolePrinter5flushEv>:
+
+// =================================================
+
+void StreamConsolePrinter::setStream( Stream* _underlyingStream )
+{
+	underlyingStream = _underlyingStream;
+   0:	cf 93       	push	r28
+   2:	df 93       	push	r29
+   4:	ec 01       	movw	r28, r24
+}
+   6:	88 89       	ldd	r24, Y+16	; 0x10
+   8:	8b 30       	cpi	r24, 0x0B	; 11
+   a:	00 f4       	brcc	.+0      	; 0xc <_ZN20StreamConsolePrinter5flushEv+0xc>
+   c:	ce 01       	movw	r24, r28
+   e:	0e 96       	adiw	r24, 0x0e	; 14
+  10:	60 e0       	ldi	r22, 0x00	; 0
+  12:	70 e0       	ldi	r23, 0x00	; 0
+  14:	40 e0       	ldi	r20, 0x00	; 0
+  16:	50 e0       	ldi	r21, 0x00	; 0
+  18:	0e 94 00 00 	call	0	; 0x0 <_ZN20StreamConsolePrinter5flushEv>
+  1c:	0f 92       	push	r0
+  1e:	0f 92       	push	r0
+  20:	80 e0       	ldi	r24, 0x00	; 0
+  22:	90 e0       	ldi	r25, 0x00	; 0
+  24:	ad b7       	in	r26, 0x3d	; 61
+  26:	be b7       	in	r27, 0x3e	; 62
+  28:	12 96       	adiw	r26, 0x02	; 2
+  2a:	9c 93       	st	X, r25
+  2c:	8e 93       	st	-X, r24
+  2e:	11 97       	sbiw	r26, 0x01	; 1
+  30:	0e 94 00 00 	call	0	; 0x0 <_ZN20StreamConsolePrinter5flushEv>
+  34:	80 e0       	ldi	r24, 0x00	; 0
+  36:	90 e0       	ldi	r25, 0x00	; 0
+  38:	ed b7       	in	r30, 0x3d	; 61
+  3a:	fe b7       	in	r31, 0x3e	; 62
+  3c:	92 83       	std	Z+2, r25	; 0x02
+  3e:	81 83       	std	Z+1, r24	; 0x01
+  40:	0e 94 00 00 	call	0	; 0x0 <_ZN20StreamConsolePrinter5flushEv>
+  44:	0f 90       	pop	r0
+  46:	0f 90       	pop	r0
+  48:	8c 85       	ldd	r24, Y+12	; 0x0c
+  4a:	9d 85       	ldd	r25, Y+13	; 0x0d
+  4c:	dc 01       	movw	r26, r24
+  4e:	ed 91       	ld	r30, X+
+  50:	fc 91       	ld	r31, X
+  52:	02 84       	ldd	r0, Z+10	; 0x0a
+  54:	f3 85       	ldd	r31, Z+11	; 0x0b
+  56:	e0 2d       	mov	r30, r0
+  58:	19 95       	eicall
+  5a:	df 91       	pop	r29
+  5c:	cf 91       	pop	r28
+  5e:	08 95       	ret
+
+Disassembly of section .text._ZN20StreamConsolePrinter4peekEv:
+
+00000000 <_ZN20StreamConsolePrinter4peekEv>:
+
+// =================================================
+
+void StreamConsolePrinter::setStream( Stream* _underlyingStream )
+{
+	underlyingStream = _underlyingStream;
+   0:	0f 93       	push	r16
+   2:	1f 93       	push	r17
+   4:	cf 93       	push	r28
+}
+   6:	df 93       	push	r29
+   8:	8c 01       	movw	r16, r24
+   a:	dc 01       	movw	r26, r24
+   c:	1c 96       	adiw	r26, 0x0c	; 12
+   e:	8d 91       	ld	r24, X+
+  10:	9c 91       	ld	r25, X
+  12:	1d 97       	sbiw	r26, 0x0d	; 13
+  14:	dc 01       	movw	r26, r24
+  16:	ed 91       	ld	r30, X+
+  18:	fc 91       	ld	r31, X
+  1a:	00 84       	ldd	r0, Z+8	; 0x08
+  1c:	f1 85       	ldd	r31, Z+9	; 0x09
+  1e:	e0 2d       	mov	r30, r0
+  20:	19 95       	eicall
+  22:	d8 2f       	mov	r29, r24
+  24:	c9 2f       	mov	r28, r25
+  26:	f8 01       	movw	r30, r16
+  28:	80 89       	ldd	r24, Z+16	; 0x10
+  2a:	8b 30       	cpi	r24, 0x0B	; 11
+  2c:	00 f4       	brcc	.+0      	; 0x2e <_ZN20StreamConsolePrinter4peekEv+0x2e>
+  2e:	c8 01       	movw	r24, r16
+  30:	0e 96       	adiw	r24, 0x0e	; 14
+  32:	60 e0       	ldi	r22, 0x00	; 0
+  34:	70 e0       	ldi	r23, 0x00	; 0
+  36:	40 e0       	ldi	r20, 0x00	; 0
+  38:	50 e0       	ldi	r21, 0x00	; 0
+  3a:	0e 94 00 00 	call	0	; 0x0 <_ZN20StreamConsolePrinter4peekEv>
+  3e:	00 d0       	rcall	.+0      	; 0x40 <_ZN20StreamConsolePrinter4peekEv+0x40>
+  40:	00 d0       	rcall	.+0      	; 0x42 <_ZN20StreamConsolePrinter4peekEv+0x42>
+  42:	ed b7       	in	r30, 0x3d	; 61
+  44:	fe b7       	in	r31, 0x3e	; 62
+  46:	31 96       	adiw	r30, 0x01	; 1
+  48:	80 e0       	ldi	r24, 0x00	; 0
+  4a:	90 e0       	ldi	r25, 0x00	; 0
+  4c:	ad b7       	in	r26, 0x3d	; 61
+  4e:	be b7       	in	r27, 0x3e	; 62
+  50:	12 96       	adiw	r26, 0x02	; 2
+  52:	9c 93       	st	X, r25
+  54:	8e 93       	st	-X, r24
+  56:	11 97       	sbiw	r26, 0x01	; 1
+  58:	d2 83       	std	Z+2, r29	; 0x02
+  5a:	c3 83       	std	Z+3, r28	; 0x03
+  5c:	d4 83       	std	Z+4, r29	; 0x04
+  5e:	c5 83       	std	Z+5, r28	; 0x05
+  60:	0e 94 00 00 	call	0	; 0x0 <_ZN20StreamConsolePrinter4peekEv>
+  64:	0f 90       	pop	r0
+  66:	0f 90       	pop	r0
+  68:	0f 90       	pop	r0
+  6a:	0f 90       	pop	r0
+  6c:	80 e0       	ldi	r24, 0x00	; 0
+  6e:	90 e0       	ldi	r25, 0x00	; 0
+  70:	ed b7       	in	r30, 0x3d	; 61
+  72:	fe b7       	in	r31, 0x3e	; 62
+  74:	92 83       	std	Z+2, r25	; 0x02
+  76:	81 83       	std	Z+1, r24	; 0x01
+  78:	0e 94 00 00 	call	0	; 0x0 <_ZN20StreamConsolePrinter4peekEv>
+  7c:	0f 90       	pop	r0
+  7e:	0f 90       	pop	r0
+  80:	8d 2f       	mov	r24, r29
+  82:	9c 2f       	mov	r25, r28
+  84:	df 91       	pop	r29
+  86:	cf 91       	pop	r28
+  88:	1f 91       	pop	r17
+  8a:	0f 91       	pop	r16
+  8c:	08 95       	ret
+
+Disassembly of section .text._ZN20StreamConsolePrinter4readEv:
+
+00000000 <_ZN20StreamConsolePrinter4readEv>:
+
+// =================================================
+
+void StreamConsolePrinter::setStream( Stream* _underlyingStream )
+{
+	underlyingStream = _underlyingStream;
+   0:	0f 93       	push	r16
+   2:	1f 93       	push	r17
+   4:	cf 93       	push	r28
+}
+   6:	df 93       	push	r29
+   8:	8c 01       	movw	r16, r24
+   a:	dc 01       	movw	r26, r24
+   c:	1c 96       	adiw	r26, 0x0c	; 12
+   e:	8d 91       	ld	r24, X+
+  10:	9c 91       	ld	r25, X
+  12:	1d 97       	sbiw	r26, 0x0d	; 13
+  14:	dc 01       	movw	r26, r24
+  16:	ed 91       	ld	r30, X+
+  18:	fc 91       	ld	r31, X
+  1a:	06 80       	ldd	r0, Z+6	; 0x06
+  1c:	f7 81       	ldd	r31, Z+7	; 0x07
+  1e:	e0 2d       	mov	r30, r0
+  20:	19 95       	eicall
+  22:	d8 2f       	mov	r29, r24
+  24:	c9 2f       	mov	r28, r25
+  26:	f8 01       	movw	r30, r16
+  28:	80 89       	ldd	r24, Z+16	; 0x10
+  2a:	8b 30       	cpi	r24, 0x0B	; 11
+  2c:	00 f4       	brcc	.+0      	; 0x2e <_ZN20StreamConsolePrinter4readEv+0x2e>
+  2e:	c8 01       	movw	r24, r16
+  30:	0e 96       	adiw	r24, 0x0e	; 14
+  32:	60 e0       	ldi	r22, 0x00	; 0
+  34:	70 e0       	ldi	r23, 0x00	; 0
+  36:	40 e0       	ldi	r20, 0x00	; 0
+  38:	50 e0       	ldi	r21, 0x00	; 0
+  3a:	0e 94 00 00 	call	0	; 0x0 <_ZN20StreamConsolePrinter4readEv>
+  3e:	00 d0       	rcall	.+0      	; 0x40 <_ZN20StreamConsolePrinter4readEv+0x40>
+  40:	00 d0       	rcall	.+0      	; 0x42 <_ZN20StreamConsolePrinter4readEv+0x42>
+  42:	ed b7       	in	r30, 0x3d	; 61
+  44:	fe b7       	in	r31, 0x3e	; 62
+  46:	31 96       	adiw	r30, 0x01	; 1
+  48:	80 e0       	ldi	r24, 0x00	; 0
+  4a:	90 e0       	ldi	r25, 0x00	; 0
+  4c:	ad b7       	in	r26, 0x3d	; 61
+  4e:	be b7       	in	r27, 0x3e	; 62
+  50:	12 96       	adiw	r26, 0x02	; 2
+  52:	9c 93       	st	X, r25
+  54:	8e 93       	st	-X, r24
+  56:	11 97       	sbiw	r26, 0x01	; 1
+  58:	d2 83       	std	Z+2, r29	; 0x02
+  5a:	c3 83       	std	Z+3, r28	; 0x03
+  5c:	d4 83       	std	Z+4, r29	; 0x04
+  5e:	c5 83       	std	Z+5, r28	; 0x05
+  60:	0e 94 00 00 	call	0	; 0x0 <_ZN20StreamConsolePrinter4readEv>
+  64:	0f 90       	pop	r0
+  66:	0f 90       	pop	r0
+  68:	0f 90       	pop	r0
+  6a:	0f 90       	pop	r0
+  6c:	80 e0       	ldi	r24, 0x00	; 0
+  6e:	90 e0       	ldi	r25, 0x00	; 0
+  70:	ed b7       	in	r30, 0x3d	; 61
+  72:	fe b7       	in	r31, 0x3e	; 62
+  74:	92 83       	std	Z+2, r25	; 0x02
+  76:	81 83       	std	Z+1, r24	; 0x01
+  78:	0e 94 00 00 	call	0	; 0x0 <_ZN20StreamConsolePrinter4readEv>
+  7c:	0f 90       	pop	r0
+  7e:	0f 90       	pop	r0
+  80:	8d 2f       	mov	r24, r29
+  82:	9c 2f       	mov	r25, r28
+  84:	df 91       	pop	r29
+  86:	cf 91       	pop	r28
+  88:	1f 91       	pop	r17
+  8a:	0f 91       	pop	r16
+  8c:	08 95       	ret
+
+Disassembly of section .text._ZN20StreamConsolePrinterC2Ev:
+
+00000000 <_ZN20StreamConsolePrinterC1Ev>:
+
+// =================================================
+
+void StreamConsolePrinter::setStream( Stream* _underlyingStream )
+{
+	underlyingStream = _underlyingStream;
+   0:	cf 93       	push	r28
+   2:	df 93       	push	r29
+   4:	ec 01       	movw	r28, r24
+}
+   6:	1b 82       	std	Y+3, r1	; 0x03
+   8:	1a 82       	std	Y+2, r1	; 0x02
+   a:	88 ee       	ldi	r24, 0xE8	; 232
+   c:	93 e0       	ldi	r25, 0x03	; 3
+   e:	a0 e0       	ldi	r26, 0x00	; 0
+  10:	b0 e0       	ldi	r27, 0x00	; 0
+  12:	8c 83       	std	Y+4, r24	; 0x04
+  14:	9d 83       	std	Y+5, r25	; 0x05
+  16:	ae 83       	std	Y+6, r26	; 0x06
+  18:	bf 83       	std	Y+7, r27	; 0x07
+  1a:	80 e0       	ldi	r24, 0x00	; 0
+  1c:	90 e0       	ldi	r25, 0x00	; 0
+  1e:	99 83       	std	Y+1, r25	; 0x01
+  20:	88 83       	st	Y, r24
+  22:	ce 01       	movw	r24, r28
+  24:	0e 96       	adiw	r24, 0x0e	; 14
+  26:	60 e0       	ldi	r22, 0x00	; 0
+  28:	70 e0       	ldi	r23, 0x00	; 0
+  2a:	4a e0       	ldi	r20, 0x0A	; 10
+  2c:	0e 94 00 00 	call	0	; 0x0 <_ZN20StreamConsolePrinterC1Ev>
+  30:	1d 86       	std	Y+13, r1	; 0x0d
+  32:	1c 86       	std	Y+12, r1	; 0x0c
+  34:	df 91       	pop	r29
+  36:	cf 91       	pop	r28
+  38:	08 95       	ret
+
+Disassembly of section .text._ZN20StreamConsolePrinterC2EP6Stream:
+
+00000000 <_ZN20StreamConsolePrinterC1EP6Stream>:
+
+// =================================================
+
+void StreamConsolePrinter::setStream( Stream* _underlyingStream )
+{
+	underlyingStream = _underlyingStream;
+   0:	0f 93       	push	r16
+   2:	1f 93       	push	r17
+   4:	cf 93       	push	r28
+}
+   6:	df 93       	push	r29
+   8:	ec 01       	movw	r28, r24
+   a:	8b 01       	movw	r16, r22
+   c:	1b 82       	std	Y+3, r1	; 0x03
+   e:	1a 82       	std	Y+2, r1	; 0x02
+  10:	88 ee       	ldi	r24, 0xE8	; 232
+  12:	93 e0       	ldi	r25, 0x03	; 3
+  14:	a0 e0       	ldi	r26, 0x00	; 0
+  16:	b0 e0       	ldi	r27, 0x00	; 0
+  18:	8c 83       	std	Y+4, r24	; 0x04
+  1a:	9d 83       	std	Y+5, r25	; 0x05
+  1c:	ae 83       	std	Y+6, r26	; 0x06
+  1e:	bf 83       	std	Y+7, r27	; 0x07
+  20:	80 e0       	ldi	r24, 0x00	; 0
+  22:	90 e0       	ldi	r25, 0x00	; 0
+  24:	99 83       	std	Y+1, r25	; 0x01
+  26:	88 83       	st	Y, r24
+  28:	ce 01       	movw	r24, r28
+  2a:	0e 96       	adiw	r24, 0x0e	; 14
+  2c:	60 e0       	ldi	r22, 0x00	; 0
+  2e:	70 e0       	ldi	r23, 0x00	; 0
+  30:	4a e0       	ldi	r20, 0x0A	; 10
+  32:	0e 94 00 00 	call	0	; 0x0 <_ZN20StreamConsolePrinterC1EP6Stream>
+  36:	1d 87       	std	Y+13, r17	; 0x0d
+  38:	0c 87       	std	Y+12, r16	; 0x0c
+  3a:	df 91       	pop	r29
+  3c:	cf 91       	pop	r28
+  3e:	1f 91       	pop	r17
+  40:	0f 91       	pop	r16
+  42:	08 95       	ret
+
+Disassembly of section .text._ZN20StreamConsolePrinter9setStreamEP6Stream:
+
+00000000 <_ZN20StreamConsolePrinter9setStreamEP6Stream>:
+
+// =================================================
+
+void StreamConsolePrinter::setStream( Stream* _underlyingStream )
+{
+	underlyingStream = _underlyingStream;
+   0:	fc 01       	movw	r30, r24
+   2:	75 87       	std	Z+13, r23	; 0x0d
+   4:	64 87       	std	Z+12, r22	; 0x0c
+}
+   6:	08 95       	ret
+
+StreamHttpChunkedTransferEncoding.o:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000009  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  00000000  00000000  0000003d  2**0
+                  ALLOC
+  3 .stab         00000cfc  00000000  00000000  00000040  2**2
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  4 .stabstr      000045e2  00000000  00000000  00000d3c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .text._ZN33StreamHttpChunkedTransferEncoding5writeEh 0000006a  00000000  00000000  0000531e  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  6 .text._ZN33StreamHttpChunkedTransferEncoding5writeEPKhj 0000004e  00000000  00000000  00005388  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  7 .text._ZN33StreamHttpChunkedTransferEncoding9availableEv 0000001a  00000000  00000000  000053d6  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  8 .text._ZN33StreamHttpChunkedTransferEncoding4readEv 0000001a  00000000  00000000  000053f0  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  9 .text._ZN33StreamHttpChunkedTransferEncoding4peekEv 0000001a  00000000  00000000  0000540a  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 10 .text._ZN5Print5writeEPKc 00000022  00000000  00000000  00005424  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 11 .text._ZN33StreamHttpChunkedTransferEncoding9setStreamEP6Stream 00000008  00000000  00000000  00005446  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 12 .text._ZN33StreamHttpChunkedTransferEncoding18resetInternalStateEv 00000012  00000000  00000000  0000544e  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 13 .text._ZN33StreamHttpChunkedTransferEncodingC2EP9AnyBufferIhhEP6Stream 0000002e  00000000  00000000  00005460  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 14 .text._ZN33StreamHttpChunkedTransferEncoding28writeArrayToUnderlyingStreamEPhj 00000076  00000000  00000000  0000548e  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 15 .text._ZN33StreamHttpChunkedTransferEncoding5flushEv 00000038  00000000  00000000  00005504  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 16 .text._ZN33StreamHttpChunkedTransferEncoding25finishChunkedTransmissionEv 00000036  00000000  00000000  0000553c  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 17 .text._ZN33StreamHttpChunkedTransferEncoding13getWriteErrorEv 00000010  00000000  00000000  00005572  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 18 .text._ZN33StreamHttpChunkedTransferEncoding15clearWriteErrorEv 00000010  00000000  00000000  00005582  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 19 .rodata._ZTV33StreamHttpChunkedTransferEncoding 00000010  00000000  00000000  00005592  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+ 20 .rodata._ZTV6Stream 00000010  00000000  00000000  000055a2  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+
+Disassembly of section .text._ZN33StreamHttpChunkedTransferEncoding5writeEh:
+
+00000000 <_ZN33StreamHttpChunkedTransferEncoding5writeEh>:
+  private:
+    int write_error;
+    size_t printNumber(unsigned long, uint8_t);
+    size_t printFloat(double, uint8_t);
+  protected:
+    void setWriteError(int err = 1) { write_error = err; }
+   0:	0f 93       	push	r16
+   2:	1f 93       	push	r17
+   4:	cf 93       	push	r28
+   6:	df 93       	push	r29
+   8:	0f 92       	push	r0
+   a:	cd b7       	in	r28, 0x3d	; 61
+   c:	de b7       	in	r29, 0x3e	; 62
+// =================================================
+
+void StreamHttpChunkedTransferEncoding::clearWriteError()
+{
+	underlyingStream->clearWriteError();
+}
+   e:	8c 01       	movw	r16, r24
+  10:	dc 01       	movw	r26, r24
+  12:	1e 96       	adiw	r26, 0x0e	; 14
+  14:	ed 91       	ld	r30, X+
+  16:	fc 91       	ld	r31, X
+  18:	1f 97       	sbiw	r26, 0x0f	; 15
+  1a:	94 81       	ldd	r25, Z+4	; 0x04
+  1c:	83 81       	ldd	r24, Z+3	; 0x03
+  1e:	98 17       	cp	r25, r24
+  20:	01 f4       	brne	.+0      	; 0x22 <_ZN33StreamHttpChunkedTransferEncoding5writeEh+0x22>
+  22:	ed 91       	ld	r30, X+
+  24:	fc 91       	ld	r31, X
+  26:	02 84       	ldd	r0, Z+10	; 0x0a
+  28:	f3 85       	ldd	r31, Z+11	; 0x0b
+  2a:	e0 2d       	mov	r30, r0
+  2c:	c8 01       	movw	r24, r16
+  2e:	69 83       	std	Y+1, r22	; 0x01
+  30:	19 95       	eicall
+  32:	69 81       	ldd	r22, Y+1	; 0x01
+  34:	d8 01       	movw	r26, r16
+  36:	1e 96       	adiw	r26, 0x0e	; 14
+  38:	ed 91       	ld	r30, X+
+  3a:	fc 91       	ld	r31, X
+  3c:	1f 97       	sbiw	r26, 0x0f	; 15
+  3e:	83 81       	ldd	r24, Z+3	; 0x03
+  40:	94 81       	ldd	r25, Z+4	; 0x04
+  42:	98 17       	cp	r25, r24
+  44:	01 f0       	breq	.+0      	; 0x46 <_ZN33StreamHttpChunkedTransferEncoding5writeEh+0x46>
+  46:	a0 81       	ld	r26, Z
+  48:	b1 81       	ldd	r27, Z+1	; 0x01
+  4a:	a8 0f       	add	r26, r24
+  4c:	b1 1d       	adc	r27, r1
+  4e:	6c 93       	st	X, r22
+  50:	8f 5f       	subi	r24, 0xFF	; 255
+  52:	83 83       	std	Z+3, r24	; 0x03
+  54:	81 e0       	ldi	r24, 0x01	; 1
+  56:	90 e0       	ldi	r25, 0x00	; 0
+  58:	00 c0       	rjmp	.+0      	; 0x5a <_ZN33StreamHttpChunkedTransferEncoding5writeEh+0x5a>
+  5a:	80 e0       	ldi	r24, 0x00	; 0
+  5c:	90 e0       	ldi	r25, 0x00	; 0
+  5e:	0f 90       	pop	r0
+  60:	df 91       	pop	r29
+  62:	cf 91       	pop	r28
+  64:	1f 91       	pop	r17
+  66:	0f 91       	pop	r16
+  68:	08 95       	ret
+
+Disassembly of section .text._ZN33StreamHttpChunkedTransferEncoding5writeEPKhj:
+
+00000000 <_ZN33StreamHttpChunkedTransferEncoding5writeEPKhj>:
+   0:	cf 92       	push	r12
+   2:	df 92       	push	r13
+   4:	ef 92       	push	r14
+   6:	ff 92       	push	r15
+   8:	0f 93       	push	r16
+   a:	1f 93       	push	r17
+   c:	cf 93       	push	r28
+   e:	df 93       	push	r29
+  10:	7c 01       	movw	r14, r24
+  12:	6a 01       	movw	r12, r20
+  14:	8b 01       	movw	r16, r22
+  16:	c0 e0       	ldi	r28, 0x00	; 0
+  18:	d0 e0       	ldi	r29, 0x00	; 0
+  1a:	00 c0       	rjmp	.+0      	; 0x1c <_ZN33StreamHttpChunkedTransferEncoding5writeEPKhj+0x1c>
+  1c:	d8 01       	movw	r26, r16
+  1e:	6d 91       	ld	r22, X+
+  20:	8d 01       	movw	r16, r26
+  22:	d7 01       	movw	r26, r14
+  24:	ed 91       	ld	r30, X+
+  26:	fc 91       	ld	r31, X
+  28:	01 90       	ld	r0, Z+
+  2a:	f0 81       	ld	r31, Z
+  2c:	e0 2d       	mov	r30, r0
+  2e:	c7 01       	movw	r24, r14
+  30:	19 95       	eicall
+  32:	21 96       	adiw	r28, 0x01	; 1
+  34:	cc 15       	cp	r28, r12
+  36:	dd 05       	cpc	r29, r13
+  38:	01 f4       	brne	.+0      	; 0x3a <_ZN33StreamHttpChunkedTransferEncoding5writeEPKhj+0x3a>
+  3a:	ce 01       	movw	r24, r28
+  3c:	df 91       	pop	r29
+  3e:	cf 91       	pop	r28
+  40:	1f 91       	pop	r17
+  42:	0f 91       	pop	r16
+  44:	ff 90       	pop	r15
+  46:	ef 90       	pop	r14
+  48:	df 90       	pop	r13
+  4a:	cf 90       	pop	r12
+  4c:	08 95       	ret
+
+Disassembly of section .text._ZN33StreamHttpChunkedTransferEncoding9availableEv:
+
+00000000 <_ZN33StreamHttpChunkedTransferEncoding9availableEv>:
+   0:	dc 01       	movw	r26, r24
+   2:	1c 96       	adiw	r26, 0x0c	; 12
+   4:	8d 91       	ld	r24, X+
+   6:	9c 91       	ld	r25, X
+   8:	1d 97       	sbiw	r26, 0x0d	; 13
+   a:	dc 01       	movw	r26, r24
+   c:	ed 91       	ld	r30, X+
+   e:	fc 91       	ld	r31, X
+  10:	04 80       	ldd	r0, Z+4	; 0x04
+  12:	f5 81       	ldd	r31, Z+5	; 0x05
+  14:	e0 2d       	mov	r30, r0
+  16:	19 95       	eicall
+  18:	08 95       	ret
+
+Disassembly of section .text._ZN33StreamHttpChunkedTransferEncoding4readEv:
+
+00000000 <_ZN33StreamHttpChunkedTransferEncoding4readEv>:
+   0:	dc 01       	movw	r26, r24
+   2:	1c 96       	adiw	r26, 0x0c	; 12
+   4:	8d 91       	ld	r24, X+
+   6:	9c 91       	ld	r25, X
+   8:	1d 97       	sbiw	r26, 0x0d	; 13
+   a:	dc 01       	movw	r26, r24
+   c:	ed 91       	ld	r30, X+
+   e:	fc 91       	ld	r31, X
+  10:	06 80       	ldd	r0, Z+6	; 0x06
+  12:	f7 81       	ldd	r31, Z+7	; 0x07
+  14:	e0 2d       	mov	r30, r0
+  16:	19 95       	eicall
+  18:	08 95       	ret
+
+Disassembly of section .text._ZN33StreamHttpChunkedTransferEncoding4peekEv:
+
+00000000 <_ZN33StreamHttpChunkedTransferEncoding4peekEv>:
+   0:	dc 01       	movw	r26, r24
+   2:	1c 96       	adiw	r26, 0x0c	; 12
+   4:	8d 91       	ld	r24, X+
+   6:	9c 91       	ld	r25, X
+   8:	1d 97       	sbiw	r26, 0x0d	; 13
+   a:	dc 01       	movw	r26, r24
+   c:	ed 91       	ld	r30, X+
+   e:	fc 91       	ld	r31, X
+  10:	00 84       	ldd	r0, Z+8	; 0x08
+  12:	f1 85       	ldd	r31, Z+9	; 0x09
+  14:	e0 2d       	mov	r30, r0
+  16:	19 95       	eicall
+  18:	08 95       	ret
+
+Disassembly of section .text._ZN5Print5writeEPKc:
+
+00000000 <_ZN5Print5writeEPKc>:
+   0:	db 01       	movw	r26, r22
+   2:	0d 90       	ld	r0, X+
+   4:	00 20       	and	r0, r0
+   6:	01 f4       	brne	.+0      	; 0x8 <_ZN5Print5writeEPKc+0x8>
+   8:	ad 01       	movw	r20, r26
+   a:	41 50       	subi	r20, 0x01	; 1
+   c:	50 40       	sbci	r21, 0x00	; 0
+   e:	46 1b       	sub	r20, r22
+  10:	57 0b       	sbc	r21, r23
+  12:	dc 01       	movw	r26, r24
+  14:	ed 91       	ld	r30, X+
+  16:	fc 91       	ld	r31, X
+  18:	02 80       	ldd	r0, Z+2	; 0x02
+  1a:	f3 81       	ldd	r31, Z+3	; 0x03
+  1c:	e0 2d       	mov	r30, r0
+  1e:	19 95       	eicall
+  20:	08 95       	ret
+
+Disassembly of section .text._ZN33StreamHttpChunkedTransferEncoding9setStreamEP6Stream:
+
+00000000 <_ZN33StreamHttpChunkedTransferEncoding9setStreamEP6Stream>:
+   0:	fc 01       	movw	r30, r24
+   2:	75 87       	std	Z+13, r23	; 0x0d
+   4:	64 87       	std	Z+12, r22	; 0x0c
+   6:	08 95       	ret
+
+Disassembly of section .text._ZN33StreamHttpChunkedTransferEncoding18resetInternalStateEv:
+
+00000000 <_ZN33StreamHttpChunkedTransferEncoding18resetInternalStateEv>:
+   0:	dc 01       	movw	r26, r24
+   2:	1e 96       	adiw	r26, 0x0e	; 14
+   4:	ed 91       	ld	r30, X+
+   6:	fc 91       	ld	r31, X
+   8:	1f 97       	sbiw	r26, 0x0f	; 15
+   a:	82 81       	ldd	r24, Z+2	; 0x02
+   c:	84 83       	std	Z+4, r24	; 0x04
+   e:	13 82       	std	Z+3, r1	; 0x03
+  10:	08 95       	ret
+
+Disassembly of section .text._ZN33StreamHttpChunkedTransferEncodingC2EP9AnyBufferIhhEP6Stream:
+
+00000000 <_ZN33StreamHttpChunkedTransferEncodingC1EP9AnyBufferIhhEP6Stream>:
+   0:	fc 01       	movw	r30, r24
+   2:	13 82       	std	Z+3, r1	; 0x03
+   4:	12 82       	std	Z+2, r1	; 0x02
+   6:	88 ee       	ldi	r24, 0xE8	; 232
+   8:	93 e0       	ldi	r25, 0x03	; 3
+   a:	a0 e0       	ldi	r26, 0x00	; 0
+   c:	b0 e0       	ldi	r27, 0x00	; 0
+   e:	84 83       	std	Z+4, r24	; 0x04
+  10:	95 83       	std	Z+5, r25	; 0x05
+  12:	a6 83       	std	Z+6, r26	; 0x06
+  14:	b7 83       	std	Z+7, r27	; 0x07
+  16:	80 e0       	ldi	r24, 0x00	; 0
+  18:	90 e0       	ldi	r25, 0x00	; 0
+  1a:	91 83       	std	Z+1, r25	; 0x01
+  1c:	80 83       	st	Z, r24
+  1e:	77 87       	std	Z+15, r23	; 0x0f
+  20:	66 87       	std	Z+14, r22	; 0x0e
+  22:	55 87       	std	Z+13, r21	; 0x0d
+  24:	44 87       	std	Z+12, r20	; 0x0c
+  26:	cf 01       	movw	r24, r30
+  28:	0e 94 00 00 	call	0	; 0x0 <_ZN33StreamHttpChunkedTransferEncodingC1EP9AnyBufferIhhEP6Stream>
+  2c:	08 95       	ret
+
+Disassembly of section .text._ZN33StreamHttpChunkedTransferEncoding28writeArrayToUnderlyingStreamEPhj:
+
+00000000 <_ZN33StreamHttpChunkedTransferEncoding28writeArrayToUnderlyingStreamEPhj>:
+   0:	af 92       	push	r10
+   2:	bf 92       	push	r11
+   4:	df 92       	push	r13
+   6:	ef 92       	push	r14
+   8:	ff 92       	push	r15
+   a:	0f 93       	push	r16
+   c:	1f 93       	push	r17
+   e:	cf 93       	push	r28
+  10:	df 93       	push	r29
+  12:	ec 01       	movw	r28, r24
+  14:	5b 01       	movw	r10, r22
+  16:	8a 01       	movw	r16, r20
+  18:	8c 85       	ldd	r24, Y+12	; 0x0c
+  1a:	9d 85       	ldd	r25, Y+13	; 0x0d
+  1c:	ba 01       	movw	r22, r20
+  1e:	40 e1       	ldi	r20, 0x10	; 16
+  20:	50 e0       	ldi	r21, 0x00	; 0
+  22:	0e 94 00 00 	call	0	; 0x0 <_ZN33StreamHttpChunkedTransferEncoding28writeArrayToUnderlyingStreamEPhj>
+  26:	d8 2e       	mov	r13, r24
+  28:	80 e0       	ldi	r24, 0x00	; 0
+  2a:	e8 2e       	mov	r14, r24
+  2c:	80 e0       	ldi	r24, 0x00	; 0
+  2e:	f8 2e       	mov	r15, r24
+  30:	8c 85       	ldd	r24, Y+12	; 0x0c
+  32:	9d 85       	ldd	r25, Y+13	; 0x0d
+  34:	b7 01       	movw	r22, r14
+  36:	0e 94 00 00 	call	0	; 0x0 <_ZN33StreamHttpChunkedTransferEncoding28writeArrayToUnderlyingStreamEPhj>
+  3a:	8c 85       	ldd	r24, Y+12	; 0x0c
+  3c:	9d 85       	ldd	r25, Y+13	; 0x0d
+  3e:	dc 01       	movw	r26, r24
+  40:	ed 91       	ld	r30, X+
+  42:	fc 91       	ld	r31, X
+  44:	02 80       	ldd	r0, Z+2	; 0x02
+  46:	f3 81       	ldd	r31, Z+3	; 0x03
+  48:	e0 2d       	mov	r30, r0
+  4a:	b5 01       	movw	r22, r10
+  4c:	a8 01       	movw	r20, r16
+  4e:	19 95       	eicall
+  50:	8c 85       	ldd	r24, Y+12	; 0x0c
+  52:	9d 85       	ldd	r25, Y+13	; 0x0d
+  54:	b7 01       	movw	r22, r14
+  56:	0e 94 00 00 	call	0	; 0x0 <_ZN33StreamHttpChunkedTransferEncoding28writeArrayToUnderlyingStreamEPhj>
+  5a:	c8 01       	movw	r24, r16
+  5c:	04 96       	adiw	r24, 0x04	; 4
+  5e:	8d 0d       	add	r24, r13
+  60:	91 1d       	adc	r25, r1
+  62:	df 91       	pop	r29
+  64:	cf 91       	pop	r28
+  66:	1f 91       	pop	r17
+  68:	0f 91       	pop	r16
+  6a:	ff 90       	pop	r15
+  6c:	ef 90       	pop	r14
+  6e:	df 90       	pop	r13
+  70:	bf 90       	pop	r11
+  72:	af 90       	pop	r10
+  74:	08 95       	ret
+
+Disassembly of section .text._ZN33StreamHttpChunkedTransferEncoding5flushEv:
+
+00000000 <_ZN33StreamHttpChunkedTransferEncoding5flushEv>:
+   0:	cf 93       	push	r28
+   2:	df 93       	push	r29
+   4:	ec 01       	movw	r28, r24
+   6:	ee 85       	ldd	r30, Y+14	; 0x0e
+   8:	ff 85       	ldd	r31, Y+15	; 0x0f
+   a:	43 81       	ldd	r20, Z+3	; 0x03
+   c:	44 23       	and	r20, r20
+   e:	01 f0       	breq	.+0      	; 0x10 <_ZN33StreamHttpChunkedTransferEncoding5flushEv+0x10>
+  10:	60 81       	ld	r22, Z
+  12:	71 81       	ldd	r23, Z+1	; 0x01
+  14:	50 e0       	ldi	r21, 0x00	; 0
+  16:	0e 94 00 00 	call	0	; 0x0 <_ZN33StreamHttpChunkedTransferEncoding5flushEv>
+  1a:	8c 85       	ldd	r24, Y+12	; 0x0c
+  1c:	9d 85       	ldd	r25, Y+13	; 0x0d
+  1e:	dc 01       	movw	r26, r24
+  20:	ed 91       	ld	r30, X+
+  22:	fc 91       	ld	r31, X
+  24:	02 84       	ldd	r0, Z+10	; 0x0a
+  26:	f3 85       	ldd	r31, Z+11	; 0x0b
+  28:	e0 2d       	mov	r30, r0
+  2a:	19 95       	eicall
+  2c:	ee 85       	ldd	r30, Y+14	; 0x0e
+  2e:	ff 85       	ldd	r31, Y+15	; 0x0f
+  30:	13 82       	std	Z+3, r1	; 0x03
+  32:	df 91       	pop	r29
+  34:	cf 91       	pop	r28
+  36:	08 95       	ret
+
+Disassembly of section .text._ZN33StreamHttpChunkedTransferEncoding25finishChunkedTransmissionEv:
+
+00000000 <_ZN33StreamHttpChunkedTransferEncoding25finishChunkedTransmissionEv>:
+   0:	cf 93       	push	r28
+   2:	df 93       	push	r29
+   4:	ec 01       	movw	r28, r24
+   6:	e8 81       	ld	r30, Y
+   8:	f9 81       	ldd	r31, Y+1	; 0x01
+   a:	02 84       	ldd	r0, Z+10	; 0x0a
+   c:	f3 85       	ldd	r31, Z+11	; 0x0b
+   e:	e0 2d       	mov	r30, r0
+  10:	19 95       	eicall
+  12:	8c 85       	ldd	r24, Y+12	; 0x0c
+  14:	9d 85       	ldd	r25, Y+13	; 0x0d
+  16:	60 e0       	ldi	r22, 0x00	; 0
+  18:	70 e0       	ldi	r23, 0x00	; 0
+  1a:	0e 94 00 00 	call	0	; 0x0 <_ZN33StreamHttpChunkedTransferEncoding25finishChunkedTransmissionEv>
+  1e:	8c 85       	ldd	r24, Y+12	; 0x0c
+  20:	9d 85       	ldd	r25, Y+13	; 0x0d
+  22:	dc 01       	movw	r26, r24
+  24:	ed 91       	ld	r30, X+
+  26:	fc 91       	ld	r31, X
+  28:	02 84       	ldd	r0, Z+10	; 0x0a
+  2a:	f3 85       	ldd	r31, Z+11	; 0x0b
+  2c:	e0 2d       	mov	r30, r0
+  2e:	19 95       	eicall
+  30:	df 91       	pop	r29
+  32:	cf 91       	pop	r28
+  34:	08 95       	ret
+
+Disassembly of section .text._ZN33StreamHttpChunkedTransferEncoding13getWriteErrorEv:
+
+00000000 <_ZN33StreamHttpChunkedTransferEncoding13getWriteErrorEv>:
+   0:	dc 01       	movw	r26, r24
+   2:	1c 96       	adiw	r26, 0x0c	; 12
+   4:	ed 91       	ld	r30, X+
+   6:	fc 91       	ld	r31, X
+   8:	1d 97       	sbiw	r26, 0x0d	; 13
+   a:	82 81       	ldd	r24, Z+2	; 0x02
+   c:	93 81       	ldd	r25, Z+3	; 0x03
+   e:	08 95       	ret
+
+Disassembly of section .text._ZN33StreamHttpChunkedTransferEncoding15clearWriteErrorEv:
+
+00000000 <_ZN33StreamHttpChunkedTransferEncoding15clearWriteErrorEv>:
+   0:	dc 01       	movw	r26, r24
+   2:	1c 96       	adiw	r26, 0x0c	; 12
+   4:	ed 91       	ld	r30, X+
+   6:	fc 91       	ld	r31, X
+   8:	1d 97       	sbiw	r26, 0x0d	; 13
+   a:	13 82       	std	Z+3, r1	; 0x03
+   c:	12 82       	std	Z+2, r1	; 0x02
+   e:	08 95       	ret
+
+StreamReadBytesCounting.o:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  00000000  00000000  00000034  2**0
+                  ALLOC
+  3 .stab         0000096c  00000000  00000000  00000034  2**2
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  4 .stabstr      00003486  00000000  00000000  000009a0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .text._ZN23StreamReadBytesCounting4readEv 00000032  00000000  00000000  00003e26  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  6 .text._ZN23StreamReadBytesCounting4peekEv 0000001a  00000000  00000000  00003e58  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  7 .text._ZN23StreamReadBytesCounting5flushEv 0000001a  00000000  00000000  00003e72  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  8 .text._ZN23StreamReadBytesCounting5writeEh 0000001a  00000000  00000000  00003e8c  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  9 .text._ZN23StreamReadBytesCounting9availableEv 0000001a  00000000  00000000  00003ea6  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 10 .text._ZN23StreamReadBytesCountingC2Ev 00000028  00000000  00000000  00003ec0  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 11 .text._ZN23StreamReadBytesCounting9setStreamEP6Stream 00000008  00000000  00000000  00003ee8  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 12 .text._ZN23StreamReadBytesCounting18resetInternalStateEv 00000008  00000000  00000000  00003ef0  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 13 .text._ZN23StreamReadBytesCounting17getReadBytesCountEv 00000008  00000000  00000000  00003ef8  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 14 .rodata._ZTV23StreamReadBytesCounting 00000010  00000000  00000000  00003f00  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+ 15 .rodata._ZTV6Stream 00000010  00000000  00000000  00003f10  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+
+Disassembly of section .text._ZN23StreamReadBytesCounting4readEv:
+
+00000000 <_ZN23StreamReadBytesCounting4readEv>:
+}
+
+// =================================================
+
+unsigned int StreamReadBytesCounting::getReadBytesCount()
+{
+   0:	cf 93       	push	r28
+	return readBytesCount;
+}
+   2:	df 93       	push	r29
+   4:	ec 01       	movw	r28, r24
+   6:	8c 85       	ldd	r24, Y+12	; 0x0c
+   8:	9d 85       	ldd	r25, Y+13	; 0x0d
+   a:	dc 01       	movw	r26, r24
+   c:	ed 91       	ld	r30, X+
+   e:	fc 91       	ld	r31, X
+  10:	06 80       	ldd	r0, Z+6	; 0x06
+  12:	f7 81       	ldd	r31, Z+7	; 0x07
+  14:	e0 2d       	mov	r30, r0
+  16:	19 95       	eicall
+  18:	bf ef       	ldi	r27, 0xFF	; 255
+  1a:	8f 3f       	cpi	r24, 0xFF	; 255
+  1c:	9b 07       	cpc	r25, r27
+  1e:	01 f0       	breq	.+0      	; 0x20 <_ZN23StreamReadBytesCounting4readEv+0x20>
+  20:	2e 85       	ldd	r18, Y+14	; 0x0e
+  22:	3f 85       	ldd	r19, Y+15	; 0x0f
+  24:	2f 5f       	subi	r18, 0xFF	; 255
+  26:	3f 4f       	sbci	r19, 0xFF	; 255
+  28:	3f 87       	std	Y+15, r19	; 0x0f
+  2a:	2e 87       	std	Y+14, r18	; 0x0e
+  2c:	df 91       	pop	r29
+  2e:	cf 91       	pop	r28
+  30:	08 95       	ret
+
+Disassembly of section .text._ZN23StreamReadBytesCounting4peekEv:
+
+00000000 <_ZN23StreamReadBytesCounting4peekEv>:
+}
+
+// =================================================
+
+unsigned int StreamReadBytesCounting::getReadBytesCount()
+{
+   0:	dc 01       	movw	r26, r24
+	return readBytesCount;
+}
+   2:	1c 96       	adiw	r26, 0x0c	; 12
+   4:	8d 91       	ld	r24, X+
+   6:	9c 91       	ld	r25, X
+   8:	1d 97       	sbiw	r26, 0x0d	; 13
+   a:	dc 01       	movw	r26, r24
+   c:	ed 91       	ld	r30, X+
+   e:	fc 91       	ld	r31, X
+  10:	00 84       	ldd	r0, Z+8	; 0x08
+  12:	f1 85       	ldd	r31, Z+9	; 0x09
+  14:	e0 2d       	mov	r30, r0
+  16:	19 95       	eicall
+  18:	08 95       	ret
+
+Disassembly of section .text._ZN23StreamReadBytesCounting5flushEv:
+
+00000000 <_ZN23StreamReadBytesCounting5flushEv>:
+}
+
+// =================================================
+
+unsigned int StreamReadBytesCounting::getReadBytesCount()
+{
+   0:	dc 01       	movw	r26, r24
+	return readBytesCount;
+}
+   2:	1c 96       	adiw	r26, 0x0c	; 12
+   4:	8d 91       	ld	r24, X+
+   6:	9c 91       	ld	r25, X
+   8:	1d 97       	sbiw	r26, 0x0d	; 13
+   a:	dc 01       	movw	r26, r24
+   c:	ed 91       	ld	r30, X+
+   e:	fc 91       	ld	r31, X
+  10:	02 84       	ldd	r0, Z+10	; 0x0a
+  12:	f3 85       	ldd	r31, Z+11	; 0x0b
+  14:	e0 2d       	mov	r30, r0
+  16:	19 95       	eicall
+  18:	08 95       	ret
+
+Disassembly of section .text._ZN23StreamReadBytesCounting5writeEh:
+
+00000000 <_ZN23StreamReadBytesCounting5writeEh>:
+}
+
+// =================================================
+
+unsigned int StreamReadBytesCounting::getReadBytesCount()
+{
+   0:	dc 01       	movw	r26, r24
+	return readBytesCount;
+}
+   2:	1c 96       	adiw	r26, 0x0c	; 12
+   4:	8d 91       	ld	r24, X+
+   6:	9c 91       	ld	r25, X
+   8:	1d 97       	sbiw	r26, 0x0d	; 13
+   a:	dc 01       	movw	r26, r24
+   c:	ed 91       	ld	r30, X+
+   e:	fc 91       	ld	r31, X
+  10:	01 90       	ld	r0, Z+
+  12:	f0 81       	ld	r31, Z
+  14:	e0 2d       	mov	r30, r0
+  16:	19 95       	eicall
+  18:	08 95       	ret
+
+Disassembly of section .text._ZN23StreamReadBytesCounting9availableEv:
+
+00000000 <_ZN23StreamReadBytesCounting9availableEv>:
+}
+
+// =================================================
+
+unsigned int StreamReadBytesCounting::getReadBytesCount()
+{
+   0:	dc 01       	movw	r26, r24
+	return readBytesCount;
+}
+   2:	1c 96       	adiw	r26, 0x0c	; 12
+   4:	8d 91       	ld	r24, X+
+   6:	9c 91       	ld	r25, X
+   8:	1d 97       	sbiw	r26, 0x0d	; 13
+   a:	dc 01       	movw	r26, r24
+   c:	ed 91       	ld	r30, X+
+   e:	fc 91       	ld	r31, X
+  10:	04 80       	ldd	r0, Z+4	; 0x04
+  12:	f5 81       	ldd	r31, Z+5	; 0x05
+  14:	e0 2d       	mov	r30, r0
+  16:	19 95       	eicall
+  18:	08 95       	ret
+
+Disassembly of section .text._ZN23StreamReadBytesCountingC2Ev:
+
+00000000 <_ZN23StreamReadBytesCountingC1Ev>:
+}
+
+// =================================================
+
+unsigned int StreamReadBytesCounting::getReadBytesCount()
+{
+   0:	fc 01       	movw	r30, r24
+	return readBytesCount;
+}
+   2:	13 82       	std	Z+3, r1	; 0x03
+   4:	12 82       	std	Z+2, r1	; 0x02
+   6:	48 ee       	ldi	r20, 0xE8	; 232
+   8:	53 e0       	ldi	r21, 0x03	; 3
+   a:	60 e0       	ldi	r22, 0x00	; 0
+   c:	70 e0       	ldi	r23, 0x00	; 0
+   e:	44 83       	std	Z+4, r20	; 0x04
+  10:	55 83       	std	Z+5, r21	; 0x05
+  12:	66 83       	std	Z+6, r22	; 0x06
+  14:	77 83       	std	Z+7, r23	; 0x07
+  16:	80 e0       	ldi	r24, 0x00	; 0
+  18:	90 e0       	ldi	r25, 0x00	; 0
+  1a:	91 83       	std	Z+1, r25	; 0x01
+  1c:	80 83       	st	Z, r24
+  1e:	15 86       	std	Z+13, r1	; 0x0d
+  20:	14 86       	std	Z+12, r1	; 0x0c
+  22:	17 86       	std	Z+15, r1	; 0x0f
+  24:	16 86       	std	Z+14, r1	; 0x0e
+  26:	08 95       	ret
+
+Disassembly of section .text._ZN23StreamReadBytesCounting9setStreamEP6Stream:
+
+00000000 <_ZN23StreamReadBytesCounting9setStreamEP6Stream>:
+}
+
+// =================================================
+
+unsigned int StreamReadBytesCounting::getReadBytesCount()
+{
+   0:	fc 01       	movw	r30, r24
+	return readBytesCount;
+}
+   2:	75 87       	std	Z+13, r23	; 0x0d
+   4:	64 87       	std	Z+12, r22	; 0x0c
+   6:	08 95       	ret
+
+Disassembly of section .text._ZN23StreamReadBytesCounting18resetInternalStateEv:
+
+00000000 <_ZN23StreamReadBytesCounting18resetInternalStateEv>:
+}
+
+// =================================================
+
+unsigned int StreamReadBytesCounting::getReadBytesCount()
+{
+   0:	fc 01       	movw	r30, r24
+	return readBytesCount;
+}
+   2:	17 86       	std	Z+15, r1	; 0x0f
+   4:	16 86       	std	Z+14, r1	; 0x0e
+   6:	08 95       	ret
+
+Disassembly of section .text._ZN23StreamReadBytesCounting17getReadBytesCountEv:
+
+00000000 <_ZN23StreamReadBytesCounting17getReadBytesCountEv>:
+}
+
+// =================================================
+
+unsigned int StreamReadBytesCounting::getReadBytesCount()
+{
+   0:	fc 01       	movw	r30, r24
+	return readBytesCount;
+}
+   2:	86 85       	ldd	r24, Z+14	; 0x0e
+   4:	97 85       	ldd	r25, Z+15	; 0x0f
+   6:	08 95       	ret
+
+StreamReadHttpMethod.o:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  00000000  00000000  00000034  2**0
+                  ALLOC
+  3 .stab         00000960  00000000  00000000  00000034  2**2
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  4 .stabstr      000037df  00000000  00000000  00000994  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .text._ZN20StreamReadHttpMethod4peekEv 0000001a  00000000  00000000  00004173  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  6 .text._ZN20StreamReadHttpMethod5flushEv 0000001a  00000000  00000000  0000418d  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  7 .text._ZN20StreamReadHttpMethod5writeEh 0000001a  00000000  00000000  000041a7  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  8 .text._ZN20StreamReadHttpMethod9availableEv 0000001a  00000000  00000000  000041c1  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  9 .text._ZN20StreamReadHttpMethod4readEv 000000ba  00000000  00000000  000041db  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 10 .text._ZN20StreamReadHttpMethodC2Ev 0000003e  00000000  00000000  00004295  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 11 .text._ZN20StreamReadHttpMethod30setStreamAndResetInternalStateEP6Stream 0000000c  00000000  00000000  000042d3  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 12 .rodata._ZTV20StreamReadHttpMethod 00000010  00000000  00000000  000042df  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+ 13 .rodata._ZTV6Stream 00000010  00000000  00000000  000042ef  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+ 14 .progmem.data 00000032  00000000  00000000  000042ff  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+
+Disassembly of section .text._ZN20StreamReadHttpMethod4peekEv:
+
+00000000 <_ZN20StreamReadHttpMethod4peekEv>:
+}
+
+// =================================================
+
+void StreamReadHttpMethod::setStreamAndResetInternalState( Stream* _mainStream )
+{
+   0:	dc 01       	movw	r26, r24
+	mainStream = _mainStream;
+   2:	1c 96       	adiw	r26, 0x0c	; 12
+   4:	8d 91       	ld	r24, X+
+	httpMethod = -1;
+   6:	9c 91       	ld	r25, X
+   8:	1d 97       	sbiw	r26, 0x0d	; 13
+}
+   a:	dc 01       	movw	r26, r24
+   c:	ed 91       	ld	r30, X+
+   e:	fc 91       	ld	r31, X
+  10:	00 84       	ldd	r0, Z+8	; 0x08
+  12:	f1 85       	ldd	r31, Z+9	; 0x09
+  14:	e0 2d       	mov	r30, r0
+  16:	19 95       	eicall
+  18:	08 95       	ret
+
+Disassembly of section .text._ZN20StreamReadHttpMethod5flushEv:
+
+00000000 <_ZN20StreamReadHttpMethod5flushEv>:
+}
+
+// =================================================
+
+void StreamReadHttpMethod::setStreamAndResetInternalState( Stream* _mainStream )
+{
+   0:	dc 01       	movw	r26, r24
+	mainStream = _mainStream;
+   2:	1c 96       	adiw	r26, 0x0c	; 12
+   4:	8d 91       	ld	r24, X+
+	httpMethod = -1;
+   6:	9c 91       	ld	r25, X
+   8:	1d 97       	sbiw	r26, 0x0d	; 13
+}
+   a:	dc 01       	movw	r26, r24
+   c:	ed 91       	ld	r30, X+
+   e:	fc 91       	ld	r31, X
+  10:	02 84       	ldd	r0, Z+10	; 0x0a
+  12:	f3 85       	ldd	r31, Z+11	; 0x0b
+  14:	e0 2d       	mov	r30, r0
+  16:	19 95       	eicall
+  18:	08 95       	ret
+
+Disassembly of section .text._ZN20StreamReadHttpMethod5writeEh:
+
+00000000 <_ZN20StreamReadHttpMethod5writeEh>:
+}
+
+// =================================================
+
+void StreamReadHttpMethod::setStreamAndResetInternalState( Stream* _mainStream )
+{
+   0:	dc 01       	movw	r26, r24
+	mainStream = _mainStream;
+   2:	1c 96       	adiw	r26, 0x0c	; 12
+   4:	8d 91       	ld	r24, X+
+	httpMethod = -1;
+   6:	9c 91       	ld	r25, X
+   8:	1d 97       	sbiw	r26, 0x0d	; 13
+}
+   a:	dc 01       	movw	r26, r24
+   c:	ed 91       	ld	r30, X+
+   e:	fc 91       	ld	r31, X
+  10:	01 90       	ld	r0, Z+
+  12:	f0 81       	ld	r31, Z
+  14:	e0 2d       	mov	r30, r0
+  16:	19 95       	eicall
+  18:	08 95       	ret
+
+Disassembly of section .text._ZN20StreamReadHttpMethod9availableEv:
+
+00000000 <_ZN20StreamReadHttpMethod9availableEv>:
+}
+
+// =================================================
+
+void StreamReadHttpMethod::setStreamAndResetInternalState( Stream* _mainStream )
+{
+   0:	dc 01       	movw	r26, r24
+	mainStream = _mainStream;
+   2:	1c 96       	adiw	r26, 0x0c	; 12
+   4:	8d 91       	ld	r24, X+
+	httpMethod = -1;
+   6:	9c 91       	ld	r25, X
+   8:	1d 97       	sbiw	r26, 0x0d	; 13
+}
+   a:	dc 01       	movw	r26, r24
+   c:	ed 91       	ld	r30, X+
+   e:	fc 91       	ld	r31, X
+  10:	04 80       	ldd	r0, Z+4	; 0x04
+  12:	f5 81       	ldd	r31, Z+5	; 0x05
+  14:	e0 2d       	mov	r30, r0
+  16:	19 95       	eicall
+  18:	08 95       	ret
+
+Disassembly of section .text._ZN20StreamReadHttpMethod4readEv:
+
+00000000 <_ZN20StreamReadHttpMethod4readEv>:
+}
+
+// =================================================
+
+void StreamReadHttpMethod::setStreamAndResetInternalState( Stream* _mainStream )
+{
+   0:	cf 93       	push	r28
+	mainStream = _mainStream;
+   2:	df 93       	push	r29
+   4:	ec 01       	movw	r28, r24
+	httpMethod = -1;
+   6:	8e 85       	ldd	r24, Y+14	; 0x0e
+   8:	8f 3f       	cpi	r24, 0xFF	; 255
+}
+   a:	01 f4       	brne	.+0      	; 0xc <_ZN20StreamReadHttpMethod4readEv+0xc>
+   c:	8c 85       	ldd	r24, Y+12	; 0x0c
+   e:	9d 85       	ldd	r25, Y+13	; 0x0d
+  10:	dc 01       	movw	r26, r24
+  12:	ed 91       	ld	r30, X+
+  14:	fc 91       	ld	r31, X
+  16:	04 80       	ldd	r0, Z+4	; 0x04
+  18:	f5 81       	ldd	r31, Z+5	; 0x05
+  1a:	e0 2d       	mov	r30, r0
+  1c:	19 95       	eicall
+  1e:	18 16       	cp	r1, r24
+  20:	19 06       	cpc	r1, r25
+  22:	04 f4       	brge	.+0      	; 0x24 <_ZN20StreamReadHttpMethod4readEv+0x24>
+  24:	8c 85       	ldd	r24, Y+12	; 0x0c
+  26:	9d 85       	ldd	r25, Y+13	; 0x0d
+  28:	dc 01       	movw	r26, r24
+  2a:	ed 91       	ld	r30, X+
+  2c:	fc 91       	ld	r31, X
+  2e:	06 80       	ldd	r0, Z+6	; 0x06
+  30:	f7 81       	ldd	r31, Z+7	; 0x07
+  32:	e0 2d       	mov	r30, r0
+  34:	19 95       	eicall
+  36:	bf ef       	ldi	r27, 0xFF	; 255
+  38:	8f 3f       	cpi	r24, 0xFF	; 255
+  3a:	9b 07       	cpc	r25, r27
+  3c:	01 f0       	breq	.+0      	; 0x3e <_ZN20StreamReadHttpMethod4readEv+0x3e>
+  3e:	87 34       	cpi	r24, 0x47	; 71
+  40:	91 05       	cpc	r25, r1
+  42:	01 f4       	brne	.+0      	; 0x44 <_ZN20StreamReadHttpMethod4readEv+0x44>
+  44:	1e 86       	std	Y+14, r1	; 0x0e
+  46:	00 c0       	rjmp	.+0      	; 0x48 <_ZN20StreamReadHttpMethod4readEv+0x48>
+  48:	80 35       	cpi	r24, 0x50	; 80
+  4a:	91 05       	cpc	r25, r1
+  4c:	01 f4       	brne	.+0      	; 0x4e <_ZN20StreamReadHttpMethod4readEv+0x4e>
+  4e:	81 e0       	ldi	r24, 0x01	; 1
+  50:	00 c0       	rjmp	.+0      	; 0x52 <_ZN20StreamReadHttpMethod4readEv+0x52>
+  52:	82 e0       	ldi	r24, 0x02	; 2
+  54:	8e 87       	std	Y+14, r24	; 0x0e
+  56:	89 89       	ldd	r24, Y+17	; 0x11
+  58:	8b 30       	cpi	r24, 0x0B	; 11
+  5a:	00 f4       	brcc	.+0      	; 0x5c <_ZN20StreamReadHttpMethod4readEv+0x5c>
+  5c:	ce 01       	movw	r24, r28
+  5e:	0f 96       	adiw	r24, 0x0f	; 15
+  60:	60 e0       	ldi	r22, 0x00	; 0
+  62:	70 e0       	ldi	r23, 0x00	; 0
+  64:	40 e0       	ldi	r20, 0x00	; 0
+  66:	50 e0       	ldi	r21, 0x00	; 0
+  68:	0e 94 00 00 	call	0	; 0x0 <_ZN20StreamReadHttpMethod4readEv>
+  6c:	00 d0       	rcall	.+0      	; 0x6e <_ZN20StreamReadHttpMethod4readEv+0x6e>
+  6e:	0f 92       	push	r0
+  70:	80 e0       	ldi	r24, 0x00	; 0
+  72:	90 e0       	ldi	r25, 0x00	; 0
+  74:	ed b7       	in	r30, 0x3d	; 61
+  76:	fe b7       	in	r31, 0x3e	; 62
+  78:	92 83       	std	Z+2, r25	; 0x02
+  7a:	81 83       	std	Z+1, r24	; 0x01
+  7c:	8e 85       	ldd	r24, Y+14	; 0x0e
+  7e:	99 27       	eor	r25, r25
+  80:	87 fd       	sbrc	r24, 7
+  82:	90 95       	com	r25
+  84:	94 83       	std	Z+4, r25	; 0x04
+  86:	83 83       	std	Z+3, r24	; 0x03
+  88:	0e 94 00 00 	call	0	; 0x0 <_ZN20StreamReadHttpMethod4readEv>
+  8c:	0f 90       	pop	r0
+  8e:	0f 90       	pop	r0
+  90:	80 e0       	ldi	r24, 0x00	; 0
+  92:	90 e0       	ldi	r25, 0x00	; 0
+  94:	ad b7       	in	r26, 0x3d	; 61
+  96:	be b7       	in	r27, 0x3e	; 62
+  98:	12 96       	adiw	r26, 0x02	; 2
+  9a:	9c 93       	st	X, r25
+  9c:	8e 93       	st	-X, r24
+  9e:	11 97       	sbiw	r26, 0x01	; 1
+  a0:	0e 94 00 00 	call	0	; 0x0 <_ZN20StreamReadHttpMethod4readEv>
+  a4:	0f 90       	pop	r0
+  a6:	0f 90       	pop	r0
+  a8:	8e 85       	ldd	r24, Y+14	; 0x0e
+  aa:	28 2f       	mov	r18, r24
+  ac:	33 27       	eor	r19, r19
+  ae:	27 fd       	sbrc	r18, 7
+  b0:	30 95       	com	r19
+  b2:	93 2f       	mov	r25, r19
+  b4:	df 91       	pop	r29
+  b6:	cf 91       	pop	r28
+  b8:	08 95       	ret
+
+Disassembly of section .text._ZN20StreamReadHttpMethodC2Ev:
+
+00000000 <_ZN20StreamReadHttpMethodC1Ev>:
+}
+
+// =================================================
+
+void StreamReadHttpMethod::setStreamAndResetInternalState( Stream* _mainStream )
+{
+   0:	cf 93       	push	r28
+	mainStream = _mainStream;
+   2:	df 93       	push	r29
+   4:	ec 01       	movw	r28, r24
+	httpMethod = -1;
+   6:	1b 82       	std	Y+3, r1	; 0x03
+   8:	1a 82       	std	Y+2, r1	; 0x02
+}
+   a:	88 ee       	ldi	r24, 0xE8	; 232
+   c:	93 e0       	ldi	r25, 0x03	; 3
+   e:	a0 e0       	ldi	r26, 0x00	; 0
+  10:	b0 e0       	ldi	r27, 0x00	; 0
+  12:	8c 83       	std	Y+4, r24	; 0x04
+  14:	9d 83       	std	Y+5, r25	; 0x05
+  16:	ae 83       	std	Y+6, r26	; 0x06
+  18:	bf 83       	std	Y+7, r27	; 0x07
+  1a:	80 e0       	ldi	r24, 0x00	; 0
+  1c:	90 e0       	ldi	r25, 0x00	; 0
+  1e:	99 83       	std	Y+1, r25	; 0x01
+  20:	88 83       	st	Y, r24
+  22:	ce 01       	movw	r24, r28
+  24:	0f 96       	adiw	r24, 0x0f	; 15
+  26:	60 e0       	ldi	r22, 0x00	; 0
+  28:	70 e0       	ldi	r23, 0x00	; 0
+  2a:	4a e0       	ldi	r20, 0x0A	; 10
+  2c:	0e 94 00 00 	call	0	; 0x0 <_ZN20StreamReadHttpMethodC1Ev>
+  30:	1d 86       	std	Y+13, r1	; 0x0d
+  32:	1c 86       	std	Y+12, r1	; 0x0c
+  34:	8f ef       	ldi	r24, 0xFF	; 255
+  36:	8e 87       	std	Y+14, r24	; 0x0e
+  38:	df 91       	pop	r29
+  3a:	cf 91       	pop	r28
+  3c:	08 95       	ret
+
+Disassembly of section .text._ZN20StreamReadHttpMethod30setStreamAndResetInternalStateEP6Stream:
+
+00000000 <_ZN20StreamReadHttpMethod30setStreamAndResetInternalStateEP6Stream>:
+}
+
+// =================================================
+
+void StreamReadHttpMethod::setStreamAndResetInternalState( Stream* _mainStream )
+{
+   0:	fc 01       	movw	r30, r24
+	mainStream = _mainStream;
+   2:	75 87       	std	Z+13, r23	; 0x0d
+   4:	64 87       	std	Z+12, r22	; 0x0c
+	httpMethod = -1;
+   6:	8f ef       	ldi	r24, 0xFF	; 255
+   8:	86 87       	std	Z+14, r24	; 0x0e
+}
+   a:	08 95       	ret
+
+StreamReadUntilByte.o:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  00000000  00000000  00000034  2**0
+                  ALLOC
+  3 .stab         00000abc  00000000  00000000  00000034  2**2
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  4 .stabstr      000034a3  00000000  00000000  00000af0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .text._ZN19StreamReadUntilByte4peekEv 0000001a  00000000  00000000  00003f93  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  6 .text._ZN19StreamReadUntilByte5flushEv 0000001a  00000000  00000000  00003fad  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  7 .text._ZN19StreamReadUntilByte5writeEh 0000001a  00000000  00000000  00003fc7  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  8 .text._ZN19StreamReadUntilByte9availableEv 0000001a  00000000  00000000  00003fe1  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  9 .text._ZN19StreamReadUntilByte4readEv 0000008c  00000000  00000000  00003ffb  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 10 .text._ZN19StreamReadUntilByte9setStreamEP6Stream 00000008  00000000  00000000  00004087  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 11 .text._ZN19StreamReadUntilByte18resetInternalStateEPc 00000022  00000000  00000000  0000408f  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 12 .text._ZN19StreamReadUntilByteC2EPch 00000034  00000000  00000000  000040b1  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 13 .rodata._ZTV19StreamReadUntilByte 00000010  00000000  00000000  000040e5  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+ 14 .rodata._ZTV6Stream 00000010  00000000  00000000  000040f5  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+
+Disassembly of section .text._ZN19StreamReadUntilByte4peekEv:
+
+00000000 <_ZN19StreamReadUntilByte4peekEv>:
+
+#include "StreamReadUntilByte.h"
+
+// =================================================
+
+StreamReadUntilByte::StreamReadUntilByte( char* _buffer , unsigned char _bufferSize )
+   0:	dc 01       	movw	r26, r24
+    size_t printNumber(unsigned long, uint8_t);
+    size_t printFloat(double, uint8_t);
+  protected:
+    void setWriteError(int err = 1) { write_error = err; }
+  public:
+    Print() : write_error(0) {}
+   2:	1e 96       	adiw	r26, 0x0e	; 14
+   4:	8d 91       	ld	r24, X+
+    virtual int available() = 0;
+    virtual int read() = 0;
+    virtual int peek() = 0;
+    virtual void flush() = 0;
+
+    Stream() {_timeout=1000;}
+   6:	9c 91       	ld	r25, X
+   8:	1f 97       	sbiw	r26, 0x0f	; 15
+   a:	dc 01       	movw	r26, r24
+   c:	ed 91       	ld	r30, X+
+   e:	fc 91       	ld	r31, X
+  10:	00 84       	ldd	r0, Z+8	; 0x08
+  12:	f1 85       	ldd	r31, Z+9	; 0x09
+  14:	e0 2d       	mov	r30, r0
+  16:	19 95       	eicall
+  18:	08 95       	ret
+
+Disassembly of section .text._ZN19StreamReadUntilByte5flushEv:
+
+00000000 <_ZN19StreamReadUntilByte5flushEv>:
+   0:	dc 01       	movw	r26, r24
+   2:	1e 96       	adiw	r26, 0x0e	; 14
+   4:	8d 91       	ld	r24, X+
+   6:	9c 91       	ld	r25, X
+   8:	1f 97       	sbiw	r26, 0x0f	; 15
+   a:	dc 01       	movw	r26, r24
+   c:	ed 91       	ld	r30, X+
+   e:	fc 91       	ld	r31, X
+  10:	02 84       	ldd	r0, Z+10	; 0x0a
+  12:	f3 85       	ldd	r31, Z+11	; 0x0b
+  14:	e0 2d       	mov	r30, r0
+  16:	19 95       	eicall
+  18:	08 95       	ret
+
+Disassembly of section .text._ZN19StreamReadUntilByte5writeEh:
+
+00000000 <_ZN19StreamReadUntilByte5writeEh>:
+   0:	dc 01       	movw	r26, r24
+   2:	1e 96       	adiw	r26, 0x0e	; 14
+   4:	8d 91       	ld	r24, X+
+   6:	9c 91       	ld	r25, X
+   8:	1f 97       	sbiw	r26, 0x0f	; 15
+   a:	dc 01       	movw	r26, r24
+   c:	ed 91       	ld	r30, X+
+   e:	fc 91       	ld	r31, X
+  10:	01 90       	ld	r0, Z+
+  12:	f0 81       	ld	r31, Z
+  14:	e0 2d       	mov	r30, r0
+  16:	19 95       	eicall
+  18:	08 95       	ret
+
+Disassembly of section .text._ZN19StreamReadUntilByte9availableEv:
+
+00000000 <_ZN19StreamReadUntilByte9availableEv>:
+   0:	dc 01       	movw	r26, r24
+   2:	1e 96       	adiw	r26, 0x0e	; 14
+   4:	8d 91       	ld	r24, X+
+   6:	9c 91       	ld	r25, X
+   8:	1f 97       	sbiw	r26, 0x0f	; 15
+   a:	dc 01       	movw	r26, r24
+   c:	ed 91       	ld	r30, X+
+   e:	fc 91       	ld	r31, X
+  10:	04 80       	ldd	r0, Z+4	; 0x04
+  12:	f5 81       	ldd	r31, Z+5	; 0x05
+  14:	e0 2d       	mov	r30, r0
+  16:	19 95       	eicall
+  18:	08 95       	ret
+
+Disassembly of section .text._ZN19StreamReadUntilByte4readEv:
+
+00000000 <_ZN19StreamReadUntilByte4readEv>:
+   0:	1f 93       	push	r17
+   2:	cf 93       	push	r28
+   4:	df 93       	push	r29
+   6:	ec 01       	movw	r28, r24
+   8:	8c 89       	ldd	r24, Y+20	; 0x14
+   a:	88 23       	and	r24, r24
+   c:	01 f4       	brne	.+0      	; 0xe <_ZN19StreamReadUntilByte4readEv+0xe>
+   e:	10 e0       	ldi	r17, 0x00	; 0
+  10:	00 c0       	rjmp	.+0      	; 0x12 <_ZN19StreamReadUntilByte4readEv+0x12>
+  12:	11 e0       	ldi	r17, 0x01	; 1
+  14:	8e 85       	ldd	r24, Y+14	; 0x0e
+  16:	9f 85       	ldd	r25, Y+15	; 0x0f
+  18:	dc 01       	movw	r26, r24
+  1a:	ed 91       	ld	r30, X+
+  1c:	fc 91       	ld	r31, X
+{
+	buffer = _buffer;
+  1e:	06 80       	ldd	r0, Z+6	; 0x06
+  20:	f7 81       	ldd	r31, Z+7	; 0x07
+	bufferSize = _bufferSize;
+  22:	e0 2d       	mov	r30, r0
+
+// =================================================
+
+void StreamReadUntilByte::setStream( Stream* _mainStream )
+{
+	mainStream = _mainStream;
+  24:	19 95       	eicall
+  26:	9c 01       	movw	r18, r24
+{
+	buffer = _buffer;
+	bufferSize = _bufferSize;
+
+	setStream( NULL );
+	resetInternalState( NULL );
+  28:	bf ef       	ldi	r27, 0xFF	; 255
+  2a:	8f 3f       	cpi	r24, 0xFF	; 255
+  2c:	9b 07       	cpc	r25, r27
+  2e:	01 f0       	breq	.+0      	; 0x30 <_ZN19StreamReadUntilByte4readEv+0x30>
+  30:	49 89       	ldd	r20, Y+17	; 0x11
+}
+  32:	5a 89       	ldd	r21, Y+18	; 0x12
+  34:	60 e0       	ldi	r22, 0x00	; 0
+  36:	00 c0       	rjmp	.+0      	; 0x38 <_ZN19StreamReadUntilByte4readEv+0x38>
+  38:	11 23       	and	r17, r17
+  3a:	01 f4       	brne	.+0      	; 0x3c <_ZN19StreamReadUntilByte4readEv+0x3c>
+  3c:	8f ef       	ldi	r24, 0xFF	; 255
+  3e:	9f ef       	ldi	r25, 0xFF	; 255
+  40:	00 c0       	rjmp	.+0      	; 0x42 <_ZN19StreamReadUntilByte4readEv+0x42>
+  42:	99 27       	eor	r25, r25
+  44:	87 fd       	sbrc	r24, 7
+  46:	90 95       	com	r25
+  48:	28 17       	cp	r18, r24
+  4a:	39 07       	cpc	r19, r25
+  4c:	01 f4       	brne	.+0      	; 0x4e <_ZN19StreamReadUntilByte4readEv+0x4e>
+  4e:	2c 8b       	std	Y+20, r18	; 0x14
+  50:	82 2f       	mov	r24, r18
+  52:	00 c0       	rjmp	.+0      	; 0x54 <_ZN19StreamReadUntilByte4readEv+0x54>
+  54:	6f 5f       	subi	r22, 0xFF	; 255
+  56:	fa 01       	movw	r30, r20
+  58:	e6 0f       	add	r30, r22
+  5a:	f1 1d       	adc	r31, r1
+  5c:	80 81       	ld	r24, Z
+  5e:	88 23       	and	r24, r24
+  60:	01 f4       	brne	.+0      	; 0x62 <_ZN19StreamReadUntilByte4readEv+0x62>
+  62:	8c 89       	ldd	r24, Y+20	; 0x14
+  64:	88 23       	and	r24, r24
+  66:	01 f4       	brne	.+0      	; 0x68 <_ZN19StreamReadUntilByte4readEv+0x68>
+  68:	8b 89       	ldd	r24, Y+19	; 0x13
+  6a:	ec 85       	ldd	r30, Y+12	; 0x0c
+  6c:	fd 85       	ldd	r31, Y+13	; 0x0d
+  6e:	e8 0f       	add	r30, r24
+  70:	f1 1d       	adc	r31, r1
+  72:	20 83       	st	Z, r18
+  74:	8b 89       	ldd	r24, Y+19	; 0x13
+  76:	8f 5f       	subi	r24, 0xFF	; 255
+  78:	8b 8b       	std	Y+19, r24	; 0x13
+  7a:	00 c0       	rjmp	.+0      	; 0x7c <_ZN19StreamReadUntilByte4readEv+0x7c>
+  7c:	80 e0       	ldi	r24, 0x00	; 0
+  7e:	90 e0       	ldi	r25, 0x00	; 0
+  80:	00 c0       	rjmp	.+0      	; 0x82 <_ZN19StreamReadUntilByte4readEv+0x82>
+  82:	90 e0       	ldi	r25, 0x00	; 0
+  84:	df 91       	pop	r29
+  86:	cf 91       	pop	r28
+  88:	1f 91       	pop	r17
+  8a:	08 95       	ret
+
+Disassembly of section .text._ZN19StreamReadUntilByte9setStreamEP6Stream:
+
+00000000 <_ZN19StreamReadUntilByte9setStreamEP6Stream>:
+
+#include "StreamReadUntilByte.h"
+
+// =================================================
+
+StreamReadUntilByte::StreamReadUntilByte( char* _buffer , unsigned char _bufferSize )
+   0:	fc 01       	movw	r30, r24
+   2:	77 87       	std	Z+15, r23	; 0x0f
+   4:	66 87       	std	Z+14, r22	; 0x0e
+   6:	08 95       	ret
+
+Disassembly of section .text._ZN19StreamReadUntilByte18resetInternalStateEPc:
+
+00000000 <_ZN19StreamReadUntilByte18resetInternalStateEPc>:
+   0:	fc 01       	movw	r30, r24
+   2:	72 8b       	std	Z+18, r23	; 0x12
+   4:	61 8b       	std	Z+17, r22	; 0x11
+   6:	80 e0       	ldi	r24, 0x00	; 0
+   8:	00 c0       	rjmp	.+0      	; 0xa <_ZN19StreamReadUntilByte18resetInternalStateEPc+0xa>
+   a:	a4 85       	ldd	r26, Z+12	; 0x0c
+   c:	b5 85       	ldd	r27, Z+13	; 0x0d
+   e:	a8 0f       	add	r26, r24
+  10:	b1 1d       	adc	r27, r1
+  12:	1c 92       	st	X, r1
+  14:	8f 5f       	subi	r24, 0xFF	; 255
+  16:	90 89       	ldd	r25, Z+16	; 0x10
+  18:	89 17       	cp	r24, r25
+  1a:	00 f0       	brcs	.+0      	; 0x1c <_ZN19StreamReadUntilByte18resetInternalStateEPc+0x1c>
+  1c:	13 8a       	std	Z+19, r1	; 0x13
+{
+	buffer = _buffer;
+  1e:	14 8a       	std	Z+20, r1	; 0x14
+  20:	08 95       	ret
+
+Disassembly of section .text._ZN19StreamReadUntilByteC2EPch:
+
+00000000 <_ZN19StreamReadUntilByteC1EPch>:
+
+#include "StreamReadUntilByte.h"
+
+// =================================================
+
+StreamReadUntilByte::StreamReadUntilByte( char* _buffer , unsigned char _bufferSize )
+   0:	fc 01       	movw	r30, r24
+   2:	13 82       	std	Z+3, r1	; 0x03
+   4:	12 82       	std	Z+2, r1	; 0x02
+   6:	88 ee       	ldi	r24, 0xE8	; 232
+   8:	93 e0       	ldi	r25, 0x03	; 3
+   a:	a0 e0       	ldi	r26, 0x00	; 0
+   c:	b0 e0       	ldi	r27, 0x00	; 0
+   e:	84 83       	std	Z+4, r24	; 0x04
+  10:	95 83       	std	Z+5, r25	; 0x05
+  12:	a6 83       	std	Z+6, r26	; 0x06
+  14:	b7 83       	std	Z+7, r27	; 0x07
+  16:	80 e0       	ldi	r24, 0x00	; 0
+  18:	90 e0       	ldi	r25, 0x00	; 0
+  1a:	91 83       	std	Z+1, r25	; 0x01
+  1c:	80 83       	st	Z, r24
+{
+	buffer = _buffer;
+  1e:	75 87       	std	Z+13, r23	; 0x0d
+  20:	64 87       	std	Z+12, r22	; 0x0c
+	bufferSize = _bufferSize;
+  22:	40 8b       	std	Z+16, r20	; 0x10
+
+// =================================================
+
+void StreamReadUntilByte::setStream( Stream* _mainStream )
+{
+	mainStream = _mainStream;
+  24:	17 86       	std	Z+15, r1	; 0x0f
+  26:	16 86       	std	Z+14, r1	; 0x0e
+{
+	buffer = _buffer;
+	bufferSize = _bufferSize;
+
+	setStream( NULL );
+	resetInternalState( NULL );
+  28:	cf 01       	movw	r24, r30
+  2a:	60 e0       	ldi	r22, 0x00	; 0
+  2c:	70 e0       	ldi	r23, 0x00	; 0
+  2e:	0e 94 00 00 	call	0	; 0x0 <_ZN19StreamReadUntilByteC1EPch>
+}
+  32:	08 95       	ret
+
+StreamSkipBytes.o:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  00000000  00000000  00000034  2**0
+                  ALLOC
+  3 .stab         00000c78  00000000  00000000  00000034  2**2
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  4 .stabstr      000039f5  00000000  00000000  00000cac  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .text._ZN15StreamSkipBytes4peekEv 0000001a  00000000  00000000  000046a1  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  6 .text._ZN15StreamSkipBytes5flushEv 0000001a  00000000  00000000  000046bb  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  7 .text._ZN15StreamSkipBytes5writeEh 0000001a  00000000  00000000  000046d5  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  8 .text._ZN15StreamSkipBytes9availableEv 0000001a  00000000  00000000  000046ef  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  9 .text._ZN15StreamSkipBytes4readEv 000002a0  00000000  00000000  00004709  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 10 .text._ZN15StreamSkipBytesC2Ev 00000040  00000000  00000000  000049a9  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 11 .text._ZN15StreamSkipBytes9setStreamEP6Stream 00000008  00000000  00000000  000049e9  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 12 .text._ZN15StreamSkipBytes18resetInternalStateEj 0000000c  00000000  00000000  000049f1  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 13 .text._ZN15StreamSkipBytes18resetInternalStateEPcb 0000000e  00000000  00000000  000049fd  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 14 .rodata._ZTV15StreamSkipBytes 00000010  00000000  00000000  00004a0b  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+ 15 .rodata._ZTV6Stream 00000010  00000000  00000000  00004a1b  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+ 16 .progmem.data 00000109  00000000  00000000  00004a2b  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+
+Disassembly of section .text._ZN15StreamSkipBytes4peekEv:
+
+00000000 <_ZN15StreamSkipBytes4peekEv>:
+}
+
+// =================================================
+
+void StreamSkipBytes::resetInternalState( char* _stopSequence , bool _leaveLastByteInStream )
+{
+   0:	dc 01       	movw	r26, r24
+	stopSequence = _stopSequence;
+   2:	1c 96       	adiw	r26, 0x0c	; 12
+   4:	8d 91       	ld	r24, X+
+	alreadyMatchedBytesCount = 0;
+   6:	9c 91       	ld	r25, X
+	leaveLastByteInStream = _leaveLastByteInStream;
+   8:	1d 97       	sbiw	r26, 0x0d	; 13
+
+	workAsByteCountSkipper = false;
+   a:	dc 01       	movw	r26, r24
+}
+   c:	ed 91       	ld	r30, X+
+   e:	fc 91       	ld	r31, X
+  10:	00 84       	ldd	r0, Z+8	; 0x08
+  12:	f1 85       	ldd	r31, Z+9	; 0x09
+  14:	e0 2d       	mov	r30, r0
+  16:	19 95       	eicall
+  18:	08 95       	ret
+
+Disassembly of section .text._ZN15StreamSkipBytes5flushEv:
+
+00000000 <_ZN15StreamSkipBytes5flushEv>:
+}
+
+// =================================================
+
+void StreamSkipBytes::resetInternalState( char* _stopSequence , bool _leaveLastByteInStream )
+{
+   0:	dc 01       	movw	r26, r24
+	stopSequence = _stopSequence;
+   2:	1c 96       	adiw	r26, 0x0c	; 12
+   4:	8d 91       	ld	r24, X+
+	alreadyMatchedBytesCount = 0;
+   6:	9c 91       	ld	r25, X
+	leaveLastByteInStream = _leaveLastByteInStream;
+   8:	1d 97       	sbiw	r26, 0x0d	; 13
+
+	workAsByteCountSkipper = false;
+   a:	dc 01       	movw	r26, r24
+}
+   c:	ed 91       	ld	r30, X+
+   e:	fc 91       	ld	r31, X
+  10:	02 84       	ldd	r0, Z+10	; 0x0a
+  12:	f3 85       	ldd	r31, Z+11	; 0x0b
+  14:	e0 2d       	mov	r30, r0
+  16:	19 95       	eicall
+  18:	08 95       	ret
+
+Disassembly of section .text._ZN15StreamSkipBytes5writeEh:
+
+00000000 <_ZN15StreamSkipBytes5writeEh>:
+}
+
+// =================================================
+
+void StreamSkipBytes::resetInternalState( char* _stopSequence , bool _leaveLastByteInStream )
+{
+   0:	dc 01       	movw	r26, r24
+	stopSequence = _stopSequence;
+   2:	1c 96       	adiw	r26, 0x0c	; 12
+   4:	8d 91       	ld	r24, X+
+	alreadyMatchedBytesCount = 0;
+   6:	9c 91       	ld	r25, X
+	leaveLastByteInStream = _leaveLastByteInStream;
+   8:	1d 97       	sbiw	r26, 0x0d	; 13
+
+	workAsByteCountSkipper = false;
+   a:	dc 01       	movw	r26, r24
+}
+   c:	ed 91       	ld	r30, X+
+   e:	fc 91       	ld	r31, X
+  10:	01 90       	ld	r0, Z+
+  12:	f0 81       	ld	r31, Z
+  14:	e0 2d       	mov	r30, r0
+  16:	19 95       	eicall
+  18:	08 95       	ret
+
+Disassembly of section .text._ZN15StreamSkipBytes9availableEv:
+
+00000000 <_ZN15StreamSkipBytes9availableEv>:
+}
+
+// =================================================
+
+void StreamSkipBytes::resetInternalState( char* _stopSequence , bool _leaveLastByteInStream )
+{
+   0:	dc 01       	movw	r26, r24
+	stopSequence = _stopSequence;
+   2:	1c 96       	adiw	r26, 0x0c	; 12
+   4:	8d 91       	ld	r24, X+
+	alreadyMatchedBytesCount = 0;
+   6:	9c 91       	ld	r25, X
+	leaveLastByteInStream = _leaveLastByteInStream;
+   8:	1d 97       	sbiw	r26, 0x0d	; 13
+
+	workAsByteCountSkipper = false;
+   a:	dc 01       	movw	r26, r24
+}
+   c:	ed 91       	ld	r30, X+
+   e:	fc 91       	ld	r31, X
+  10:	04 80       	ldd	r0, Z+4	; 0x04
+  12:	f5 81       	ldd	r31, Z+5	; 0x05
+  14:	e0 2d       	mov	r30, r0
+  16:	19 95       	eicall
+  18:	08 95       	ret
+
+Disassembly of section .text._ZN15StreamSkipBytes4readEv:
+
+00000000 <_ZN15StreamSkipBytes4readEv>:
+}
+
+// =================================================
+
+void StreamSkipBytes::resetInternalState( char* _stopSequence , bool _leaveLastByteInStream )
+{
+   0:	8f 92       	push	r8
+	stopSequence = _stopSequence;
+   2:	9f 92       	push	r9
+   4:	af 92       	push	r10
+	alreadyMatchedBytesCount = 0;
+   6:	bf 92       	push	r11
+	leaveLastByteInStream = _leaveLastByteInStream;
+   8:	cf 92       	push	r12
+
+	workAsByteCountSkipper = false;
+   a:	df 92       	push	r13
+}
+   c:	ff 92       	push	r15
+   e:	0f 93       	push	r16
+  10:	1f 93       	push	r17
+  12:	cf 93       	push	r28
+  14:	df 93       	push	r29
+  16:	ec 01       	movw	r28, r24
+  18:	89 89       	ldd	r24, Y+17	; 0x11
+  1a:	88 23       	and	r24, r24
+  1c:	01 f4       	brne	.+0      	; 0x1e <_ZN15StreamSkipBytes4readEv+0x1e>
+  1e:	ff 24       	eor	r15, r15
+  20:	8e e0       	ldi	r24, 0x0E	; 14
+  22:	c8 2e       	mov	r12, r24
+  24:	d1 2c       	mov	r13, r1
+  26:	cc 0e       	add	r12, r28
+  28:	dd 1e       	adc	r13, r29
+  2a:	90 e0       	ldi	r25, 0x00	; 0
+  2c:	a9 2e       	mov	r10, r25
+  2e:	90 e0       	ldi	r25, 0x00	; 0
+  30:	b9 2e       	mov	r11, r25
+  32:	20 e0       	ldi	r18, 0x00	; 0
+  34:	82 2e       	mov	r8, r18
+  36:	20 e0       	ldi	r18, 0x00	; 0
+  38:	92 2e       	mov	r9, r18
+  3a:	00 c0       	rjmp	.+0      	; 0x3c <_ZN15StreamSkipBytes4readEv+0x3c>
+  3c:	0f 5f       	subi	r16, 0xFF	; 255
+  3e:	1f 4f       	sbci	r17, 0xFF	; 255
+  40:	8a 89       	ldd	r24, Y+18	; 0x12
+  42:	9b 89       	ldd	r25, Y+19	; 0x13
+  44:	01 97       	sbiw	r24, 0x01	; 1
+  46:	9b 8b       	std	Y+19, r25	; 0x13
+  48:	8a 8b       	std	Y+18, r24	; 0x12
+  4a:	00 c0       	rjmp	.+0      	; 0x4c <_ZN15StreamSkipBytes4readEv+0x4c>
+  4c:	00 e0       	ldi	r16, 0x00	; 0
+  4e:	10 e0       	ldi	r17, 0x00	; 0
+  50:	8a 89       	ldd	r24, Y+18	; 0x12
+  52:	9b 89       	ldd	r25, Y+19	; 0x13
+  54:	00 97       	sbiw	r24, 0x00	; 0
+  56:	01 f0       	breq	.+0      	; 0x58 <_ZN15StreamSkipBytes4readEv+0x58>
+  58:	8c 85       	ldd	r24, Y+12	; 0x0c
+  5a:	9d 85       	ldd	r25, Y+13	; 0x0d
+  5c:	dc 01       	movw	r26, r24
+  5e:	ed 91       	ld	r30, X+
+  60:	fc 91       	ld	r31, X
+  62:	04 80       	ldd	r0, Z+4	; 0x04
+  64:	f5 81       	ldd	r31, Z+5	; 0x05
+  66:	e0 2d       	mov	r30, r0
+  68:	19 95       	eicall
+  6a:	18 16       	cp	r1, r24
+  6c:	19 06       	cpc	r1, r25
+  6e:	04 f4       	brge	.+0      	; 0x70 <_ZN15StreamSkipBytes4readEv+0x70>
+  70:	8c 85       	ldd	r24, Y+12	; 0x0c
+  72:	9d 85       	ldd	r25, Y+13	; 0x0d
+  74:	dc 01       	movw	r26, r24
+  76:	ed 91       	ld	r30, X+
+  78:	fc 91       	ld	r31, X
+  7a:	06 80       	ldd	r0, Z+6	; 0x06
+  7c:	f7 81       	ldd	r31, Z+7	; 0x07
+  7e:	e0 2d       	mov	r30, r0
+  80:	19 95       	eicall
+  82:	bf ef       	ldi	r27, 0xFF	; 255
+  84:	8f 3f       	cpi	r24, 0xFF	; 255
+  86:	9b 07       	cpc	r25, r27
+  88:	01 f4       	brne	.+0      	; 0x8a <_ZN15StreamSkipBytes4readEv+0x8a>
+  8a:	8a 89       	ldd	r24, Y+18	; 0x12
+  8c:	9b 89       	ldd	r25, Y+19	; 0x13
+  8e:	00 97       	sbiw	r24, 0x00	; 0
+  90:	01 f4       	brne	.+0      	; 0x92 <_ZN15StreamSkipBytes4readEv+0x92>
+  92:	00 c0       	rjmp	.+0      	; 0x94 <_ZN15StreamSkipBytes4readEv+0x94>
+  94:	8c 85       	ldd	r24, Y+12	; 0x0c
+  96:	9d 85       	ldd	r25, Y+13	; 0x0d
+  98:	dc 01       	movw	r26, r24
+  9a:	ed 91       	ld	r30, X+
+  9c:	fc 91       	ld	r31, X
+  9e:	04 80       	ldd	r0, Z+4	; 0x04
+  a0:	f5 81       	ldd	r31, Z+5	; 0x05
+  a2:	e0 2d       	mov	r30, r0
+  a4:	19 95       	eicall
+  a6:	00 97       	sbiw	r24, 0x00	; 0
+  a8:	01 f0       	breq	.+0      	; 0xaa <_ZN15StreamSkipBytes4readEv+0xaa>
+  aa:	00 c0       	rjmp	.+0      	; 0xac <_ZN15StreamSkipBytes4readEv+0xac>
+  ac:	01 15       	cp	r16, r1
+  ae:	11 05       	cpc	r17, r1
+  b0:	01 f0       	breq	.+0      	; 0xb2 <_ZN15StreamSkipBytes4readEv+0xb2>
+  b2:	00 c0       	rjmp	.+0      	; 0xb4 <_ZN15StreamSkipBytes4readEv+0xb4>
+  b4:	00 c0       	rjmp	.+0      	; 0xb6 <_ZN15StreamSkipBytes4readEv+0xb6>
+  b6:	8c 85       	ldd	r24, Y+12	; 0x0c
+  b8:	9d 85       	ldd	r25, Y+13	; 0x0d
+  ba:	dc 01       	movw	r26, r24
+  bc:	ed 91       	ld	r30, X+
+  be:	fc 91       	ld	r31, X
+  c0:	04 80       	ldd	r0, Z+4	; 0x04
+  c2:	f5 81       	ldd	r31, Z+5	; 0x05
+  c4:	e0 2d       	mov	r30, r0
+  c6:	19 95       	eicall
+  c8:	00 97       	sbiw	r24, 0x00	; 0
+  ca:	01 f4       	brne	.+0      	; 0xcc <_ZN15StreamSkipBytes4readEv+0xcc>
+  cc:	ff 20       	and	r15, r15
+  ce:	01 f4       	brne	.+0      	; 0xd0 <_ZN15StreamSkipBytes4readEv+0xd0>
+  d0:	00 c0       	rjmp	.+0      	; 0xd2 <_ZN15StreamSkipBytes4readEv+0xd2>
+  d2:	88 89       	ldd	r24, Y+16	; 0x10
+  d4:	85 31       	cpi	r24, 0x15	; 21
+  d6:	00 f0       	brcs	.+0      	; 0xd8 <_ZN15StreamSkipBytes4readEv+0xd8>
+  d8:	00 c0       	rjmp	.+0      	; 0xda <_ZN15StreamSkipBytes4readEv+0xda>
+  da:	ce 01       	movw	r24, r28
+  dc:	0e 96       	adiw	r24, 0x0e	; 14
+  de:	60 e0       	ldi	r22, 0x00	; 0
+  e0:	70 e0       	ldi	r23, 0x00	; 0
+  e2:	40 e0       	ldi	r20, 0x00	; 0
+  e4:	50 e0       	ldi	r21, 0x00	; 0
+  e6:	0e 94 00 00 	call	0	; 0x0 <_ZN15StreamSkipBytes4readEv>
+  ea:	0f 92       	push	r0
+  ec:	0f 92       	push	r0
+  ee:	80 e0       	ldi	r24, 0x00	; 0
+  f0:	90 e0       	ldi	r25, 0x00	; 0
+  f2:	ed b7       	in	r30, 0x3d	; 61
+  f4:	fe b7       	in	r31, 0x3e	; 62
+  f6:	92 83       	std	Z+2, r25	; 0x02
+  f8:	81 83       	std	Z+1, r24	; 0x01
+  fa:	0e 94 00 00 	call	0	; 0x0 <_ZN15StreamSkipBytes4readEv>
+  fe:	80 e0       	ldi	r24, 0x00	; 0
+ 100:	90 e0       	ldi	r25, 0x00	; 0
+ 102:	ad b7       	in	r26, 0x3d	; 61
+ 104:	be b7       	in	r27, 0x3e	; 62
+ 106:	12 96       	adiw	r26, 0x02	; 2
+ 108:	9c 93       	st	X, r25
+ 10a:	8e 93       	st	-X, r24
+ 10c:	11 97       	sbiw	r26, 0x01	; 1
+ 10e:	00 c0       	rjmp	.+0      	; 0x110 <_ZN15StreamSkipBytes4readEv+0x110>
+ 110:	8c 85       	ldd	r24, Y+12	; 0x0c
+ 112:	9d 85       	ldd	r25, Y+13	; 0x0d
+ 114:	dc 01       	movw	r26, r24
+ 116:	ed 91       	ld	r30, X+
+ 118:	fc 91       	ld	r31, X
+ 11a:	00 84       	ldd	r0, Z+8	; 0x08
+ 11c:	f1 85       	ldd	r31, Z+9	; 0x09
+ 11e:	e0 2d       	mov	r30, r0
+ 120:	19 95       	eicall
+ 122:	8c 01       	movw	r16, r24
+ 124:	88 89       	ldd	r24, Y+16	; 0x10
+ 126:	85 31       	cpi	r24, 0x15	; 21
+ 128:	00 f4       	brcc	.+0      	; 0x12a <_ZN15StreamSkipBytes4readEv+0x12a>
+ 12a:	c6 01       	movw	r24, r12
+ 12c:	60 e0       	ldi	r22, 0x00	; 0
+ 12e:	70 e0       	ldi	r23, 0x00	; 0
+ 130:	40 e0       	ldi	r20, 0x00	; 0
+ 132:	50 e0       	ldi	r21, 0x00	; 0
+ 134:	0e 94 00 00 	call	0	; 0x0 <_ZN15StreamSkipBytes4readEv>
+ 138:	ed b7       	in	r30, 0x3d	; 61
+ 13a:	fe b7       	in	r31, 0x3e	; 62
+ 13c:	38 97       	sbiw	r30, 0x08	; 8
+ 13e:	0f b6       	in	r0, 0x3f	; 63
+ 140:	f8 94       	cli
+ 142:	fe bf       	out	0x3e, r31	; 62
+ 144:	0f be       	out	0x3f, r0	; 63
+ 146:	ed bf       	out	0x3d, r30	; 61
+ 148:	31 96       	adiw	r30, 0x01	; 1
+ 14a:	ad b7       	in	r26, 0x3d	; 61
+ 14c:	be b7       	in	r27, 0x3e	; 62
+ 14e:	12 96       	adiw	r26, 0x02	; 2
+ 150:	bc 92       	st	X, r11
+ 152:	ae 92       	st	-X, r10
+ 154:	11 97       	sbiw	r26, 0x01	; 1
+ 156:	13 83       	std	Z+3, r17	; 0x03
+ 158:	02 83       	std	Z+2, r16	; 0x02
+ 15a:	15 83       	std	Z+5, r17	; 0x05
+ 15c:	04 83       	std	Z+4, r16	; 0x04
+ 15e:	8f 89       	ldd	r24, Y+23	; 0x17
+ 160:	86 83       	std	Z+6, r24	; 0x06
+ 162:	17 82       	std	Z+7, r1	; 0x07
+ 164:	0e 94 00 00 	call	0	; 0x0 <_ZN15StreamSkipBytes4readEv>
+ 168:	ed b7       	in	r30, 0x3d	; 61
+ 16a:	fe b7       	in	r31, 0x3e	; 62
+ 16c:	36 96       	adiw	r30, 0x06	; 6
+ 16e:	0f b6       	in	r0, 0x3f	; 63
+ 170:	f8 94       	cli
+ 172:	fe bf       	out	0x3e, r31	; 62
+ 174:	0f be       	out	0x3f, r0	; 63
+ 176:	ed bf       	out	0x3d, r30	; 61
+ 178:	92 82       	std	Z+2, r9	; 0x02
+ 17a:	81 82       	std	Z+1, r8	; 0x01
+ 17c:	0e 94 00 00 	call	0	; 0x0 <_ZN15StreamSkipBytes4readEv>
+ 180:	0f 90       	pop	r0
+ 182:	0f 90       	pop	r0
+ 184:	ff ef       	ldi	r31, 0xFF	; 255
+ 186:	0f 3f       	cpi	r16, 0xFF	; 255
+ 188:	1f 07       	cpc	r17, r31
+ 18a:	01 f4       	brne	.+0      	; 0x18c <_ZN15StreamSkipBytes4readEv+0x18c>
+ 18c:	ff 20       	and	r15, r15
+ 18e:	01 f4       	brne	.+0      	; 0x190 <_ZN15StreamSkipBytes4readEv+0x190>
+ 190:	00 c0       	rjmp	.+0      	; 0x192 <_ZN15StreamSkipBytes4readEv+0x192>
+ 192:	88 89       	ldd	r24, Y+16	; 0x10
+ 194:	85 31       	cpi	r24, 0x15	; 21
+ 196:	00 f0       	brcs	.+0      	; 0x198 <_ZN15StreamSkipBytes4readEv+0x198>
+ 198:	00 c0       	rjmp	.+0      	; 0x19a <_ZN15StreamSkipBytes4readEv+0x19a>
+ 19a:	ce 01       	movw	r24, r28
+ 19c:	0e 96       	adiw	r24, 0x0e	; 14
+ 19e:	60 e0       	ldi	r22, 0x00	; 0
+ 1a0:	70 e0       	ldi	r23, 0x00	; 0
+ 1a2:	40 e0       	ldi	r20, 0x00	; 0
+ 1a4:	50 e0       	ldi	r21, 0x00	; 0
+ 1a6:	0e 94 00 00 	call	0	; 0x0 <_ZN15StreamSkipBytes4readEv>
+ 1aa:	0f 92       	push	r0
+ 1ac:	0f 92       	push	r0
+ 1ae:	80 e0       	ldi	r24, 0x00	; 0
+ 1b0:	90 e0       	ldi	r25, 0x00	; 0
+ 1b2:	ad b7       	in	r26, 0x3d	; 61
+ 1b4:	be b7       	in	r27, 0x3e	; 62
+ 1b6:	12 96       	adiw	r26, 0x02	; 2
+ 1b8:	9c 93       	st	X, r25
+ 1ba:	8e 93       	st	-X, r24
+ 1bc:	11 97       	sbiw	r26, 0x01	; 1
+ 1be:	0e 94 00 00 	call	0	; 0x0 <_ZN15StreamSkipBytes4readEv>
+ 1c2:	80 e0       	ldi	r24, 0x00	; 0
+ 1c4:	90 e0       	ldi	r25, 0x00	; 0
+ 1c6:	ed b7       	in	r30, 0x3d	; 61
+ 1c8:	fe b7       	in	r31, 0x3e	; 62
+ 1ca:	92 83       	std	Z+2, r25	; 0x02
+ 1cc:	81 83       	std	Z+1, r24	; 0x01
+ 1ce:	0e 94 00 00 	call	0	; 0x0 <_ZN15StreamSkipBytes4readEv>
+ 1d2:	0f 90       	pop	r0
+ 1d4:	0f 90       	pop	r0
+ 1d6:	00 c0       	rjmp	.+0      	; 0x1d8 <_ZN15StreamSkipBytes4readEv+0x1d8>
+ 1d8:	2d 89       	ldd	r18, Y+21	; 0x15
+ 1da:	3e 89       	ldd	r19, Y+22	; 0x16
+ 1dc:	4f 89       	ldd	r20, Y+23	; 0x17
+ 1de:	f9 01       	movw	r30, r18
+ 1e0:	e4 0f       	add	r30, r20
+ 1e2:	f1 1d       	adc	r31, r1
+ 1e4:	80 81       	ld	r24, Z
+ 1e6:	99 27       	eor	r25, r25
+ 1e8:	87 fd       	sbrc	r24, 7
+ 1ea:	90 95       	com	r25
+ 1ec:	80 17       	cp	r24, r16
+ 1ee:	91 07       	cpc	r25, r17
+ 1f0:	01 f4       	brne	.+0      	; 0x1f2 <_ZN15StreamSkipBytes4readEv+0x1f2>
+ 1f2:	4f 5f       	subi	r20, 0xFF	; 255
+ 1f4:	4f 8b       	std	Y+23, r20	; 0x17
+ 1f6:	f9 01       	movw	r30, r18
+ 1f8:	e4 0f       	add	r30, r20
+ 1fa:	f1 1d       	adc	r31, r1
+ 1fc:	80 81       	ld	r24, Z
+ 1fe:	88 23       	and	r24, r24
+ 200:	01 f4       	brne	.+0      	; 0x202 <_ZN15StreamSkipBytes4readEv+0x202>
+ 202:	8c 89       	ldd	r24, Y+20	; 0x14
+ 204:	88 23       	and	r24, r24
+ 206:	01 f4       	brne	.+0      	; 0x208 <_ZN15StreamSkipBytes4readEv+0x208>
+ 208:	8c 85       	ldd	r24, Y+12	; 0x0c
+ 20a:	9d 85       	ldd	r25, Y+13	; 0x0d
+ 20c:	dc 01       	movw	r26, r24
+ 20e:	ed 91       	ld	r30, X+
+ 210:	fc 91       	ld	r31, X
+ 212:	06 80       	ldd	r0, Z+6	; 0x06
+ 214:	f7 81       	ldd	r31, Z+7	; 0x07
+ 216:	e0 2d       	mov	r30, r0
+ 218:	19 95       	eicall
+ 21a:	88 89       	ldd	r24, Y+16	; 0x10
+ 21c:	85 31       	cpi	r24, 0x15	; 21
+ 21e:	00 f4       	brcc	.+0      	; 0x220 <_ZN15StreamSkipBytes4readEv+0x220>
+ 220:	ce 01       	movw	r24, r28
+ 222:	0e 96       	adiw	r24, 0x0e	; 14
+ 224:	60 e0       	ldi	r22, 0x00	; 0
+ 226:	70 e0       	ldi	r23, 0x00	; 0
+ 228:	40 e0       	ldi	r20, 0x00	; 0
+ 22a:	50 e0       	ldi	r21, 0x00	; 0
+ 22c:	0e 94 00 00 	call	0	; 0x0 <_ZN15StreamSkipBytes4readEv>
+ 230:	0f 92       	push	r0
+ 232:	0f 92       	push	r0
+ 234:	80 e0       	ldi	r24, 0x00	; 0
+ 236:	90 e0       	ldi	r25, 0x00	; 0
+ 238:	ed b7       	in	r30, 0x3d	; 61
+ 23a:	fe b7       	in	r31, 0x3e	; 62
+ 23c:	92 83       	std	Z+2, r25	; 0x02
+ 23e:	81 83       	std	Z+1, r24	; 0x01
+ 240:	0e 94 00 00 	call	0	; 0x0 <_ZN15StreamSkipBytes4readEv>
+ 244:	80 e0       	ldi	r24, 0x00	; 0
+ 246:	90 e0       	ldi	r25, 0x00	; 0
+ 248:	ad b7       	in	r26, 0x3d	; 61
+ 24a:	be b7       	in	r27, 0x3e	; 62
+ 24c:	12 96       	adiw	r26, 0x02	; 2
+ 24e:	9c 93       	st	X, r25
+ 250:	8e 93       	st	-X, r24
+ 252:	11 97       	sbiw	r26, 0x01	; 1
+ 254:	0e 94 00 00 	call	0	; 0x0 <_ZN15StreamSkipBytes4readEv>
+ 258:	0f 90       	pop	r0
+ 25a:	0f 90       	pop	r0
+ 25c:	00 c0       	rjmp	.+0      	; 0x25e <_ZN15StreamSkipBytes4readEv+0x25e>
+ 25e:	1f 8a       	std	Y+23, r1	; 0x17
+ 260:	8c 85       	ldd	r24, Y+12	; 0x0c
+ 262:	9d 85       	ldd	r25, Y+13	; 0x0d
+ 264:	dc 01       	movw	r26, r24
+ 266:	ed 91       	ld	r30, X+
+ 268:	fc 91       	ld	r31, X
+ 26a:	06 80       	ldd	r0, Z+6	; 0x06
+ 26c:	f7 81       	ldd	r31, Z+7	; 0x07
+ 26e:	e0 2d       	mov	r30, r0
+ 270:	19 95       	eicall
+ 272:	ff 24       	eor	r15, r15
+ 274:	f3 94       	inc	r15
+ 276:	00 c0       	rjmp	.+0      	; 0x278 <_ZN15StreamSkipBytes4readEv+0x278>
+ 278:	8f ef       	ldi	r24, 0xFF	; 255
+ 27a:	9f ef       	ldi	r25, 0xFF	; 255
+ 27c:	00 c0       	rjmp	.+0      	; 0x27e <_ZN15StreamSkipBytes4readEv+0x27e>
+ 27e:	80 e0       	ldi	r24, 0x00	; 0
+ 280:	90 e0       	ldi	r25, 0x00	; 0
+ 282:	00 c0       	rjmp	.+0      	; 0x284 <_ZN15StreamSkipBytes4readEv+0x284>
+ 284:	81 e0       	ldi	r24, 0x01	; 1
+ 286:	90 e0       	ldi	r25, 0x00	; 0
+ 288:	df 91       	pop	r29
+ 28a:	cf 91       	pop	r28
+ 28c:	1f 91       	pop	r17
+ 28e:	0f 91       	pop	r16
+ 290:	ff 90       	pop	r15
+ 292:	df 90       	pop	r13
+ 294:	cf 90       	pop	r12
+ 296:	bf 90       	pop	r11
+ 298:	af 90       	pop	r10
+ 29a:	9f 90       	pop	r9
+ 29c:	8f 90       	pop	r8
+ 29e:	08 95       	ret
+
+Disassembly of section .text._ZN15StreamSkipBytesC2Ev:
+
+00000000 <_ZN15StreamSkipBytesC1Ev>:
+}
+
+// =================================================
+
+void StreamSkipBytes::resetInternalState( char* _stopSequence , bool _leaveLastByteInStream )
+{
+   0:	cf 93       	push	r28
+	stopSequence = _stopSequence;
+   2:	df 93       	push	r29
+   4:	ec 01       	movw	r28, r24
+	alreadyMatchedBytesCount = 0;
+   6:	1b 82       	std	Y+3, r1	; 0x03
+	leaveLastByteInStream = _leaveLastByteInStream;
+   8:	1a 82       	std	Y+2, r1	; 0x02
+
+	workAsByteCountSkipper = false;
+   a:	88 ee       	ldi	r24, 0xE8	; 232
+}
+   c:	93 e0       	ldi	r25, 0x03	; 3
+   e:	a0 e0       	ldi	r26, 0x00	; 0
+  10:	b0 e0       	ldi	r27, 0x00	; 0
+  12:	8c 83       	std	Y+4, r24	; 0x04
+  14:	9d 83       	std	Y+5, r25	; 0x05
+  16:	ae 83       	std	Y+6, r26	; 0x06
+  18:	bf 83       	std	Y+7, r27	; 0x07
+  1a:	80 e0       	ldi	r24, 0x00	; 0
+  1c:	90 e0       	ldi	r25, 0x00	; 0
+  1e:	99 83       	std	Y+1, r25	; 0x01
+  20:	88 83       	st	Y, r24
+  22:	ce 01       	movw	r24, r28
+  24:	0e 96       	adiw	r24, 0x0e	; 14
+  26:	60 e0       	ldi	r22, 0x00	; 0
+  28:	70 e0       	ldi	r23, 0x00	; 0
+  2a:	0e 94 00 00 	call	0	; 0x0 <_ZN15StreamSkipBytesC1Ev>
+  2e:	1d 86       	std	Y+13, r1	; 0x0d
+  30:	1c 86       	std	Y+12, r1	; 0x0c
+  32:	1b 8a       	std	Y+19, r1	; 0x13
+  34:	1a 8a       	std	Y+18, r1	; 0x12
+  36:	81 e0       	ldi	r24, 0x01	; 1
+  38:	89 8b       	std	Y+17, r24	; 0x11
+  3a:	df 91       	pop	r29
+  3c:	cf 91       	pop	r28
+  3e:	08 95       	ret
+
+Disassembly of section .text._ZN15StreamSkipBytes9setStreamEP6Stream:
+
+00000000 <_ZN15StreamSkipBytes9setStreamEP6Stream>:
+}
+
+// =================================================
+
+void StreamSkipBytes::resetInternalState( char* _stopSequence , bool _leaveLastByteInStream )
+{
+   0:	fc 01       	movw	r30, r24
+	stopSequence = _stopSequence;
+   2:	75 87       	std	Z+13, r23	; 0x0d
+   4:	64 87       	std	Z+12, r22	; 0x0c
+	alreadyMatchedBytesCount = 0;
+   6:	08 95       	ret
+
+Disassembly of section .text._ZN15StreamSkipBytes18resetInternalStateEj:
+
+00000000 <_ZN15StreamSkipBytes18resetInternalStateEj>:
+}
+
+// =================================================
+
+void StreamSkipBytes::resetInternalState( char* _stopSequence , bool _leaveLastByteInStream )
+{
+   0:	fc 01       	movw	r30, r24
+	stopSequence = _stopSequence;
+   2:	73 8b       	std	Z+19, r23	; 0x13
+   4:	62 8b       	std	Z+18, r22	; 0x12
+	alreadyMatchedBytesCount = 0;
+   6:	81 e0       	ldi	r24, 0x01	; 1
+	leaveLastByteInStream = _leaveLastByteInStream;
+   8:	81 8b       	std	Z+17, r24	; 0x11
+
+	workAsByteCountSkipper = false;
+   a:	08 95       	ret
+
+Disassembly of section .text._ZN15StreamSkipBytes18resetInternalStateEPcb:
+
+00000000 <_ZN15StreamSkipBytes18resetInternalStateEPcb>:
+}
+
+// =================================================
+
+void StreamSkipBytes::resetInternalState( char* _stopSequence , bool _leaveLastByteInStream )
+{
+   0:	fc 01       	movw	r30, r24
+	stopSequence = _stopSequence;
+   2:	76 8b       	std	Z+22, r23	; 0x16
+   4:	65 8b       	std	Z+21, r22	; 0x15
+	alreadyMatchedBytesCount = 0;
+   6:	17 8a       	std	Z+23, r1	; 0x17
+	leaveLastByteInStream = _leaveLastByteInStream;
+   8:	44 8b       	std	Z+20, r20	; 0x14
+
+	workAsByteCountSkipper = false;
+   a:	11 8a       	std	Z+17, r1	; 0x11
+}
+   c:	08 95       	ret
+
+TimeMeasurement.o:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  00000000  00000000  00000034  2**0
+                  ALLOC
+  3 .stab         00000630  00000000  00000000  00000034  2**2
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  4 .stabstr      00002d7e  00000000  00000000  00000664  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .text._ZN15TimeMeasurement8saveTimeEv 0000001c  00000000  00000000  000033e2  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  6 .text._ZN15TimeMeasurement13getTimePeriodEv 00000030  00000000  00000000  000033fe  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+
+Disassembly of section .text._ZN15TimeMeasurement8saveTimeEv:
+
+00000000 <_ZN15TimeMeasurement8saveTimeEv>:
+}
+
+// =================================================
+
+unsigned long TimeMeasurement::getTimePeriod()
+{
+   0:	cf 93       	push	r28
+   2:	df 93       	push	r29
+   4:	ec 01       	movw	r28, r24
+   6:	0e 94 00 00 	call	0	; 0x0 <_ZN15TimeMeasurement8saveTimeEv>
+	return millis() - savedTime;
+   a:	dc 01       	movw	r26, r24
+   c:	cb 01       	movw	r24, r22
+   e:	88 83       	st	Y, r24
+  10:	99 83       	std	Y+1, r25	; 0x01
+  12:	aa 83       	std	Y+2, r26	; 0x02
+  14:	bb 83       	std	Y+3, r27	; 0x03
+  16:	df 91       	pop	r29
+  18:	cf 91       	pop	r28
+  1a:	08 95       	ret
+
+Disassembly of section .text._ZN15TimeMeasurement13getTimePeriodEv:
+
+00000000 <_ZN15TimeMeasurement13getTimePeriodEv>:
+}
+
+// =================================================
+
+unsigned long TimeMeasurement::getTimePeriod()
+{
+   0:	0f 93       	push	r16
+   2:	1f 93       	push	r17
+   4:	cf 93       	push	r28
+   6:	df 93       	push	r29
+   8:	ec 01       	movw	r28, r24
+	return millis() - savedTime;
+   a:	0e 94 00 00 	call	0	; 0x0 <_ZN15TimeMeasurement13getTimePeriodEv>
+   e:	8b 01       	movw	r16, r22
+  10:	9c 01       	movw	r18, r24
+  12:	88 81       	ld	r24, Y
+  14:	99 81       	ldd	r25, Y+1	; 0x01
+  16:	aa 81       	ldd	r26, Y+2	; 0x02
+  18:	bb 81       	ldd	r27, Y+3	; 0x03
+  1a:	08 1b       	sub	r16, r24
+  1c:	19 0b       	sbc	r17, r25
+  1e:	2a 0b       	sbc	r18, r26
+  20:	3b 0b       	sbc	r19, r27
+}
+  22:	b8 01       	movw	r22, r16
+  24:	c9 01       	movw	r24, r18
+  26:	df 91       	pop	r29
+  28:	cf 91       	pop	r28
+  2a:	1f 91       	pop	r17
+  2c:	0f 91       	pop	r16
+  2e:	08 95       	ret
+
+_AnyBuffer.o:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  00000000  00000000  00000034  2**0
+                  ALLOC
+  3 .stab         0000018c  00000000  00000000  00000034  2**2
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  4 .stabstr      00000483  00000000  00000000  000001c0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+_Runnable.o:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  00000000  00000000  00000034  2**0
+                  ALLOC
+  3 .stab         0000018c  00000000  00000000  00000034  2**2
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  4 .stabstr      00000481  00000000  00000000  000001c0  2**0
+                  CONTENTS, READONLY, DEBUGGING

@@ -89,6 +89,14 @@ public class DataCollectingTypes extends AbstractNodeContainer implements as.int
     @Override
     public void setDataCollectingType( as.intellihome.neo4j.objects.Sensor sensor , Relations.DataCollectingType dataCollectingType )
     {
+        boolean isLimited = !Relations.DataCollectingType.OVERRIDE.equals( dataCollectingType ) && !Relations.DataCollectingType.APPEND_UNLIMITED.equals( dataCollectingType );
+        
+        if( isLimited )
+        {
+            if( dataCollectingType.limit == null ) throw new IllegalArgumentException( "Enum '" + dataCollectingType.name() + "' should contain 'limit'." );
+            if( dataCollectingType.limitExceededAction == null ) throw new IllegalArgumentException( "Enum '" + dataCollectingType.name() + "' should contain 'limitExceededAction'." );
+        }
+        
         Transaction tx = node.getGraphDatabase().beginTx();
         try
         {
@@ -96,7 +104,12 @@ public class DataCollectingTypes extends AbstractNodeContainer implements as.int
             while( iter.hasNext() ) iter.next().delete();
 
             Relationship r = node.createRelationshipTo( sensor.getNode() , dataCollectingType );
-            if( dataCollectingType.limit != null )r.setProperty( "limit" ,  dataCollectingType.limit );
+            
+            if( isLimited )
+            {
+                r.setProperty( "limit" ,  dataCollectingType.limit );
+                r.setProperty( "limitExceededAction" ,  dataCollectingType.limitExceededAction );
+            }
             
             tx.success();
         }

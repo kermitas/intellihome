@@ -1,0 +1,98 @@
+
+**** Build of configuration Release for project Satelita1_TaskManager ****
+
+make all 
+Building file: ../BasicTaskManagerScheduler.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_TaskManager" -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"BasicTaskManagerScheduler.d" -MT"BasicTaskManagerScheduler.d" -c -o "BasicTaskManagerScheduler.o" -x c++ "../BasicTaskManagerScheduler.cpp"
+In file included from ../SampleTaskRunnable.cpp:8:0:
+Finished building: ../BasicTaskManagerScheduler.cpp
+ 
+../SampleTaskRunnable.h:29:48: warning: '__progmem__' attribute ignored [-Wattributes]
+../SampleTaskRunnable.h:39:28: warning: '__progmem__' attribute ignored [-Wattributes]
+Building file: ../SampleTaskRunnable.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_TaskManager" -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"SampleTaskRunnable.d" -MT"SampleTaskRunnable.d" -c -o "SampleTaskRunnable.o" -x c++ "../SampleTaskRunnable.cpp"
+Finished building: ../SampleTaskRunnable.cpp
+ 
+Building file: ../TaskManager.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_TaskManager" -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"TaskManager.d" -MT"TaskManager.d" -c -o "TaskManager.o" -x c++ "../TaskManager.cpp"
+../SampleTaskRunnable.cpp:16:66: warning: '__progmem__' attribute ignored [-Wattributes]
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h: In member function 'virtual void SampleTaskRunnable::run()':
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h:56:58: warning: uninitialized variable 'DebugPrinter::debugLevelPrefixForINFO' put into program memory area [-Wuninitialized]
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h:50:42: warning: uninitialized variable 'DebugPrinter::newLine' put into program memory area [-Wuninitialized]
+Finished building: ../TaskManager.cpp
+ 
+Building file: ../TaskManagerRecord.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_TaskManager" -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"TaskManagerRecord.d" -MT"TaskManagerRecord.d" -c -o "TaskManagerRecord.o" -x c++ "../TaskManagerRecord.cpp"
+Finished building: ../TaskManagerRecord.cpp
+ 
+Building file: ../TaskManagerScheduler.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_TaskManager" -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"TaskManagerScheduler.d" -MT"TaskManagerScheduler.d" -c -o "TaskManagerScheduler.o" -x c++ "../TaskManagerScheduler.cpp"
+Finished building: ../TaskManagerScheduler.cpp
+ 
+Building file: ../TaskManagerSchedulerCount.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_TaskManager" -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"TaskManagerSchedulerCount.d" -MT"TaskManagerSchedulerCount.d" -c -o "TaskManagerSchedulerCount.o" -x c++ "../TaskManagerSchedulerCount.cpp"
+Finished building: ../TaskManagerSchedulerCount.cpp
+ 
+Building file: ../TaskManagerSchedulerTimeIntervals.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_TaskManager" -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"TaskManagerSchedulerTimeIntervals.d" -MT"TaskManagerSchedulerTimeIntervals.d" -c -o "TaskManagerSchedulerTimeIntervals.o" -x c++ "../TaskManagerSchedulerTimeIntervals.cpp"
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h: In member function 'bool TaskManager::add(TaskManagerRecord*)':
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h:57:61: warning: uninitialized variable 'DebugPrinter::debugLevelPrefixForWARNING' put into program memory area [-Wuninitialized]
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h:50:42: warning: uninitialized variable 'DebugPrinter::newLine' put into program memory area [-Wuninitialized]
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h:56:58: warning: uninitialized variable 'DebugPrinter::debugLevelPrefixForINFO' put into program memory area [-Wuninitialized]
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h: In member function 'void TaskManager::execute()':
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h:55:57: warning: uninitialized variable 'DebugPrinter::debugLevelPrefixForALL' put into program memory area [-Wuninitialized]
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h: In member function 'virtual bool TaskManagerSchedulerCount::canExecute()':
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h:55:57: warning: uninitialized variable 'DebugPrinter::debugLevelPrefixForALL' put into program memory area [-Wuninitialized]
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h:50:42: warning: uninitialized variable 'DebugPrinter::newLine' put into program memory area [-Wuninitialized]
+../TaskManagerSchedulerTimeIntervals.cpp: In member function 'virtual bool TaskManagerSchedulerTimeIntervals::canExecute()':
+../TaskManagerSchedulerTimeIntervals.cpp:42:111: warning: array subscript has type 'char' [-Wchar-subscripts]
+../TaskManagerSchedulerTimeIntervals.cpp:74:5: warning: array subscript has type 'char' [-Wchar-subscripts]
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h: In member function 'virtual bool TaskManagerSchedulerTimeIntervals::canRemoveFromTaskManager()':
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h:55:57: warning: uninitialized variable 'DebugPrinter::debugLevelPrefixForALL' put into program memory area [-Wuninitialized]
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h:50:42: warning: uninitialized variable 'DebugPrinter::newLine' put into program memory area [-Wuninitialized]
+avr-ar: creating libSatelita1_TaskManager.a
+avr-objcopy:libSatelita1_TaskManager.hex: Invalid operation
+make: [libSatelita1_TaskManager.hex] Błąd 1 (zignorowany)
+avr-objcopy:libSatelita1_TaskManager.eep: Invalid operation
+Finished building: ../TaskManagerSchedulerTimeIntervals.cpp
+ 
+Building target: libSatelita1_TaskManager.a
+Invoking: AVR Archiver
+avr-ar -r  "libSatelita1_TaskManager.a"  ./BasicTaskManagerScheduler.o ./SampleTaskRunnable.o ./TaskManager.o ./TaskManagerRecord.o ./TaskManagerScheduler.o ./TaskManagerSchedulerCount.o ./TaskManagerSchedulerTimeIntervals.o  
+Finished building target: libSatelita1_TaskManager.a
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S libSatelita1_TaskManager.a  >"libSatelita1_TaskManager.lss"
+make: [libSatelita1_TaskManager.eep] Błąd 1 (zignorowany)
+Finished building: libSatelita1_TaskManager.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex libSatelita1_TaskManager.a  "libSatelita1_TaskManager.hex"
+Finished building: libSatelita1_TaskManager.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex libSatelita1_TaskManager.a  "libSatelita1_TaskManager.eep"
+Finished building: libSatelita1_TaskManager.eep
+ 
+Invoking: Print Size
+avr-size --format=berkeley -t libSatelita1_TaskManager.a
+   text	   data	    bss	    dec	    hex	filename
+     56	      0	      0	     56	     38	BasicTaskManagerScheduler.o (ex libSatelita1_TaskManager.a)
+    173	      0	      0	    173	     ad	SampleTaskRunnable.o (ex libSatelita1_TaskManager.a)
+   3475	      0	      0	   3475	    d93	TaskManager.o (ex libSatelita1_TaskManager.a)
+     12	      0	      0	     12	      c	TaskManagerRecord.o (ex libSatelita1_TaskManager.a)
+      0	      0	      0	      0	      0	TaskManagerScheduler.o (ex libSatelita1_TaskManager.a)
+    542	      0	      0	    542	    21e	TaskManagerSchedulerCount.o (ex libSatelita1_TaskManager.a)
+    870	      0	      0	    870	    366	TaskManagerSchedulerTimeIntervals.o (ex libSatelita1_TaskManager.a)
+   5128	      0	      0	   5128	   1408	(TOTALS)
+Finished building: sizedummy
+ 
+
+**** Build Finished ****

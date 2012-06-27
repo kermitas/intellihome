@@ -1,0 +1,93 @@
+/*
+ * StreamHttpChunkedTransferEncoding.cpp
+ *
+ *  Created on: 08-05-2012
+ *      Author: root
+ */
+
+// =================================================
+
+#include "StreamHttpChunkedTransferEncoding.h"
+
+// =================================================
+
+StreamHttpChunkedTransferEncoding::StreamHttpChunkedTransferEncoding( uint8_t* _buffer , unsigned char _bufferSize )
+{
+	buffer = _buffer;
+	bufferSize = _bufferSize;
+
+	setStreamAndResetInternalState( NULL );
+}
+
+// =================================================
+
+size_t StreamHttpChunkedTransferEncoding::write( uint8_t b )
+{
+	buffer[ index ] = b;
+
+	index++;
+
+	if( index == bufferSize ) flush();
+
+	return 1;
+}
+
+// =================================================
+
+void StreamHttpChunkedTransferEncoding::flush()
+{
+	if( index > 0 )
+	{
+		if( index < 16 ) mainStream->write( "0" );
+		mainStream->print( index , HEX );
+		mainStream->write( "\r\n" );
+		mainStream->write( buffer , index );
+		mainStream->write( "\r\n" );
+
+		mainStream->flush();
+
+		index = 0;
+	}
+}
+
+// =================================================
+
+void StreamHttpChunkedTransferEncoding::setStreamAndResetInternalState( Stream* _mainStream )
+{
+	mainStream = _mainStream;
+	index = 0;
+}
+
+// =================================================
+
+void StreamHttpChunkedTransferEncoding::finishChunkedTransmission()
+{
+	flush();
+	mainStream->write( "0\r\n\r\n" );
+	mainStream->flush();
+}
+
+// =================================================
+
+int StreamHttpChunkedTransferEncoding::available()
+{
+	return mainStream->available();
+}
+
+// =================================================
+
+int StreamHttpChunkedTransferEncoding::read()
+{
+	return mainStream->read();
+}
+
+// =================================================
+
+int StreamHttpChunkedTransferEncoding::peek()
+{
+	return mainStream->peek();
+}
+
+// =================================================
+
+

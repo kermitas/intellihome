@@ -1,0 +1,17 @@
+/*
+ * RWStateMachineHelper.h
+ *
+ *  Created on: 22-05-2012
+ *      Author: root
+ */
+
+#ifndef RWSTATEMACHINEHELPER_H_
+#define RWSTATEMACHINEHELPER_H_
+
+class RWStateMachineHelper {
+public:
+	RWStateMachineHelper();
+	virtual ~RWStateMachineHelper();
+};
+
+#endif /* RWSTATEMACHINEHELPER_H_ */

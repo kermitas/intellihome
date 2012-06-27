@@ -1,0 +1,60 @@
+/*
+ * RWSubTaskReadRECVACKCommand.cpp
+ *
+ *  Created on: 21-05-2012
+ *      Author: root
+ */
+
+// =================================================
+
+#include "RWSubTaskReadRECVACKCommand.h"
+
+// =================================================
+
+RWSubTaskReadRECVACKCommand::RWSubTaskReadRECVACKCommand( AnyBuffer< byte , byte >* _inputBuffer , StreamHFA11xRS232WiFiCRC* _crcStream , RWCommandSerialNumber* _rwCommandSerialNumber , RWSubTaskWaitForData* _waitForDataSubTask , RWSubTask* _decideToSendOutgingData ) : dp( PSTR( "RWSubTaskSendRECVCommand" ) , DEBUG_LEVEL_ALL )
+{
+	inputBuffer = _inputBuffer;
+	crcStream = _crcStream;
+	rwCommandSerialNumber = _rwCommandSerialNumber;
+	waitForDataSubTask = _waitForDataSubTask;
+	decideToSendOutgingData = _decideToSendOutgingData;
+}
+
+// =================================================
+
+char* RWSubTaskReadRECVACKCommand::getSubTaskName()
+{
+	return "ReadRECVACKCommand"
+}
+
+// =================================================
+
+void RWSubTaskReadRECVACKCommand::resetInternalState()
+{
+
+}
+
+// =================================================
+
+unsigned long RWSubTaskReadRECVACKCommand::getStateTimeout()
+{
+	return 2*1000;
+}
+
+// =================================================
+
+RWSubTask* RWSubTaskReadRECVACKCommand::getStateAfterTimeout()
+{
+	return decideToSendOutgingData;
+}
+
+// =================================================
+
+RWSubTask* RWSubTaskReadRECVACKCommand::executeSubTask()
+{
+
+}
+
+// =================================================
+
+

@@ -1,0 +1,27 @@
+
+**** Build of configuration Release for project Satelita1_RESTful ****
+
+make all 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex libSatelita1_RESTful.a  "libSatelita1_RESTful.hex"
+avr-objcopy:libSatelita1_RESTful.hex: Invalid operation
+make: [libSatelita1_RESTful.hex] Błąd 1 (zignorowany)
+Finished building: libSatelita1_RESTful.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex libSatelita1_RESTful.a  "libSatelita1_RESTful.eep"
+avr-objcopy:libSatelita1_RESTful.eep: Invalid operation
+Finished building: libSatelita1_RESTful.eep
+make: [libSatelita1_RESTful.eep] Błąd 1 (zignorowany)
+ 
+Invoking: Print Size
+avr-size --format=berkeley -t libSatelita1_RESTful.a
+   text	   data	    bss	    dec	    hex	filename
+      0	      0	      0	      0	      0	RESTfulService.o (ex libSatelita1_RESTful.a)
+    554	      0	      0	    554	    22a	message.o (ex libSatelita1_RESTful.a)
+   7360	    189	      0	   7549	   1d7d	rest_server.o (ex libSatelita1_RESTful.a)
+   7914	    189	      0	   8103	   1fa7	(TOTALS)
+Finished building: sizedummy
+ 
+
+**** Build Finished ****

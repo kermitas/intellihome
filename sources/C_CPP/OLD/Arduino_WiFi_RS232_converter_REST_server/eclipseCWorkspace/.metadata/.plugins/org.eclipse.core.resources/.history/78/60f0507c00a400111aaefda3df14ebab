@@ -1,0 +1,58 @@
+/*
+ * RWSubTaskDecideToSendOutgoingData.cpp
+ *
+ *  Created on: 22-05-2012
+ *      Author: root
+ */
+
+// =================================================
+
+#include "RWSubTaskDecideToSendOutgoingData.h"
+
+// =================================================
+
+RWSubTaskDecideToSendOutgoingData::RWSubTaskDecideToSendOutgoingData( AnyBuffer< byte , byte >* _outputBuffer , RWSubTask* _rwSubTaskSendSENDCommand , RWSubTask* _rwSubTaskDecideToReadIncommingData ) : dp( PSTR( "RWSubTaskDecideToSendOutgoingData" ) , DEBUG_LEVEL_ALL )
+{
+	outputBuffer = _outputBuffer;
+	rwSubTaskSendSENDCommand = _rwSubTaskSendSENDCommand;
+	rwSubTaskDecideToReadIncommingData = _rwSubTaskDecideToReadIncommingData;
+}
+
+// =================================================
+
+char* RWSubTaskDecideToSendOutgoingData::getSubTaskName()
+{
+	return "DecideToSendOutgoingData"
+}
+
+// =================================================
+
+void RWSubTaskDecideToSendOutgoingData::resetInternalState()
+{
+
+}
+
+// =================================================
+
+unsigned long RWSubTaskDecideToSendOutgoingData::getStateTimeout()
+{
+	return 0;
+}
+
+// =================================================
+
+RWSubTask* RWSubTaskDecideToSendOutgoingData::getStateAfterTimeout()
+{
+	return NULL;
+}
+
+// =================================================
+
+RWSubTask* RWSubTaskDecideToSendOutgoingData::executeSubTask()
+{
+	return outputBuffer->position > 0 ? rwSubTaskSendSENDCommand : rwSubTaskDecideToReadIncommingData;
+}
+
+// =================================================
+
+

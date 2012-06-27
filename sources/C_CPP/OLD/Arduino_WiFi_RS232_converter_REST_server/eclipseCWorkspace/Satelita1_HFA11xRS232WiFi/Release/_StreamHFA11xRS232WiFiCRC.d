@@ -1,0 +1,1 @@
+_StreamHFA11xRS232WiFiCRC.d: ../_StreamHFA11xRS232WiFiCRC.cpp

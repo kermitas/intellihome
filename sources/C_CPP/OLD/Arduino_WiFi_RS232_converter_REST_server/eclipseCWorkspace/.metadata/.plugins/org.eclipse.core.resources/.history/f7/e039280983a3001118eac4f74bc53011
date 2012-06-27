@@ -1,0 +1,25 @@
+/*
+ * RWCommandSerialNumber.h
+ *
+ *  Created on: 21-05-2012
+ *      Author: root
+ */
+
+#ifndef RWCOMMANDSERIALNUMBER_H_
+#define RWCOMMANDSERIALNUMBER_H_
+
+// =================================================
+
+class RWCommandSerialNumber
+{
+	public:
+
+		RWCommandSerialNumber();
+
+		unsigned char serialNumber;
+};
+
+// =================================================
+
+#endif /* RWCOMMANDSERIALNUMBER_H_ */
+

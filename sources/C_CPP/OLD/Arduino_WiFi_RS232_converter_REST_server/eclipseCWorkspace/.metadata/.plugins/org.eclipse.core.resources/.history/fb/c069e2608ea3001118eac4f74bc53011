@@ -1,0 +1,134 @@
+/*
+ * RWSubTaskReadRECVACKCommandData.cpp
+ *
+ *  Created on: 21-05-2012
+ *      Author: root
+ */
+
+// =================================================
+
+#include "RWSubTaskReadRECVACKCommandData.h"
+
+// =================================================
+
+RWSubTaskReadRECVACKCommandData::RWSubTaskReadRECVACKCommandData( AnyBuffer< byte , byte >* _inputBuffer , StreamHFA11xRS232WiFiCRC* _crcStream , RWSubTask* _rwSubTaskDecideToSendOutgoingData ) : dp( PSTR( "RWSubTaskReadRECVACKCommandData" ) , DEBUG_LEVEL_ALL )
+{
+	inputBuffer = _inputBuffer;
+	crcStream = _crcStream;
+	rwSubTaskDecideToSendOutgoingData = _rwSubTaskDecideToSendOutgoingData;
+}
+
+// =================================================
+
+char* RWSubTaskReadRECVACKCommandData::getSubTaskName()
+{
+	return "ReadRECVACKCommandData"
+}
+
+// =================================================
+
+void RWSubTaskReadRECVACKCommandData::resetInternalState()
+{
+
+}
+
+// =================================================
+
+unsigned long RWSubTaskReadRECVACKCommandData::getStateTimeout()
+{
+	return 2*1000;
+}
+
+// =================================================
+
+RWSubTask* RWSubTaskReadRECVACKCommandData::getStateAfterTimeout()
+{
+	return rwSubTaskDecideToSendOutgoingData;
+}
+
+// =================================================
+
+void RWSubTaskReadRECVACKCommandData::setWork( unsigned int _size )
+{
+	size = _size;
+}
+
+// =================================================
+
+RWSubTask* RWSubTaskReadRECVACKCommandData::executeSubTask()
+{
+	static const PROGMEM prog_char functionName[] = "executeSubTask";
+
+	byte positionBefore = inputBuffer->position;
+	byte limitBefore = inputBuffer->limit;
+
+	if( size > 0 )
+	{
+		iln( "command=2, sn=%u, incomming data size=%u" , commandSerialNumber , size )
+
+		while( crcStream.available() < size ); // waiting for incomming data
+
+		inputBuffer->setPositionAndLimit( limitBefore , inputBuffer->limit + size );
+
+		{ // todo temporary
+			iln( "positionBefore=%u , limitBefore=%u , incomming data size=%u" , positionBefore , limitBefore , size );
+			inputBuffer->printReport( "FROM readRECVACK() when buffer is set before reading" );
+			//delay( 1000 );
+		}
+
+		while( inputBuffer->getRemaining() > 0 )
+		{
+			int readByte = crcStream.read();
+
+			if( readByte == -1 )
+			{
+				inputBuffer->setPositionAndLimit( positionBefore , inputBuffer->position );
+
+				read_error = -7;
+				return;
+			}
+
+			inputBuffer->put( readByte );
+
+			{ // todo temporary
+				inputBuffer->printReport( "FROM readRECVACK() while putting bytes" );
+				//delay( 1000 );
+			}
+		}
+
+		inputBuffer->setPositionAndLimit( positionBefore , inputBuffer->position );
+
+		//delay( 1000 ); // todo temporary
+	}
+
+	// ---
+
+	// todo temporary
+	if( inputBuffer->getRemaining() > 0 )
+	{
+		inputBuffer->printReport( "FROM readRECVACK()" );
+		//delay( 3000 );
+	}
+
+	// ---
+
+	if( !compareCRCsumWithCRCsumCalculatedOnTwoIncommingBytes( crcStream.getIncommingDataCRC() ) )
+	{
+		wln( "incomming CRC (in RECV_ACK) and our locally counted CRC does not match! setting write_error to -5" )
+
+		delay( 3000 ); // todo temporary
+
+		inputBuffer->setPositionAndLimit( positionBefore , limitBefore );
+
+		read_error = -5;
+		return;
+	}
+
+	// ---
+
+	return rwSubTaskDecideToSendOutgoingData;
+}
+
+// =================================================
+
+

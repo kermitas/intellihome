@@ -1,0 +1,54 @@
+
+**** Build of configuration Release for project CmdMessenger ****
+
+make all 
+Building file: ../CmdMessengerExample.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/cores/arduino" -I"/home/as/ARDUINO/arduino-1.0-IDE/hardware/arduino/variants/mega" -I"/home/as/Pobrane/workspaceC/CmdMessenger" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"CmdMessengerExample.d" -MT"CmdMessengerExample.d" -c -o "CmdMessengerExample.o" -x c++ "../CmdMessengerExample.cpp"
+../CmdMessengerExample.cpp: In function 'void bens_msg()':
+../CmdMessengerExample.cpp:101:48: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+Finished building: ../CmdMessengerExample.cpp
+ 
+../CmdMessengerExample.cpp:105:37: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+../CmdMessengerExample.cpp: In function 'void jerrys_base64_data()':
+../CmdMessengerExample.cpp:120:50: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../CmdMessengerExample.cpp:127:71: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../CmdMessengerExample.cpp:131:37: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+../CmdMessengerExample.cpp:143:81: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../CmdMessengerExample.cpp:145:59: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+Building target: CmdMessenger.elf
+Invoking: AVR C++ Linker
+avr-gcc -Os -Wl,--gc-sections  -L"/home/as/Pobrane/workspaceC/Arduino_Mega_2560_or_Mega_ADK/Release" -mmcu=atmega2560 -o"CmdMessenger.elf"  ./CmdMessengerExample.o   -l"Arduino_Mega_2560_or_Mega_ADK" -lm
+../CmdMessengerExample.cpp:118:8: warning: unused variable 'buf' [-Wunused-variable]
+../CmdMessengerExample.cpp: In function 'void arduino_ready()':
+../CmdMessengerExample.cpp:155:44: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../CmdMessengerExample.cpp: In function 'void unknownCmd()':
+../CmdMessengerExample.cpp:161:46: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../CmdMessengerExample.cpp: In function 'void loop()':
+../CmdMessengerExample.cpp:227:37: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+./CmdMessengerExample.o: In function `_GLOBAL__sub_I_field_separator':
+/home/as/Pobrane/workspaceC/CmdMessenger/Release/../CmdMessengerExample.cpp:234: undefined reference to `CmdMessenger::sendCmd(int, char*, unsigned char, char*, int, int, int)'
+/home/as/Pobrane/workspaceC/CmdMessenger/Release/../CmdMessengerExample.cpp:234: undefined reference to `CmdMessenger::sendCmd(int, char*, unsigned char, char*, int, int, int)'
+/home/as/Pobrane/workspaceC/CmdMessenger/Release/../CmdMessengerExample.cpp:234: undefined reference to `CmdMessenger::sendCmd(int, char*, unsigned char, char*, int, int, int)'
+/home/as/Pobrane/workspaceC/CmdMessenger/Release/../CmdMessengerExample.cpp:234: undefined reference to `CmdMessenger::copyString(char*, unsigned char)'
+/home/as/Pobrane/workspaceC/CmdMessenger/Release/../CmdMessengerExample.cpp:234: undefined reference to `CmdMessenger::sendCmd(int, char*, unsigned char, char*, int, int, int)'
+/home/as/Pobrane/workspaceC/CmdMessenger/Release/../CmdMessengerExample.cpp:234: undefined reference to `CmdMessenger::available()'
+/home/as/Pobrane/workspaceC/CmdMessenger/Release/../CmdMessengerExample.cpp:234: undefined reference to `CmdMessenger::sendCmd(int, char*, unsigned char, char*, int, int, int)'
+/home/as/Pobrane/workspaceC/CmdMessenger/Release/../CmdMessengerExample.cpp:234: undefined reference to `CmdMessenger::sendCmd(int, char*, unsigned char, char*, int, int, int)'
+/home/as/Pobrane/workspaceC/CmdMessenger/Release/../CmdMessengerExample.cpp:234: undefined reference to `CmdMessenger::copyString(char*, unsigned char)'
+/home/as/Pobrane/workspaceC/CmdMessenger/Release/../CmdMessengerExample.cpp:234: undefined reference to `base64_decode(char*, char*, int)'
+/home/as/Pobrane/workspaceC/CmdMessenger/Release/../CmdMessengerExample.cpp:234: undefined reference to `CmdMessenger::sendCmd(int, char*, unsigned char, char*, int, int, int)'
+/home/as/Pobrane/workspaceC/CmdMessenger/Release/../CmdMessengerExample.cpp:234: undefined reference to `CmdMessenger::available()'
+/home/as/Pobrane/workspaceC/CmdMessenger/Release/../CmdMessengerExample.cpp:234: undefined reference to `CmdMessenger::sendCmd(int, char*, unsigned char, char*, int, int, int)'
+/home/as/Pobrane/workspaceC/CmdMessenger/Release/../CmdMessengerExample.cpp:234: undefined reference to `base64_encode(char*, char*, int)'
+/home/as/Pobrane/workspaceC/CmdMessenger/Release/../CmdMessengerExample.cpp:234: undefined reference to `CmdMessenger::sendCmd(int, char*, unsigned char, char*, int, int, int)'
+/home/as/Pobrane/workspaceC/CmdMessenger/Release/../CmdMessengerExample.cpp:23: undefined reference to `CmdMessenger::attach(unsigned char, void (*)())'
+/home/as/Pobrane/workspaceC/CmdMessenger/Release/../CmdMessengerExample.cpp:234: undefined reference to `CmdMessenger::print_LF_CR()'
+/home/as/Pobrane/workspaceC/CmdMessenger/Release/../CmdMessengerExample.cpp:234: undefined reference to `CmdMessenger::attach(unsigned char, void (*)())'
+/home/as/Pobrane/workspaceC/CmdMessenger/Release/../CmdMessengerExample.cpp:234: undefined reference to `CmdMessenger::attach(void (*)())'
+/home/as/Pobrane/workspaceC/CmdMessenger/Release/../CmdMessengerExample.cpp:23: undefined reference to `CmdMessenger::feedinSerialData()'
+/home/as/Pobrane/workspaceC/CmdMessenger/Release/../CmdMessengerExample.cpp:23: undefined reference to `CmdMessenger::CmdMessenger(Stream&, char, char)'
+collect2: ld returned 1 exit status
+make: *** [CmdMessenger.elf] Błąd 1
+
+**** Build Finished ****

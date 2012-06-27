@@ -1,0 +1,67 @@
+/*
+ * RWStateMachineHelper.h
+ *
+ *  Created on: 22-05-2012
+ *      Author: root
+ */
+
+#ifndef RWSTATEMACHINEHELPER_H_
+#define RWSTATEMACHINEHELPER_H_
+
+// =================================================
+
+#include <Arduino.h>
+
+// =================================================
+
+#include "AnyBuffer.h"
+
+#include "StreamHFA11xRS232WiFiCRC.h"
+#include "RWCommandSerialNumber.h"
+
+#include "RWSubTaskDecideToReadIncommingData.h"
+#include "RWSubTaskWaitForData.h"
+#include "RWSubTaskSendRECVCommand.h"
+#include "RWSubTaskReadRECVACKCommandHeader.h"
+#include "RWSubTaskReadRECVACKCommandData.h"
+
+// in near future
+//#include "RWSubTaskDecideToSendOutgoingData.h"
+
+// replacement for near future
+#include "RWSubTask.h"
+
+// =================================================
+
+class RWStateMachineHelper
+{
+	public:
+
+		RWStateMachineHelper();
+
+		// ---
+
+		AnyBuffer< byte , byte >* inputBuffer;
+		AnyBuffer< byte , byte >* outputBuffer;
+
+		StreamHFA11xRS232WiFiCRC* crcStream;
+
+		RWCommandSerialNumber* rwCommandSerialNumber;
+
+		RWSubTaskDecideToReadIncommingData* rwSubTaskDecideToReadIncommingData;
+
+		RWSubTaskSendRECVCommand* rwSubTaskSendRECVCommand;
+		RWSubTaskWaitForData* rwSubTaskWaitForData;
+		RWSubTaskReadRECVACKCommandHeader* rwSubTaskReadRECVACKCommandHeader;
+		RWSubTaskReadRECVACKCommandData* rwSubTaskReadRECVACKCommandData;
+
+		//RWSubTaskDecideToSendOutgoingData* rwSubTaskDecideToSendOutgoingData;
+		RWSubTask* rwSubTaskDecideToSendOutgoingData;
+
+		// ---
+};
+
+// =================================================
+
+#endif /* RWSTATEMACHINEHELPER_H_ */
+

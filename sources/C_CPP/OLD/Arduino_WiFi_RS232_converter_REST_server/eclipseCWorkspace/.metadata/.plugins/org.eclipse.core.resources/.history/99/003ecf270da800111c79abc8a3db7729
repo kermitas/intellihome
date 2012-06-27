@@ -1,0 +1,225 @@
+/*
+ * StreamHFA11xRS232WiFi2.cpp
+ *
+ *  Created on: 11-05-2012
+ *      Author: root
+ */
+
+// =================================================
+
+#include "StreamHFA11xRS232WiFi2.h"
+
+// =================================================
+
+StreamHFA11xRS232WiFi2::StreamHFA11xRS232WiFi2( AnyBuffer< byte , byte >* _inputBuffer , AnyBuffer< byte , byte >* _outputBuffer , StreamHFA11xRS232WiFiCRC* _crcStream ) : dp( PSTR( "StreamHFA11xRS232WiFi2" ) )
+{
+	inputBuffer = _inputBuffer;
+	outputBuffer = _outputBuffer;
+	crcStream = _crcStream;
+
+	arr[0] = 0; // command
+	arr[1] = 0; // sn
+	arr[2] = 0; // reserved
+	arr[3] = 0; // reserved
+	arr[4] = 0; // RECV: length to read, SEND: send data length
+	arr[5] = 0; // RECV: length to read, SEND: send data length
+}
+
+// =================================================
+
+int StreamHFA11xRS232WiFi2::read()
+{
+	if( inputBuffer->getRemaining() == 0 ) doFullReadCycle();
+
+	if( inputBuffer->getRemaining() > 0 )
+	{
+		int result = inputBuffer->get();
+
+		if( inputBuffer->position == inputBuffer->limit == inputBuffer->capacity ) inputBuffer->setPositionAndLimit( 0 , 0 );
+
+		return result;
+	}
+	else
+	{
+		return -1;
+	}
+}
+
+// =================================================
+
+int StreamHFA11xRS232WiFi2::peek()
+{
+	if( inputBuffer->getRemaining() == 0 ) doFullReadCycle();
+
+	if( inputBuffer->getRemaining() > 0 )
+	{
+		return inputBuffer->array[ inputBuffer->position ];
+	}
+	else
+	{
+		return -1;
+	}
+}
+
+// =================================================
+
+void StreamHFA11xRS232WiFi2::flush()
+{
+	while( outputBuffer->getRemaining() > 0 ) doFullSendCycle();
+}
+
+// =================================================
+
+size_t StreamHFA11xRS232WiFi2::write( uint8_t b )
+{
+	while( outputBuffer->getUnusedSpace() == 0 ) doFullSendCycle();
+
+	outputBuffer->array[ outputBuffer->limit++ ] = b;
+
+	return 1;
+}
+
+// =================================================
+/*
+size_t StreamHFA11xRS232WiFi2::write( const uint8_t* buffer , size_t size )
+{
+	size_t oryginalSize = size;
+
+	while( size > 0 )
+	{
+		while( outputBuffer->getUnusedSpace() == 0 ) doFullSendCycle();
+
+		byte sizeToWrite = min( outputBuffer->getUnusedSpace() , size );
+
+		byte positionBefore = outputBuffer->position;
+
+		outputBuffer->setPositionAndLimit( outputBuffer->limit , outputBuffer->limit + sizeToWrite );
+
+		outputBuffer->put( (byte*)buffer , sizeToWrite );
+
+		outputBuffer->setPosition( positionBefore );
+
+		size -= sizeToWrite;
+	}
+
+	return oryginalSize;
+	*/
+	/*
+	if( outputBuffer->getUnusedSpace() == 0 ) rwStateMachine->doFullSendCycle();
+
+	if( outputBuffer->getUnusedSpace() == 0 )
+	{
+		byte sizeToWrite = min( outputBuffer->getUnusedSpace() , size );
+
+		byte positionBefore = outputBuffer->position;
+
+		outputBuffer->setPositionAndLimit( outputBuffer->limit , outputBuffer->limit + sizeToWrite );
+
+		outputBuffer->put( (byte*)buffer , sizeToWrite );
+
+		outputBuffer->setPosition( positionBefore );
+
+		return sizeToWrite;
+	}
+	else
+		return 0;
+	*/
+	/*
+	if( outputBuffer->getUnusedSpace() == 0 ) rwStateMachine->doFullSendCycle();
+
+	size_t countToWrite = min( size , outputBuffer->getUnusedSpace() );
+
+	memcpy( outputBuffer->array+outputBuffer->limit , buffer , countToWrite );
+
+	outputBuffer->limit += countToWrite;
+
+	return countToWrite;
+	*/
+//}
+
+// =================================================
+
+int StreamHFA11xRS232WiFi2::available()
+{
+	byte available = inputBuffer->getRemaining();
+
+	if( available == 0 )
+	{
+		doFullReadCycle();
+		return inputBuffer->getRemaining();
+	}
+	else
+	{
+		return available;
+	}
+}
+
+// =================================================
+
+void StreamHFA11xRS232WiFi2::doFullReadCycle()
+{
+	if( inputBuffer->getUnusedSpace() > 0 )
+	{
+		while( crcStream->read() != -1 ); // discarding any data waiting in the stream
+
+		crcStream->resetIncommingState();
+
+		arr[0] = 2;
+		arr[4] = inputBuffer->getUnusedSpace();
+		arr[5] = 0;
+
+		crcStream->write( arr , 6 );
+		crcStream->flush();
+
+		byte readByte = 0;
+
+		while( ( readByte = crcStream->read() ) != -1 );
+		if( readByte != 2 ) {}
+
+		while( ( readByte = crcStream->read() ) != -1 );
+		if( readByte != arr[0] ) {}
+
+		while( ( readByte = crcStream->read() ) != -1 );
+		if( readByte != 0 ) {}
+		while( ( readByte = crcStream->read() ) != -1 );
+		if( readByte != 0 ) {}
+
+		byte incommingDataSize = 0;
+
+		while( ( readByte = crcStream->read() ) != -1 );
+		incommingDataSize += readByte;
+		while( ( readByte = crcStream->read() ) != -1 );
+		incommingDataSize += 256*readByte;
+
+		if( incommingDataSize > inputBuffer->getUnusedSpace() ) {}
+
+		while( incommingDataSize > 0 )
+		{
+			while( ( readByte = crcStream->read() ) != -1 );
+
+			inputBuffer->array[ inputBuffer->limit++ ] = readByte;
+
+			incommingDataSize--;
+		}
+
+		while( crcStream->available() < 2 );
+
+		if( crcStream->isIncommingCRCMatch() )
+		{
+			arr[1]++;
+		}
+		else
+		{
+
+		}
+	}
+}
+
+// =================================================
+
+void StreamHFA11xRS232WiFi2::doFullSendCycle()
+{
+	//if( outputBuffer->position == outputBuffer->limit == outputBuffer->capacity ) outputBuffer->setPositionAndLimit( 0 , 0 );
+}
+
+// =================================================

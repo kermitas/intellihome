@@ -1,0 +1,555 @@
+/*
+ * AnyRingBuffer.h
+ *
+ *  Created on: 28-05-2012
+ *      Author: root
+ */
+
+#ifndef AnyRingBuffer_H_
+#define AnyRingBuffer_H_
+
+// =================================================
+
+#include <Arduino.h>
+
+// =================================================
+
+#include "DebugPrinter.h"
+
+// =================================================
+
+template< typename DataType >
+class AnyRingBufferRecord
+{
+	public:
+
+		AnyRingBufferRecord( DataType* _array , AnyRingBufferRecord<DataType>* _next );
+
+		DataType* array;
+		AnyRingBufferRecord<DataType>* next;
+};
+
+// =================================================
+
+template< typename DataType >
+class AnyRingBuffer
+{
+	public:
+
+		AnyRingBuffer( AnyRingBufferRecord<DataType>* _head , byte _sizeOfSingleArray );
+
+		void clear();
+
+		//unsigned int getWritePosition();
+		//void setWritePosition( unsigned int newWritePosition );
+		//bool coverLastBytes( unsigned int bytesCount );
+		//bool uncoverLastBytes( unsigned int bytesCount );
+
+		bool discardLastBytes( unsigned int bytesCount );
+		bool discardFirstBytes( unsigned int bytesCount );
+
+		//byte getReadPosition();
+		//void setReadPosition( byte newReadPosition );
+
+		unsigned int getCapacity();
+		unsigned int getUsedSpace();
+		unsigned int getFreeSpace();
+
+		bool canWrite();
+		bool canWrite( unsigned int size );
+
+		bool write( DataType data );
+		unsigned int write( DataType* fromArray , unsigned int howManyWriteFromArray , bool stricSize ); // jesli strictSize == TRUE to albo zapisze calosc albo zero, jesli stricSize == FALSE to zawpisze ile sie da i taka ilosc zworci
+		unsigned int write( Stream* fromStream );
+		unsigned int write( Stream* fromStream , unsigned int howManyWriteFromStream );
+
+		bool canRead();
+		bool canRead( unsigned int size );
+
+		DataType read();
+		DataType peek();
+		unsigned int readOrPeek( bool doRead , DataType* toArray , unsigned int howManyReadToArray , bool stricSize ); // jesli strictSize == TRUE to albo odczyta calosc albo zero, jesli strictSize == FALSE to odczyta ile sie da
+		unsigned int readOrPeek( bool doRead , Stream* toStream );
+		unsigned int readOrPeek( bool doRead , Stream* toStream , unsigned int howManyReadToStream );
+
+		void printReport();
+		void printReport( char* prefix );
+
+	protected:
+
+		DebugPrinter dp;
+
+		AnyRingBufferRecord<DataType>* head;
+		byte sizeOfSingleArray;
+
+		byte capacity;
+		byte readPosition;
+		unsigned int writePosition;
+
+		AnyRingBufferRecord<DataType>* getRecordContainingIndex( unsigned int index );
+		void validateRecordsList();
+		void moveFirstRecordToEnd();
+};
+
+// =================================================
+// =================================================
+
+// plik .cpp wstawiony tutaj ze wzgledu na to, ze w C++ sa problemy z
+// klasami template jesli sa w oddzielnych plikach (.h i .cpp).
+
+// =================================================
+// =================================================
+
+template< typename DataType>
+AnyRingBufferRecord<DataType>::AnyRingBufferRecord(  DataType* _array , AnyRingBufferRecord<DataType>* _next )
+{
+	array = _array;
+	next = _next;
+}
+
+// =================================================
+// =================================================
+
+template< typename DataType >
+AnyRingBuffer<DataType>::AnyRingBuffer( AnyRingBufferRecord<DataType>* _head , byte _sizeOfSingleArray ) : dp( PSTR( "AnyRingBuffer" ) )
+{
+	head = _head;
+	sizeOfSingleArray = _sizeOfSingleArray;
+
+	// ---
+
+	capacity = sizeOfSingleArray;
+
+	_head = _head->next;
+	while( _head != NULL )
+	{
+		capacity += sizeOfSingleArray;
+		_head = _head->next;
+	}
+
+	// ---
+
+	readPosition = 0;
+	writePosition = 0;
+}
+
+// =================================================
+
+template< typename DataType >
+void AnyRingBuffer<DataType>::clear()
+{
+	readPosition = 0;
+	writePosition = 0;
+}
+
+// =================================================
+/*
+template< typename DataType >
+unsigned int AnyRingBuffer<DataType>::getWritePosition()
+{
+	return writePosition;
+}
+
+// =================================================
+
+template< typename DataType >
+void AnyRingBuffer<DataType>::setWritePosition( unsigned int newWritePosition )
+{
+	writePosition = newWritePosition > capacity ? capacity : newWritePosition;
+}
+
+// =================================================
+
+template< typename DataType >
+unsigned int AnyRingBuffer<DataType>::getReadPosition()
+{
+	return readPosition;
+}
+
+// =================================================
+
+template< typename DataType >
+void AnyRingBuffer<DataType>::setReadPosition( byte newReadPosition )
+{
+	readPosition = newReadPosition > sizeOfSingleArray ? sizeOfSingleArray : newReadPosition;
+}
+*/
+// =================================================
+
+template< typename DataType >
+bool AnyRingBuffer<DataType>::discardLastBytes( unsigned int bytesCount )
+{
+	writePosition -= bytesCount;
+	if( writePosition < readPosition ) writePosition = readPosition;
+}
+
+// =================================================
+
+template< typename DataType >
+bool AnyRingBuffer<DataType>::discardFirstBytes( unsigned int bytesCount )
+{
+
+}
+
+// =================================================
+
+template< typename DataType >
+unsigned int AnyRingBuffer<DataType>::getCapacity()
+{
+	return capacity;
+}
+
+// =================================================
+
+template< typename DataType >
+unsigned int AnyRingBuffer<DataType>::getUsedSpace()
+{
+	return writePosition - readPosition;
+}
+
+// =================================================
+
+template< typename DataType >
+unsigned int AnyRingBuffer<DataType>::getFreeSpace()
+{
+	return capacity - getUsedSpace();
+}
+
+// =================================================
+
+template< typename DataType >
+bool AnyRingBuffer<DataType>::canWrite()
+{
+	return getFreeSpace() > 0;
+}
+
+// =================================================
+
+template< typename DataType >
+bool AnyRingBuffer<DataType>::canWrite( unsigned int size )
+{
+	return getFreeSpace() > size;
+}
+
+// =================================================
+
+template< typename DataType >
+bool AnyRingBuffer<DataType>::write( DataType data )
+{
+	if( canWrite() )
+	{
+		AnyRingBufferRecord<DataType>* p = getRecordContainingIndex( writePosition );
+
+		if( p == NULL )
+		{
+			return false;
+		}
+		else
+		{
+			p->array[ writePosition % sizeOfSingleArray ] = data;
+			writePosition++;
+			return true;
+		}
+	}
+	else
+	{
+		return false;
+	}
+}
+
+// =================================================
+
+template< typename DataType >
+unsigned int AnyRingBuffer<DataType>::write( DataType* fromArray , unsigned int howManyWriteFromArray , bool stricSize )
+{
+	if( stricSize )
+	{
+		if( !canWrite( howManyWriteFromArray ) ) return 0;
+	}
+	else
+	{
+		howManyWriteFromArray = min( howManyWriteFromArray , getFreeSpace() );
+	}
+
+	unsigned int alreadyWrote = 0;
+
+	AnyRingBufferRecord<DataType>* p = getRecordContainingIndex( writePosition );
+
+	byte wp = writePosition % sizeOfSingleArray;
+
+	while( howManyWriteFromArray > 0 )
+	{
+		if( p == NULL ) break;
+
+		byte toWrite = min( howManyWriteFromArray , sizeOfSingleArray - wp );
+
+		memcpy( p->array+wp , fromArray+alreadyWrote , toWrite );
+		alreadyWrote += toWrite;
+		howManyWriteFromArray -= toWrite;
+
+		//writePosition += toWrite;
+
+		p = p->next;
+		wp = 0;
+	}
+
+	return alreadyWrote;
+}
+
+// =================================================
+
+template< typename DataType >
+unsigned int AnyRingBuffer<DataType>::write( Stream* fromStream )
+{
+	return write( fromStream , fromStream->available() );
+}
+
+// =================================================
+
+template< typename DataType >
+unsigned int AnyRingBuffer<DataType>::write( Stream* fromStream , unsigned int howManyWriteFromStream )
+{
+	/*
+	if( stricSize )
+	{
+		if( !canWrite( howManyWriteFromStream ) ) return 0;
+	}
+	else
+	{
+		howManyWriteFromStream = min( howManyWriteFromStream , getFreeSpace() );
+	}*/
+
+	howManyWriteFromStream = min( howManyWriteFromStream , getFreeSpace() );
+
+	unsigned int alreadyWrote = 0;
+
+	AnyRingBufferRecord<DataType>* p = getRecordContainingIndex( writePosition );
+
+	byte wp = writePosition % sizeOfSingleArray;
+
+	while( howManyWriteFromStream > 0 )
+	{
+		if( p == NULL ) break;
+
+		byte toWrite = min( howManyWriteFromStream , sizeOfSingleArray - wp );
+
+		toWrite = fromStream->readBytes( p->array+wp , toWrite );
+
+		if( toWrite == 0 ) break;
+
+		alreadyWrote += toWrite;
+		howManyWriteFromStream -= toWrite;
+
+		wp += toWrite;
+
+		if( wp >= sizeOfSingleArray ) // mozna przeskoczyc dalej gdyz odczytana ilosc danych ze strumienia dopelinila ta tabliczke
+		{
+			p = p->next;
+			wp = 0;
+		}
+	}
+
+	return alreadyWrote;
+}
+
+// =================================================
+
+template< typename DataType >
+bool AnyRingBuffer<DataType>::canRead()
+{
+	return readPosition < writePosition;
+}
+
+// =================================================
+
+template< typename DataType >
+bool AnyRingBuffer<DataType>::canRead( unsigned int size )
+{
+	return getUsedSpace() > size;
+}
+
+// =================================================
+
+template< typename DataType >
+DataType AnyRingBuffer<DataType>::read()
+{
+	if( canRead() )
+	{
+		DataType result = head->array[ readPosition++ ];
+
+		validateRecordsList();
+
+		return result;
+	}
+	else
+	{
+		return 0;
+	}
+}
+
+// =================================================
+
+template< typename DataType >
+DataType AnyRingBuffer<DataType>::peek()
+{
+	if( canRead() )
+	{
+		return head->array[ readPosition ];
+	}
+	else
+	{
+		return 0;
+	}
+}
+// =================================================
+
+// info bardzo podobna do read( stream ), poprawiajac ja poprawiac te dwie
+template< typename DataType >
+unsigned int AnyRingBuffer<DataType>::readOrPeek( bool doRead , DataType* toArray , unsigned int howManyReadToArray , bool stricSize )
+{
+	if( stricSize )
+	{
+		if( !canRead( howManyReadToArray ) ) return 0;
+	}
+	else
+	{
+		howManyReadToArray = min( howManyReadToArray , getUsedSpace() );
+	}
+
+	unsigned int alreadyRead = 0;
+
+	while( howManyReadToArray > 0 )
+	{
+		unsigned int toRead = min( howManyReadToArray , sizeOfSingleArray - readPosition );
+		memcpy( toArray+alreadyRead , head->array+readPosition , toRead );
+		alreadyRead += toRead;
+		readPosition += toRead;
+		howManyReadToArray -= toRead;
+
+		validateRecordsList();
+	}
+
+	return alreadyRead;
+}
+
+// =================================================
+
+template< typename DataType >
+unsigned int AnyRingBuffer<DataType>::readOrPeek( bool doRead , Stream* toStream )
+{
+	return readOrPeek( doRead , toStream , getUsedSpace() );
+}
+
+// =================================================
+
+// info bardzo podobna do read( arr ), poprawiajac ja poprawiac te dwie
+template< typename DataType >
+unsigned int AnyRingBuffer<DataType>::readOrPeek( bool doRead , Stream* toStream , unsigned int howManyReadToStream )
+{
+	/*
+	if( stricSize )
+	{
+		if( !canRead( howManyReadToStream ) ) return 0;
+	}
+	else
+	{
+		howManyReadToStream = min( howManyReadToStream , getUsedSpace() );
+	}*/
+
+	howManyReadToStream = min( howManyReadToStream , getUsedSpace() );
+
+	unsigned int alreadyRead = 0;
+
+	while( howManyReadToStream > 0 )
+	{
+		unsigned int toRead = min( howManyReadToStream , sizeOfSingleArray - readPosition );
+
+		toRead = toStream->write( head->array+readPosition , toRead );
+
+		if( toRead == 0 ) break;
+
+		alreadyRead += toRead;
+		readPosition += toRead;
+		howManyReadToStream -= toRead;
+
+		validateRecordsList();
+	}
+
+	return alreadyRead;
+}
+
+// =================================================
+
+template< typename DataType >
+void AnyRingBuffer<DataType>::printReport()
+{
+	static const PROGMEM prog_char functionName[] = "printReport";
+
+	iln( "readPosition=%u , writePosition=%u, capacity=%u, used space=%u, free space=%u" , readPosition , writePosition , capacity , getUsedSpace() , getFreeSpace() )
+}
+
+// =================================================
+
+template< typename DataType >
+void AnyRingBuffer<DataType>::printReport( char* prefix )
+{
+	static const PROGMEM prog_char functionName[] = "printReport";
+
+	iln( "%s : readPosition=%u , writePosition=%u, capacity=%u, used space=%u, free space=%u" , prefix , readPosition , writePosition , capacity , getUsedSpace() , getFreeSpace() )
+}
+
+// =================================================
+
+template< typename DataType >
+AnyRingBufferRecord<DataType>* AnyRingBuffer<DataType>::getRecordContainingIndex( unsigned int index )
+{
+	AnyRingBufferRecord<DataType>* p = head;
+	unsigned int i = 0;
+
+	while( !( i <= index < i + sizeOfSingleArray ) && p != NULL )
+	{
+		i += sizeOfSingleArray;
+		p = p->next;
+	}
+
+	return p;
+}
+
+// =================================================
+
+template< typename DataType >
+void AnyRingBuffer<DataType>::validateRecordsList()
+{
+	if( readPosition == writePosition )
+	{
+		readPosition = 0;
+		writePosition = 0;
+	}
+	else
+	if( readPosition >= sizeOfSingleArray )
+	{
+		moveFirstRecordToEnd();
+	}
+}
+
+// =================================================
+
+template< typename DataType >
+void AnyRingBuffer<DataType>::moveFirstRecordToEnd()
+{
+	AnyRingBufferRecord<DataType>* firstRecord = head;
+	head = head->next;
+
+	AnyRingBufferRecord<DataType>* lastRecord = head;
+	while( lastRecord->next != NULL ) lastRecord = lastRecord->next;
+
+	lastRecord->next = firstRecord;
+
+	//readPosition -= sizeOfSingleArray;
+	readPosition = 0;
+	writePosition -= sizeOfSingleArray;
+}
+
+// =================================================
+
+#endif /* AnyRingBuffer_H_ */

@@ -1,0 +1,9 @@
+Zrobilem moj wlasny ring-buffer i napisalem kolejny stream do wifi-rs232.
+
+Co ciekawsze! Dziala! czas wygenerowania strony htmlowej to 570ms co jest najlepszym wynikiem od tygodni (przypominam, ze na ethernet shield generowalo sie to w okolicach 120ms).
+
+Trzeba zdecydowanie powiekszyb buffor RSa w arduino i najlepiej powylaczac bufory do RSow nie uzywanych.
+
+Wydaje mi sie, ze arduino ma taki sam buffor na in i na out w RSie (chociaz ponoc ma tylko na in).
+
+Nie mozna na jeden raz nadac z programu wiecej niz buffor arduino i za jednym razem wymagac aby odebrac wiecej niz buffor w arduino.

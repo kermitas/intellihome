@@ -1,0 +1,106 @@
+/*
+ * StreamConsolePrinter.cpp
+ *
+ *  Created on: 15-05-2012
+ *      Author: root
+ */
+
+// =================================================
+
+#include "StreamConsolePrinter.h"
+
+// =================================================
+
+StreamConsolePrinter::StreamConsolePrinter() : dp( PSTR( "StreamConsolePrinter" ) , DEBUG_LEVEL_ALL )
+{
+	init( NULL );
+}
+
+// =================================================
+
+StreamConsolePrinter::StreamConsolePrinter( Stream* _underlyingStream ) : dp( PSTR( "StreamConsolePrinter" ) , DEBUG_LEVEL_ALL )
+{
+	init( _underlyingStream );
+}
+
+// =================================================
+
+void StreamConsolePrinter::init( Stream* _underlyingStream )
+{
+	setStream( _underlyingStream );
+	//dp.setLevel( DEBUG_LEVEL_ALL );
+}
+
+// =================================================
+
+void StreamConsolePrinter::setStream( Stream* _underlyingStream )
+{
+	underlyingStream = _underlyingStream;
+}
+
+// =================================================
+
+int StreamConsolePrinter::read()
+{
+	static const PROGMEM prog_char functionName[] = "read";
+
+	int readByte = underlyingStream->read();
+
+	aln( " %c (%u)" , readByte , readByte )
+
+	return readByte;
+}
+
+// =================================================
+
+int StreamConsolePrinter::peek()
+{
+	static const PROGMEM prog_char functionName[] = "peek";
+
+	int peekByte = underlyingStream->peek();
+
+	aln( " %c (%u)" , peekByte , peekByte )
+
+	return peekByte;
+}
+
+// =================================================
+
+void StreamConsolePrinter::flush()
+{
+	static const PROGMEM prog_char functionName[] = "flush";
+
+	aln( "" )
+
+	underlyingStream->flush();
+}
+
+// =================================================
+
+size_t StreamConsolePrinter::write( uint8_t b )
+{
+	static const PROGMEM prog_char functionName[] = "write";
+
+	size_t result = underlyingStream->write( b );
+
+	aln( " %c (%u) , result = %i" , b , b , result )
+
+	return result;
+}
+
+// =================================================
+
+int StreamConsolePrinter::available()
+{
+	static const PROGMEM prog_char functionName[] = "available";
+
+	int result = underlyingStream->available();
+
+	aln( " %i" , result )
+
+	return result;
+}
+
+// =================================================
+
+

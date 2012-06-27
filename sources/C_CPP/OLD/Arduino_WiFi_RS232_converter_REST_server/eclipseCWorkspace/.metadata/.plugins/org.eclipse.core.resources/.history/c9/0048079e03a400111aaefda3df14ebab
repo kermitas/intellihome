@@ -1,0 +1,18 @@
+/*
+ * RWSubTaskSendSENDCommand.cpp
+ *
+ *  Created on: 22-05-2012
+ *      Author: root
+ */
+
+#include "RWSubTaskSendSENDCommand.h"
+
+RWSubTaskSendSENDCommand::RWSubTaskSendSENDCommand() {
+	// TODO Auto-generated constructor stub
+
+}
+
+RWSubTaskSendSENDCommand::~RWSubTaskSendSENDCommand() {
+	// TODO Auto-generated destructor stub
+}
+

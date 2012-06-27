@@ -1,0 +1,146 @@
+
+**** Build of configuration Release for project Arduino_Uno ****
+
+make all 
+Building file: /home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/CDC.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/standard" -I/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino -Wall -Os -fno-exceptions -g  -ffunction-sections  -fdata-sections -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"arduino/CDC.d" -MT"arduino/CDC.d" -c -o "arduino/CDC.o" "/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/CDC.cpp"
+Finished building: /home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/CDC.cpp
+ 
+Building file: /home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/HID.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/standard" -I/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino -Wall -Os -fno-exceptions -g  -ffunction-sections  -fdata-sections -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"arduino/HID.d" -MT"arduino/HID.d" -c -o "arduino/HID.o" "/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/HID.cpp"
+Finished building: /home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/HID.cpp
+ 
+Building file: /home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/HardwareSerial.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/standard" -I/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino -Wall -Os -fno-exceptions -g  -ffunction-sections  -fdata-sections -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"arduino/HardwareSerial.d" -MT"arduino/HardwareSerial.d" -c -o "arduino/HardwareSerial.o" "/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/HardwareSerial.cpp"
+In file included from /home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/IPAddress.cpp:3:0:
+Finished building: /home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/HardwareSerial.cpp
+ 
+Building file: /home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/IPAddress.cpp
+/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/IPAddress.h: In member function 'IPAddress::operator uint32_t()':
+/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/IPAddress.h:51:55: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/standard" -I/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino -Wall -Os -fno-exceptions -g  -ffunction-sections  -fdata-sections -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"arduino/IPAddress.d" -MT"arduino/IPAddress.d" -c -o "arduino/IPAddress.o" "/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/IPAddress.cpp"
+/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/IPAddress.h: In member function 'bool IPAddress::operator==(const IPAddress&)':
+Finished building: /home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/IPAddress.cpp
+ 
+Building file: /home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/Print.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/standard" -I/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino -Wall -Os -fno-exceptions -g  -ffunction-sections  -fdata-sections -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"arduino/Print.d" -MT"arduino/Print.d" -c -o "arduino/Print.o" "/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/Print.cpp"
+/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/IPAddress.h:52:75: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+Finished building: /home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/Print.cpp
+ 
+Building file: /home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/Stream.cpp
+/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/IPAddress.h:52:108: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/standard" -I/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino -Wall -Os -fno-exceptions -g  -ffunction-sections  -fdata-sections -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"arduino/Stream.d" -MT"arduino/Stream.d" -c -o "arduino/Stream.o" "/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/Stream.cpp"
+Finished building: /home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/Stream.cpp
+ 
+Building file: /home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/Tone.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/standard" -I/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino -Wall -Os -fno-exceptions -g  -ffunction-sections  -fdata-sections -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"arduino/Tone.d" -MT"arduino/Tone.d" -c -o "arduino/Tone.o" "/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/Tone.cpp"
+/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/Arduino.h: In function 'void tone(uint8_t, unsigned int, long unsigned int)':
+/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/Arduino.h:130:30: warning: uninitialized variable 'digital_pin_to_port_PGM' put into program memory area [-Wuninitialized]
+/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/Arduino.h:128:31: warning: uninitialized variable 'port_to_output_PGM' put into program memory area [-Wuninitialized]
+/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/Arduino.h:132:30: warning: uninitialized variable 'digital_pin_to_bit_mask_PGM' put into program memory area [-Wuninitialized]
+Finished building: /home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/Tone.cpp
+ 
+Building file: /home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/USBCore.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/standard" -I/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino -Wall -Os -fno-exceptions -g  -ffunction-sections  -fdata-sections -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"arduino/USBCore.d" -MT"arduino/USBCore.d" -c -o "arduino/USBCore.o" "/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/USBCore.cpp"
+Finished building: /home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/USBCore.cpp
+ 
+Building file: /home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/WInterrupts.c
+Invoking: AVR Compiler
+avr-gcc -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/standard" -I/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -g  -ffunction-sections  -fdata-sections -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"arduino/WInterrupts.d" -MT"arduino/WInterrupts.d" -c -o "arduino/WInterrupts.o" "/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/WInterrupts.c"
+Finished building: /home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/WInterrupts.c
+ 
+Building file: /home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/WMath.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/standard" -I/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino -Wall -Os -fno-exceptions -g  -ffunction-sections  -fdata-sections -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"arduino/WMath.d" -MT"arduino/WMath.d" -c -o "arduino/WMath.o" "/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/WMath.cpp"
+Finished building: /home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/WMath.cpp
+ 
+Building file: /home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/WString.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/standard" -I/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino -Wall -Os -fno-exceptions -g  -ffunction-sections  -fdata-sections -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"arduino/WString.d" -MT"arduino/WString.d" -c -o "arduino/WString.o" "/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/WString.cpp"
+Finished building: /home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/WString.cpp
+ 
+Building file: /home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/main.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/standard" -I/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino -Wall -Os -fno-exceptions -g  -ffunction-sections  -fdata-sections -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"arduino/main.d" -MT"arduino/main.d" -c -o "arduino/main.o" "/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/main.cpp"
+Finished building: /home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/main.cpp
+ 
+Building file: /home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/new.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/standard" -I/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino -Wall -Os -fno-exceptions -g  -ffunction-sections  -fdata-sections -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"arduino/new.d" -MT"arduino/new.d" -c -o "arduino/new.o" "/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/new.cpp"
+Finished building: /home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/new.cpp
+ 
+Building file: /home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/wiring.c
+Invoking: AVR Compiler
+avr-gcc -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/standard" -I/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -g  -ffunction-sections  -fdata-sections -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"arduino/wiring.d" -MT"arduino/wiring.d" -c -o "arduino/wiring.o" "/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/wiring.c"
+Finished building: /home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/wiring.c
+ 
+Building file: /home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/wiring_analog.c
+Invoking: AVR Compiler
+/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/wiring_analog.c: In function 'analogWrite':
+/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/Arduino.h:133:30: warning: uninitialized variable 'digital_pin_to_timer_PGM' put into program memory area [-Wuninitialized]
+avr-gcc -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/standard" -I/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -g  -ffunction-sections  -fdata-sections -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"arduino/wiring_analog.d" -MT"arduino/wiring_analog.d" -c -o "arduino/wiring_analog.o" "/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/wiring_analog.c"
+/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/wiring_pulse.c: In function 'pulseIn':
+/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/Arduino.h:132:30: warning: uninitialized variable 'digital_pin_to_bit_mask_PGM' put into program memory area [-Wuninitialized]
+/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/Arduino.h:130:30: warning: uninitialized variable 'digital_pin_to_port_PGM' put into program memory area [-Wuninitialized]
+/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/Arduino.h:127:31: warning: uninitialized variable 'port_to_input_PGM' put into program memory area [-Wuninitialized]
+Finished building: /home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/wiring_analog.c
+ 
+Building file: /home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/wiring_digital.c
+Invoking: AVR Compiler
+avr-gcc -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/standard" -I/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -g  -ffunction-sections  -fdata-sections -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"arduino/wiring_digital.d" -MT"arduino/wiring_digital.d" -c -o "arduino/wiring_digital.o" "/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/wiring_digital.c"
+Finished building: /home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/wiring_digital.c
+ 
+Building file: /home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/wiring_pulse.c
+Invoking: AVR Compiler
+avr-gcc -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/standard" -I/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -g  -ffunction-sections  -fdata-sections -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"arduino/wiring_pulse.d" -MT"arduino/wiring_pulse.d" -c -o "arduino/wiring_pulse.o" "/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/wiring_pulse.c"
+Finished building: /home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/wiring_pulse.c
+avr-ar: creating libArduino_Uno.a
+ 
+Building file: /home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/wiring_shift.c
+Invoking: AVR Compiler
+avr-gcc -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/standard" -I/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -g  -ffunction-sections  -fdata-sections -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"arduino/wiring_shift.d" -MT"arduino/wiring_shift.d" -c -o "arduino/wiring_shift.o" "/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/wiring_shift.c"
+Finished building: /home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/wiring_shift.c
+ 
+Building target: libArduino_Uno.a
+Invoking: AVR Archiver
+avr-ar -r  "libArduino_Uno.a"  ./arduino/CDC.o ./arduino/HID.o ./arduino/HardwareSerial.o ./arduino/IPAddress.o ./arduino/Print.o ./arduino/Stream.o ./arduino/Tone.o ./arduino/USBCore.o ./arduino/WInterrupts.o ./arduino/WMath.o ./arduino/WString.o ./arduino/main.o ./arduino/new.o ./arduino/wiring.o ./arduino/wiring_analog.o ./arduino/wiring_digital.o ./arduino/wiring_pulse.o ./arduino/wiring_shift.o  
+Finished building target: libArduino_Uno.a
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S libArduino_Uno.a  >"libArduino_Uno.lss"
+Finished building: libArduino_Uno.lss
+ 
+Invoking: Print Size
+avr-size --format=berkeley -t libArduino_Uno.a
+   text	   data	    bss	    dec	    hex	filename
+      0	      0	      0	      0	      0	CDC.o (ex libArduino_Uno.a)
+      0	      0	      0	      0	      0	HID.o (ex libArduino_Uno.a)
+   1314	      0	    167	   1481	    5c9	HardwareSerial.o (ex libArduino_Uno.a)
+    330	      0	      6	    336	    150	IPAddress.o (ex libArduino_Uno.a)
+   1646	      2	      0	   1648	    670	Print.o (ex libArduino_Uno.a)
+   1292	      0	      0	   1292	    50c	Stream.o (ex libArduino_Uno.a)
+   1343	      1	     21	   1365	    555	Tone.o (ex libArduino_Uno.a)
+      0	      0	      0	      0	      0	USBCore.o (ex libArduino_Uno.a)
+    276	      0	      4	    280	    118	WInterrupts.o (ex libArduino_Uno.a)
+    336	      0	      0	    336	    150	WMath.o (ex libArduino_Uno.a)
+   4084	      1	      1	   4086	    ff6	WString.o (ex libArduino_Uno.a)
+     26	      0	      0	     26	     1a	main.o (ex libArduino_Uno.a)
+     44	      0	      0	     44	     2c	new.o (ex libArduino_Uno.a)
+    488	      0	      9	    497	    1f1	wiring.o (ex libArduino_Uno.a)
+    264	      1	      0	    265	    109	wiring_analog.o (ex libArduino_Uno.a)
+    438	      0	      0	    438	    1b6	wiring_digital.o (ex libArduino_Uno.a)
+    320	      0	      0	    320	    140	wiring_pulse.o (ex libArduino_Uno.a)
+    262	      0	      0	    262	    106	wiring_shift.o (ex libArduino_Uno.a)
+  12463	      5	    208	  12676	   3184	(TOTALS)
+Finished building: sizedummy
+ 
+
+**** Build Finished ****

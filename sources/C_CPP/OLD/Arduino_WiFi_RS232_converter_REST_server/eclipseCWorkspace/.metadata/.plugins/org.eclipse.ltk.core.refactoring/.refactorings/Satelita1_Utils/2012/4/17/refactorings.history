@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Satelita1_Utils/Runnable.cpp&apos; to &apos;_Runnable.cpp&apos;" description="Rename resource &apos;Runnable.cpp&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Runnable.cpp" name="_Runnable.cpp" stamp="1335601872876" updateReferences="true"/>
+</session>

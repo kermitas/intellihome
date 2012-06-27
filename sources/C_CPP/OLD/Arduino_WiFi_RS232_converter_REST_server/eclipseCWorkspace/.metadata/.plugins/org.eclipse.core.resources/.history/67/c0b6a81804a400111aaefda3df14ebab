@@ -1,0 +1,61 @@
+/*
+ * RWSubTaskSendSENDCommand.cpp
+ *
+ *  Created on: 22-05-2012
+ *      Author: root
+ */
+
+// =================================================
+
+#include "RWSubTaskSendSENDCommand.h"
+
+// =================================================
+
+RWSubTaskSendSENDCommand::RWSubTaskSendSENDCommand( AnyBuffer< byte , byte >* _outputBuffer , StreamHFA11xRS232WiFiCRC* _crcStream , RWCommandSerialNumber* _rwCommandSerialNumber , RWSubTaskWaitForData* _rwSubTaskWaitForData , RWSubTask* _rwSubTaskReadSENDACKCommand , RWSubTask* _subTaskOnFail ) : dp( PSTR( "RWSubTaskSendSENDCommand" ) , DEBUG_LEVEL_ALL )
+{
+	outputBuffer = _outputBuffer;
+	crcStream = _crcStream;
+	rwCommandSerialNumber = _rwCommandSerialNumber;
+	rwSubTaskWaitForData = _rwSubTaskWaitForData;
+	rwSubTaskReadSENDACKCommand = _rwSubTaskReadSENDACKCommand;
+	subTaskOnFail = _subTaskOnFail;
+}
+
+// =================================================
+
+char* RWSubTaskSendSENDCommand::getSubTaskName()
+{
+	return "SendSENDCommand";
+}
+
+// =================================================
+
+void RWSubTaskSendSENDCommand::resetInternalState()
+{
+
+}
+
+// =================================================
+
+unsigned long RWSubTaskSendSENDCommand::getStateTimeout()
+{
+	return 2*1000;
+}
+
+// =================================================
+
+RWSubTask* RWSubTaskSendSENDCommand::getStateAfterTimeout()
+{
+	return subTaskOnFail;
+}
+
+// =================================================
+
+RWSubTask* RWSubTaskSendSENDCommand::executeSubTask()
+{
+
+}
+
+// =================================================
+
+

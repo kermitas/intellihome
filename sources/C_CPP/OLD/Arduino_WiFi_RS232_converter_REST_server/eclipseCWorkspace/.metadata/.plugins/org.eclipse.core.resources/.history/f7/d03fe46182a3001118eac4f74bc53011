@@ -1,0 +1,61 @@
+/*
+ * RWSubTaskSendRECVCommand.h
+ *
+ *  Created on: 21-05-2012
+ *      Author: root
+ */
+
+#ifndef RWSUBTASKSENDRECVCOMMAND_H_
+#define RWSUBTASKSENDRECVCOMMAND_H_
+
+// =================================================
+
+#include <Arduino.h>
+#include <Stream.h>
+
+// =================================================
+
+#include "DebugPrinter.h"
+#include "RWSubTask.h"
+#include "AnyBuffer.h"
+#include "RWSubTaskWaitForData.h"
+
+// =================================================
+
+class RWSubTaskSendRECVCommand : public RWSubTask
+{
+	public:
+
+		RWSubTaskSendRECVCommand( AnyBuffer< byte , byte >* _inputBuffer , Stream* _stream , RWSubTaskWaitForData* _waitForDataSubTask , RWSubTask* _decideToSendOutgingData );
+
+		char* getSubTaskName();
+
+		void resetInternalState();
+
+		unsigned long getStateTimeout();
+		RWSubTask* getStateAfterTimeout();
+
+		RWSubTask* executeSubTask();
+
+	protected:
+
+		// ---
+
+		DebugPrinter dp;
+
+		// ---
+
+		AnyBuffer< byte , byte >* inputBuffer;
+
+		Stream* stream;
+
+		RWSubTaskWaitForData* waitForDataSubTask;
+		RWSubTask* decideToSendOutgingData;
+
+		// ---
+};
+
+// =================================================
+
+#endif /* RWSUBTASKSENDRECVCOMMAND_H_ */
+

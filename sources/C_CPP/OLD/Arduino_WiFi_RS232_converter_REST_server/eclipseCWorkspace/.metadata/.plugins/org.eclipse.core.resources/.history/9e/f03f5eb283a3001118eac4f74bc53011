@@ -1,0 +1,17 @@
+/*
+ * RWSubTaskWaitForData.h
+ *
+ *  Created on: 21-05-2012
+ *      Author: root
+ */
+
+#ifndef RWSUBTASKWAITFORDATA_H_
+#define RWSUBTASKWAITFORDATA_H_
+
+class RWSubTaskWaitForData {
+public:
+	RWSubTaskWaitForData();
+	virtual ~RWSubTaskWaitForData();
+};
+
+#endif /* RWSUBTASKWAITFORDATA_H_ */

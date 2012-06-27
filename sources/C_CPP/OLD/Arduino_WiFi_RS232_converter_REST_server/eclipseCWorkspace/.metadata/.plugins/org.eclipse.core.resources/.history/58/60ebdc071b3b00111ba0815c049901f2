@@ -1,0 +1,19 @@
+// Do not remove the include below
+
+#include "CmdMessengerExample.h"
+
+
+A* a;
+
+
+void setup()
+{
+	a = new A();
+	a->setup();
+}
+
+
+void loop()
+{
+	a->loop();
+}

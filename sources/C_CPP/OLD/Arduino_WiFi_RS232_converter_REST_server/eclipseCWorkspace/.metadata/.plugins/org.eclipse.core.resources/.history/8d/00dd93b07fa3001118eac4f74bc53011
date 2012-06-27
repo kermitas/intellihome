@@ -1,0 +1,17 @@
+/*
+ * RWSubTaskDecideToReadIncommingData.h
+ *
+ *  Created on: 21-05-2012
+ *      Author: root
+ */
+
+#ifndef RWSUBTASKDECIDETOREADINCOMMINGDATA_H_
+#define RWSUBTASKDECIDETOREADINCOMMINGDATA_H_
+
+class RWSubTaskDecideToReadIncommingData {
+public:
+	RWSubTaskDecideToReadIncommingData();
+	virtual ~RWSubTaskDecideToReadIncommingData();
+};
+
+#endif /* RWSUBTASKDECIDETOREADINCOMMINGDATA_H_ */

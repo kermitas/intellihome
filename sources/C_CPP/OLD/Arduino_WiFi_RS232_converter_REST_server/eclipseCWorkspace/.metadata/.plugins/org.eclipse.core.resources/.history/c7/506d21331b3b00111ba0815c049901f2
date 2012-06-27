@@ -1,0 +1,17 @@
+/*
+ * A.h
+ *
+ *  Created on: 10-01-2012
+ *      Author: root
+ */
+
+#ifndef A_H_
+#define A_H_
+
+class A {
+public:
+	A();
+	virtual ~A();
+};
+
+#endif /* A_H_ */

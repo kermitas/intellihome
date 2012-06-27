@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Satelita1_Utils/AnyBuffer2.h&apos; to &apos;AnyRingBuffer.h&apos;" description="Rename resource &apos;AnyBuffer2.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="AnyBuffer2.h" name="AnyRingBuffer.h" stamp="1338198497770" updateReferences="true"/>
+</session>

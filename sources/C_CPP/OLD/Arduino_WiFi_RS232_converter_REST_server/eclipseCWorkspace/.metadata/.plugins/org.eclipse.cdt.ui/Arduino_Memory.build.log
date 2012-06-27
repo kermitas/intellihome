@@ -1,0 +1,8 @@
+
+**** Clean-only build of configuration Release for project Arduino_Memory ****
+
+make clean 
+rm -rf  ./MemoryFree.o  libArduino_Memory.lss  ./MemoryFree.d  sizedummy  libArduino_Memory.a
+ 
+
+**** Build Finished ****

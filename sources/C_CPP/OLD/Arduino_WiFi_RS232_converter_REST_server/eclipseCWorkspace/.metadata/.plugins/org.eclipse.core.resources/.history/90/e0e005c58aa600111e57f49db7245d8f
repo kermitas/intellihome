@@ -1,0 +1,81 @@
+/*
+ * RS232ToWiFiTask.h
+ *
+ *  Created on: 07-05-2012
+ *      Author: root
+ */
+
+#ifndef RS232ToWiFiTask_H_
+#define RS232ToWiFiTask_H_
+
+// =================================================
+
+#include <Arduino.h>
+//#include <Print.h>
+#include <Stream.h>
+
+// =================================================
+
+//#include "Configuration.c"
+#include "Runnable.h"
+#include "RestServer.h"
+//#include "Streaming.h"
+#include "DebugPrinter.h"
+
+//#include "RestServer.h"
+#include "AnyBuffer.h"
+//#include "StreamReadBytesCounting.h"
+
+//#include "StreamHFA11xRS232WiFi.h"
+
+// =================================================
+
+class RS232ToWiFiTask: public Runnable
+{
+	public:
+
+		RS232ToWiFiTask( ServiceDescription** serviceDescrptions , unsigned char serviceDescrptionsCount , bool _blockToServeIncommingConnectionToTheEnd , PageRenderer* htmlPageRenderer , PageRenderer* jsonPageRenderer , const char* jsonActivatorURLPrefix , const char* metadescriptionActivatorURLPrefix , ServiceDescription* readHttpPathSubTaskArrayForSelectdServices , bool* readHttpParameterNameSubTaskArrayForMatchServiceNames , unsigned char* readHttpParameterValueSubTaskArrayForValueBytes , unsigned char readHttpParameterValueSubTaskArrayForValueBytesSize , uint8_t* sendResponseSubTaskChunkedStreamBuffer , unsigned char sendResponseSubTaskChunkedStreamBufferSize , char* _buffer , unsigned char _bufferSize , Stream* _stream );
+		void run();
+		//void setStream( Stream* _stream );
+
+	protected:
+
+		//Print& p;
+		DebugPrinter dp;
+
+		//Stream* mainStream;
+		RestServer restServer;
+
+		Stream* stream;
+		//StreamReadBytesCounting streamReadBytesCounting;
+		//unsigned long startTime;
+		//Stream* streamReadBytesCountingPtr;
+
+		// ---
+
+		//unsigned char inputBufferSize = 25;
+		//char inputBuffer[ 50 ];
+
+		//unsigned char outputBufferSize = 25;
+		//char outputBuffer[ 50 ];
+
+		//byte incommingByteBufferForStreamHFA11xRS232WiFiArray[ 25 ];
+
+		//AnyBuffer< byte , byte > incommingByteBufferForStreamHFA11xRS232WiFi;
+
+		//byte outgoingByteBufferForStreamHFA11xRS232WiFiArray[ 25 ];
+
+		//AnyBuffer< byte , byte > outgoingByteBufferForStreamHFA11xRS232WiFi;
+
+
+		// ---
+
+		//StreamHFA11xRS232WiFi streamHFA11xRS232WiFi;
+		//StreamHFA11xRS232WiFi* streamHFA11xRS232WiFiPtr;
+
+		// ---
+};
+
+// =================================================
+
+#endif /* RS232ToWiFiTask_H_ */

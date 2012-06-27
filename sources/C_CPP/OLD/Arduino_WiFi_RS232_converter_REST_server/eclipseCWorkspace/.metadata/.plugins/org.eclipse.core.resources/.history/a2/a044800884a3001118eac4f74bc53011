@@ -1,0 +1,95 @@
+/*
+ * RWSubTaskSendRECVCommand.cpp
+ *
+ *  Created on: 21-05-2012
+ *      Author: root
+ */
+
+// =================================================
+
+#include "RWSubTaskSendRECVCommand.h"
+
+// =================================================
+
+RWSubTaskSendRECVCommand::RWSubTaskSendRECVCommand( AnyBuffer< byte , byte >* _inputBuffer , StreamHFA11xRS232WiFiCRC* _crcStream , RWCommandSerialNumber* _rwCommandSerialNumber , RWSubTaskWaitForData* _waitForDataSubTask , RWSubTask* _decideToSendOutgingData ) : dp( PSTR( "RWSubTaskSendRECVCommand" ) , DEBUG_LEVEL_ALL )
+{
+	inputBuffer = _inputBuffer;
+	crcStream = _crcStream;
+	rwCommandSerialNumber = _rwCommandSerialNumber;
+	waitForDataSubTask = _waitForDataSubTask;
+	decideToSendOutgingData = _decideToSendOutgingData;
+}
+
+// =================================================
+
+char* RWSubTaskSendRECVCommand::getSubTaskName()
+{
+	return "SendRECVCommand"
+}
+
+// =================================================
+
+void RWSubTaskSendRECVCommand::resetInternalState()
+{
+
+}
+
+// =================================================
+
+unsigned long RWSubTaskSendRECVCommand::getStateTimeout()
+{
+	return 2*1000;
+}
+
+// =================================================
+
+RWSubTask* RWSubTaskSendRECVCommand::getStateAfterTimeout()
+{
+	return decideToSendOutgingData;
+}
+
+// =================================================
+
+RWSubTask* RWSubTaskSendRECVCommand::executeSubTask()
+{
+	// ---
+
+	crcStream->resetOutgoingState();
+
+	// ---
+
+	if(
+		// command
+		crcStream->write( (unsigned char)2 ) != 1 ||
+
+		// sn
+		crcStream->write( commandSerialNumber ) != 1 ||
+
+		// reserved two bytes (0 and 0)
+		crcStream->write( 0 ) != 1 ||
+		crcStream->write( 0 ) != 1 ||
+
+		// low byte of incomming buffer size
+		crcStream->write( inputBuffer->getUnusedSpace() ) != 1 ||
+
+		// high byte of incomming buffer size
+		crcStream->write( (unsigned char)0 ) != 1 ||
+
+		!crcStream->writeOutgoingDataCRCToStream()
+	)
+	{
+		return decideToSendOutgingData;
+	}
+	else
+	{
+		// ustawic sub taks czekajacy na dane (podac mu na ile danych ma czekac i jaki task ma pozniej zwrocic oraz ewentualnie timeout
+
+		// waitForDataSubTask->setWork( 6 , posniejszy_task , 2000 );
+
+		return waitForDataSubTask;
+	}
+}
+
+// =================================================
+
+

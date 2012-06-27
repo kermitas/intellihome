@@ -1,0 +1,154 @@
+/*
+ * RWStateMachine.h
+ *
+ *  Created on: 21-05-2012
+ *      Author: root
+ */
+
+#ifndef RWStateMachine_H_
+#define RWStateMachine_H_
+
+// =================================================
+
+#include <Arduino.h>
+#include <Stream.h>
+
+// =================================================
+
+#include "Runnable.h"
+#include "DebugPrinter.h"
+#include "RWSubTask.h"
+#include "AnyBuffer.h"
+
+#include "StreamHFA11xRS232WiFiCRC.h"
+#include "RWCommandSerialNumber.h"
+
+#include "RWSubTaskGoBackToFirstSubTask.h"
+
+#include "RWSubTaskDecideToReadIncommingData.h"
+#include "RWSubTaskSendRECVCommand.h"
+#include "RWSubTaskWaitForData.h"
+#include "RWSubTaskReadRECVACKCommandHeader.h"
+#include "RWSubTaskReadRECVACKCommandData.h"
+
+#include "RWSubTaskDecideToSendOutgoingData.h"
+#include "RWSubTaskSendSENDCommand.h"
+#include "RWSubTaskReadSENDACKCommand.h"
+
+// =================================================
+
+class RWStateMachine : public Runnable
+{
+	public:
+
+		RWStateMachine( AnyBuffer< byte , byte >* _inputBuffer , AnyBuffer< byte , byte >* _outputBuffer , Stream* stream );
+		void run();
+
+		void doFullReadCycle();
+		void doFullSendCycle();
+
+	protected:
+
+		// ---
+
+		DebugPrinter dp;
+
+		// ---
+
+		StreamHFA11xRS232WiFiCRC crcStream;
+
+		// ---
+
+		RWCommandSerialNumber rwCommandSerialNumber;
+
+		// ---
+
+		RWSubTaskGoBackToFirstSubTask rwSubTaskGoBackToFirstSubTask;
+
+		// ---
+
+		RWSubTaskWaitForData rwSubTaskWaitForData;
+		RWSubTaskReadSENDACKCommand rwSubTaskReadSENDACKCommand;
+		RWSubTaskSendSENDCommand rwSubTaskSendSENDCommand;
+		RWSubTaskDecideToSendOutgoingData rwSubTaskDecideToSendOutgoingData;
+		RWSubTaskReadRECVACKCommandData rwSubTaskReadRECVACKCommandData;
+		RWSubTaskReadRECVACKCommandHeader rwSubTaskReadRECVACKCommandHeader;
+		RWSubTaskSendRECVCommand rwSubTaskSendRECVCommand;
+		RWSubTaskDecideToReadIncommingData rwSubTaskDecideToReadIncommingData;
+
+		// ---
+
+		// todo tmp
+		//AnyBuffer< byte , byte >* inputBuffer;
+		//AnyBuffer< byte , byte >* outputBuffer;
+
+
+		RWSubTask* currentState;
+
+		unsigned long stateTimeoutTime;
+
+		// ---
+
+		void goToState( RWSubTask* nextState );
+
+		// ---
+
+		void goToStateWithVerbose( RWSubTask* nextState );
+
+		// ---
+
+		// inputBuffer
+		// -----------------------------------------------
+		// |      A		  | (pos)   B    | (lim)   C     |
+		// -----------------------------------------------
+		// A - between 0 and position - already read data
+		// B - between position and limit - data ready to read by you
+		// C - between limit and capacity - here will be placed incomming data, data incomming from Internet (after this operation limit will be moved forward)
+		//
+		// if limit == capacity then no data will be read from Internet until there will be some free space in buffer
+		// that means that if you read some data from buffer and position == limit == capacity then you have to buffer.setPositionAndLimit( 0 , 0 );
+		//
+		// if you leave buffer in situation position == limit == capacity then
+		// after some time it will be automatically set to buffer.setPositionAndLimit( 0 , 0 );
+		//
+		// you reading data from inputBuffer simply calling buffer.get()
+
+		// ---
+
+		// outputBuffer
+		// -----------------------------------------------
+		// |      A		  | (pos)   B    | (lim)   C     |
+		// -----------------------------------------------
+		// A - between 0 and position - already send data (send to Internet)
+		// B - between position and limit - data waiting to send
+		// C - between limit and capacity - here you have to put your data (and it will be sned to Internet)
+		//
+		// you putting data to this buffer under limit index, for example:
+		// buffer.array[ buffer.limit ] = data;
+		// and then move limit forward buffer.limit++;
+		//
+		// remember to not put data more than capacity-1, for example
+		// if( buffer.limit < buffer.capacity ) buffer.array[ buffer.limi++ ] = data;
+		// OR
+		// while( buffer.getUnusedSpace() > 0 ) buffer.array[ buffer.limi++ ] = data;
+		//
+		// if limit == capacity - that means buffer is full
+		//
+		// if buffer is full (that means limit == capacity) you can't put any data, you have to wait until buffer will have some free space (buffer.getUnusedSpace())
+		// or you have to call by yourself method in state machine to do full cycle (and hopefully send data, that will make some free space for you)
+		//
+		// if position == limit == capacity then buffer will be automatically set to buffer.setPositionAndLimit( 0 , 0 );
+
+
+		// ---
+
+		// pytania
+		//	jak zrobic powrot do SEND jesli SEND_ACK powie, ze zle ack_info? albo przynajmniej jak to przekazac swiatu na zewnatrz?
+		//  jak zrobic powrot do RECV jesli w RECV_ACK cos pojdzie nie tak (np. bedzie zle CRC?)
+
+		// ---
+};
+
+// =================================================
+
+#endif /* RWStateMachine_H_ */

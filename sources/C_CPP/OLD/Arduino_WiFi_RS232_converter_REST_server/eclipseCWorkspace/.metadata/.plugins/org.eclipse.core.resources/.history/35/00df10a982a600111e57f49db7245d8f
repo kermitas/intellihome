@@ -1,0 +1,51 @@
+/*
+ * StreamHFA11xRS232WiFi.h
+ *
+ *  Created on: 11-05-2012
+ *      Author: root
+ */
+
+#ifndef STREAMHFA11XRS232WIFI_H_
+#define STREAMHFA11XRS232WIFI_H_
+
+// =================================================
+
+#include <Arduino.h>
+
+// =================================================
+
+#include "DebugPrinter.h"
+#include "AnyBuffer.h"
+#include "RWStateMachine.h"
+
+// =================================================
+
+// trzeba pamietac, ze ogolnie max rozmiar jaki mozna dodac poprzez komende SEND czy RECEIVE to 1024 bajty danych
+// a w tym systemie ograniczylem to do 256B
+
+class StreamHFA11xRS232WiFi : public Stream
+{
+	public:
+
+		StreamHFA11xRS232WiFi( AnyBuffer< byte , byte >* _inputBuffer , AnyBuffer< byte , byte >* _outputBuffer , RWStateMachine* _rwStateMachine );
+
+		size_t write( uint8_t b );
+		size_t write( const uint8_t* buffer , size_t size );
+		int available();
+		int read();
+		int peek();
+		void flush();
+
+	protected:
+
+		DebugPrinter dp;
+
+		AnyBuffer< byte , byte >* inputBuffer;
+		AnyBuffer< byte , byte >* outputBuffer;
+
+		RWStateMachine* rwStateMachine;
+};
+
+// =================================================
+
+#endif /* STREAMHFA11XRS232WIFI_H_ */

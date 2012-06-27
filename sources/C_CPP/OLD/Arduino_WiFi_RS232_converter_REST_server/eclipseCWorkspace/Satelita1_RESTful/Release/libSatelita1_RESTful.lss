@@ -1,0 +1,4661 @@
+In archive libSatelita1_RESTful.a:
+
+RESTfulService.o:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  00000000  00000000  00000034  2**0
+                  ALLOC
+  3 .stab         0000018c  00000000  00000000  00000034  2**2
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  4 .stabstr      0000048d  00000000  00000000  000001c0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+message.o:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  00000000  00000000  00000034  2**0
+                  ALLOC
+  3 .stab         00000c78  00000000  00000000  00000034  2**2
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  4 .stabstr      00003206  00000000  00000000  00000cac  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .text._ZN7MessageC2Ev 0000001e  00000000  00000000  00003eb2  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  6 .text._ZN7Message3addEc 00000022  00000000  00000000  00003ed0  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  7 .text._ZN7Message5sliceEii 0000008c  00000000  00000000  00003ef2  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  8 .text._ZN7Message5clearEv 0000001e  00000000  00000000  00003f7e  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  9 .text._ZN7Message4findEci 00000034  00000000  00000000  00003f9c  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 10 .text._ZN7Message12match_stringEPci 0000006c  00000000  00000000  00003fd0  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 11 .text._ZN7Message4to_iEii 000000a0  00000000  00000000  0000403c  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+
+Disassembly of section .text._ZN7MessageC2Ev:
+
+00000000 <_ZN7MessageC1Ev>:
+ *	accepts a msg string, a start and an end index. Then it attempts 
+ *	to convert the character string into digits. If any of the 
+ *	characters are not numbers then the method returns a -1.
+ *	otherwise the method returns the number as an int.
+ */
+int Message::to_i(int _start_index, int end_index) {
+   0:	fc 01       	movw	r30, r24
+   2:	20 e0       	ldi	r18, 0x00	; 0
+   4:	30 e0       	ldi	r19, 0x00	; 0
+   6:	11 92       	st	Z+, r1
+   8:	2f 5f       	subi	r18, 0xFF	; 255
+   a:	3f 4f       	sbci	r19, 0xFF	; 255
+   c:	2b 34       	cpi	r18, 0x4B	; 75
+   e:	31 05       	cpc	r19, r1
+  10:	01 f4       	brne	.+0      	; 0x12 <_ZN7MessageC1Ev+0x12>
+	int return_num = 0;  
+	int reverse_counter = (end_index - _start_index);
+  12:	85 5b       	subi	r24, 0xB5	; 181
+  14:	9f 4f       	sbci	r25, 0xFF	; 255
+	
+	for(int i = 0; i <= (end_index - _start_index); i++) {
+  16:	fc 01       	movw	r30, r24
+  18:	11 82       	std	Z+1, r1	; 0x01
+ *	to convert the character string into digits. If any of the 
+ *	characters are not numbers then the method returns a -1.
+ *	otherwise the method returns the number as an int.
+ */
+int Message::to_i(int _start_index, int end_index) {
+	int return_num = 0;  
+  1a:	10 82       	st	Z, r1
+  1c:	08 95       	ret
+
+Disassembly of section .text._ZN7Message3addEc:
+
+00000000 <_ZN7Message3addEc>:
+ *	accepts a msg string, a start and an end index. Then it attempts 
+ *	to convert the character string into digits. If any of the 
+ *	characters are not numbers then the method returns a -1.
+ *	otherwise the method returns the number as an int.
+ */
+int Message::to_i(int _start_index, int end_index) {
+   0:	fc 01       	movw	r30, r24
+   2:	e5 5b       	subi	r30, 0xB5	; 181
+   4:	ff 4f       	sbci	r31, 0xFF	; 255
+   6:	20 81       	ld	r18, Z
+   8:	31 81       	ldd	r19, Z+1	; 0x01
+   a:	2b 34       	cpi	r18, 0x4B	; 75
+   c:	31 05       	cpc	r19, r1
+   e:	04 f4       	brge	.+0      	; 0x10 <_ZN7Message3addEc+0x10>
+  10:	82 0f       	add	r24, r18
+	int return_num = 0;  
+	int reverse_counter = (end_index - _start_index);
+  12:	93 1f       	adc	r25, r19
+  14:	dc 01       	movw	r26, r24
+	
+	for(int i = 0; i <= (end_index - _start_index); i++) {
+  16:	6c 93       	st	X, r22
+  18:	2f 5f       	subi	r18, 0xFF	; 255
+ *	to convert the character string into digits. If any of the 
+ *	characters are not numbers then the method returns a -1.
+ *	otherwise the method returns the number as an int.
+ */
+int Message::to_i(int _start_index, int end_index) {
+	int return_num = 0;  
+  1a:	3f 4f       	sbci	r19, 0xFF	; 255
+  1c:	31 83       	std	Z+1, r19	; 0x01
+ *	accepts a msg string, a start and an end index. Then it attempts 
+ *	to convert the character string into digits. If any of the 
+ *	characters are not numbers then the method returns a -1.
+ *	otherwise the method returns the number as an int.
+ */
+int Message::to_i(int _start_index, int end_index) {
+  1e:	20 83       	st	Z, r18
+  20:	08 95       	ret
+
+Disassembly of section .text._ZN7Message5sliceEii:
+
+00000000 <_ZN7Message5sliceEii>:
+   0:	ef 92       	push	r14
+   2:	ff 92       	push	r15
+   4:	0f 93       	push	r16
+   6:	1f 93       	push	r17
+   8:	cf 93       	push	r28
+   a:	df 93       	push	r29
+   c:	ec 01       	movw	r28, r24
+   e:	fc 01       	movw	r30, r24
+  10:	e5 5b       	subi	r30, 0xB5	; 181
+	int return_num = 0;  
+	int reverse_counter = (end_index - _start_index);
+  12:	ff 4f       	sbci	r31, 0xFF	; 255
+  14:	00 81       	ld	r16, Z
+	
+	for(int i = 0; i <= (end_index - _start_index); i++) {
+  16:	11 81       	ldd	r17, Z+1	; 0x01
+  18:	9a 01       	movw	r18, r20
+ *	to convert the character string into digits. If any of the 
+ *	characters are not numbers then the method returns a -1.
+ *	otherwise the method returns the number as an int.
+ */
+int Message::to_i(int _start_index, int end_index) {
+	int return_num = 0;  
+  1a:	04 17       	cp	r16, r20
+  1c:	15 07       	cpc	r17, r21
+ *	accepts a msg string, a start and an end index. Then it attempts 
+ *	to convert the character string into digits. If any of the 
+ *	characters are not numbers then the method returns a -1.
+ *	otherwise the method returns the number as an int.
+ */
+int Message::to_i(int _start_index, int end_index) {
+  1e:	04 f4       	brge	.+0      	; 0x20 <_ZN7Message5sliceEii+0x20>
+  20:	98 01       	movw	r18, r16
+  22:	26 17       	cp	r18, r22
+	int return_num = 0;  
+	int reverse_counter = (end_index - _start_index);
+	
+	for(int i = 0; i <= (end_index - _start_index); i++) {
+  24:	37 07       	cpc	r19, r23
+ *	accepts a msg string, a start and an end index. Then it attempts 
+ *	to convert the character string into digits. If any of the 
+ *	characters are not numbers then the method returns a -1.
+ *	otherwise the method returns the number as an int.
+ */
+int Message::to_i(int _start_index, int end_index) {
+  26:	04 f0       	brlt	.+0      	; 0x28 <_ZN7Message5sliceEii+0x28>
+  28:	77 fd       	sbrc	r23, 7
+  2a:	00 c0       	rjmp	.+0      	; 0x2c <_ZN7Message5sliceEii+0x2c>
+	int return_num = 0;  
+	int reverse_counter = (end_index - _start_index);
+	
+	for(int i = 0; i <= (end_index - _start_index); i++) {
+	    char cur_char = msg[i+_start_index];      
+  2c:	37 fd       	sbrc	r19, 7
+	    if (int(cur_char) < 48 || int(cur_char) > 57) { return -1; }
+  2e:	00 c0       	rjmp	.+0      	; 0x30 <_ZN7Message5sliceEii+0x30>
+  30:	de 01       	movw	r26, r28
+  32:	40 e0       	ldi	r20, 0x00	; 0
+  34:	50 e0       	ldi	r21, 0x00	; 0
+  36:	7e 01       	movw	r14, r28
+  38:	e6 0e       	add	r14, r22
+  3a:	f7 1e       	adc	r15, r23
+  3c:	00 c0       	rjmp	.+0      	; 0x3e <_ZN7Message5sliceEii+0x3e>
+  3e:	ca 01       	movw	r24, r20
+	    int mult = 1;
+	    for(int j = 0; j < reverse_counter; j++) { mult = mult * 10; }
+  40:	86 0f       	add	r24, r22
+  42:	97 1f       	adc	r25, r23
+  44:	82 17       	cp	r24, r18
+  46:	93 07       	cpc	r25, r19
+  48:	04 f4       	brge	.+0      	; 0x4a <_ZN7Message5sliceEii+0x4a>
+  4a:	f7 01       	movw	r30, r14
+  4c:	e4 0f       	add	r30, r20
+  4e:	f5 1f       	adc	r31, r21
+  50:	80 81       	ld	r24, Z
+  52:	8c 93       	st	X, r24
+  54:	00 c0       	rjmp	.+0      	; 0x56 <_ZN7Message5sliceEii+0x56>
+  56:	1c 92       	st	X, r1
+  58:	4f 5f       	subi	r20, 0xFF	; 255
+  5a:	5f 4f       	sbci	r21, 0xFF	; 255
+  5c:	11 96       	adiw	r26, 0x01	; 1
+	    return_num += (int(cur_char)-48) * mult; 
+  5e:	40 17       	cp	r20, r16
+  60:	51 07       	cpc	r21, r17
+  62:	04 f0       	brlt	.+0      	; 0x64 <_ZN7Message5sliceEii+0x64>
+  64:	ac 2f       	mov	r26, r28
+  66:	bd 2f       	mov	r27, r29
+  68:	fd 01       	movw	r30, r26
+  6a:	01 90       	ld	r0, Z+
+  6c:	00 20       	and	r0, r0
+  6e:	01 f4       	brne	.+0      	; 0x70 <_ZN7Message5sliceEii+0x70>
+  70:	31 97       	sbiw	r30, 0x01	; 1
+  72:	ea 1b       	sub	r30, r26
+  74:	fb 0b       	sbc	r31, r27
+  76:	c5 5b       	subi	r28, 0xB5	; 181
+ */
+int Message::to_i(int _start_index, int end_index) {
+	int return_num = 0;  
+	int reverse_counter = (end_index - _start_index);
+	
+	for(int i = 0; i <= (end_index - _start_index); i++) {
+  78:	df 4f       	sbci	r29, 0xFF	; 255
+ *	accepts a msg string, a start and an end index. Then it attempts 
+ *	to convert the character string into digits. If any of the 
+ *	characters are not numbers then the method returns a -1.
+ *	otherwise the method returns the number as an int.
+ */
+int Message::to_i(int _start_index, int end_index) {
+  7a:	f9 83       	std	Y+1, r31	; 0x01
+  7c:	e8 83       	st	Y, r30
+  7e:	df 91       	pop	r29
+	int return_num = 0;  
+	int reverse_counter = (end_index - _start_index);
+	
+	for(int i = 0; i <= (end_index - _start_index); i++) {
+  80:	cf 91       	pop	r28
+  82:	1f 91       	pop	r17
+  84:	0f 91       	pop	r16
+  86:	ff 90       	pop	r15
+	    char cur_char = msg[i+_start_index];      
+	    if (int(cur_char) < 48 || int(cur_char) > 57) { return -1; }
+  88:	ef 90       	pop	r14
+  8a:	08 95       	ret
+
+Disassembly of section .text._ZN7Message5clearEv:
+
+00000000 <_ZN7Message5clearEv>:
+ *	accepts a msg string, a start and an end index. Then it attempts 
+ *	to convert the character string into digits. If any of the 
+ *	characters are not numbers then the method returns a -1.
+ *	otherwise the method returns the number as an int.
+ */
+int Message::to_i(int _start_index, int end_index) {
+   0:	fc 01       	movw	r30, r24
+   2:	20 e0       	ldi	r18, 0x00	; 0
+   4:	30 e0       	ldi	r19, 0x00	; 0
+   6:	11 92       	st	Z+, r1
+   8:	2f 5f       	subi	r18, 0xFF	; 255
+   a:	3f 4f       	sbci	r19, 0xFF	; 255
+   c:	2b 34       	cpi	r18, 0x4B	; 75
+   e:	31 05       	cpc	r19, r1
+  10:	01 f4       	brne	.+0      	; 0x12 <_ZN7Message5clearEv+0x12>
+	int return_num = 0;  
+	int reverse_counter = (end_index - _start_index);
+  12:	85 5b       	subi	r24, 0xB5	; 181
+  14:	9f 4f       	sbci	r25, 0xFF	; 255
+	
+	for(int i = 0; i <= (end_index - _start_index); i++) {
+  16:	fc 01       	movw	r30, r24
+  18:	11 82       	std	Z+1, r1	; 0x01
+ *	to convert the character string into digits. If any of the 
+ *	characters are not numbers then the method returns a -1.
+ *	otherwise the method returns the number as an int.
+ */
+int Message::to_i(int _start_index, int end_index) {
+	int return_num = 0;  
+  1a:	10 82       	st	Z, r1
+  1c:	08 95       	ret
+
+Disassembly of section .text._ZN7Message4findEci:
+
+00000000 <_ZN7Message4findEci>:
+ *	accepts a msg string, a start and an end index. Then it attempts 
+ *	to convert the character string into digits. If any of the 
+ *	characters are not numbers then the method returns a -1.
+ *	otherwise the method returns the number as an int.
+ */
+int Message::to_i(int _start_index, int end_index) {
+   0:	dc 01       	movw	r26, r24
+   2:	ca 01       	movw	r24, r20
+   4:	fd 01       	movw	r30, r26
+   6:	e5 5b       	subi	r30, 0xB5	; 181
+   8:	ff 4f       	sbci	r31, 0xFF	; 255
+   a:	20 81       	ld	r18, Z
+   c:	31 81       	ldd	r19, Z+1	; 0x01
+   e:	42 17       	cp	r20, r18
+  10:	53 07       	cpc	r21, r19
+	int return_num = 0;  
+	int reverse_counter = (end_index - _start_index);
+  12:	04 f4       	brge	.+0      	; 0x14 <_ZN7Message4findEci+0x14>
+  14:	fd 01       	movw	r30, r26
+	
+	for(int i = 0; i <= (end_index - _start_index); i++) {
+  16:	e8 0f       	add	r30, r24
+  18:	f9 1f       	adc	r31, r25
+ *	to convert the character string into digits. If any of the 
+ *	characters are not numbers then the method returns a -1.
+ *	otherwise the method returns the number as an int.
+ */
+int Message::to_i(int _start_index, int end_index) {
+	int return_num = 0;  
+  1a:	40 81       	ld	r20, Z
+  1c:	64 17       	cp	r22, r20
+ *	accepts a msg string, a start and an end index. Then it attempts 
+ *	to convert the character string into digits. If any of the 
+ *	characters are not numbers then the method returns a -1.
+ *	otherwise the method returns the number as an int.
+ */
+int Message::to_i(int _start_index, int end_index) {
+  1e:	01 f0       	breq	.+0      	; 0x20 <_ZN7Message4findEci+0x20>
+  20:	01 96       	adiw	r24, 0x01	; 1
+  22:	82 17       	cp	r24, r18
+	int return_num = 0;  
+	int reverse_counter = (end_index - _start_index);
+	
+	for(int i = 0; i <= (end_index - _start_index); i++) {
+  24:	93 07       	cpc	r25, r19
+ *	accepts a msg string, a start and an end index. Then it attempts 
+ *	to convert the character string into digits. If any of the 
+ *	characters are not numbers then the method returns a -1.
+ *	otherwise the method returns the number as an int.
+ */
+int Message::to_i(int _start_index, int end_index) {
+  26:	01 f4       	brne	.+0      	; 0x28 <_ZN7Message4findEci+0x28>
+  28:	8f ef       	ldi	r24, 0xFF	; 255
+  2a:	9f ef       	ldi	r25, 0xFF	; 255
+	int return_num = 0;  
+	int reverse_counter = (end_index - _start_index);
+	
+	for(int i = 0; i <= (end_index - _start_index); i++) {
+	    char cur_char = msg[i+_start_index];      
+  2c:	08 95       	ret
+	    if (int(cur_char) < 48 || int(cur_char) > 57) { return -1; }
+  2e:	8f ef       	ldi	r24, 0xFF	; 255
+  30:	9f ef       	ldi	r25, 0xFF	; 255
+  32:	08 95       	ret
+
+Disassembly of section .text._ZN7Message12match_stringEPci:
+
+00000000 <_ZN7Message12match_stringEPci>:
+ *	accepts a msg string, a start and an end index. Then it attempts 
+ *	to convert the character string into digits. If any of the 
+ *	characters are not numbers then the method returns a -1.
+ *	otherwise the method returns the number as an int.
+ */
+int Message::to_i(int _start_index, int end_index) {
+   0:	0f 93       	push	r16
+   2:	1f 93       	push	r17
+   4:	cf 93       	push	r28
+   6:	df 93       	push	r29
+   8:	8c 01       	movw	r16, r24
+   a:	db 01       	movw	r26, r22
+   c:	0d 90       	ld	r0, X+
+   e:	00 20       	and	r0, r0
+  10:	01 f4       	brne	.+0      	; 0x12 <_ZN7Message12match_stringEPci+0x12>
+	int return_num = 0;  
+	int reverse_counter = (end_index - _start_index);
+  12:	11 97       	sbiw	r26, 0x01	; 1
+  14:	a6 1b       	sub	r26, r22
+	
+	for(int i = 0; i <= (end_index - _start_index); i++) {
+  16:	b7 0b       	sbc	r27, r23
+  18:	fc 01       	movw	r30, r24
+ *	to convert the character string into digits. If any of the 
+ *	characters are not numbers then the method returns a -1.
+ *	otherwise the method returns the number as an int.
+ */
+int Message::to_i(int _start_index, int end_index) {
+	int return_num = 0;  
+  1a:	e5 5b       	subi	r30, 0xB5	; 181
+  1c:	ff 4f       	sbci	r31, 0xFF	; 255
+ *	accepts a msg string, a start and an end index. Then it attempts 
+ *	to convert the character string into digits. If any of the 
+ *	characters are not numbers then the method returns a -1.
+ *	otherwise the method returns the number as an int.
+ */
+int Message::to_i(int _start_index, int end_index) {
+  1e:	9d 01       	movw	r18, r26
+  20:	24 0f       	add	r18, r20
+  22:	35 1f       	adc	r19, r21
+	int return_num = 0;  
+	int reverse_counter = (end_index - _start_index);
+	
+	for(int i = 0; i <= (end_index - _start_index); i++) {
+  24:	80 81       	ld	r24, Z
+ *	accepts a msg string, a start and an end index. Then it attempts 
+ *	to convert the character string into digits. If any of the 
+ *	characters are not numbers then the method returns a -1.
+ *	otherwise the method returns the number as an int.
+ */
+int Message::to_i(int _start_index, int end_index) {
+  26:	91 81       	ldd	r25, Z+1	; 0x01
+  28:	82 17       	cp	r24, r18
+  2a:	93 07       	cpc	r25, r19
+	int return_num = 0;  
+	int reverse_counter = (end_index - _start_index);
+	
+	for(int i = 0; i <= (end_index - _start_index); i++) {
+	    char cur_char = msg[i+_start_index];      
+  2c:	04 f0       	brlt	.+0      	; 0x2e <_ZN7Message12match_stringEPci+0x2e>
+	    if (int(cur_char) < 48 || int(cur_char) > 57) { return -1; }
+  2e:	eb 01       	movw	r28, r22
+  30:	80 e0       	ldi	r24, 0x00	; 0
+  32:	90 e0       	ldi	r25, 0x00	; 0
+  34:	2f ef       	ldi	r18, 0xFF	; 255
+  36:	3f ef       	ldi	r19, 0xFF	; 255
+  38:	04 0f       	add	r16, r20
+  3a:	15 1f       	adc	r17, r21
+  3c:	00 c0       	rjmp	.+0      	; 0x3e <_ZN7Message12match_stringEPci+0x3e>
+  3e:	79 91       	ld	r23, Y+
+	    int mult = 1;
+	    for(int j = 0; j < reverse_counter; j++) { mult = mult * 10; }
+  40:	9c 01       	movw	r18, r24
+  42:	24 0f       	add	r18, r20
+  44:	35 1f       	adc	r19, r21
+  46:	f8 01       	movw	r30, r16
+  48:	e8 0f       	add	r30, r24
+  4a:	f9 1f       	adc	r31, r25
+  4c:	60 81       	ld	r22, Z
+  4e:	76 17       	cp	r23, r22
+  50:	01 f4       	brne	.+0      	; 0x52 <_ZN7Message12match_stringEPci+0x52>
+  52:	01 96       	adiw	r24, 0x01	; 1
+  54:	8a 17       	cp	r24, r26
+  56:	9b 07       	cpc	r25, r27
+  58:	04 f0       	brlt	.+0      	; 0x5a <_ZN7Message12match_stringEPci+0x5a>
+  5a:	00 c0       	rjmp	.+0      	; 0x5c <_ZN7Message12match_stringEPci+0x5c>
+  5c:	2f ef       	ldi	r18, 0xFF	; 255
+	    return_num += (int(cur_char)-48) * mult; 
+  5e:	3f ef       	ldi	r19, 0xFF	; 255
+  60:	c9 01       	movw	r24, r18
+  62:	df 91       	pop	r29
+  64:	cf 91       	pop	r28
+  66:	1f 91       	pop	r17
+  68:	0f 91       	pop	r16
+  6a:	08 95       	ret
+
+Disassembly of section .text._ZN7Message4to_iEii:
+
+00000000 <_ZN7Message4to_iEii>:
+ *	accepts a msg string, a start and an end index. Then it attempts 
+ *	to convert the character string into digits. If any of the 
+ *	characters are not numbers then the method returns a -1.
+ *	otherwise the method returns the number as an int.
+ */
+int Message::to_i(int _start_index, int end_index) {
+   0:	cf 92       	push	r12
+   2:	df 92       	push	r13
+   4:	ef 92       	push	r14
+   6:	ff 92       	push	r15
+   8:	0f 93       	push	r16
+   a:	1f 93       	push	r17
+   c:	cf 93       	push	r28
+   e:	df 93       	push	r29
+  10:	ea 01       	movw	r28, r20
+	int return_num = 0;  
+	int reverse_counter = (end_index - _start_index);
+  12:	c6 1b       	sub	r28, r22
+  14:	d7 0b       	sbc	r29, r23
+	
+	for(int i = 0; i <= (end_index - _start_index); i++) {
+  16:	a0 e0       	ldi	r26, 0x00	; 0
+  18:	b0 e0       	ldi	r27, 0x00	; 0
+ *	to convert the character string into digits. If any of the 
+ *	characters are not numbers then the method returns a -1.
+ *	otherwise the method returns the number as an int.
+ */
+int Message::to_i(int _start_index, int end_index) {
+	int return_num = 0;  
+  1a:	00 e0       	ldi	r16, 0x00	; 0
+  1c:	10 e0       	ldi	r17, 0x00	; 0
+ *	accepts a msg string, a start and an end index. Then it attempts 
+ *	to convert the character string into digits. If any of the 
+ *	characters are not numbers then the method returns a -1.
+ *	otherwise the method returns the number as an int.
+ */
+int Message::to_i(int _start_index, int end_index) {
+  1e:	6c 01       	movw	r12, r24
+  20:	c6 0e       	add	r12, r22
+  22:	d7 1e       	adc	r13, r23
+	int return_num = 0;  
+	int reverse_counter = (end_index - _start_index);
+	
+	for(int i = 0; i <= (end_index - _start_index); i++) {
+  24:	00 c0       	rjmp	.+0      	; 0x26 <_ZN7Message4to_iEii+0x26>
+ *	accepts a msg string, a start and an end index. Then it attempts 
+ *	to convert the character string into digits. If any of the 
+ *	characters are not numbers then the method returns a -1.
+ *	otherwise the method returns the number as an int.
+ */
+int Message::to_i(int _start_index, int end_index) {
+  26:	f6 01       	movw	r30, r12
+  28:	ea 0f       	add	r30, r26
+  2a:	fb 1f       	adc	r31, r27
+	int return_num = 0;  
+	int reverse_counter = (end_index - _start_index);
+	
+	for(int i = 0; i <= (end_index - _start_index); i++) {
+	    char cur_char = msg[i+_start_index];      
+  2c:	80 81       	ld	r24, Z
+	    if (int(cur_char) < 48 || int(cur_char) > 57) { return -1; }
+  2e:	98 2f       	mov	r25, r24
+  30:	90 53       	subi	r25, 0x30	; 48
+  32:	9a 30       	cpi	r25, 0x0A	; 10
+  34:	00 f4       	brcc	.+0      	; 0x36 <_ZN7Message4to_iEii+0x36>
+  36:	60 e0       	ldi	r22, 0x00	; 0
+  38:	70 e0       	ldi	r23, 0x00	; 0
+  3a:	41 e0       	ldi	r20, 0x01	; 1
+  3c:	50 e0       	ldi	r21, 0x00	; 0
+  3e:	00 c0       	rjmp	.+0      	; 0x40 <_ZN7Message4to_iEii+0x40>
+	    int mult = 1;
+	    for(int j = 0; j < reverse_counter; j++) { mult = mult * 10; }
+  40:	9a 01       	movw	r18, r20
+  42:	22 0f       	add	r18, r18
+  44:	33 1f       	adc	r19, r19
+  46:	e3 e0       	ldi	r30, 0x03	; 3
+  48:	44 0f       	add	r20, r20
+  4a:	55 1f       	adc	r21, r21
+  4c:	ea 95       	dec	r30
+  4e:	01 f4       	brne	.+0      	; 0x50 <_ZN7Message4to_iEii+0x50>
+  50:	42 0f       	add	r20, r18
+  52:	53 1f       	adc	r21, r19
+  54:	6f 5f       	subi	r22, 0xFF	; 255
+  56:	7f 4f       	sbci	r23, 0xFF	; 255
+  58:	6e 15       	cp	r22, r14
+  5a:	7f 05       	cpc	r23, r15
+  5c:	04 f0       	brlt	.+0      	; 0x5e <_ZN7Message4to_iEii+0x5e>
+	    return_num += (int(cur_char)-48) * mult; 
+  5e:	99 27       	eor	r25, r25
+  60:	87 fd       	sbrc	r24, 7
+  62:	90 95       	com	r25
+  64:	c0 97       	sbiw	r24, 0x30	; 48
+  66:	84 9f       	mul	r24, r20
+  68:	90 01       	movw	r18, r0
+  6a:	85 9f       	mul	r24, r21
+  6c:	30 0d       	add	r19, r0
+  6e:	94 9f       	mul	r25, r20
+  70:	30 0d       	add	r19, r0
+  72:	11 24       	eor	r1, r1
+  74:	02 0f       	add	r16, r18
+  76:	13 1f       	adc	r17, r19
+ */
+int Message::to_i(int _start_index, int end_index) {
+	int return_num = 0;  
+	int reverse_counter = (end_index - _start_index);
+	
+	for(int i = 0; i <= (end_index - _start_index); i++) {
+  78:	11 96       	adiw	r26, 0x01	; 1
+ *	accepts a msg string, a start and an end index. Then it attempts 
+ *	to convert the character string into digits. If any of the 
+ *	characters are not numbers then the method returns a -1.
+ *	otherwise the method returns the number as an int.
+ */
+int Message::to_i(int _start_index, int end_index) {
+  7a:	7e 01       	movw	r14, r28
+  7c:	ea 1a       	sub	r14, r26
+  7e:	fb 0a       	sbc	r15, r27
+	int return_num = 0;  
+	int reverse_counter = (end_index - _start_index);
+	
+	for(int i = 0; i <= (end_index - _start_index); i++) {
+  80:	ca 17       	cp	r28, r26
+  82:	db 07       	cpc	r29, r27
+  84:	04 f4       	brge	.+0      	; 0x86 <_ZN7Message4to_iEii+0x86>
+  86:	00 c0       	rjmp	.+0      	; 0x88 <_ZN7Message4to_iEii+0x88>
+	    char cur_char = msg[i+_start_index];      
+	    if (int(cur_char) < 48 || int(cur_char) > 57) { return -1; }
+  88:	0f ef       	ldi	r16, 0xFF	; 255
+  8a:	1f ef       	ldi	r17, 0xFF	; 255
+	    for(int j = 0; j < reverse_counter; j++) { mult = mult * 10; }
+	    return_num += (int(cur_char)-48) * mult; 
+	    reverse_counter--;
+	}
+	return return_num;
+  8c:	c8 01       	movw	r24, r16
+  8e:	df 91       	pop	r29
+  90:	cf 91       	pop	r28
+  92:	1f 91       	pop	r17
+  94:	0f 91       	pop	r16
+  96:	ff 90       	pop	r15
+  98:	ef 90       	pop	r14
+  9a:	df 90       	pop	r13
+  9c:	cf 90       	pop	r12
+  9e:	08 95       	ret
+
+rest_server.o:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         000000bd  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  00000000  00000000  000000f1  2**0
+                  ALLOC
+  3 .stab         00002f10  00000000  00000000  000000f4  2**2
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  4 .stabstr      00004ea7  00000000  00000000  00003004  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .text._ZN10RestServerC2Ev 000000de  00000000  00000000  00007eab  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  6 .text._ZN10RestServer12set_callbackEh 00000016  00000000  00000000  00007f89  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  7 .text._ZN10RestServer17set_post_with_getEh 00000016  00000000  00000000  00007f9f  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  8 .text._ZN10RestServer13set_json_lockEh 00000016  00000000  00000000  00007fb5  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  9 .text._ZN10RestServer14set_debug_codeEh 00000014  00000000  00000000  00007fcb  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 10 .text._ZN10RestServer16get_server_stateEv 0000000c  00000000  00000000  00007fdf  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 11 .text._ZN10RestServer7respondEv 0000002a  00000000  00000000  00007feb  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 12 .text._ZN10RestServer18resource_get_stateEPc 0000008e  00000000  00000000  00008015  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 13 .text._ZN10RestServer18resource_get_stateEi 00000026  00000000  00000000  000080a3  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 14 .text._ZN10RestServer18resource_set_stateEPci 0000011e  00000000  00000000  000080c9  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 15 .text._ZN10RestServer18resource_set_stateEii 000000bc  00000000  00000000  000081e7  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 16 .text._ZN10RestServer21resource_post_enabledEPc 0000008e  00000000  00000000  000082a3  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 17 .text._ZN10RestServer21resource_post_enabledEi 00000026  00000000  00000000  00008331  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 18 .text._ZN10RestServer18resource_requestedEPc 00000080  00000000  00000000  00008357  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 19 .text._ZN10RestServer18resource_requestedEi 00000018  00000000  00000000  000083d7  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 20 .text._ZN10RestServer16resource_updatedEPc 00000080  00000000  00000000  000083ef  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 21 .text._ZN10RestServer16resource_updatedEi 00000018  00000000  00000000  0000846f  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 22 .text._ZN10RestServer23prepare_for_next_clientEv 00000080  00000000  00000000  00008487  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 23 .text._ZN10RestServer18register_resourcesEPP14RESTfulServicei 00000096  00000000  00000000  00008507  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 24 .text._ZN10RestServer11start_timerEv 0000004a  00000000  00000000  0000859d  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 25 .text._ZN10RestServer11check_timerEv 0000006a  00000000  00000000  000085e7  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 26 .text._ZN10RestServer8get_verbEc 000000b0  00000000  00000000  00008651  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 27 .text._ZN10RestServer18match_eoh_sequenceEc 0000003e  00000000  00000000  00008701  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 28 .text._ZN10RestServer18add_char_and_matchEcPc 00000066  00000000  00000000  0000873f  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 29 .text._ZN10RestServer7processEv 00000076  00000000  00000000  000087a5  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 30 .text._ZN10RestServer18print_flash_stringEPKcR6Stream 00000028  00000000  00000000  0000881b  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 31 .text._ZN10RestServer10print_formER6Stream 000003a4  00000000  00000000  00008843  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 32 .text._ZN10RestServer26print_resource_descriptionER6Stream 00000172  00000000  00000000  00008be7  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 33 .text._ZN10RestServer10print_jsonER6Stream 00000166  00000000  00000000  00008d59  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 34 .text._ZN10RestServer10print_htmlER6Stream 00000124  00000000  00000000  00008ebf  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 35 .text._ZN10RestServer13send_responseER6Stream 00000046  00000000  00000000  00008fe3  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 36 .text._ZN10RestServer15handle_responseER6Stream 00000028  00000000  00000000  00009029  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 37 .text._ZN10RestServer14match_div_charEc 00000026  00000000  00000000  00009051  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 38 .text._ZN10RestServer18check_start_singleEi 00000036  00000000  00000000  00009077  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 39 .text._ZN10RestServer11check_startEi 00000030  00000000  00000000  000090ad  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 40 .text._ZN10RestServer12next_elementEi 0000008a  00000000  00000000  000090dd  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 41 .text._ZN10RestServer19check_for_state_msgEi 0000006e  00000000  00000000  00009167  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 42 .text._ZN10RestServer11state_matchEii 00000108  00000000  00000000  000091d5  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 43 .text._ZN10RestServer13service_matchEii 000000d2  00000000  00000000  000092dd  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 44 .text._ZN10RestServer15parse_resourcesEv 000000a2  00000000  00000000  000093af  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 45 .text._ZN10RestServer17read_get_requestsEc 000000ae  00000000  00000000  00009451  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 46 .text._ZN10RestServer13parse_requestEv 000001d2  00000000  00000000  000094ff  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 47 .text._ZN10RestServer14match_eol_charEc 00000022  00000000  00000000  000096d1  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 48 .text._ZN10RestServer18read_post_requestsEc 00000104  00000000  00000000  000096f3  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 49 .text._ZN10RestServer12read_requestEc 0000007a  00000000  00000000  000097f7  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 50 .text._ZN10RestServer15handle_requestsER6Stream 00000062  00000000  00000000  00009871  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 51 .progmem.data 00000298  00000000  00000000  000098d3  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+
+Disassembly of section .text._ZN10RestServerC2Ev:
+
+00000000 <_ZN10RestServerC1Ev>:
+
+int RestServer::get_server_state() {
+	return server_state;
+}
+
+boolean RestServer::handle_requests(Stream &_client) {
+   0:	0f 93       	push	r16
+   2:	1f 93       	push	r17
+   4:	cf 93       	push	r28
+   6:	df 93       	push	r29
+   8:	cd b7       	in	r28, 0x3d	; 61
+   a:	de b7       	in	r29, 0x3e	; 62
+	if (_client.available()) {
+   c:	c1 55       	subi	r28, 0x51	; 81
+   e:	d0 40       	sbci	r29, 0x00	; 0
+  10:	0f b6       	in	r0, 0x3f	; 63
+  12:	f8 94       	cli
+  14:	de bf       	out	0x3e, r29	; 62
+  16:	0f be       	out	0x3f, r0	; 63
+  18:	cd bf       	out	0x3d, r28	; 61
+  1a:	9c 01       	movw	r18, r24
+  1c:	8c 01       	movw	r16, r24
+  1e:	0d 5f       	subi	r16, 0xFD	; 253
+		start_timer();
+  20:	1f 4f       	sbci	r17, 0xFF	; 255
+  22:	c8 01       	movw	r24, r16
+  24:	61 96       	adiw	r28, 0x11	; 17
+		read_request(_client.read());
+  26:	2f af       	std	Y+63, r18	; 0x3f
+  28:	61 97       	sbiw	r28, 0x11	; 17
+  2a:	62 96       	adiw	r28, 0x12	; 18
+  2c:	3f af       	std	Y+63, r19	; 0x3f
+  2e:	62 97       	sbiw	r28, 0x12	; 18
+  30:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServerC1Ev>
+  34:	ce 01       	movw	r24, r28
+  36:	01 96       	adiw	r24, 0x01	; 1
+  38:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServerC1Ev>
+  3c:	d8 01       	movw	r26, r16
+	}
+	parse_request();
+  3e:	fe 01       	movw	r30, r28
+  40:	31 96       	adiw	r30, 0x01	; 1
+  42:	8f e4       	ldi	r24, 0x4F	; 79
+	process();	
+  44:	62 96       	adiw	r28, 0x12	; 18
+  46:	3f ad       	ldd	r19, Y+63	; 0x3f
+  48:	62 97       	sbiw	r28, 0x12	; 18
+	if (server_state == PROCESS) return true;
+  4a:	61 96       	adiw	r28, 0x11	; 17
+  4c:	2f ad       	ldd	r18, Y+63	; 0x3f
+  4e:	61 97       	sbiw	r28, 0x11	; 17
+  50:	01 90       	ld	r0, Z+
+  52:	0d 92       	st	X+, r0
+  54:	81 50       	subi	r24, 0x01	; 1
+  56:	01 f4       	brne	.+0      	; 0x58 <_ZN10RestServerC1Ev+0x58>
+	else return false;
+}
+  58:	f9 01       	movw	r30, r18
+  5a:	ee 59       	subi	r30, 0x9E	; 158
+  5c:	ff 4f       	sbci	r31, 0xFF	; 255
+  5e:	8f e2       	ldi	r24, 0x2F	; 47
+  60:	80 83       	st	Z, r24
+  62:	f9 01       	movw	r30, r18
+  64:	ed 59       	subi	r30, 0x9D	; 157
+  66:	ff 4f       	sbci	r31, 0xFF	; 255
+  68:	80 e2       	ldi	r24, 0x20	; 32
+  6a:	80 83       	st	Z, r24
+  6c:	f9 01       	movw	r30, r18
+  6e:	ec 59       	subi	r30, 0x9C	; 156
+  70:	ff 4f       	sbci	r31, 0xFF	; 255
+  72:	8d e3       	ldi	r24, 0x3D	; 61
+  74:	80 83       	st	Z, r24
+  76:	f9 01       	movw	r30, r18
+  78:	eb 59       	subi	r30, 0x9B	; 155
+  7a:	ff 4f       	sbci	r31, 0xFF	; 255
+  7c:	86 e2       	ldi	r24, 0x26	; 38
+  7e:	80 83       	st	Z, r24
+  80:	f9 01       	movw	r30, r18
+  82:	e6 5a       	subi	r30, 0xA6	; 166
+  84:	ff 4f       	sbci	r31, 0xFF	; 255
+  86:	9d e0       	ldi	r25, 0x0D	; 13
+  88:	90 83       	st	Z, r25
+  8a:	f9 01       	movw	r30, r18
+  8c:	e5 5a       	subi	r30, 0xA5	; 165
+  8e:	ff 4f       	sbci	r31, 0xFF	; 255
+  90:	8a e0       	ldi	r24, 0x0A	; 10
+  92:	80 83       	st	Z, r24
+  94:	f9 01       	movw	r30, r18
+  96:	e3 5a       	subi	r30, 0xA3	; 163
+  98:	ff 4f       	sbci	r31, 0xFF	; 255
+  9a:	90 83       	st	Z, r25
+  9c:	f9 01       	movw	r30, r18
+  9e:	e2 5a       	subi	r30, 0xA2	; 162
+  a0:	ff 4f       	sbci	r31, 0xFF	; 255
+  a2:	80 83       	st	Z, r24
+  a4:	f9 01       	movw	r30, r18
+  a6:	e1 5a       	subi	r30, 0xA1	; 161
+  a8:	ff 4f       	sbci	r31, 0xFF	; 255
+  aa:	90 83       	st	Z, r25
+  ac:	f9 01       	movw	r30, r18
+  ae:	e0 5a       	subi	r30, 0xA0	; 160
+  b0:	ff 4f       	sbci	r31, 0xFF	; 255
+  b2:	80 83       	st	Z, r24
+  b4:	f9 01       	movw	r30, r18
+  b6:	ec 5a       	subi	r30, 0xAC	; 172
+  b8:	ff 4f       	sbci	r31, 0xFF	; 255
+  ba:	81 e0       	ldi	r24, 0x01	; 1
+  bc:	80 83       	st	Z, r24
+  be:	2e 5a       	subi	r18, 0xAE	; 174
+  c0:	3f 4f       	sbci	r19, 0xFF	; 255
+  c2:	f9 01       	movw	r30, r18
+  c4:	10 82       	st	Z, r1
+  c6:	cf 5a       	subi	r28, 0xAF	; 175
+  c8:	df 4f       	sbci	r29, 0xFF	; 255
+  ca:	0f b6       	in	r0, 0x3f	; 63
+  cc:	f8 94       	cli
+  ce:	de bf       	out	0x3e, r29	; 62
+  d0:	0f be       	out	0x3f, r0	; 63
+  d2:	cd bf       	out	0x3d, r28	; 61
+  d4:	df 91       	pop	r29
+  d6:	cf 91       	pop	r28
+  d8:	1f 91       	pop	r17
+  da:	0f 91       	pop	r16
+  dc:	08 95       	ret
+
+Disassembly of section .text._ZN10RestServer12set_callbackEh:
+
+00000000 <_ZN10RestServer12set_callbackEh>:
+
+int RestServer::get_server_state() {
+	return server_state;
+}
+
+boolean RestServer::handle_requests(Stream &_client) {
+   0:	fc 01       	movw	r30, r24
+   2:	ec 5a       	subi	r30, 0xAC	; 172
+   4:	ff 4f       	sbci	r31, 0xFF	; 255
+   6:	80 81       	ld	r24, Z
+   8:	66 23       	and	r22, r22
+   a:	01 f0       	breq	.+0      	; 0xc <_ZN10RestServer12set_callbackEh+0xc>
+	if (_client.available()) {
+   c:	81 60       	ori	r24, 0x01	; 1
+   e:	00 c0       	rjmp	.+0      	; 0x10 <_ZN10RestServer12set_callbackEh+0x10>
+  10:	8e 7f       	andi	r24, 0xFE	; 254
+  12:	80 83       	st	Z, r24
+  14:	08 95       	ret
+
+Disassembly of section .text._ZN10RestServer17set_post_with_getEh:
+
+00000000 <_ZN10RestServer17set_post_with_getEh>:
+
+int RestServer::get_server_state() {
+	return server_state;
+}
+
+boolean RestServer::handle_requests(Stream &_client) {
+   0:	fc 01       	movw	r30, r24
+   2:	ec 5a       	subi	r30, 0xAC	; 172
+   4:	ff 4f       	sbci	r31, 0xFF	; 255
+   6:	80 81       	ld	r24, Z
+   8:	66 23       	and	r22, r22
+   a:	01 f0       	breq	.+0      	; 0xc <_ZN10RestServer17set_post_with_getEh+0xc>
+	if (_client.available()) {
+   c:	82 60       	ori	r24, 0x02	; 2
+   e:	00 c0       	rjmp	.+0      	; 0x10 <_ZN10RestServer17set_post_with_getEh+0x10>
+  10:	8d 7f       	andi	r24, 0xFD	; 253
+  12:	80 83       	st	Z, r24
+  14:	08 95       	ret
+
+Disassembly of section .text._ZN10RestServer13set_json_lockEh:
+
+00000000 <_ZN10RestServer13set_json_lockEh>:
+
+int RestServer::get_server_state() {
+	return server_state;
+}
+
+boolean RestServer::handle_requests(Stream &_client) {
+   0:	fc 01       	movw	r30, r24
+   2:	ec 5a       	subi	r30, 0xAC	; 172
+   4:	ff 4f       	sbci	r31, 0xFF	; 255
+   6:	80 81       	ld	r24, Z
+   8:	66 23       	and	r22, r22
+   a:	01 f0       	breq	.+0      	; 0xc <_ZN10RestServer13set_json_lockEh+0xc>
+	if (_client.available()) {
+   c:	84 60       	ori	r24, 0x04	; 4
+   e:	00 c0       	rjmp	.+0      	; 0x10 <_ZN10RestServer13set_json_lockEh+0x10>
+  10:	8b 7f       	andi	r24, 0xFB	; 251
+  12:	80 83       	st	Z, r24
+  14:	08 95       	ret
+
+Disassembly of section .text._ZN10RestServer14set_debug_codeEh:
+
+00000000 <_ZN10RestServer14set_debug_codeEh>:
+
+int RestServer::get_server_state() {
+	return server_state;
+}
+
+boolean RestServer::handle_requests(Stream &_client) {
+   0:	fc 01       	movw	r30, r24
+   2:	ee 5a       	subi	r30, 0xAE	; 174
+   4:	ff 4f       	sbci	r31, 0xFF	; 255
+   6:	66 23       	and	r22, r22
+   8:	01 f0       	breq	.+0      	; 0xa <_ZN10RestServer14set_debug_codeEh+0xa>
+   a:	81 e0       	ldi	r24, 0x01	; 1
+	if (_client.available()) {
+   c:	80 83       	st	Z, r24
+   e:	08 95       	ret
+  10:	10 82       	st	Z, r1
+  12:	08 95       	ret
+
+Disassembly of section .text._ZN10RestServer16get_server_stateEv:
+
+00000000 <_ZN10RestServer16get_server_stateEv>:
+
+int RestServer::get_server_state() {
+	return server_state;
+}
+
+boolean RestServer::handle_requests(Stream &_client) {
+   0:	fc 01       	movw	r30, r24
+   2:	ed 5a       	subi	r30, 0xAD	; 173
+   4:	ff 4f       	sbci	r31, 0xFF	; 255
+   6:	80 81       	ld	r24, Z
+   8:	90 e0       	ldi	r25, 0x00	; 0
+   a:	08 95       	ret
+
+Disassembly of section .text._ZN10RestServer7respondEv:
+
+00000000 <_ZN10RestServer7respondEv>:
+   0:	fc 01       	movw	r30, r24
+   2:	ed 5a       	subi	r30, 0xAD	; 173
+   4:	ff 4f       	sbci	r31, 0xFF	; 255
+   6:	20 81       	ld	r18, Z
+   8:	24 30       	cpi	r18, 0x04	; 4
+   a:	01 f4       	brne	.+0      	; 0xc <_ZN10RestServer7respondEv+0xc>
+	if (_client.available()) {
+   c:	25 e0       	ldi	r18, 0x05	; 5
+   e:	20 83       	st	Z, r18
+  10:	8e 5a       	subi	r24, 0xAE	; 174
+  12:	9f 4f       	sbci	r25, 0xFF	; 255
+  14:	fc 01       	movw	r30, r24
+  16:	80 81       	ld	r24, Z
+  18:	88 23       	and	r24, r24
+  1a:	01 f0       	breq	.+0      	; 0x1c <_ZN10RestServer7respondEv+0x1c>
+  1c:	80 e0       	ldi	r24, 0x00	; 0
+  1e:	90 e0       	ldi	r25, 0x00	; 0
+		start_timer();
+  20:	60 e0       	ldi	r22, 0x00	; 0
+  22:	70 e0       	ldi	r23, 0x00	; 0
+  24:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer7respondEv>
+		read_request(_client.read());
+  28:	08 95       	ret
+
+Disassembly of section .text._ZN10RestServer18resource_get_stateEPc:
+
+00000000 <_ZN10RestServer18resource_get_stateEPc>:
+
+int RestServer::get_server_state() {
+	return server_state;
+}
+
+boolean RestServer::handle_requests(Stream &_client) {
+   0:	cf 92       	push	r12
+   2:	df 92       	push	r13
+   4:	ef 92       	push	r14
+   6:	ff 92       	push	r15
+   8:	0f 93       	push	r16
+   a:	1f 93       	push	r17
+	if (_client.available()) {
+   c:	cf 93       	push	r28
+   e:	df 93       	push	r29
+  10:	7c 01       	movw	r14, r24
+  12:	6b 01       	movw	r12, r22
+  14:	c0 e0       	ldi	r28, 0x00	; 0
+  16:	d0 e0       	ldi	r29, 0x00	; 0
+  18:	00 e0       	ldi	r16, 0x00	; 0
+  1a:	10 e0       	ldi	r17, 0x00	; 0
+  1c:	00 c0       	rjmp	.+0      	; 0x1e <_ZN10RestServer18resource_get_stateEPc+0x1e>
+  1e:	d7 01       	movw	r26, r14
+		start_timer();
+  20:	ed 91       	ld	r30, X+
+  22:	fc 91       	ld	r31, X
+  24:	ec 0f       	add	r30, r28
+		read_request(_client.read());
+  26:	fd 1f       	adc	r31, r29
+  28:	80 81       	ld	r24, Z
+  2a:	91 81       	ldd	r25, Z+1	; 0x01
+  2c:	dc 01       	movw	r26, r24
+  2e:	ed 91       	ld	r30, X+
+  30:	fc 91       	ld	r31, X
+  32:	01 90       	ld	r0, Z+
+  34:	f0 81       	ld	r31, Z
+  36:	e0 2d       	mov	r30, r0
+  38:	19 95       	eicall
+  3a:	b6 01       	movw	r22, r12
+  3c:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer18resource_get_stateEPc>
+	}
+	parse_request();
+  40:	9c 01       	movw	r18, r24
+  42:	ce 01       	movw	r24, r28
+	process();	
+  44:	04 96       	adiw	r24, 0x04	; 4
+  46:	21 15       	cp	r18, r1
+  48:	31 05       	cpc	r19, r1
+	if (server_state == PROCESS) return true;
+  4a:	01 f4       	brne	.+0      	; 0x4c <_ZN10RestServer18resource_get_stateEPc+0x4c>
+  4c:	d7 01       	movw	r26, r14
+  4e:	ed 91       	ld	r30, X+
+  50:	fc 91       	ld	r31, X
+  52:	ec 0f       	add	r30, r28
+  54:	fd 1f       	adc	r31, r29
+  56:	80 81       	ld	r24, Z
+	else return false;
+}
+  58:	91 81       	ldd	r25, Z+1	; 0x01
+  5a:	dc 01       	movw	r26, r24
+  5c:	ed 91       	ld	r30, X+
+  5e:	fc 91       	ld	r31, X
+  60:	04 80       	ldd	r0, Z+4	; 0x04
+  62:	f5 81       	ldd	r31, Z+5	; 0x05
+  64:	e0 2d       	mov	r30, r0
+  66:	19 95       	eicall
+  68:	00 c0       	rjmp	.+0      	; 0x6a <_ZN10RestServer18resource_get_stateEPc+0x6a>
+  6a:	0f 5f       	subi	r16, 0xFF	; 255
+  6c:	1f 4f       	sbci	r17, 0xFF	; 255
+  6e:	ec 01       	movw	r28, r24
+  70:	f7 01       	movw	r30, r14
+  72:	82 81       	ldd	r24, Z+2	; 0x02
+  74:	90 e0       	ldi	r25, 0x00	; 0
+  76:	08 17       	cp	r16, r24
+  78:	19 07       	cpc	r17, r25
+  7a:	04 f0       	brlt	.+0      	; 0x7c <_ZN10RestServer18resource_get_stateEPc+0x7c>
+  7c:	df 91       	pop	r29
+  7e:	cf 91       	pop	r28
+  80:	1f 91       	pop	r17
+  82:	0f 91       	pop	r16
+  84:	ff 90       	pop	r15
+  86:	ef 90       	pop	r14
+  88:	df 90       	pop	r13
+  8a:	cf 90       	pop	r12
+  8c:	08 95       	ret
+
+Disassembly of section .text._ZN10RestServer18resource_get_stateEi:
+
+00000000 <_ZN10RestServer18resource_get_stateEi>:
+
+int RestServer::get_server_state() {
+	return server_state;
+}
+
+boolean RestServer::handle_requests(Stream &_client) {
+   0:	66 0f       	add	r22, r22
+   2:	77 1f       	adc	r23, r23
+   4:	66 0f       	add	r22, r22
+   6:	77 1f       	adc	r23, r23
+   8:	dc 01       	movw	r26, r24
+   a:	ed 91       	ld	r30, X+
+	if (_client.available()) {
+   c:	fc 91       	ld	r31, X
+   e:	e6 0f       	add	r30, r22
+  10:	f7 1f       	adc	r31, r23
+  12:	80 81       	ld	r24, Z
+  14:	91 81       	ldd	r25, Z+1	; 0x01
+  16:	dc 01       	movw	r26, r24
+  18:	ed 91       	ld	r30, X+
+  1a:	fc 91       	ld	r31, X
+  1c:	04 80       	ldd	r0, Z+4	; 0x04
+  1e:	f5 81       	ldd	r31, Z+5	; 0x05
+		start_timer();
+  20:	e0 2d       	mov	r30, r0
+  22:	19 95       	eicall
+  24:	08 95       	ret
+
+Disassembly of section .text._ZN10RestServer18resource_set_stateEPci:
+
+00000000 <_ZN10RestServer18resource_set_stateEPci>:
+
+int RestServer::get_server_state() {
+	return server_state;
+}
+
+boolean RestServer::handle_requests(Stream &_client) {
+   0:	4f 92       	push	r4
+   2:	5f 92       	push	r5
+   4:	6f 92       	push	r6
+   6:	7f 92       	push	r7
+   8:	8f 92       	push	r8
+   a:	9f 92       	push	r9
+	if (_client.available()) {
+   c:	af 92       	push	r10
+   e:	bf 92       	push	r11
+  10:	cf 92       	push	r12
+  12:	df 92       	push	r13
+  14:	ef 92       	push	r14
+  16:	ff 92       	push	r15
+  18:	0f 93       	push	r16
+  1a:	1f 93       	push	r17
+  1c:	cf 93       	push	r28
+  1e:	df 93       	push	r29
+		start_timer();
+  20:	7c 01       	movw	r14, r24
+  22:	3b 01       	movw	r6, r22
+  24:	5a 01       	movw	r10, r20
+		read_request(_client.read());
+  26:	00 e0       	ldi	r16, 0x00	; 0
+  28:	10 e0       	ldi	r17, 0x00	; 0
+  2a:	cc 24       	eor	r12, r12
+  2c:	dd 24       	eor	r13, r13
+  2e:	94 2e       	mov	r9, r20
+  30:	8b 2c       	mov	r8, r11
+  32:	00 c0       	rjmp	.+0      	; 0x34 <_ZN10RestServer18resource_set_stateEPci+0x34>
+  34:	d7 01       	movw	r26, r14
+  36:	ed 91       	ld	r30, X+
+  38:	fc 91       	ld	r31, X
+  3a:	e0 0f       	add	r30, r16
+  3c:	f1 1f       	adc	r31, r17
+	}
+	parse_request();
+  3e:	80 81       	ld	r24, Z
+  40:	91 81       	ldd	r25, Z+1	; 0x01
+  42:	dc 01       	movw	r26, r24
+	process();	
+  44:	ed 91       	ld	r30, X+
+  46:	fc 91       	ld	r31, X
+  48:	01 90       	ld	r0, Z+
+	if (server_state == PROCESS) return true;
+  4a:	f0 81       	ld	r31, Z
+  4c:	e0 2d       	mov	r30, r0
+  4e:	19 95       	eicall
+  50:	b3 01       	movw	r22, r6
+  52:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer18resource_set_stateEPci>
+  56:	00 97       	sbiw	r24, 0x00	; 0
+	else return false;
+}
+  58:	01 f0       	breq	.+0      	; 0x5a <_ZN10RestServer18resource_set_stateEPci+0x5a>
+  5a:	00 c0       	rjmp	.+0      	; 0x5c <_ZN10RestServer18resource_set_stateEPci+0x5c>
+  5c:	d7 01       	movw	r26, r14
+  5e:	ed 91       	ld	r30, X+
+  60:	fc 91       	ld	r31, X
+  62:	e0 0f       	add	r30, r16
+  64:	f1 1f       	adc	r31, r17
+  66:	80 81       	ld	r24, Z
+  68:	91 81       	ldd	r25, Z+1	; 0x01
+  6a:	dc 01       	movw	r26, r24
+  6c:	ed 91       	ld	r30, X+
+  6e:	fc 91       	ld	r31, X
+  70:	46 80       	ldd	r4, Z+6	; 0x06
+  72:	57 80       	ldd	r5, Z+7	; 0x07
+  74:	00 84       	ldd	r0, Z+8	; 0x08
+  76:	f1 85       	ldd	r31, Z+9	; 0x09
+  78:	e0 2d       	mov	r30, r0
+  7a:	19 95       	eicall
+  7c:	f7 01       	movw	r30, r14
+  7e:	20 81       	ld	r18, Z
+  80:	31 81       	ldd	r19, Z+1	; 0x01
+  82:	20 0f       	add	r18, r16
+  84:	31 1f       	adc	r19, r17
+  86:	a8 16       	cp	r10, r24
+  88:	b9 06       	cpc	r11, r25
+  8a:	04 f4       	brge	.+0      	; 0x8c <_ZN10RestServer18resource_set_stateEPci+0x8c>
+  8c:	d9 01       	movw	r26, r18
+  8e:	cd 91       	ld	r28, X+
+  90:	dc 91       	ld	r29, X
+  92:	11 97       	sbiw	r26, 0x01	; 1
+  94:	e8 81       	ld	r30, Y
+  96:	f9 81       	ldd	r31, Y+1	; 0x01
+  98:	00 84       	ldd	r0, Z+8	; 0x08
+  9a:	f1 85       	ldd	r31, Z+9	; 0x09
+  9c:	e0 2d       	mov	r30, r0
+  9e:	00 c0       	rjmp	.+0      	; 0xa0 <_ZN10RestServer18resource_set_stateEPci+0xa0>
+  a0:	f9 01       	movw	r30, r18
+  a2:	c0 81       	ld	r28, Z
+  a4:	d1 81       	ldd	r29, Z+1	; 0x01
+  a6:	e8 81       	ld	r30, Y
+  a8:	f9 81       	ldd	r31, Y+1	; 0x01
+  aa:	02 84       	ldd	r0, Z+10	; 0x0a
+  ac:	f3 85       	ldd	r31, Z+11	; 0x0b
+  ae:	e0 2d       	mov	r30, r0
+  b0:	ce 01       	movw	r24, r28
+  b2:	19 95       	eicall
+  b4:	8a 15       	cp	r24, r10
+  b6:	9b 05       	cpc	r25, r11
+  b8:	04 f4       	brge	.+0      	; 0xba <_ZN10RestServer18resource_set_stateEPci+0xba>
+  ba:	d7 01       	movw	r26, r14
+  bc:	ed 91       	ld	r30, X+
+  be:	fc 91       	ld	r31, X
+  c0:	e0 0f       	add	r30, r16
+  c2:	f1 1f       	adc	r31, r17
+  c4:	c0 81       	ld	r28, Z
+  c6:	d1 81       	ldd	r29, Z+1	; 0x01
+  c8:	e8 81       	ld	r30, Y
+  ca:	f9 81       	ldd	r31, Y+1	; 0x01
+  cc:	02 84       	ldd	r0, Z+10	; 0x0a
+  ce:	f3 85       	ldd	r31, Z+11	; 0x0b
+  d0:	e0 2d       	mov	r30, r0
+  d2:	ce 01       	movw	r24, r28
+  d4:	19 95       	eicall
+  d6:	bc 01       	movw	r22, r24
+  d8:	00 c0       	rjmp	.+0      	; 0xda <_ZN10RestServer18resource_set_stateEPci+0xda>
+  da:	69 2d       	mov	r22, r9
+  dc:	78 2d       	mov	r23, r8
+  de:	ce 01       	movw	r24, r28
+  e0:	f2 01       	movw	r30, r4
+  e2:	19 95       	eicall
+  e4:	08 94       	sec
+  e6:	c1 1c       	adc	r12, r1
+  e8:	d1 1c       	adc	r13, r1
+  ea:	0c 5f       	subi	r16, 0xFC	; 252
+  ec:	1f 4f       	sbci	r17, 0xFF	; 255
+  ee:	f7 01       	movw	r30, r14
+  f0:	82 81       	ldd	r24, Z+2	; 0x02
+  f2:	90 e0       	ldi	r25, 0x00	; 0
+  f4:	c8 16       	cp	r12, r24
+  f6:	d9 06       	cpc	r13, r25
+  f8:	04 f4       	brge	.+0      	; 0xfa <_ZN10RestServer18resource_set_stateEPci+0xfa>
+  fa:	00 c0       	rjmp	.+0      	; 0xfc <_ZN10RestServer18resource_set_stateEPci+0xfc>
+  fc:	df 91       	pop	r29
+  fe:	cf 91       	pop	r28
+ 100:	1f 91       	pop	r17
+ 102:	0f 91       	pop	r16
+ 104:	ff 90       	pop	r15
+ 106:	ef 90       	pop	r14
+ 108:	df 90       	pop	r13
+ 10a:	cf 90       	pop	r12
+ 10c:	bf 90       	pop	r11
+ 10e:	af 90       	pop	r10
+ 110:	9f 90       	pop	r9
+ 112:	8f 90       	pop	r8
+ 114:	7f 90       	pop	r7
+ 116:	6f 90       	pop	r6
+ 118:	5f 90       	pop	r5
+ 11a:	4f 90       	pop	r4
+ 11c:	08 95       	ret
+
+Disassembly of section .text._ZN10RestServer18resource_set_stateEii:
+
+00000000 <_ZN10RestServer18resource_set_stateEii>:
+
+int RestServer::get_server_state() {
+	return server_state;
+}
+
+boolean RestServer::handle_requests(Stream &_client) {
+   0:	af 92       	push	r10
+   2:	bf 92       	push	r11
+   4:	cf 92       	push	r12
+   6:	df 92       	push	r13
+   8:	ef 92       	push	r14
+   a:	ff 92       	push	r15
+	if (_client.available()) {
+   c:	0f 93       	push	r16
+   e:	1f 93       	push	r17
+  10:	cf 93       	push	r28
+  12:	df 93       	push	r29
+  14:	6c 01       	movw	r12, r24
+  16:	8b 01       	movw	r16, r22
+  18:	7a 01       	movw	r14, r20
+  1a:	00 0f       	add	r16, r16
+  1c:	11 1f       	adc	r17, r17
+  1e:	00 0f       	add	r16, r16
+		start_timer();
+  20:	11 1f       	adc	r17, r17
+  22:	dc 01       	movw	r26, r24
+  24:	ed 91       	ld	r30, X+
+		read_request(_client.read());
+  26:	fc 91       	ld	r31, X
+  28:	e0 0f       	add	r30, r16
+  2a:	f1 1f       	adc	r31, r17
+  2c:	80 81       	ld	r24, Z
+  2e:	91 81       	ldd	r25, Z+1	; 0x01
+  30:	dc 01       	movw	r26, r24
+  32:	ed 91       	ld	r30, X+
+  34:	fc 91       	ld	r31, X
+  36:	a6 80       	ldd	r10, Z+6	; 0x06
+  38:	b7 80       	ldd	r11, Z+7	; 0x07
+  3a:	00 84       	ldd	r0, Z+8	; 0x08
+  3c:	f1 85       	ldd	r31, Z+9	; 0x09
+	}
+	parse_request();
+  3e:	e0 2d       	mov	r30, r0
+  40:	19 95       	eicall
+  42:	f6 01       	movw	r30, r12
+	process();	
+  44:	20 81       	ld	r18, Z
+  46:	31 81       	ldd	r19, Z+1	; 0x01
+  48:	20 0f       	add	r18, r16
+	if (server_state == PROCESS) return true;
+  4a:	31 1f       	adc	r19, r17
+  4c:	e8 16       	cp	r14, r24
+  4e:	f9 06       	cpc	r15, r25
+  50:	04 f4       	brge	.+0      	; 0x52 <_ZN10RestServer18resource_set_stateEii+0x52>
+  52:	d9 01       	movw	r26, r18
+  54:	cd 91       	ld	r28, X+
+  56:	dc 91       	ld	r29, X
+	else return false;
+}
+  58:	11 97       	sbiw	r26, 0x01	; 1
+  5a:	e8 81       	ld	r30, Y
+  5c:	f9 81       	ldd	r31, Y+1	; 0x01
+  5e:	00 84       	ldd	r0, Z+8	; 0x08
+  60:	f1 85       	ldd	r31, Z+9	; 0x09
+  62:	e0 2d       	mov	r30, r0
+  64:	00 c0       	rjmp	.+0      	; 0x66 <_ZN10RestServer18resource_set_stateEii+0x66>
+  66:	f9 01       	movw	r30, r18
+  68:	c0 81       	ld	r28, Z
+  6a:	d1 81       	ldd	r29, Z+1	; 0x01
+  6c:	e8 81       	ld	r30, Y
+  6e:	f9 81       	ldd	r31, Y+1	; 0x01
+  70:	02 84       	ldd	r0, Z+10	; 0x0a
+  72:	f3 85       	ldd	r31, Z+11	; 0x0b
+  74:	e0 2d       	mov	r30, r0
+  76:	ce 01       	movw	r24, r28
+  78:	19 95       	eicall
+  7a:	8e 15       	cp	r24, r14
+  7c:	9f 05       	cpc	r25, r15
+  7e:	04 f4       	brge	.+0      	; 0x80 <_ZN10RestServer18resource_set_stateEii+0x80>
+  80:	d6 01       	movw	r26, r12
+  82:	ed 91       	ld	r30, X+
+  84:	fc 91       	ld	r31, X
+  86:	e0 0f       	add	r30, r16
+  88:	f1 1f       	adc	r31, r17
+  8a:	c0 81       	ld	r28, Z
+  8c:	d1 81       	ldd	r29, Z+1	; 0x01
+  8e:	e8 81       	ld	r30, Y
+  90:	f9 81       	ldd	r31, Y+1	; 0x01
+  92:	02 84       	ldd	r0, Z+10	; 0x0a
+  94:	f3 85       	ldd	r31, Z+11	; 0x0b
+  96:	e0 2d       	mov	r30, r0
+  98:	ce 01       	movw	r24, r28
+  9a:	19 95       	eicall
+  9c:	7c 01       	movw	r14, r24
+  9e:	ce 01       	movw	r24, r28
+  a0:	b7 01       	movw	r22, r14
+  a2:	f5 01       	movw	r30, r10
+  a4:	19 95       	eicall
+  a6:	df 91       	pop	r29
+  a8:	cf 91       	pop	r28
+  aa:	1f 91       	pop	r17
+  ac:	0f 91       	pop	r16
+  ae:	ff 90       	pop	r15
+  b0:	ef 90       	pop	r14
+  b2:	df 90       	pop	r13
+  b4:	cf 90       	pop	r12
+  b6:	bf 90       	pop	r11
+  b8:	af 90       	pop	r10
+  ba:	08 95       	ret
+
+Disassembly of section .text._ZN10RestServer21resource_post_enabledEPc:
+
+00000000 <_ZN10RestServer21resource_post_enabledEPc>:
+
+int RestServer::get_server_state() {
+	return server_state;
+}
+
+boolean RestServer::handle_requests(Stream &_client) {
+   0:	cf 92       	push	r12
+   2:	df 92       	push	r13
+   4:	ef 92       	push	r14
+   6:	ff 92       	push	r15
+   8:	0f 93       	push	r16
+   a:	1f 93       	push	r17
+	if (_client.available()) {
+   c:	cf 93       	push	r28
+   e:	df 93       	push	r29
+  10:	7c 01       	movw	r14, r24
+  12:	6b 01       	movw	r12, r22
+  14:	c0 e0       	ldi	r28, 0x00	; 0
+  16:	d0 e0       	ldi	r29, 0x00	; 0
+  18:	00 e0       	ldi	r16, 0x00	; 0
+  1a:	10 e0       	ldi	r17, 0x00	; 0
+  1c:	00 c0       	rjmp	.+0      	; 0x1e <_ZN10RestServer21resource_post_enabledEPc+0x1e>
+  1e:	d7 01       	movw	r26, r14
+		start_timer();
+  20:	ed 91       	ld	r30, X+
+  22:	fc 91       	ld	r31, X
+  24:	ec 0f       	add	r30, r28
+		read_request(_client.read());
+  26:	fd 1f       	adc	r31, r29
+  28:	80 81       	ld	r24, Z
+  2a:	91 81       	ldd	r25, Z+1	; 0x01
+  2c:	dc 01       	movw	r26, r24
+  2e:	ed 91       	ld	r30, X+
+  30:	fc 91       	ld	r31, X
+  32:	01 90       	ld	r0, Z+
+  34:	f0 81       	ld	r31, Z
+  36:	e0 2d       	mov	r30, r0
+  38:	19 95       	eicall
+  3a:	b6 01       	movw	r22, r12
+  3c:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer21resource_post_enabledEPc>
+	}
+	parse_request();
+  40:	9c 01       	movw	r18, r24
+  42:	ce 01       	movw	r24, r28
+	process();	
+  44:	04 96       	adiw	r24, 0x04	; 4
+  46:	21 15       	cp	r18, r1
+  48:	31 05       	cpc	r19, r1
+	if (server_state == PROCESS) return true;
+  4a:	01 f4       	brne	.+0      	; 0x4c <_ZN10RestServer21resource_post_enabledEPc+0x4c>
+  4c:	d7 01       	movw	r26, r14
+  4e:	ed 91       	ld	r30, X+
+  50:	fc 91       	ld	r31, X
+  52:	ec 0f       	add	r30, r28
+  54:	fd 1f       	adc	r31, r29
+  56:	80 81       	ld	r24, Z
+	else return false;
+}
+  58:	91 81       	ldd	r25, Z+1	; 0x01
+  5a:	dc 01       	movw	r26, r24
+  5c:	ed 91       	ld	r30, X+
+  5e:	fc 91       	ld	r31, X
+  60:	02 80       	ldd	r0, Z+2	; 0x02
+  62:	f3 81       	ldd	r31, Z+3	; 0x03
+  64:	e0 2d       	mov	r30, r0
+  66:	19 95       	eicall
+  68:	00 c0       	rjmp	.+0      	; 0x6a <_ZN10RestServer21resource_post_enabledEPc+0x6a>
+  6a:	0f 5f       	subi	r16, 0xFF	; 255
+  6c:	1f 4f       	sbci	r17, 0xFF	; 255
+  6e:	ec 01       	movw	r28, r24
+  70:	f7 01       	movw	r30, r14
+  72:	82 81       	ldd	r24, Z+2	; 0x02
+  74:	90 e0       	ldi	r25, 0x00	; 0
+  76:	08 17       	cp	r16, r24
+  78:	19 07       	cpc	r17, r25
+  7a:	04 f0       	brlt	.+0      	; 0x7c <_ZN10RestServer21resource_post_enabledEPc+0x7c>
+  7c:	df 91       	pop	r29
+  7e:	cf 91       	pop	r28
+  80:	1f 91       	pop	r17
+  82:	0f 91       	pop	r16
+  84:	ff 90       	pop	r15
+  86:	ef 90       	pop	r14
+  88:	df 90       	pop	r13
+  8a:	cf 90       	pop	r12
+  8c:	08 95       	ret
+
+Disassembly of section .text._ZN10RestServer21resource_post_enabledEi:
+
+00000000 <_ZN10RestServer21resource_post_enabledEi>:
+
+int RestServer::get_server_state() {
+	return server_state;
+}
+
+boolean RestServer::handle_requests(Stream &_client) {
+   0:	66 0f       	add	r22, r22
+   2:	77 1f       	adc	r23, r23
+   4:	66 0f       	add	r22, r22
+   6:	77 1f       	adc	r23, r23
+   8:	dc 01       	movw	r26, r24
+   a:	ed 91       	ld	r30, X+
+	if (_client.available()) {
+   c:	fc 91       	ld	r31, X
+   e:	e6 0f       	add	r30, r22
+  10:	f7 1f       	adc	r31, r23
+  12:	80 81       	ld	r24, Z
+  14:	91 81       	ldd	r25, Z+1	; 0x01
+  16:	dc 01       	movw	r26, r24
+  18:	ed 91       	ld	r30, X+
+  1a:	fc 91       	ld	r31, X
+  1c:	02 80       	ldd	r0, Z+2	; 0x02
+  1e:	f3 81       	ldd	r31, Z+3	; 0x03
+		start_timer();
+  20:	e0 2d       	mov	r30, r0
+  22:	19 95       	eicall
+  24:	08 95       	ret
+
+Disassembly of section .text._ZN10RestServer18resource_requestedEPc:
+
+00000000 <_ZN10RestServer18resource_requestedEPc>:
+
+int RestServer::get_server_state() {
+	return server_state;
+}
+
+boolean RestServer::handle_requests(Stream &_client) {
+   0:	cf 92       	push	r12
+   2:	df 92       	push	r13
+   4:	ef 92       	push	r14
+   6:	ff 92       	push	r15
+   8:	0f 93       	push	r16
+   a:	1f 93       	push	r17
+	if (_client.available()) {
+   c:	cf 93       	push	r28
+   e:	df 93       	push	r29
+  10:	7c 01       	movw	r14, r24
+  12:	6b 01       	movw	r12, r22
+  14:	c0 e0       	ldi	r28, 0x00	; 0
+  16:	d0 e0       	ldi	r29, 0x00	; 0
+  18:	00 e0       	ldi	r16, 0x00	; 0
+  1a:	10 e0       	ldi	r17, 0x00	; 0
+  1c:	00 c0       	rjmp	.+0      	; 0x1e <_ZN10RestServer18resource_requestedEPc+0x1e>
+  1e:	d7 01       	movw	r26, r14
+		start_timer();
+  20:	ed 91       	ld	r30, X+
+  22:	fc 91       	ld	r31, X
+  24:	ec 0f       	add	r30, r28
+		read_request(_client.read());
+  26:	fd 1f       	adc	r31, r29
+  28:	80 81       	ld	r24, Z
+  2a:	91 81       	ldd	r25, Z+1	; 0x01
+  2c:	dc 01       	movw	r26, r24
+  2e:	ed 91       	ld	r30, X+
+  30:	fc 91       	ld	r31, X
+  32:	01 90       	ld	r0, Z+
+  34:	f0 81       	ld	r31, Z
+  36:	e0 2d       	mov	r30, r0
+  38:	19 95       	eicall
+  3a:	b6 01       	movw	r22, r12
+  3c:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer18resource_requestedEPc>
+	}
+	parse_request();
+  40:	9c 01       	movw	r18, r24
+  42:	ce 01       	movw	r24, r28
+	process();	
+  44:	04 96       	adiw	r24, 0x04	; 4
+  46:	21 15       	cp	r18, r1
+  48:	31 05       	cpc	r19, r1
+	if (server_state == PROCESS) return true;
+  4a:	01 f4       	brne	.+0      	; 0x4c <_ZN10RestServer18resource_requestedEPc+0x4c>
+  4c:	d7 01       	movw	r26, r14
+  4e:	ed 91       	ld	r30, X+
+  50:	fc 91       	ld	r31, X
+  52:	11 97       	sbiw	r26, 0x01	; 1
+  54:	ec 0f       	add	r30, r28
+  56:	fd 1f       	adc	r31, r29
+	else return false;
+}
+  58:	82 81       	ldd	r24, Z+2	; 0x02
+  5a:	00 c0       	rjmp	.+0      	; 0x5c <_ZN10RestServer18resource_requestedEPc+0x5c>
+  5c:	0f 5f       	subi	r16, 0xFF	; 255
+  5e:	1f 4f       	sbci	r17, 0xFF	; 255
+  60:	ec 01       	movw	r28, r24
+  62:	f7 01       	movw	r30, r14
+  64:	82 81       	ldd	r24, Z+2	; 0x02
+  66:	90 e0       	ldi	r25, 0x00	; 0
+  68:	08 17       	cp	r16, r24
+  6a:	19 07       	cpc	r17, r25
+  6c:	04 f0       	brlt	.+0      	; 0x6e <_ZN10RestServer18resource_requestedEPc+0x6e>
+  6e:	df 91       	pop	r29
+  70:	cf 91       	pop	r28
+  72:	1f 91       	pop	r17
+  74:	0f 91       	pop	r16
+  76:	ff 90       	pop	r15
+  78:	ef 90       	pop	r14
+  7a:	df 90       	pop	r13
+  7c:	cf 90       	pop	r12
+  7e:	08 95       	ret
+
+Disassembly of section .text._ZN10RestServer18resource_requestedEi:
+
+00000000 <_ZN10RestServer18resource_requestedEi>:
+
+int RestServer::get_server_state() {
+	return server_state;
+}
+
+boolean RestServer::handle_requests(Stream &_client) {
+   0:	66 0f       	add	r22, r22
+   2:	77 1f       	adc	r23, r23
+   4:	66 0f       	add	r22, r22
+   6:	77 1f       	adc	r23, r23
+   8:	dc 01       	movw	r26, r24
+   a:	ed 91       	ld	r30, X+
+	if (_client.available()) {
+   c:	fc 91       	ld	r31, X
+   e:	11 97       	sbiw	r26, 0x01	; 1
+  10:	e6 0f       	add	r30, r22
+  12:	f7 1f       	adc	r31, r23
+  14:	82 81       	ldd	r24, Z+2	; 0x02
+  16:	08 95       	ret
+
+Disassembly of section .text._ZN10RestServer16resource_updatedEPc:
+
+00000000 <_ZN10RestServer16resource_updatedEPc>:
+
+int RestServer::get_server_state() {
+	return server_state;
+}
+
+boolean RestServer::handle_requests(Stream &_client) {
+   0:	cf 92       	push	r12
+   2:	df 92       	push	r13
+   4:	ef 92       	push	r14
+   6:	ff 92       	push	r15
+   8:	0f 93       	push	r16
+   a:	1f 93       	push	r17
+	if (_client.available()) {
+   c:	cf 93       	push	r28
+   e:	df 93       	push	r29
+  10:	7c 01       	movw	r14, r24
+  12:	6b 01       	movw	r12, r22
+  14:	c0 e0       	ldi	r28, 0x00	; 0
+  16:	d0 e0       	ldi	r29, 0x00	; 0
+  18:	00 e0       	ldi	r16, 0x00	; 0
+  1a:	10 e0       	ldi	r17, 0x00	; 0
+  1c:	00 c0       	rjmp	.+0      	; 0x1e <_ZN10RestServer16resource_updatedEPc+0x1e>
+  1e:	d7 01       	movw	r26, r14
+		start_timer();
+  20:	ed 91       	ld	r30, X+
+  22:	fc 91       	ld	r31, X
+  24:	ec 0f       	add	r30, r28
+		read_request(_client.read());
+  26:	fd 1f       	adc	r31, r29
+  28:	80 81       	ld	r24, Z
+  2a:	91 81       	ldd	r25, Z+1	; 0x01
+  2c:	dc 01       	movw	r26, r24
+  2e:	ed 91       	ld	r30, X+
+  30:	fc 91       	ld	r31, X
+  32:	01 90       	ld	r0, Z+
+  34:	f0 81       	ld	r31, Z
+  36:	e0 2d       	mov	r30, r0
+  38:	19 95       	eicall
+  3a:	b6 01       	movw	r22, r12
+  3c:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer16resource_updatedEPc>
+	}
+	parse_request();
+  40:	9c 01       	movw	r18, r24
+  42:	ce 01       	movw	r24, r28
+	process();	
+  44:	04 96       	adiw	r24, 0x04	; 4
+  46:	21 15       	cp	r18, r1
+  48:	31 05       	cpc	r19, r1
+	if (server_state == PROCESS) return true;
+  4a:	01 f4       	brne	.+0      	; 0x4c <_ZN10RestServer16resource_updatedEPc+0x4c>
+  4c:	d7 01       	movw	r26, r14
+  4e:	ed 91       	ld	r30, X+
+  50:	fc 91       	ld	r31, X
+  52:	11 97       	sbiw	r26, 0x01	; 1
+  54:	ec 0f       	add	r30, r28
+  56:	fd 1f       	adc	r31, r29
+	else return false;
+}
+  58:	83 81       	ldd	r24, Z+3	; 0x03
+  5a:	00 c0       	rjmp	.+0      	; 0x5c <_ZN10RestServer16resource_updatedEPc+0x5c>
+  5c:	0f 5f       	subi	r16, 0xFF	; 255
+  5e:	1f 4f       	sbci	r17, 0xFF	; 255
+  60:	ec 01       	movw	r28, r24
+  62:	f7 01       	movw	r30, r14
+  64:	82 81       	ldd	r24, Z+2	; 0x02
+  66:	90 e0       	ldi	r25, 0x00	; 0
+  68:	08 17       	cp	r16, r24
+  6a:	19 07       	cpc	r17, r25
+  6c:	04 f0       	brlt	.+0      	; 0x6e <_ZN10RestServer16resource_updatedEPc+0x6e>
+  6e:	df 91       	pop	r29
+  70:	cf 91       	pop	r28
+  72:	1f 91       	pop	r17
+  74:	0f 91       	pop	r16
+  76:	ff 90       	pop	r15
+  78:	ef 90       	pop	r14
+  7a:	df 90       	pop	r13
+  7c:	cf 90       	pop	r12
+  7e:	08 95       	ret
+
+Disassembly of section .text._ZN10RestServer16resource_updatedEi:
+
+00000000 <_ZN10RestServer16resource_updatedEi>:
+
+int RestServer::get_server_state() {
+	return server_state;
+}
+
+boolean RestServer::handle_requests(Stream &_client) {
+   0:	66 0f       	add	r22, r22
+   2:	77 1f       	adc	r23, r23
+   4:	66 0f       	add	r22, r22
+   6:	77 1f       	adc	r23, r23
+   8:	dc 01       	movw	r26, r24
+   a:	ed 91       	ld	r30, X+
+	if (_client.available()) {
+   c:	fc 91       	ld	r31, X
+   e:	11 97       	sbiw	r26, 0x01	; 1
+  10:	e6 0f       	add	r30, r22
+  12:	f7 1f       	adc	r31, r23
+  14:	83 81       	ldd	r24, Z+3	; 0x03
+  16:	08 95       	ret
+
+Disassembly of section .text._ZN10RestServer23prepare_for_next_clientEv:
+
+00000000 <_ZN10RestServer23prepare_for_next_clientEv>:
+
+int RestServer::get_server_state() {
+	return server_state;
+}
+
+boolean RestServer::handle_requests(Stream &_client) {
+   0:	cf 93       	push	r28
+   2:	df 93       	push	r29
+   4:	ec 01       	movw	r28, r24
+   6:	fc 01       	movw	r30, r24
+   8:	ed 5a       	subi	r30, 0xAD	; 173
+   a:	ff 4f       	sbci	r31, 0xFF	; 255
+	if (_client.available()) {
+   c:	80 81       	ld	r24, Z
+   e:	86 30       	cpi	r24, 0x06	; 6
+  10:	01 f4       	brne	.+0      	; 0x12 <_ZN10RestServer23prepare_for_next_clientEv+0x12>
+  12:	ce 01       	movw	r24, r28
+  14:	03 96       	adiw	r24, 0x03	; 3
+  16:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer23prepare_for_next_clientEv>
+  1a:	fe 01       	movw	r30, r28
+  1c:	e9 59       	subi	r30, 0x99	; 153
+  1e:	ff 4f       	sbci	r31, 0xFF	; 255
+		start_timer();
+  20:	10 82       	st	Z, r1
+  22:	11 82       	std	Z+1, r1	; 0x01
+  24:	12 82       	std	Z+2, r1	; 0x02
+		read_request(_client.read());
+  26:	13 82       	std	Z+3, r1	; 0x03
+  28:	fe 01       	movw	r30, r28
+  2a:	e9 5a       	subi	r30, 0xA9	; 169
+  2c:	ff 4f       	sbci	r31, 0xFF	; 255
+  2e:	10 82       	st	Z, r1
+  30:	fe 01       	movw	r30, r28
+  32:	e8 5a       	subi	r30, 0xA8	; 168
+  34:	ff 4f       	sbci	r31, 0xFF	; 255
+  36:	10 82       	st	Z, r1
+  38:	fe 01       	movw	r30, r28
+  3a:	e7 5a       	subi	r30, 0xA7	; 167
+  3c:	ff 4f       	sbci	r31, 0xFF	; 255
+	}
+	parse_request();
+  3e:	10 82       	st	Z, r1
+  40:	fe 01       	movw	r30, r28
+  42:	ea 5a       	subi	r30, 0xAA	; 170
+	process();	
+  44:	ff 4f       	sbci	r31, 0xFF	; 255
+  46:	10 82       	st	Z, r1
+  48:	20 e0       	ldi	r18, 0x00	; 0
+	if (server_state == PROCESS) return true;
+  4a:	00 c0       	rjmp	.+0      	; 0x4c <_ZN10RestServer23prepare_for_next_clientEv+0x4c>
+  4c:	82 2f       	mov	r24, r18
+  4e:	90 e0       	ldi	r25, 0x00	; 0
+  50:	88 0f       	add	r24, r24
+  52:	99 1f       	adc	r25, r25
+  54:	88 0f       	add	r24, r24
+  56:	99 1f       	adc	r25, r25
+	else return false;
+}
+  58:	e8 81       	ld	r30, Y
+  5a:	f9 81       	ldd	r31, Y+1	; 0x01
+  5c:	e8 0f       	add	r30, r24
+  5e:	f9 1f       	adc	r31, r25
+  60:	12 82       	std	Z+2, r1	; 0x02
+  62:	e8 81       	ld	r30, Y
+  64:	f9 81       	ldd	r31, Y+1	; 0x01
+  66:	e8 0f       	add	r30, r24
+  68:	f9 1f       	adc	r31, r25
+  6a:	13 82       	std	Z+3, r1	; 0x03
+  6c:	2f 5f       	subi	r18, 0xFF	; 255
+  6e:	8a 81       	ldd	r24, Y+2	; 0x02
+  70:	28 17       	cp	r18, r24
+  72:	00 f0       	brcs	.+0      	; 0x74 <_ZN10RestServer23prepare_for_next_clientEv+0x74>
+  74:	cd 5a       	subi	r28, 0xAD	; 173
+  76:	df 4f       	sbci	r29, 0xFF	; 255
+  78:	18 82       	st	Y, r1
+  7a:	df 91       	pop	r29
+  7c:	cf 91       	pop	r28
+  7e:	08 95       	ret
+
+Disassembly of section .text._ZN10RestServer18register_resourcesEPP14RESTfulServicei:
+
+00000000 <_ZN10RestServer18register_resourcesEPP14RESTfulServicei>:
+
+int RestServer::get_server_state() {
+	return server_state;
+}
+
+boolean RestServer::handle_requests(Stream &_client) {
+   0:	ef 92       	push	r14
+   2:	ff 92       	push	r15
+   4:	0f 93       	push	r16
+   6:	1f 93       	push	r17
+   8:	cf 93       	push	r28
+   a:	df 93       	push	r29
+	if (_client.available()) {
+   c:	0f 92       	push	r0
+   e:	0f 92       	push	r0
+  10:	cd b7       	in	r28, 0x3d	; 61
+  12:	de b7       	in	r29, 0x3e	; 62
+  14:	8c 01       	movw	r16, r24
+  16:	dc 01       	movw	r26, r24
+  18:	12 96       	adiw	r26, 0x02	; 2
+  1a:	4c 93       	st	X, r20
+  1c:	84 2f       	mov	r24, r20
+  1e:	90 e0       	ldi	r25, 0x00	; 0
+		start_timer();
+  20:	88 0f       	add	r24, r24
+  22:	99 1f       	adc	r25, r25
+  24:	88 0f       	add	r24, r24
+		read_request(_client.read());
+  26:	99 1f       	adc	r25, r25
+  28:	69 83       	std	Y+1, r22	; 0x01
+  2a:	7a 83       	std	Y+2, r23	; 0x02
+  2c:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer18register_resourcesEPP14RESTfulServicei>
+  30:	fc 01       	movw	r30, r24
+  32:	d8 01       	movw	r26, r16
+  34:	11 96       	adiw	r26, 0x01	; 1
+  36:	9c 93       	st	X, r25
+  38:	8e 93       	st	-X, r24
+  3a:	69 81       	ldd	r22, Y+1	; 0x01
+  3c:	7a 81       	ldd	r23, Y+2	; 0x02
+	}
+	parse_request();
+  3e:	00 97       	sbiw	r24, 0x00	; 0
+  40:	01 f0       	breq	.+0      	; 0x42 <_ZN10RestServer18register_resourcesEPP14RESTfulServicei+0x42>
+  42:	11 82       	std	Z+1, r1	; 0x01
+	process();	
+  44:	10 82       	st	Z, r1
+  46:	7b 01       	movw	r14, r22
+  48:	20 e0       	ldi	r18, 0x00	; 0
+	if (server_state == PROCESS) return true;
+  4a:	30 e0       	ldi	r19, 0x00	; 0
+  4c:	40 e0       	ldi	r20, 0x00	; 0
+  4e:	50 e0       	ldi	r21, 0x00	; 0
+  50:	00 c0       	rjmp	.+0      	; 0x52 <_ZN10RestServer18register_resourcesEPP14RESTfulServicei+0x52>
+  52:	f7 01       	movw	r30, r14
+  54:	81 91       	ld	r24, Z+
+  56:	91 91       	ld	r25, Z+
+	else return false;
+}
+  58:	7f 01       	movw	r14, r30
+  5a:	d8 01       	movw	r26, r16
+  5c:	ed 91       	ld	r30, X+
+  5e:	fc 91       	ld	r31, X
+  60:	11 97       	sbiw	r26, 0x01	; 1
+  62:	e2 0f       	add	r30, r18
+  64:	f3 1f       	adc	r31, r19
+  66:	91 83       	std	Z+1, r25	; 0x01
+  68:	80 83       	st	Z, r24
+  6a:	4f 5f       	subi	r20, 0xFF	; 255
+  6c:	5f 4f       	sbci	r21, 0xFF	; 255
+  6e:	2c 5f       	subi	r18, 0xFC	; 252
+  70:	3f 4f       	sbci	r19, 0xFF	; 255
+  72:	f8 01       	movw	r30, r16
+  74:	82 81       	ldd	r24, Z+2	; 0x02
+  76:	90 e0       	ldi	r25, 0x00	; 0
+  78:	48 17       	cp	r20, r24
+  7a:	59 07       	cpc	r21, r25
+  7c:	04 f0       	brlt	.+0      	; 0x7e <_ZN10RestServer18register_resourcesEPP14RESTfulServicei+0x7e>
+  7e:	c8 01       	movw	r24, r16
+  80:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer18register_resourcesEPP14RESTfulServicei>
+  84:	0f 90       	pop	r0
+  86:	0f 90       	pop	r0
+  88:	df 91       	pop	r29
+  8a:	cf 91       	pop	r28
+  8c:	1f 91       	pop	r17
+  8e:	0f 91       	pop	r16
+  90:	ff 90       	pop	r15
+  92:	ef 90       	pop	r14
+  94:	08 95       	ret
+
+Disassembly of section .text._ZN10RestServer11start_timerEv:
+
+00000000 <_ZN10RestServer11start_timerEv>:
+
+int RestServer::get_server_state() {
+	return server_state;
+}
+
+boolean RestServer::handle_requests(Stream &_client) {
+   0:	0f 93       	push	r16
+   2:	1f 93       	push	r17
+   4:	cf 93       	push	r28
+   6:	df 93       	push	r29
+   8:	ec 01       	movw	r28, r24
+   a:	8c 01       	movw	r16, r24
+	if (_client.available()) {
+   c:	0d 5a       	subi	r16, 0xAD	; 173
+   e:	1f 4f       	sbci	r17, 0xFF	; 255
+  10:	f8 01       	movw	r30, r16
+  12:	80 81       	ld	r24, Z
+  14:	88 23       	and	r24, r24
+  16:	01 f4       	brne	.+0      	; 0x18 <_ZN10RestServer11start_timerEv+0x18>
+  18:	fe 01       	movw	r30, r28
+  1a:	e2 5b       	subi	r30, 0xB2	; 178
+  1c:	ff 4f       	sbci	r31, 0xFF	; 255
+  1e:	80 81       	ld	r24, Z
+		start_timer();
+  20:	91 81       	ldd	r25, Z+1	; 0x01
+  22:	00 97       	sbiw	r24, 0x00	; 0
+  24:	01 f4       	brne	.+0      	; 0x26 <_ZN10RestServer11start_timerEv+0x26>
+		read_request(_client.read());
+  26:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer11start_timerEv>
+  2a:	dc 01       	movw	r26, r24
+  2c:	cb 01       	movw	r24, r22
+  2e:	c9 59       	subi	r28, 0x99	; 153
+  30:	df 4f       	sbci	r29, 0xFF	; 255
+  32:	88 83       	st	Y, r24
+  34:	99 83       	std	Y+1, r25	; 0x01
+  36:	aa 83       	std	Y+2, r26	; 0x02
+  38:	bb 83       	std	Y+3, r27	; 0x03
+  3a:	81 e0       	ldi	r24, 0x01	; 1
+  3c:	f8 01       	movw	r30, r16
+	}
+	parse_request();
+  3e:	80 83       	st	Z, r24
+  40:	df 91       	pop	r29
+  42:	cf 91       	pop	r28
+	process();	
+  44:	1f 91       	pop	r17
+  46:	0f 91       	pop	r16
+  48:	08 95       	ret
+
+Disassembly of section .text._ZN10RestServer11check_timerEv:
+
+00000000 <_ZN10RestServer11check_timerEv>:
+
+int RestServer::get_server_state() {
+	return server_state;
+}
+
+boolean RestServer::handle_requests(Stream &_client) {
+   0:	cf 93       	push	r28
+   2:	df 93       	push	r29
+   4:	ec 01       	movw	r28, r24
+   6:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer11check_timerEv>
+   a:	dc 01       	movw	r26, r24
+	if (_client.available()) {
+   c:	cb 01       	movw	r24, r22
+   e:	fe 01       	movw	r30, r28
+  10:	e9 59       	subi	r30, 0x99	; 153
+  12:	ff 4f       	sbci	r31, 0xFF	; 255
+  14:	40 81       	ld	r20, Z
+  16:	51 81       	ldd	r21, Z+1	; 0x01
+  18:	62 81       	ldd	r22, Z+2	; 0x02
+  1a:	73 81       	ldd	r23, Z+3	; 0x03
+  1c:	84 1b       	sub	r24, r20
+  1e:	95 0b       	sbc	r25, r21
+		start_timer();
+  20:	a6 0b       	sbc	r26, r22
+  22:	b7 0b       	sbc	r27, r23
+  24:	81 3d       	cpi	r24, 0xD1	; 209
+		read_request(_client.read());
+  26:	27 e0       	ldi	r18, 0x07	; 7
+  28:	92 07       	cpc	r25, r18
+  2a:	20 e0       	ldi	r18, 0x00	; 0
+  2c:	a2 07       	cpc	r26, r18
+  2e:	20 e0       	ldi	r18, 0x00	; 0
+  30:	b2 07       	cpc	r27, r18
+  32:	00 f0       	brcs	.+0      	; 0x34 <_ZN10RestServer11check_timerEv+0x34>
+  34:	fe 01       	movw	r30, r28
+  36:	e2 5b       	subi	r30, 0xB2	; 178
+  38:	ff 4f       	sbci	r31, 0xFF	; 255
+  3a:	80 81       	ld	r24, Z
+  3c:	91 81       	ldd	r25, Z+1	; 0x01
+	}
+	parse_request();
+  3e:	18 16       	cp	r1, r24
+  40:	19 06       	cpc	r1, r25
+  42:	04 f4       	brge	.+0      	; 0x44 <_ZN10RestServer11check_timerEv+0x44>
+	process();	
+  44:	fe 01       	movw	r30, r28
+  46:	ed 5a       	subi	r30, 0xAD	; 173
+  48:	ff 4f       	sbci	r31, 0xFF	; 255
+	if (server_state == PROCESS) return true;
+  4a:	86 e0       	ldi	r24, 0x06	; 6
+  4c:	80 83       	st	Z, r24
+  4e:	ce 5a       	subi	r28, 0xAE	; 174
+  50:	df 4f       	sbci	r29, 0xFF	; 255
+  52:	88 81       	ld	r24, Y
+  54:	88 23       	and	r24, r24
+  56:	01 f0       	breq	.+0      	; 0x58 <_ZN10RestServer11check_timerEv+0x58>
+	else return false;
+}
+  58:	80 e0       	ldi	r24, 0x00	; 0
+  5a:	90 e0       	ldi	r25, 0x00	; 0
+  5c:	60 e0       	ldi	r22, 0x00	; 0
+  5e:	70 e0       	ldi	r23, 0x00	; 0
+  60:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer11check_timerEv>
+  64:	df 91       	pop	r29
+  66:	cf 91       	pop	r28
+  68:	08 95       	ret
+
+Disassembly of section .text._ZN10RestServer8get_verbEc:
+
+00000000 <_ZN10RestServer8get_verbEc>:
+
+int RestServer::get_server_state() {
+	return server_state;
+}
+
+boolean RestServer::handle_requests(Stream &_client) {
+   0:	ef 92       	push	r14
+   2:	ff 92       	push	r15
+   4:	0f 93       	push	r16
+   6:	1f 93       	push	r17
+   8:	cf 93       	push	r28
+   a:	df 93       	push	r29
+	if (_client.available()) {
+   c:	8c 01       	movw	r16, r24
+   e:	fc 01       	movw	r30, r24
+  10:	ed 5a       	subi	r30, 0xAD	; 173
+  12:	ff 4f       	sbci	r31, 0xFF	; 255
+  14:	80 81       	ld	r24, Z
+  16:	81 30       	cpi	r24, 0x01	; 1
+  18:	01 f0       	breq	.+0      	; 0x1a <_ZN10RestServer8get_verbEc+0x1a>
+  1a:	00 c0       	rjmp	.+0      	; 0x1c <_ZN10RestServer8get_verbEc+0x1c>
+  1c:	33 e0       	ldi	r19, 0x03	; 3
+  1e:	e3 2e       	mov	r14, r19
+		start_timer();
+  20:	f1 2c       	mov	r15, r1
+  22:	e0 0e       	add	r14, r16
+  24:	f1 1e       	adc	r15, r17
+		read_request(_client.read());
+  26:	c7 01       	movw	r24, r14
+  28:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer8get_verbEc>
+  2c:	e8 01       	movw	r28, r16
+  2e:	c2 5b       	subi	r28, 0xB2	; 178
+  30:	df 4f       	sbci	r29, 0xFF	; 255
+  32:	48 81       	ld	r20, Y
+  34:	59 81       	ldd	r21, Y+1	; 0x01
+  36:	44 50       	subi	r20, 0x04	; 4
+  38:	50 40       	sbci	r21, 0x00	; 0
+  3a:	c7 01       	movw	r24, r14
+  3c:	60 e0       	ldi	r22, 0x00	; 0
+	}
+	parse_request();
+  3e:	70 e0       	ldi	r23, 0x00	; 0
+  40:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer8get_verbEc>
+	process();	
+  44:	2f ef       	ldi	r18, 0xFF	; 255
+  46:	8f 3f       	cpi	r24, 0xFF	; 255
+  48:	92 07       	cpc	r25, r18
+	if (server_state == PROCESS) return true;
+  4a:	01 f4       	brne	.+0      	; 0x4c <_ZN10RestServer8get_verbEc+0x4c>
+  4c:	48 81       	ld	r20, Y
+  4e:	59 81       	ldd	r21, Y+1	; 0x01
+  50:	45 50       	subi	r20, 0x05	; 5
+  52:	50 40       	sbci	r21, 0x00	; 0
+  54:	c7 01       	movw	r24, r14
+  56:	60 e0       	ldi	r22, 0x00	; 0
+	else return false;
+}
+  58:	70 e0       	ldi	r23, 0x00	; 0
+  5a:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer8get_verbEc>
+  5e:	ef ef       	ldi	r30, 0xFF	; 255
+  60:	8f 3f       	cpi	r24, 0xFF	; 255
+  62:	9e 07       	cpc	r25, r30
+  64:	01 f0       	breq	.+0      	; 0x66 <_ZN10RestServer8get_verbEc+0x66>
+  66:	f8 01       	movw	r30, r16
+  68:	83 81       	ldd	r24, Z+3	; 0x03
+  6a:	eb 5a       	subi	r30, 0xAB	; 171
+  6c:	ff 4f       	sbci	r31, 0xFF	; 255
+  6e:	87 34       	cpi	r24, 0x47	; 71
+  70:	01 f4       	brne	.+0      	; 0x72 <_ZN10RestServer8get_verbEc+0x72>
+  72:	10 82       	st	Z, r1
+  74:	00 c0       	rjmp	.+0      	; 0x76 <_ZN10RestServer8get_verbEc+0x76>
+  76:	81 e0       	ldi	r24, 0x01	; 1
+  78:	80 83       	st	Z, r24
+  7a:	f8 01       	movw	r30, r16
+  7c:	ed 5a       	subi	r30, 0xAD	; 173
+  7e:	ff 4f       	sbci	r31, 0xFF	; 255
+  80:	82 e0       	ldi	r24, 0x02	; 2
+  82:	80 83       	st	Z, r24
+  84:	c7 01       	movw	r24, r14
+  86:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer8get_verbEc>
+  8a:	f8 01       	movw	r30, r16
+  8c:	ee 5a       	subi	r30, 0xAE	; 174
+  8e:	ff 4f       	sbci	r31, 0xFF	; 255
+  90:	80 81       	ld	r24, Z
+  92:	88 23       	and	r24, r24
+  94:	01 f0       	breq	.+0      	; 0x96 <_ZN10RestServer8get_verbEc+0x96>
+  96:	80 e0       	ldi	r24, 0x00	; 0
+  98:	90 e0       	ldi	r25, 0x00	; 0
+  9a:	60 e0       	ldi	r22, 0x00	; 0
+  9c:	70 e0       	ldi	r23, 0x00	; 0
+  9e:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer8get_verbEc>
+  a2:	df 91       	pop	r29
+  a4:	cf 91       	pop	r28
+  a6:	1f 91       	pop	r17
+  a8:	0f 91       	pop	r16
+  aa:	ff 90       	pop	r15
+  ac:	ef 90       	pop	r14
+  ae:	08 95       	ret
+
+Disassembly of section .text._ZN10RestServer18match_eoh_sequenceEc:
+
+00000000 <_ZN10RestServer18match_eoh_sequenceEc>:
+
+int RestServer::get_server_state() {
+	return server_state;
+}
+
+boolean RestServer::handle_requests(Stream &_client) {
+   0:	cf 93       	push	r28
+   2:	df 93       	push	r29
+   4:	fc 01       	movw	r30, r24
+   6:	84 81       	ldd	r24, Z+4	; 0x04
+   8:	83 83       	std	Z+3, r24	; 0x03
+   a:	85 81       	ldd	r24, Z+5	; 0x05
+	if (_client.available()) {
+   c:	84 83       	std	Z+4, r24	; 0x04
+   e:	86 81       	ldd	r24, Z+6	; 0x06
+  10:	85 83       	std	Z+5, r24	; 0x05
+  12:	66 83       	std	Z+6, r22	; 0x06
+  14:	ef 01       	movw	r28, r30
+  16:	23 96       	adiw	r28, 0x03	; 3
+  18:	bf 01       	movw	r22, r30
+  1a:	63 5a       	subi	r22, 0xA3	; 163
+  1c:	7f 4f       	sbci	r23, 0xFF	; 255
+  1e:	ce 01       	movw	r24, r28
+		start_timer();
+  20:	44 e0       	ldi	r20, 0x04	; 4
+  22:	50 e0       	ldi	r21, 0x00	; 0
+  24:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer18match_eoh_sequenceEc>
+		read_request(_client.read());
+  28:	00 97       	sbiw	r24, 0x00	; 0
+  2a:	01 f4       	brne	.+0      	; 0x2c <_ZN10RestServer18match_eoh_sequenceEc+0x2c>
+  2c:	ce 01       	movw	r24, r28
+  2e:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer18match_eoh_sequenceEc>
+  32:	81 e0       	ldi	r24, 0x01	; 1
+  34:	00 c0       	rjmp	.+0      	; 0x36 <_ZN10RestServer18match_eoh_sequenceEc+0x36>
+  36:	80 e0       	ldi	r24, 0x00	; 0
+  38:	df 91       	pop	r29
+  3a:	cf 91       	pop	r28
+  3c:	08 95       	ret
+
+Disassembly of section .text._ZN10RestServer18add_char_and_matchEcPc:
+
+00000000 <_ZN10RestServer18add_char_and_matchEcPc>:
+
+int RestServer::get_server_state() {
+	return server_state;
+}
+
+boolean RestServer::handle_requests(Stream &_client) {
+   0:	cf 93       	push	r28
+   2:	df 93       	push	r29
+   4:	ec 01       	movw	r28, r24
+   6:	76 2f       	mov	r23, r22
+   8:	64 2f       	mov	r22, r20
+   a:	e4 2f       	mov	r30, r20
+	if (_client.available()) {
+   c:	f5 2f       	mov	r31, r21
+   e:	df 01       	movw	r26, r30
+  10:	0d 90       	ld	r0, X+
+  12:	00 20       	and	r0, r0
+  14:	01 f4       	brne	.+0      	; 0x16 <_ZN10RestServer18add_char_and_matchEcPc+0x16>
+  16:	11 97       	sbiw	r26, 0x01	; 1
+  18:	4a 2f       	mov	r20, r26
+  1a:	46 1b       	sub	r20, r22
+  1c:	a0 e0       	ldi	r26, 0x00	; 0
+  1e:	84 2f       	mov	r24, r20
+		start_timer();
+  20:	90 e0       	ldi	r25, 0x00	; 0
+  22:	01 97       	sbiw	r24, 0x01	; 1
+  24:	00 c0       	rjmp	.+0      	; 0x26 <_ZN10RestServer18add_char_and_matchEcPc+0x26>
+		read_request(_client.read());
+  26:	fe 01       	movw	r30, r28
+  28:	e2 0f       	add	r30, r18
+  2a:	f3 1f       	adc	r31, r19
+  2c:	24 81       	ldd	r18, Z+4	; 0x04
+  2e:	23 83       	std	Z+3, r18	; 0x03
+  30:	af 5f       	subi	r26, 0xFF	; 255
+  32:	2a 2f       	mov	r18, r26
+  34:	30 e0       	ldi	r19, 0x00	; 0
+  36:	28 17       	cp	r18, r24
+  38:	39 07       	cpc	r19, r25
+  3a:	04 f0       	brlt	.+0      	; 0x3c <_ZN10RestServer18add_char_and_matchEcPc+0x3c>
+  3c:	8c 0f       	add	r24, r28
+	}
+	parse_request();
+  3e:	9d 1f       	adc	r25, r29
+  40:	fc 01       	movw	r30, r24
+  42:	73 83       	std	Z+3, r23	; 0x03
+	process();	
+  44:	23 96       	adiw	r28, 0x03	; 3
+  46:	ce 01       	movw	r24, r28
+  48:	75 2f       	mov	r23, r21
+	if (server_state == PROCESS) return true;
+  4a:	50 e0       	ldi	r21, 0x00	; 0
+  4c:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer18add_char_and_matchEcPc>
+  50:	00 97       	sbiw	r24, 0x00	; 0
+  52:	01 f4       	brne	.+0      	; 0x54 <_ZN10RestServer18add_char_and_matchEcPc+0x54>
+  54:	ce 01       	movw	r24, r28
+  56:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer18add_char_and_matchEcPc>
+	else return false;
+}
+  5a:	81 e0       	ldi	r24, 0x01	; 1
+  5c:	00 c0       	rjmp	.+0      	; 0x5e <_ZN10RestServer18add_char_and_matchEcPc+0x5e>
+  5e:	80 e0       	ldi	r24, 0x00	; 0
+  60:	df 91       	pop	r29
+  62:	cf 91       	pop	r28
+  64:	08 95       	ret
+
+Disassembly of section .text._ZN10RestServer7processEv:
+
+00000000 <_ZN10RestServer7processEv>:
+
+int RestServer::get_server_state() {
+	return server_state;
+}
+
+boolean RestServer::handle_requests(Stream &_client) {
+   0:	dc 01       	movw	r26, r24
+   2:	fc 01       	movw	r30, r24
+   4:	ed 5a       	subi	r30, 0xAD	; 173
+   6:	ff 4f       	sbci	r31, 0xFF	; 255
+   8:	80 81       	ld	r24, Z
+   a:	84 30       	cpi	r24, 0x04	; 4
+	if (_client.available()) {
+   c:	01 f4       	brne	.+0      	; 0xe <_ZN10RestServer7processEv+0xe>
+   e:	12 96       	adiw	r26, 0x02	; 2
+  10:	4c 91       	ld	r20, X
+  12:	12 97       	sbiw	r26, 0x02	; 2
+  14:	50 e0       	ldi	r21, 0x00	; 0
+  16:	80 e0       	ldi	r24, 0x00	; 0
+  18:	90 e0       	ldi	r25, 0x00	; 0
+  1a:	20 e0       	ldi	r18, 0x00	; 0
+  1c:	30 e0       	ldi	r19, 0x00	; 0
+  1e:	60 e0       	ldi	r22, 0x00	; 0
+		start_timer();
+  20:	00 c0       	rjmp	.+0      	; 0x22 <_ZN10RestServer7processEv+0x22>
+  22:	ed 91       	ld	r30, X+
+  24:	fc 91       	ld	r31, X
+		read_request(_client.read());
+  26:	11 97       	sbiw	r26, 0x01	; 1
+  28:	e8 0f       	add	r30, r24
+  2a:	f9 1f       	adc	r31, r25
+  2c:	72 81       	ldd	r23, Z+2	; 0x02
+  2e:	77 23       	and	r23, r23
+  30:	01 f4       	brne	.+0      	; 0x32 <_ZN10RestServer7processEv+0x32>
+  32:	73 81       	ldd	r23, Z+3	; 0x03
+  34:	71 11       	cpse	r23, r1
+  36:	61 e0       	ldi	r22, 0x01	; 1
+  38:	2f 5f       	subi	r18, 0xFF	; 255
+  3a:	3f 4f       	sbci	r19, 0xFF	; 255
+  3c:	04 96       	adiw	r24, 0x04	; 4
+	}
+	parse_request();
+  3e:	24 17       	cp	r18, r20
+  40:	35 07       	cpc	r19, r21
+  42:	04 f0       	brlt	.+0      	; 0x44 <_ZN10RestServer7processEv+0x44>
+	process();	
+  44:	fd 01       	movw	r30, r26
+  46:	ec 5a       	subi	r30, 0xAC	; 172
+  48:	ff 4f       	sbci	r31, 0xFF	; 255
+	if (server_state == PROCESS) return true;
+  4a:	80 81       	ld	r24, Z
+  4c:	80 ff       	sbrs	r24, 0
+  4e:	00 c0       	rjmp	.+0      	; 0x50 <_ZN10RestServer7processEv+0x50>
+  50:	66 23       	and	r22, r22
+  52:	01 f4       	brne	.+0      	; 0x54 <_ZN10RestServer7processEv+0x54>
+  54:	fd 01       	movw	r30, r26
+  56:	ed 5a       	subi	r30, 0xAD	; 173
+	else return false;
+}
+  58:	ff 4f       	sbci	r31, 0xFF	; 255
+  5a:	85 e0       	ldi	r24, 0x05	; 5
+  5c:	80 83       	st	Z, r24
+  5e:	ae 5a       	subi	r26, 0xAE	; 174
+  60:	bf 4f       	sbci	r27, 0xFF	; 255
+  62:	8c 91       	ld	r24, X
+  64:	88 23       	and	r24, r24
+  66:	01 f0       	breq	.+0      	; 0x68 <_ZN10RestServer7processEv+0x68>
+  68:	80 e0       	ldi	r24, 0x00	; 0
+  6a:	90 e0       	ldi	r25, 0x00	; 0
+  6c:	60 e0       	ldi	r22, 0x00	; 0
+  6e:	70 e0       	ldi	r23, 0x00	; 0
+  70:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer7processEv>
+  74:	08 95       	ret
+
+Disassembly of section .text._ZN10RestServer18print_flash_stringEPKcR6Stream:
+
+00000000 <_ZN10RestServer18print_flash_stringEPKcR6Stream>:
+
+int RestServer::get_server_state() {
+	return server_state;
+}
+
+boolean RestServer::handle_requests(Stream &_client) {
+   0:	0f 93       	push	r16
+   2:	1f 93       	push	r17
+   4:	cf 93       	push	r28
+   6:	df 93       	push	r29
+   8:	eb 01       	movw	r28, r22
+   a:	8a 01       	movw	r16, r20
+	if (_client.available()) {
+   c:	00 c0       	rjmp	.+0      	; 0xe <_ZN10RestServer18print_flash_stringEPKcR6Stream+0xe>
+   e:	c8 01       	movw	r24, r16
+  10:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer18print_flash_stringEPKcR6Stream>
+  14:	fe 01       	movw	r30, r28
+  16:	21 96       	adiw	r28, 0x01	; 1
+  18:	64 91       	lpm	r22, Z
+  1a:	66 23       	and	r22, r22
+  1c:	01 f4       	brne	.+0      	; 0x1e <_ZN10RestServer18print_flash_stringEPKcR6Stream+0x1e>
+  1e:	df 91       	pop	r29
+		start_timer();
+  20:	cf 91       	pop	r28
+  22:	1f 91       	pop	r17
+  24:	0f 91       	pop	r16
+		read_request(_client.read());
+  26:	08 95       	ret
+
+Disassembly of section .text._ZN10RestServer10print_formER6Stream:
+
+00000000 <_ZN10RestServer10print_formER6Stream>:
+
+int RestServer::get_server_state() {
+	return server_state;
+}
+
+boolean RestServer::handle_requests(Stream &_client) {
+   0:	9f 92       	push	r9
+   2:	af 92       	push	r10
+   4:	bf 92       	push	r11
+   6:	cf 92       	push	r12
+   8:	df 92       	push	r13
+   a:	ef 92       	push	r14
+	if (_client.available()) {
+   c:	ff 92       	push	r15
+   e:	0f 93       	push	r16
+  10:	1f 93       	push	r17
+  12:	cf 93       	push	r28
+  14:	df 93       	push	r29
+  16:	6c 01       	movw	r12, r24
+  18:	16 2f       	mov	r17, r22
+  1a:	07 2f       	mov	r16, r23
+  1c:	fc 01       	movw	r30, r24
+  1e:	ea 5a       	subi	r30, 0xAA	; 170
+		start_timer();
+  20:	ff 4f       	sbci	r31, 0xFF	; 255
+  22:	80 81       	ld	r24, Z
+  24:	80 fd       	sbrc	r24, 0
+		read_request(_client.read());
+  26:	00 c0       	rjmp	.+0      	; 0x28 <_ZN10RestServer10print_formER6Stream+0x28>
+  28:	c6 01       	movw	r24, r12
+  2a:	60 e0       	ldi	r22, 0x00	; 0
+  2c:	70 e0       	ldi	r23, 0x00	; 0
+  2e:	41 2f       	mov	r20, r17
+  30:	50 2f       	mov	r21, r16
+  32:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer10print_formER6Stream>
+  36:	c6 01       	movw	r24, r12
+  38:	60 e0       	ldi	r22, 0x00	; 0
+  3a:	70 e0       	ldi	r23, 0x00	; 0
+  3c:	41 2f       	mov	r20, r17
+	}
+	parse_request();
+  3e:	50 2f       	mov	r21, r16
+  40:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer10print_formER6Stream>
+	process();	
+  44:	ff 24       	eor	r15, r15
+  46:	00 c0       	rjmp	.+0      	; 0x48 <_ZN10RestServer10print_formER6Stream+0x48>
+  48:	cf 2d       	mov	r28, r15
+	if (server_state == PROCESS) return true;
+  4a:	d0 e0       	ldi	r29, 0x00	; 0
+  4c:	cc 0f       	add	r28, r28
+  4e:	dd 1f       	adc	r29, r29
+  50:	cc 0f       	add	r28, r28
+  52:	dd 1f       	adc	r29, r29
+  54:	d6 01       	movw	r26, r12
+  56:	ed 91       	ld	r30, X+
+	else return false;
+}
+  58:	fc 91       	ld	r31, X
+  5a:	11 97       	sbiw	r26, 0x01	; 1
+  5c:	ec 0f       	add	r30, r28
+  5e:	fd 1f       	adc	r31, r29
+  60:	82 81       	ldd	r24, Z+2	; 0x02
+  62:	88 23       	and	r24, r24
+  64:	01 f0       	breq	.+0      	; 0x66 <_ZN10RestServer10print_formER6Stream+0x66>
+  66:	80 81       	ld	r24, Z
+  68:	91 81       	ldd	r25, Z+1	; 0x01
+  6a:	dc 01       	movw	r26, r24
+  6c:	ed 91       	ld	r30, X+
+  6e:	fc 91       	ld	r31, X
+  70:	02 80       	ldd	r0, Z+2	; 0x02
+  72:	f3 81       	ldd	r31, Z+3	; 0x03
+  74:	e0 2d       	mov	r30, r0
+  76:	19 95       	eicall
+  78:	88 23       	and	r24, r24
+  7a:	01 f0       	breq	.+0      	; 0x7c <_ZN10RestServer10print_formER6Stream+0x7c>
+  7c:	c6 01       	movw	r24, r12
+  7e:	60 e0       	ldi	r22, 0x00	; 0
+  80:	70 e0       	ldi	r23, 0x00	; 0
+  82:	41 2f       	mov	r20, r17
+  84:	50 2f       	mov	r21, r16
+  86:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer10print_formER6Stream>
+  8a:	d6 01       	movw	r26, r12
+  8c:	ed 91       	ld	r30, X+
+  8e:	fc 91       	ld	r31, X
+  90:	ec 0f       	add	r30, r28
+  92:	fd 1f       	adc	r31, r29
+  94:	80 81       	ld	r24, Z
+  96:	91 81       	ldd	r25, Z+1	; 0x01
+  98:	dc 01       	movw	r26, r24
+  9a:	ed 91       	ld	r30, X+
+  9c:	fc 91       	ld	r31, X
+  9e:	01 90       	ld	r0, Z+
+  a0:	f0 81       	ld	r31, Z
+  a2:	e0 2d       	mov	r30, r0
+  a4:	19 95       	eicall
+  a6:	bc 01       	movw	r22, r24
+  a8:	81 2f       	mov	r24, r17
+  aa:	90 2f       	mov	r25, r16
+  ac:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer10print_formER6Stream>
+  b0:	f3 94       	inc	r15
+  b2:	f6 01       	movw	r30, r12
+  b4:	82 81       	ldd	r24, Z+2	; 0x02
+  b6:	f8 16       	cp	r15, r24
+  b8:	00 f0       	brcs	.+0      	; 0xba <_ZN10RestServer10print_formER6Stream+0xba>
+  ba:	c6 01       	movw	r24, r12
+  bc:	60 e0       	ldi	r22, 0x00	; 0
+  be:	70 e0       	ldi	r23, 0x00	; 0
+  c0:	41 2f       	mov	r20, r17
+  c2:	50 2f       	mov	r21, r16
+  c4:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer10print_formER6Stream>
+  c8:	99 24       	eor	r9, r9
+  ca:	00 c0       	rjmp	.+0      	; 0xcc <_ZN10RestServer10print_formER6Stream+0xcc>
+  cc:	e9 2c       	mov	r14, r9
+  ce:	ff 24       	eor	r15, r15
+  d0:	ee 0c       	add	r14, r14
+  d2:	ff 1c       	adc	r15, r15
+  d4:	ee 0c       	add	r14, r14
+  d6:	ff 1c       	adc	r15, r15
+  d8:	d6 01       	movw	r26, r12
+  da:	ed 91       	ld	r30, X+
+  dc:	fc 91       	ld	r31, X
+  de:	11 97       	sbiw	r26, 0x01	; 1
+  e0:	ee 0d       	add	r30, r14
+  e2:	ff 1d       	adc	r31, r15
+  e4:	82 81       	ldd	r24, Z+2	; 0x02
+  e6:	88 23       	and	r24, r24
+  e8:	01 f4       	brne	.+0      	; 0xea <_ZN10RestServer10print_formER6Stream+0xea>
+  ea:	00 c0       	rjmp	.+0      	; 0xec <_ZN10RestServer10print_formER6Stream+0xec>
+  ec:	80 81       	ld	r24, Z
+  ee:	91 81       	ldd	r25, Z+1	; 0x01
+  f0:	dc 01       	movw	r26, r24
+  f2:	ed 91       	ld	r30, X+
+  f4:	fc 91       	ld	r31, X
+  f6:	02 80       	ldd	r0, Z+2	; 0x02
+  f8:	f3 81       	ldd	r31, Z+3	; 0x03
+  fa:	e0 2d       	mov	r30, r0
+  fc:	19 95       	eicall
+  fe:	88 23       	and	r24, r24
+ 100:	01 f4       	brne	.+0      	; 0x102 <_ZN10RestServer10print_formER6Stream+0x102>
+ 102:	00 c0       	rjmp	.+0      	; 0x104 <_ZN10RestServer10print_formER6Stream+0x104>
+ 104:	d6 01       	movw	r26, r12
+ 106:	ed 91       	ld	r30, X+
+ 108:	fc 91       	ld	r31, X
+ 10a:	ee 0d       	add	r30, r14
+ 10c:	ff 1d       	adc	r31, r15
+ 10e:	80 81       	ld	r24, Z
+ 110:	91 81       	ldd	r25, Z+1	; 0x01
+ 112:	dc 01       	movw	r26, r24
+ 114:	ed 91       	ld	r30, X+
+ 116:	fc 91       	ld	r31, X
+ 118:	01 90       	ld	r0, Z+
+ 11a:	f0 81       	ld	r31, Z
+ 11c:	e0 2d       	mov	r30, r0
+ 11e:	19 95       	eicall
+ 120:	bc 01       	movw	r22, r24
+ 122:	81 2f       	mov	r24, r17
+ 124:	90 2f       	mov	r25, r16
+ 126:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer10print_formER6Stream>
+ 12a:	c6 01       	movw	r24, r12
+ 12c:	60 e0       	ldi	r22, 0x00	; 0
+ 12e:	70 e0       	ldi	r23, 0x00	; 0
+ 130:	41 2f       	mov	r20, r17
+ 132:	50 2f       	mov	r21, r16
+ 134:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer10print_formER6Stream>
+ 138:	d6 01       	movw	r26, r12
+ 13a:	ed 91       	ld	r30, X+
+ 13c:	fc 91       	ld	r31, X
+ 13e:	ee 0d       	add	r30, r14
+ 140:	ff 1d       	adc	r31, r15
+ 142:	80 81       	ld	r24, Z
+ 144:	91 81       	ldd	r25, Z+1	; 0x01
+ 146:	dc 01       	movw	r26, r24
+ 148:	ed 91       	ld	r30, X+
+ 14a:	fc 91       	ld	r31, X
+ 14c:	00 84       	ldd	r0, Z+8	; 0x08
+ 14e:	f1 85       	ldd	r31, Z+9	; 0x09
+ 150:	e0 2d       	mov	r30, r0
+ 152:	19 95       	eicall
+ 154:	bc 01       	movw	r22, r24
+ 156:	81 2f       	mov	r24, r17
+ 158:	90 2f       	mov	r25, r16
+ 15a:	4a e0       	ldi	r20, 0x0A	; 10
+ 15c:	50 e0       	ldi	r21, 0x00	; 0
+ 15e:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer10print_formER6Stream>
+ 162:	c6 01       	movw	r24, r12
+ 164:	60 e0       	ldi	r22, 0x00	; 0
+ 166:	70 e0       	ldi	r23, 0x00	; 0
+ 168:	41 2f       	mov	r20, r17
+ 16a:	50 2f       	mov	r21, r16
+ 16c:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer10print_formER6Stream>
+ 170:	d6 01       	movw	r26, r12
+ 172:	ed 91       	ld	r30, X+
+ 174:	fc 91       	ld	r31, X
+ 176:	ee 0d       	add	r30, r14
+ 178:	ff 1d       	adc	r31, r15
+ 17a:	80 81       	ld	r24, Z
+ 17c:	91 81       	ldd	r25, Z+1	; 0x01
+ 17e:	dc 01       	movw	r26, r24
+ 180:	ed 91       	ld	r30, X+
+ 182:	fc 91       	ld	r31, X
+ 184:	02 84       	ldd	r0, Z+10	; 0x0a
+ 186:	f3 85       	ldd	r31, Z+11	; 0x0b
+ 188:	e0 2d       	mov	r30, r0
+ 18a:	19 95       	eicall
+ 18c:	bc 01       	movw	r22, r24
+ 18e:	81 2f       	mov	r24, r17
+ 190:	90 2f       	mov	r25, r16
+ 192:	4a e0       	ldi	r20, 0x0A	; 10
+ 194:	50 e0       	ldi	r21, 0x00	; 0
+ 196:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer10print_formER6Stream>
+ 19a:	c6 01       	movw	r24, r12
+ 19c:	60 e0       	ldi	r22, 0x00	; 0
+ 19e:	70 e0       	ldi	r23, 0x00	; 0
+ 1a0:	41 2f       	mov	r20, r17
+ 1a2:	50 2f       	mov	r21, r16
+ 1a4:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer10print_formER6Stream>
+ 1a8:	d6 01       	movw	r26, r12
+ 1aa:	ed 91       	ld	r30, X+
+ 1ac:	fc 91       	ld	r31, X
+ 1ae:	ee 0d       	add	r30, r14
+ 1b0:	ff 1d       	adc	r31, r15
+ 1b2:	80 81       	ld	r24, Z
+ 1b4:	91 81       	ldd	r25, Z+1	; 0x01
+ 1b6:	dc 01       	movw	r26, r24
+ 1b8:	ed 91       	ld	r30, X+
+ 1ba:	fc 91       	ld	r31, X
+ 1bc:	02 84       	ldd	r0, Z+10	; 0x0a
+ 1be:	f3 85       	ldd	r31, Z+11	; 0x0b
+ 1c0:	e0 2d       	mov	r30, r0
+ 1c2:	19 95       	eicall
+ 1c4:	ec 01       	movw	r28, r24
+ 1c6:	d6 01       	movw	r26, r12
+ 1c8:	ed 91       	ld	r30, X+
+ 1ca:	fc 91       	ld	r31, X
+ 1cc:	ee 0d       	add	r30, r14
+ 1ce:	ff 1d       	adc	r31, r15
+ 1d0:	80 81       	ld	r24, Z
+ 1d2:	91 81       	ldd	r25, Z+1	; 0x01
+ 1d4:	dc 01       	movw	r26, r24
+ 1d6:	ed 91       	ld	r30, X+
+ 1d8:	fc 91       	ld	r31, X
+ 1da:	00 84       	ldd	r0, Z+8	; 0x08
+ 1dc:	f1 85       	ldd	r31, Z+9	; 0x09
+ 1de:	e0 2d       	mov	r30, r0
+ 1e0:	19 95       	eicall
+ 1e2:	fe 01       	movw	r30, r28
+ 1e4:	e8 1b       	sub	r30, r24
+ 1e6:	f9 0b       	sbc	r31, r25
+ 1e8:	e5 30       	cpi	r30, 0x05	; 5
+ 1ea:	f1 05       	cpc	r31, r1
+ 1ec:	04 f4       	brge	.+0      	; 0x1ee <_ZN10RestServer10print_formER6Stream+0x1ee>
+ 1ee:	00 c0       	rjmp	.+0      	; 0x1f0 <_ZN10RestServer10print_formER6Stream+0x1f0>
+ 1f0:	00 c0       	rjmp	.+0      	; 0x1f2 <_ZN10RestServer10print_formER6Stream+0x1f2>
+ 1f2:	d6 01       	movw	r26, r12
+ 1f4:	ed 91       	ld	r30, X+
+ 1f6:	fc 91       	ld	r31, X
+ 1f8:	ee 0d       	add	r30, r14
+ 1fa:	ff 1d       	adc	r31, r15
+ 1fc:	80 81       	ld	r24, Z
+ 1fe:	91 81       	ldd	r25, Z+1	; 0x01
+ 200:	dc 01       	movw	r26, r24
+ 202:	ed 91       	ld	r30, X+
+ 204:	fc 91       	ld	r31, X
+ 206:	00 84       	ldd	r0, Z+8	; 0x08
+ 208:	f1 85       	ldd	r31, Z+9	; 0x09
+ 20a:	e0 2d       	mov	r30, r0
+ 20c:	19 95       	eicall
+ 20e:	ec 01       	movw	r28, r24
+ 210:	ca 0d       	add	r28, r10
+ 212:	db 1d       	adc	r29, r11
+ 214:	c6 01       	movw	r24, r12
+ 216:	60 e0       	ldi	r22, 0x00	; 0
+ 218:	70 e0       	ldi	r23, 0x00	; 0
+ 21a:	41 2f       	mov	r20, r17
+ 21c:	50 2f       	mov	r21, r16
+ 21e:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer10print_formER6Stream>
+ 222:	d6 01       	movw	r26, r12
+ 224:	ed 91       	ld	r30, X+
+ 226:	fc 91       	ld	r31, X
+ 228:	ee 0d       	add	r30, r14
+ 22a:	ff 1d       	adc	r31, r15
+ 22c:	80 81       	ld	r24, Z
+ 22e:	91 81       	ldd	r25, Z+1	; 0x01
+ 230:	dc 01       	movw	r26, r24
+ 232:	ed 91       	ld	r30, X+
+ 234:	fc 91       	ld	r31, X
+ 236:	01 90       	ld	r0, Z+
+ 238:	f0 81       	ld	r31, Z
+ 23a:	e0 2d       	mov	r30, r0
+ 23c:	19 95       	eicall
+ 23e:	bc 01       	movw	r22, r24
+ 240:	81 2f       	mov	r24, r17
+ 242:	90 2f       	mov	r25, r16
+ 244:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer10print_formER6Stream>
+ 248:	c6 01       	movw	r24, r12
+ 24a:	60 e0       	ldi	r22, 0x00	; 0
+ 24c:	70 e0       	ldi	r23, 0x00	; 0
+ 24e:	41 2f       	mov	r20, r17
+ 250:	50 2f       	mov	r21, r16
+ 252:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer10print_formER6Stream>
+ 256:	81 2f       	mov	r24, r17
+ 258:	90 2f       	mov	r25, r16
+ 25a:	be 01       	movw	r22, r28
+ 25c:	4a e0       	ldi	r20, 0x0A	; 10
+ 25e:	50 e0       	ldi	r21, 0x00	; 0
+ 260:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer10print_formER6Stream>
+ 264:	c6 01       	movw	r24, r12
+ 266:	60 e0       	ldi	r22, 0x00	; 0
+ 268:	70 e0       	ldi	r23, 0x00	; 0
+ 26a:	41 2f       	mov	r20, r17
+ 26c:	50 2f       	mov	r21, r16
+ 26e:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer10print_formER6Stream>
+ 272:	d6 01       	movw	r26, r12
+ 274:	ed 91       	ld	r30, X+
+ 276:	fc 91       	ld	r31, X
+ 278:	ee 0d       	add	r30, r14
+ 27a:	ff 1d       	adc	r31, r15
+ 27c:	80 81       	ld	r24, Z
+ 27e:	91 81       	ldd	r25, Z+1	; 0x01
+ 280:	dc 01       	movw	r26, r24
+ 282:	ed 91       	ld	r30, X+
+ 284:	fc 91       	ld	r31, X
+ 286:	04 80       	ldd	r0, Z+4	; 0x04
+ 288:	f5 81       	ldd	r31, Z+5	; 0x05
+ 28a:	e0 2d       	mov	r30, r0
+ 28c:	19 95       	eicall
+ 28e:	8c 17       	cp	r24, r28
+ 290:	9d 07       	cpc	r25, r29
+ 292:	01 f4       	brne	.+0      	; 0x294 <_ZN10RestServer10print_formER6Stream+0x294>
+ 294:	c6 01       	movw	r24, r12
+ 296:	60 e0       	ldi	r22, 0x00	; 0
+ 298:	70 e0       	ldi	r23, 0x00	; 0
+ 29a:	41 2f       	mov	r20, r17
+ 29c:	50 2f       	mov	r21, r16
+ 29e:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer10print_formER6Stream>
+ 2a2:	c6 01       	movw	r24, r12
+ 2a4:	60 e0       	ldi	r22, 0x00	; 0
+ 2a6:	70 e0       	ldi	r23, 0x00	; 0
+ 2a8:	41 2f       	mov	r20, r17
+ 2aa:	50 2f       	mov	r21, r16
+ 2ac:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer10print_formER6Stream>
+ 2b0:	81 2f       	mov	r24, r17
+ 2b2:	90 2f       	mov	r25, r16
+ 2b4:	be 01       	movw	r22, r28
+ 2b6:	4a e0       	ldi	r20, 0x0A	; 10
+ 2b8:	50 e0       	ldi	r21, 0x00	; 0
+ 2ba:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer10print_formER6Stream>
+ 2be:	c6 01       	movw	r24, r12
+ 2c0:	60 e0       	ldi	r22, 0x00	; 0
+ 2c2:	70 e0       	ldi	r23, 0x00	; 0
+ 2c4:	41 2f       	mov	r20, r17
+ 2c6:	50 2f       	mov	r21, r16
+ 2c8:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer10print_formER6Stream>
+ 2cc:	08 94       	sec
+ 2ce:	a1 1c       	adc	r10, r1
+ 2d0:	b1 1c       	adc	r11, r1
+ 2d2:	00 c0       	rjmp	.+0      	; 0x2d4 <_ZN10RestServer10print_formER6Stream+0x2d4>
+ 2d4:	aa 24       	eor	r10, r10
+ 2d6:	bb 24       	eor	r11, r11
+ 2d8:	d6 01       	movw	r26, r12
+ 2da:	ed 91       	ld	r30, X+
+ 2dc:	fc 91       	ld	r31, X
+ 2de:	ee 0d       	add	r30, r14
+ 2e0:	ff 1d       	adc	r31, r15
+ 2e2:	80 81       	ld	r24, Z
+ 2e4:	91 81       	ldd	r25, Z+1	; 0x01
+ 2e6:	dc 01       	movw	r26, r24
+ 2e8:	ed 91       	ld	r30, X+
+ 2ea:	fc 91       	ld	r31, X
+ 2ec:	02 84       	ldd	r0, Z+10	; 0x0a
+ 2ee:	f3 85       	ldd	r31, Z+11	; 0x0b
+ 2f0:	e0 2d       	mov	r30, r0
+ 2f2:	19 95       	eicall
+ 2f4:	ec 01       	movw	r28, r24
+ 2f6:	d6 01       	movw	r26, r12
+ 2f8:	ed 91       	ld	r30, X+
+ 2fa:	fc 91       	ld	r31, X
+ 2fc:	ee 0d       	add	r30, r14
+ 2fe:	ff 1d       	adc	r31, r15
+ 300:	80 81       	ld	r24, Z
+ 302:	91 81       	ldd	r25, Z+1	; 0x01
+ 304:	dc 01       	movw	r26, r24
+ 306:	ed 91       	ld	r30, X+
+ 308:	fc 91       	ld	r31, X
+ 30a:	00 84       	ldd	r0, Z+8	; 0x08
+ 30c:	f1 85       	ldd	r31, Z+9	; 0x09
+ 30e:	e0 2d       	mov	r30, r0
+ 310:	19 95       	eicall
+ 312:	fe 01       	movw	r30, r28
+ 314:	e8 1b       	sub	r30, r24
+ 316:	f9 0b       	sbc	r31, r25
+ 318:	ea 15       	cp	r30, r10
+ 31a:	fb 05       	cpc	r31, r11
+ 31c:	04 f0       	brlt	.+0      	; 0x31e <_ZN10RestServer10print_formER6Stream+0x31e>
+ 31e:	00 c0       	rjmp	.+0      	; 0x320 <_ZN10RestServer10print_formER6Stream+0x320>
+ 320:	00 c0       	rjmp	.+0      	; 0x322 <_ZN10RestServer10print_formER6Stream+0x322>
+ 322:	c6 01       	movw	r24, r12
+ 324:	60 e0       	ldi	r22, 0x00	; 0
+ 326:	70 e0       	ldi	r23, 0x00	; 0
+ 328:	41 2f       	mov	r20, r17
+ 32a:	50 2f       	mov	r21, r16
+ 32c:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer10print_formER6Stream>
+ 330:	d6 01       	movw	r26, r12
+ 332:	ed 91       	ld	r30, X+
+ 334:	fc 91       	ld	r31, X
+ 336:	ee 0d       	add	r30, r14
+ 338:	ff 1d       	adc	r31, r15
+ 33a:	80 81       	ld	r24, Z
+ 33c:	91 81       	ldd	r25, Z+1	; 0x01
+ 33e:	dc 01       	movw	r26, r24
+ 340:	ed 91       	ld	r30, X+
+ 342:	fc 91       	ld	r31, X
+ 344:	01 90       	ld	r0, Z+
+ 346:	f0 81       	ld	r31, Z
+ 348:	e0 2d       	mov	r30, r0
+ 34a:	19 95       	eicall
+ 34c:	bc 01       	movw	r22, r24
+ 34e:	81 2f       	mov	r24, r17
+ 350:	90 2f       	mov	r25, r16
+ 352:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer10print_formER6Stream>
+ 356:	c6 01       	movw	r24, r12
+ 358:	60 e0       	ldi	r22, 0x00	; 0
+ 35a:	70 e0       	ldi	r23, 0x00	; 0
+ 35c:	41 2f       	mov	r20, r17
+ 35e:	50 2f       	mov	r21, r16
+ 360:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer10print_formER6Stream>
+ 364:	c6 01       	movw	r24, r12
+ 366:	60 e0       	ldi	r22, 0x00	; 0
+ 368:	70 e0       	ldi	r23, 0x00	; 0
+ 36a:	41 2f       	mov	r20, r17
+ 36c:	50 2f       	mov	r21, r16
+ 36e:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer10print_formER6Stream>
+ 372:	93 94       	inc	r9
+ 374:	f6 01       	movw	r30, r12
+ 376:	82 81       	ldd	r24, Z+2	; 0x02
+ 378:	98 16       	cp	r9, r24
+ 37a:	00 f4       	brcc	.+0      	; 0x37c <_ZN10RestServer10print_formER6Stream+0x37c>
+ 37c:	00 c0       	rjmp	.+0      	; 0x37e <_ZN10RestServer10print_formER6Stream+0x37e>
+ 37e:	c6 01       	movw	r24, r12
+ 380:	60 e0       	ldi	r22, 0x00	; 0
+ 382:	70 e0       	ldi	r23, 0x00	; 0
+ 384:	41 2f       	mov	r20, r17
+ 386:	50 2f       	mov	r21, r16
+ 388:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer10print_formER6Stream>
+ 38c:	df 91       	pop	r29
+ 38e:	cf 91       	pop	r28
+ 390:	1f 91       	pop	r17
+ 392:	0f 91       	pop	r16
+ 394:	ff 90       	pop	r15
+ 396:	ef 90       	pop	r14
+ 398:	df 90       	pop	r13
+ 39a:	cf 90       	pop	r12
+ 39c:	bf 90       	pop	r11
+ 39e:	af 90       	pop	r10
+ 3a0:	9f 90       	pop	r9
+ 3a2:	08 95       	ret
+
+Disassembly of section .text._ZN10RestServer26print_resource_descriptionER6Stream:
+
+00000000 <_ZN10RestServer26print_resource_descriptionER6Stream>:
+
+int RestServer::get_server_state() {
+	return server_state;
+}
+
+boolean RestServer::handle_requests(Stream &_client) {
+   0:	df 92       	push	r13
+   2:	ef 92       	push	r14
+   4:	ff 92       	push	r15
+   6:	0f 93       	push	r16
+   8:	1f 93       	push	r17
+   a:	cf 93       	push	r28
+	if (_client.available()) {
+   c:	df 93       	push	r29
+   e:	8c 01       	movw	r16, r24
+  10:	eb 01       	movw	r28, r22
+  12:	60 e0       	ldi	r22, 0x00	; 0
+  14:	70 e0       	ldi	r23, 0x00	; 0
+  16:	ae 01       	movw	r20, r28
+  18:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer26print_resource_descriptionER6Stream>
+  1c:	c8 01       	movw	r24, r16
+  1e:	60 e0       	ldi	r22, 0x00	; 0
+		start_timer();
+  20:	70 e0       	ldi	r23, 0x00	; 0
+  22:	ae 01       	movw	r20, r28
+  24:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer26print_resource_descriptionER6Stream>
+		read_request(_client.read());
+  28:	dd 24       	eor	r13, r13
+  2a:	00 c0       	rjmp	.+0      	; 0x2c <_ZN10RestServer26print_resource_descriptionER6Stream+0x2c>
+  2c:	c8 01       	movw	r24, r16
+  2e:	60 e0       	ldi	r22, 0x00	; 0
+  30:	70 e0       	ldi	r23, 0x00	; 0
+  32:	ae 01       	movw	r20, r28
+  34:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer26print_resource_descriptionER6Stream>
+  38:	ed 2c       	mov	r14, r13
+  3a:	ff 24       	eor	r15, r15
+  3c:	ee 0c       	add	r14, r14
+	}
+	parse_request();
+  3e:	ff 1c       	adc	r15, r15
+  40:	ee 0c       	add	r14, r14
+  42:	ff 1c       	adc	r15, r15
+	process();	
+  44:	d8 01       	movw	r26, r16
+  46:	ed 91       	ld	r30, X+
+  48:	fc 91       	ld	r31, X
+	if (server_state == PROCESS) return true;
+  4a:	ee 0d       	add	r30, r14
+  4c:	ff 1d       	adc	r31, r15
+  4e:	80 81       	ld	r24, Z
+  50:	91 81       	ldd	r25, Z+1	; 0x01
+  52:	dc 01       	movw	r26, r24
+  54:	ed 91       	ld	r30, X+
+  56:	fc 91       	ld	r31, X
+	else return false;
+}
+  58:	01 90       	ld	r0, Z+
+  5a:	f0 81       	ld	r31, Z
+  5c:	e0 2d       	mov	r30, r0
+  5e:	19 95       	eicall
+  60:	bc 01       	movw	r22, r24
+  62:	ce 01       	movw	r24, r28
+  64:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer26print_resource_descriptionER6Stream>
+  68:	c8 01       	movw	r24, r16
+  6a:	60 e0       	ldi	r22, 0x00	; 0
+  6c:	70 e0       	ldi	r23, 0x00	; 0
+  6e:	ae 01       	movw	r20, r28
+  70:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer26print_resource_descriptionER6Stream>
+  74:	d8 01       	movw	r26, r16
+  76:	ed 91       	ld	r30, X+
+  78:	fc 91       	ld	r31, X
+  7a:	ee 0d       	add	r30, r14
+  7c:	ff 1d       	adc	r31, r15
+  7e:	80 81       	ld	r24, Z
+  80:	91 81       	ldd	r25, Z+1	; 0x01
+  82:	dc 01       	movw	r26, r24
+  84:	ed 91       	ld	r30, X+
+  86:	fc 91       	ld	r31, X
+  88:	02 80       	ldd	r0, Z+2	; 0x02
+  8a:	f3 81       	ldd	r31, Z+3	; 0x03
+  8c:	e0 2d       	mov	r30, r0
+  8e:	19 95       	eicall
+  90:	88 23       	and	r24, r24
+  92:	01 f0       	breq	.+0      	; 0x94 <_ZN10RestServer26print_resource_descriptionER6Stream+0x94>
+  94:	c8 01       	movw	r24, r16
+  96:	60 e0       	ldi	r22, 0x00	; 0
+  98:	70 e0       	ldi	r23, 0x00	; 0
+  9a:	00 c0       	rjmp	.+0      	; 0x9c <_ZN10RestServer26print_resource_descriptionER6Stream+0x9c>
+  9c:	c8 01       	movw	r24, r16
+  9e:	60 e0       	ldi	r22, 0x00	; 0
+  a0:	70 e0       	ldi	r23, 0x00	; 0
+  a2:	ae 01       	movw	r20, r28
+  a4:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer26print_resource_descriptionER6Stream>
+  a8:	c8 01       	movw	r24, r16
+  aa:	60 e0       	ldi	r22, 0x00	; 0
+  ac:	70 e0       	ldi	r23, 0x00	; 0
+  ae:	ae 01       	movw	r20, r28
+  b0:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer26print_resource_descriptionER6Stream>
+  b4:	d8 01       	movw	r26, r16
+  b6:	ed 91       	ld	r30, X+
+  b8:	fc 91       	ld	r31, X
+  ba:	ee 0d       	add	r30, r14
+  bc:	ff 1d       	adc	r31, r15
+  be:	80 81       	ld	r24, Z
+  c0:	91 81       	ldd	r25, Z+1	; 0x01
+  c2:	dc 01       	movw	r26, r24
+  c4:	ed 91       	ld	r30, X+
+  c6:	fc 91       	ld	r31, X
+  c8:	00 84       	ldd	r0, Z+8	; 0x08
+  ca:	f1 85       	ldd	r31, Z+9	; 0x09
+  cc:	e0 2d       	mov	r30, r0
+  ce:	19 95       	eicall
+  d0:	bc 01       	movw	r22, r24
+  d2:	ce 01       	movw	r24, r28
+  d4:	4a e0       	ldi	r20, 0x0A	; 10
+  d6:	50 e0       	ldi	r21, 0x00	; 0
+  d8:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer26print_resource_descriptionER6Stream>
+  dc:	c8 01       	movw	r24, r16
+  de:	60 e0       	ldi	r22, 0x00	; 0
+  e0:	70 e0       	ldi	r23, 0x00	; 0
+  e2:	ae 01       	movw	r20, r28
+  e4:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer26print_resource_descriptionER6Stream>
+  e8:	d8 01       	movw	r26, r16
+  ea:	ed 91       	ld	r30, X+
+  ec:	fc 91       	ld	r31, X
+  ee:	ee 0d       	add	r30, r14
+  f0:	ff 1d       	adc	r31, r15
+  f2:	80 81       	ld	r24, Z
+  f4:	91 81       	ldd	r25, Z+1	; 0x01
+  f6:	dc 01       	movw	r26, r24
+  f8:	ed 91       	ld	r30, X+
+  fa:	fc 91       	ld	r31, X
+  fc:	02 84       	ldd	r0, Z+10	; 0x0a
+  fe:	f3 85       	ldd	r31, Z+11	; 0x0b
+ 100:	e0 2d       	mov	r30, r0
+ 102:	19 95       	eicall
+ 104:	bc 01       	movw	r22, r24
+ 106:	ce 01       	movw	r24, r28
+ 108:	4a e0       	ldi	r20, 0x0A	; 10
+ 10a:	50 e0       	ldi	r21, 0x00	; 0
+ 10c:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer26print_resource_descriptionER6Stream>
+ 110:	c8 01       	movw	r24, r16
+ 112:	60 e0       	ldi	r22, 0x00	; 0
+ 114:	70 e0       	ldi	r23, 0x00	; 0
+ 116:	ae 01       	movw	r20, r28
+ 118:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer26print_resource_descriptionER6Stream>
+ 11c:	2d 2d       	mov	r18, r13
+ 11e:	30 e0       	ldi	r19, 0x00	; 0
+ 120:	f8 01       	movw	r30, r16
+ 122:	82 81       	ldd	r24, Z+2	; 0x02
+ 124:	90 e0       	ldi	r25, 0x00	; 0
+ 126:	01 97       	sbiw	r24, 0x01	; 1
+ 128:	28 17       	cp	r18, r24
+ 12a:	39 07       	cpc	r19, r25
+ 12c:	04 f4       	brge	.+0      	; 0x12e <_ZN10RestServer26print_resource_descriptionER6Stream+0x12e>
+ 12e:	c8 01       	movw	r24, r16
+ 130:	60 e0       	ldi	r22, 0x00	; 0
+ 132:	70 e0       	ldi	r23, 0x00	; 0
+ 134:	ae 01       	movw	r20, r28
+ 136:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer26print_resource_descriptionER6Stream>
+ 13a:	c8 01       	movw	r24, r16
+ 13c:	60 e0       	ldi	r22, 0x00	; 0
+ 13e:	70 e0       	ldi	r23, 0x00	; 0
+ 140:	ae 01       	movw	r20, r28
+ 142:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer26print_resource_descriptionER6Stream>
+ 146:	d3 94       	inc	r13
+ 148:	d8 01       	movw	r26, r16
+ 14a:	12 96       	adiw	r26, 0x02	; 2
+ 14c:	8c 91       	ld	r24, X
+ 14e:	12 97       	sbiw	r26, 0x02	; 2
+ 150:	d8 16       	cp	r13, r24
+ 152:	00 f4       	brcc	.+0      	; 0x154 <_ZN10RestServer26print_resource_descriptionER6Stream+0x154>
+ 154:	00 c0       	rjmp	.+0      	; 0x156 <_ZN10RestServer26print_resource_descriptionER6Stream+0x156>
+ 156:	c8 01       	movw	r24, r16
+ 158:	60 e0       	ldi	r22, 0x00	; 0
+ 15a:	70 e0       	ldi	r23, 0x00	; 0
+ 15c:	ae 01       	movw	r20, r28
+ 15e:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer26print_resource_descriptionER6Stream>
+ 162:	df 91       	pop	r29
+ 164:	cf 91       	pop	r28
+ 166:	1f 91       	pop	r17
+ 168:	0f 91       	pop	r16
+ 16a:	ff 90       	pop	r15
+ 16c:	ef 90       	pop	r14
+ 16e:	df 90       	pop	r13
+ 170:	08 95       	ret
+
+Disassembly of section .text._ZN10RestServer10print_jsonER6Stream:
+
+00000000 <_ZN10RestServer10print_jsonER6Stream>:
+
+int RestServer::get_server_state() {
+	return server_state;
+}
+
+boolean RestServer::handle_requests(Stream &_client) {
+   0:	af 92       	push	r10
+   2:	bf 92       	push	r11
+   4:	cf 92       	push	r12
+   6:	df 92       	push	r13
+   8:	ef 92       	push	r14
+   a:	ff 92       	push	r15
+	if (_client.available()) {
+   c:	0f 93       	push	r16
+   e:	1f 93       	push	r17
+  10:	cf 93       	push	r28
+  12:	df 93       	push	r29
+  14:	8c 01       	movw	r16, r24
+  16:	eb 01       	movw	r28, r22
+  18:	60 e0       	ldi	r22, 0x00	; 0
+  1a:	70 e0       	ldi	r23, 0x00	; 0
+  1c:	ae 01       	movw	r20, r28
+  1e:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer10print_jsonER6Stream>
+		start_timer();
+  22:	d8 01       	movw	r26, r16
+  24:	12 96       	adiw	r26, 0x02	; 2
+		read_request(_client.read());
+  26:	4c 91       	ld	r20, X
+  28:	12 97       	sbiw	r26, 0x02	; 2
+  2a:	50 e0       	ldi	r21, 0x00	; 0
+  2c:	80 e0       	ldi	r24, 0x00	; 0
+  2e:	90 e0       	ldi	r25, 0x00	; 0
+  30:	20 e0       	ldi	r18, 0x00	; 0
+  32:	30 e0       	ldi	r19, 0x00	; 0
+  34:	ff 24       	eor	r15, r15
+  36:	00 c0       	rjmp	.+0      	; 0x38 <_ZN10RestServer10print_jsonER6Stream+0x38>
+  38:	d8 01       	movw	r26, r16
+  3a:	ed 91       	ld	r30, X+
+  3c:	fc 91       	ld	r31, X
+	}
+	parse_request();
+  3e:	11 97       	sbiw	r26, 0x01	; 1
+  40:	e8 0f       	add	r30, r24
+  42:	f9 1f       	adc	r31, r25
+	process();	
+  44:	62 81       	ldd	r22, Z+2	; 0x02
+  46:	66 23       	and	r22, r22
+  48:	01 f4       	brne	.+0      	; 0x4a <_ZN10RestServer10print_jsonER6Stream+0x4a>
+	if (server_state == PROCESS) return true;
+  4a:	63 81       	ldd	r22, Z+3	; 0x03
+  4c:	61 11       	cpse	r22, r1
+  4e:	f3 94       	inc	r15
+  50:	2f 5f       	subi	r18, 0xFF	; 255
+  52:	3f 4f       	sbci	r19, 0xFF	; 255
+  54:	04 96       	adiw	r24, 0x04	; 4
+  56:	24 17       	cp	r18, r20
+	else return false;
+}
+  58:	35 07       	cpc	r19, r21
+  5a:	04 f0       	brlt	.+0      	; 0x5c <_ZN10RestServer10print_jsonER6Stream+0x5c>
+  5c:	c8 01       	movw	r24, r16
+  5e:	60 e0       	ldi	r22, 0x00	; 0
+  60:	70 e0       	ldi	r23, 0x00	; 0
+  62:	ae 01       	movw	r20, r28
+  64:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer10print_jsonER6Stream>
+  68:	cc 24       	eor	r12, r12
+  6a:	dd 24       	eor	r13, r13
+  6c:	aa 24       	eor	r10, r10
+  6e:	bb 24       	eor	r11, r11
+  70:	ef 2c       	mov	r14, r15
+  72:	ff 24       	eor	r15, r15
+  74:	08 94       	sec
+  76:	e1 08       	sbc	r14, r1
+  78:	f1 08       	sbc	r15, r1
+  7a:	00 c0       	rjmp	.+0      	; 0x7c <_ZN10RestServer10print_jsonER6Stream+0x7c>
+  7c:	d8 01       	movw	r26, r16
+  7e:	ed 91       	ld	r30, X+
+  80:	fc 91       	ld	r31, X
+  82:	11 97       	sbiw	r26, 0x01	; 1
+  84:	ec 0d       	add	r30, r12
+  86:	fd 1d       	adc	r31, r13
+  88:	82 81       	ldd	r24, Z+2	; 0x02
+  8a:	88 23       	and	r24, r24
+  8c:	01 f4       	brne	.+0      	; 0x8e <_ZN10RestServer10print_jsonER6Stream+0x8e>
+  8e:	83 81       	ldd	r24, Z+3	; 0x03
+  90:	88 23       	and	r24, r24
+  92:	01 f4       	brne	.+0      	; 0x94 <_ZN10RestServer10print_jsonER6Stream+0x94>
+  94:	00 c0       	rjmp	.+0      	; 0x96 <_ZN10RestServer10print_jsonER6Stream+0x96>
+  96:	c8 01       	movw	r24, r16
+  98:	60 e0       	ldi	r22, 0x00	; 0
+  9a:	70 e0       	ldi	r23, 0x00	; 0
+  9c:	ae 01       	movw	r20, r28
+  9e:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer10print_jsonER6Stream>
+  a2:	d8 01       	movw	r26, r16
+  a4:	ed 91       	ld	r30, X+
+  a6:	fc 91       	ld	r31, X
+  a8:	ec 0d       	add	r30, r12
+  aa:	fd 1d       	adc	r31, r13
+  ac:	80 81       	ld	r24, Z
+  ae:	91 81       	ldd	r25, Z+1	; 0x01
+  b0:	dc 01       	movw	r26, r24
+  b2:	ed 91       	ld	r30, X+
+  b4:	fc 91       	ld	r31, X
+  b6:	01 90       	ld	r0, Z+
+  b8:	f0 81       	ld	r31, Z
+  ba:	e0 2d       	mov	r30, r0
+  bc:	19 95       	eicall
+  be:	bc 01       	movw	r22, r24
+  c0:	ce 01       	movw	r24, r28
+  c2:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer10print_jsonER6Stream>
+  c6:	c8 01       	movw	r24, r16
+  c8:	60 e0       	ldi	r22, 0x00	; 0
+  ca:	70 e0       	ldi	r23, 0x00	; 0
+  cc:	ae 01       	movw	r20, r28
+  ce:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer10print_jsonER6Stream>
+  d2:	d8 01       	movw	r26, r16
+  d4:	ed 91       	ld	r30, X+
+  d6:	fc 91       	ld	r31, X
+  d8:	ec 0d       	add	r30, r12
+  da:	fd 1d       	adc	r31, r13
+  dc:	80 81       	ld	r24, Z
+  de:	91 81       	ldd	r25, Z+1	; 0x01
+  e0:	dc 01       	movw	r26, r24
+  e2:	ed 91       	ld	r30, X+
+  e4:	fc 91       	ld	r31, X
+  e6:	04 80       	ldd	r0, Z+4	; 0x04
+  e8:	f5 81       	ldd	r31, Z+5	; 0x05
+  ea:	e0 2d       	mov	r30, r0
+  ec:	19 95       	eicall
+  ee:	bc 01       	movw	r22, r24
+  f0:	ce 01       	movw	r24, r28
+  f2:	4a e0       	ldi	r20, 0x0A	; 10
+  f4:	50 e0       	ldi	r21, 0x00	; 0
+  f6:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer10print_jsonER6Stream>
+  fa:	c8 01       	movw	r24, r16
+  fc:	60 e0       	ldi	r22, 0x00	; 0
+  fe:	70 e0       	ldi	r23, 0x00	; 0
+ 100:	ae 01       	movw	r20, r28
+ 102:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer10print_jsonER6Stream>
+ 106:	ae 14       	cp	r10, r14
+ 108:	bf 04       	cpc	r11, r15
+ 10a:	04 f4       	brge	.+0      	; 0x10c <_ZN10RestServer10print_jsonER6Stream+0x10c>
+ 10c:	c8 01       	movw	r24, r16
+ 10e:	60 e0       	ldi	r22, 0x00	; 0
+ 110:	70 e0       	ldi	r23, 0x00	; 0
+ 112:	ae 01       	movw	r20, r28
+ 114:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer10print_jsonER6Stream>
+ 118:	c8 01       	movw	r24, r16
+ 11a:	60 e0       	ldi	r22, 0x00	; 0
+ 11c:	70 e0       	ldi	r23, 0x00	; 0
+ 11e:	ae 01       	movw	r20, r28
+ 120:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer10print_jsonER6Stream>
+ 124:	08 94       	sec
+ 126:	a1 1c       	adc	r10, r1
+ 128:	b1 1c       	adc	r11, r1
+ 12a:	e4 e0       	ldi	r30, 0x04	; 4
+ 12c:	f0 e0       	ldi	r31, 0x00	; 0
+ 12e:	ce 0e       	add	r12, r30
+ 130:	df 1e       	adc	r13, r31
+ 132:	d8 01       	movw	r26, r16
+ 134:	12 96       	adiw	r26, 0x02	; 2
+ 136:	8c 91       	ld	r24, X
+ 138:	12 97       	sbiw	r26, 0x02	; 2
+ 13a:	90 e0       	ldi	r25, 0x00	; 0
+ 13c:	a8 16       	cp	r10, r24
+ 13e:	b9 06       	cpc	r11, r25
+ 140:	04 f4       	brge	.+0      	; 0x142 <_ZN10RestServer10print_jsonER6Stream+0x142>
+ 142:	00 c0       	rjmp	.+0      	; 0x144 <_ZN10RestServer10print_jsonER6Stream+0x144>
+ 144:	c8 01       	movw	r24, r16
+ 146:	60 e0       	ldi	r22, 0x00	; 0
+ 148:	70 e0       	ldi	r23, 0x00	; 0
+ 14a:	ae 01       	movw	r20, r28
+ 14c:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer10print_jsonER6Stream>
+ 150:	df 91       	pop	r29
+ 152:	cf 91       	pop	r28
+ 154:	1f 91       	pop	r17
+ 156:	0f 91       	pop	r16
+ 158:	ff 90       	pop	r15
+ 15a:	ef 90       	pop	r14
+ 15c:	df 90       	pop	r13
+ 15e:	cf 90       	pop	r12
+ 160:	bf 90       	pop	r11
+ 162:	af 90       	pop	r10
+ 164:	08 95       	ret
+
+Disassembly of section .text._ZN10RestServer10print_htmlER6Stream:
+
+00000000 <_ZN10RestServer10print_htmlER6Stream>:
+
+int RestServer::get_server_state() {
+	return server_state;
+}
+
+boolean RestServer::handle_requests(Stream &_client) {
+   0:	cf 92       	push	r12
+   2:	df 92       	push	r13
+   4:	ef 92       	push	r14
+   6:	ff 92       	push	r15
+   8:	0f 93       	push	r16
+   a:	1f 93       	push	r17
+	if (_client.available()) {
+   c:	cf 93       	push	r28
+   e:	df 93       	push	r29
+  10:	8c 01       	movw	r16, r24
+  12:	eb 01       	movw	r28, r22
+  14:	fc 01       	movw	r30, r24
+  16:	ea 5a       	subi	r30, 0xAA	; 170
+  18:	ff 4f       	sbci	r31, 0xFF	; 255
+  1a:	80 81       	ld	r24, Z
+  1c:	80 fd       	sbrc	r24, 0
+  1e:	00 c0       	rjmp	.+0      	; 0x20 <_ZN10RestServer10print_htmlER6Stream+0x20>
+		start_timer();
+  20:	c8 01       	movw	r24, r16
+  22:	60 e0       	ldi	r22, 0x00	; 0
+  24:	70 e0       	ldi	r23, 0x00	; 0
+		read_request(_client.read());
+  26:	ae 01       	movw	r20, r28
+  28:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer10print_htmlER6Stream>
+  2c:	c8 01       	movw	r24, r16
+  2e:	60 e0       	ldi	r22, 0x00	; 0
+  30:	70 e0       	ldi	r23, 0x00	; 0
+  32:	ae 01       	movw	r20, r28
+  34:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer10print_htmlER6Stream>
+  38:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer10print_htmlER6Stream>
+  3c:	28 ee       	ldi	r18, 0xE8	; 232
+	}
+	parse_request();
+  3e:	33 e0       	ldi	r19, 0x03	; 3
+  40:	40 e0       	ldi	r20, 0x00	; 0
+  42:	50 e0       	ldi	r21, 0x00	; 0
+	process();	
+  44:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer10print_htmlER6Stream>
+  48:	ce 01       	movw	r24, r28
+	if (server_state == PROCESS) return true;
+  4a:	ba 01       	movw	r22, r20
+  4c:	a9 01       	movw	r20, r18
+  4e:	2a e0       	ldi	r18, 0x0A	; 10
+  50:	30 e0       	ldi	r19, 0x00	; 0
+  52:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer10print_htmlER6Stream>
+  56:	c8 01       	movw	r24, r16
+	else return false;
+}
+  58:	60 e0       	ldi	r22, 0x00	; 0
+  5a:	70 e0       	ldi	r23, 0x00	; 0
+  5c:	ae 01       	movw	r20, r28
+  5e:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer10print_htmlER6Stream>
+  62:	ee 24       	eor	r14, r14
+  64:	ff 24       	eor	r15, r15
+  66:	cc 24       	eor	r12, r12
+  68:	dd 24       	eor	r13, r13
+  6a:	00 c0       	rjmp	.+0      	; 0x6c <_ZN10RestServer10print_htmlER6Stream+0x6c>
+  6c:	d8 01       	movw	r26, r16
+  6e:	ed 91       	ld	r30, X+
+  70:	fc 91       	ld	r31, X
+  72:	11 97       	sbiw	r26, 0x01	; 1
+  74:	ee 0d       	add	r30, r14
+  76:	ff 1d       	adc	r31, r15
+  78:	82 81       	ldd	r24, Z+2	; 0x02
+  7a:	88 23       	and	r24, r24
+  7c:	01 f4       	brne	.+0      	; 0x7e <_ZN10RestServer10print_htmlER6Stream+0x7e>
+  7e:	83 81       	ldd	r24, Z+3	; 0x03
+  80:	88 23       	and	r24, r24
+  82:	01 f0       	breq	.+0      	; 0x84 <_ZN10RestServer10print_htmlER6Stream+0x84>
+  84:	80 81       	ld	r24, Z
+  86:	91 81       	ldd	r25, Z+1	; 0x01
+  88:	dc 01       	movw	r26, r24
+  8a:	ed 91       	ld	r30, X+
+  8c:	fc 91       	ld	r31, X
+  8e:	01 90       	ld	r0, Z+
+  90:	f0 81       	ld	r31, Z
+  92:	e0 2d       	mov	r30, r0
+  94:	19 95       	eicall
+  96:	bc 01       	movw	r22, r24
+  98:	ce 01       	movw	r24, r28
+  9a:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer10print_htmlER6Stream>
+  9e:	c8 01       	movw	r24, r16
+  a0:	60 e0       	ldi	r22, 0x00	; 0
+  a2:	70 e0       	ldi	r23, 0x00	; 0
+  a4:	ae 01       	movw	r20, r28
+  a6:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer10print_htmlER6Stream>
+  aa:	d8 01       	movw	r26, r16
+  ac:	ed 91       	ld	r30, X+
+  ae:	fc 91       	ld	r31, X
+  b0:	ee 0d       	add	r30, r14
+  b2:	ff 1d       	adc	r31, r15
+  b4:	80 81       	ld	r24, Z
+  b6:	91 81       	ldd	r25, Z+1	; 0x01
+  b8:	dc 01       	movw	r26, r24
+  ba:	ed 91       	ld	r30, X+
+  bc:	fc 91       	ld	r31, X
+  be:	04 80       	ldd	r0, Z+4	; 0x04
+  c0:	f5 81       	ldd	r31, Z+5	; 0x05
+  c2:	e0 2d       	mov	r30, r0
+  c4:	19 95       	eicall
+  c6:	bc 01       	movw	r22, r24
+  c8:	ce 01       	movw	r24, r28
+  ca:	4a e0       	ldi	r20, 0x0A	; 10
+  cc:	50 e0       	ldi	r21, 0x00	; 0
+  ce:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer10print_htmlER6Stream>
+  d2:	c8 01       	movw	r24, r16
+  d4:	60 e0       	ldi	r22, 0x00	; 0
+  d6:	70 e0       	ldi	r23, 0x00	; 0
+  d8:	ae 01       	movw	r20, r28
+  da:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer10print_htmlER6Stream>
+  de:	08 94       	sec
+  e0:	c1 1c       	adc	r12, r1
+  e2:	d1 1c       	adc	r13, r1
+  e4:	e4 e0       	ldi	r30, 0x04	; 4
+  e6:	f0 e0       	ldi	r31, 0x00	; 0
+  e8:	ee 0e       	add	r14, r30
+  ea:	ff 1e       	adc	r15, r31
+  ec:	d8 01       	movw	r26, r16
+  ee:	12 96       	adiw	r26, 0x02	; 2
+  f0:	8c 91       	ld	r24, X
+  f2:	12 97       	sbiw	r26, 0x02	; 2
+  f4:	90 e0       	ldi	r25, 0x00	; 0
+  f6:	c8 16       	cp	r12, r24
+  f8:	d9 06       	cpc	r13, r25
+  fa:	04 f4       	brge	.+0      	; 0xfc <_ZN10RestServer10print_htmlER6Stream+0xfc>
+  fc:	00 c0       	rjmp	.+0      	; 0xfe <_ZN10RestServer10print_htmlER6Stream+0xfe>
+  fe:	c8 01       	movw	r24, r16
+ 100:	be 01       	movw	r22, r28
+ 102:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer10print_htmlER6Stream>
+ 106:	c8 01       	movw	r24, r16
+ 108:	60 e0       	ldi	r22, 0x00	; 0
+ 10a:	70 e0       	ldi	r23, 0x00	; 0
+ 10c:	ae 01       	movw	r20, r28
+ 10e:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer10print_htmlER6Stream>
+ 112:	df 91       	pop	r29
+ 114:	cf 91       	pop	r28
+ 116:	1f 91       	pop	r17
+ 118:	0f 91       	pop	r16
+ 11a:	ff 90       	pop	r15
+ 11c:	ef 90       	pop	r14
+ 11e:	df 90       	pop	r13
+ 120:	cf 90       	pop	r12
+ 122:	08 95       	ret
+
+Disassembly of section .text._ZN10RestServer13send_responseER6Stream:
+
+00000000 <_ZN10RestServer13send_responseER6Stream>:
+
+int RestServer::get_server_state() {
+	return server_state;
+}
+
+boolean RestServer::handle_requests(Stream &_client) {
+   0:	cf 93       	push	r28
+   2:	df 93       	push	r29
+   4:	ec 01       	movw	r28, r24
+   6:	fc 01       	movw	r30, r24
+   8:	ed 5a       	subi	r30, 0xAD	; 173
+   a:	ff 4f       	sbci	r31, 0xFF	; 255
+	if (_client.available()) {
+   c:	80 81       	ld	r24, Z
+   e:	85 30       	cpi	r24, 0x05	; 5
+  10:	01 f4       	brne	.+0      	; 0x12 <_ZN10RestServer13send_responseER6Stream+0x12>
+  12:	fe 01       	movw	r30, r28
+  14:	ea 5a       	subi	r30, 0xAA	; 170
+  16:	ff 4f       	sbci	r31, 0xFF	; 255
+  18:	80 81       	ld	r24, Z
+  1a:	81 ff       	sbrs	r24, 1
+  1c:	00 c0       	rjmp	.+0      	; 0x1e <_ZN10RestServer13send_responseER6Stream+0x1e>
+  1e:	ce 01       	movw	r24, r28
+		start_timer();
+  20:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer13send_responseER6Stream>
+  24:	00 c0       	rjmp	.+0      	; 0x26 <_ZN10RestServer13send_responseER6Stream+0x26>
+		read_request(_client.read());
+  26:	80 ff       	sbrs	r24, 0
+  28:	00 c0       	rjmp	.+0      	; 0x2a <_ZN10RestServer13send_responseER6Stream+0x2a>
+  2a:	ce 01       	movw	r24, r28
+  2c:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer13send_responseER6Stream>
+  30:	00 c0       	rjmp	.+0      	; 0x32 <_ZN10RestServer13send_responseER6Stream+0x32>
+  32:	ce 01       	movw	r24, r28
+  34:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer13send_responseER6Stream>
+  38:	cd 5a       	subi	r28, 0xAD	; 173
+  3a:	df 4f       	sbci	r29, 0xFF	; 255
+  3c:	86 e0       	ldi	r24, 0x06	; 6
+	}
+	parse_request();
+  3e:	88 83       	st	Y, r24
+  40:	df 91       	pop	r29
+  42:	cf 91       	pop	r28
+	process();	
+  44:	08 95       	ret
+
+Disassembly of section .text._ZN10RestServer15handle_responseER6Stream:
+
+00000000 <_ZN10RestServer15handle_responseER6Stream>:
+
+int RestServer::get_server_state() {
+	return server_state;
+}
+
+boolean RestServer::handle_requests(Stream &_client) {
+   0:	cf 93       	push	r28
+   2:	df 93       	push	r29
+   4:	ec 01       	movw	r28, r24
+   6:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer15handle_responseER6Stream>
+   a:	ce 01       	movw	r24, r28
+	if (_client.available()) {
+   c:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer15handle_responseER6Stream>
+  10:	ce 01       	movw	r24, r28
+  12:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer15handle_responseER6Stream>
+  16:	cd 5a       	subi	r28, 0xAD	; 173
+  18:	df 4f       	sbci	r29, 0xFF	; 255
+  1a:	81 e0       	ldi	r24, 0x01	; 1
+  1c:	98 81       	ld	r25, Y
+  1e:	91 11       	cpse	r25, r1
+		start_timer();
+  20:	80 e0       	ldi	r24, 0x00	; 0
+  22:	df 91       	pop	r29
+  24:	cf 91       	pop	r28
+		read_request(_client.read());
+  26:	08 95       	ret
+
+Disassembly of section .text._ZN10RestServer14match_div_charEc:
+
+00000000 <_ZN10RestServer14match_div_charEc>:
+
+int RestServer::get_server_state() {
+	return server_state;
+}
+
+boolean RestServer::handle_requests(Stream &_client) {
+   0:	20 e0       	ldi	r18, 0x00	; 0
+   2:	30 e0       	ldi	r19, 0x00	; 0
+   4:	fc 01       	movw	r30, r24
+   6:	e2 0f       	add	r30, r18
+   8:	f3 1f       	adc	r31, r19
+   a:	ee 59       	subi	r30, 0x9E	; 158
+	if (_client.available()) {
+   c:	ff 4f       	sbci	r31, 0xFF	; 255
+   e:	40 81       	ld	r20, Z
+  10:	64 17       	cp	r22, r20
+  12:	01 f0       	breq	.+0      	; 0x14 <_ZN10RestServer14match_div_charEc+0x14>
+  14:	2f 5f       	subi	r18, 0xFF	; 255
+  16:	3f 4f       	sbci	r19, 0xFF	; 255
+  18:	24 30       	cpi	r18, 0x04	; 4
+  1a:	31 05       	cpc	r19, r1
+  1c:	01 f4       	brne	.+0      	; 0x1e <_ZN10RestServer14match_div_charEc+0x1e>
+  1e:	80 e0       	ldi	r24, 0x00	; 0
+		start_timer();
+  20:	08 95       	ret
+  22:	81 e0       	ldi	r24, 0x01	; 1
+  24:	08 95       	ret
+
+Disassembly of section .text._ZN10RestServer18check_start_singleEi:
+
+00000000 <_ZN10RestServer18check_start_singleEi>:
+
+int RestServer::get_server_state() {
+	return server_state;
+}
+
+boolean RestServer::handle_requests(Stream &_client) {
+   0:	cf 93       	push	r28
+   2:	df 93       	push	r29
+   4:	eb 01       	movw	r28, r22
+   6:	fc 01       	movw	r30, r24
+   8:	e2 5b       	subi	r30, 0xB2	; 178
+   a:	ff 4f       	sbci	r31, 0xFF	; 255
+	if (_client.available()) {
+   c:	20 81       	ld	r18, Z
+   e:	31 81       	ldd	r19, Z+1	; 0x01
+  10:	62 17       	cp	r22, r18
+  12:	73 07       	cpc	r23, r19
+  14:	04 f4       	brge	.+0      	; 0x16 <_ZN10RestServer18check_start_singleEi+0x16>
+  16:	fc 01       	movw	r30, r24
+  18:	e6 0f       	add	r30, r22
+  1a:	f7 1f       	adc	r31, r23
+  1c:	63 81       	ldd	r22, Z+3	; 0x03
+  1e:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer18check_start_singleEi>
+		start_timer();
+  22:	88 23       	and	r24, r24
+  24:	01 f0       	breq	.+0      	; 0x26 <_ZN10RestServer18check_start_singleEi+0x26>
+		read_request(_client.read());
+  26:	21 96       	adiw	r28, 0x01	; 1
+  28:	00 c0       	rjmp	.+0      	; 0x2a <_ZN10RestServer18check_start_singleEi+0x2a>
+  2a:	cf ef       	ldi	r28, 0xFF	; 255
+  2c:	df ef       	ldi	r29, 0xFF	; 255
+  2e:	ce 01       	movw	r24, r28
+  30:	df 91       	pop	r29
+  32:	cf 91       	pop	r28
+  34:	08 95       	ret
+
+Disassembly of section .text._ZN10RestServer11check_startEi:
+
+00000000 <_ZN10RestServer11check_startEi>:
+
+int RestServer::get_server_state() {
+	return server_state;
+}
+
+boolean RestServer::handle_requests(Stream &_client) {
+   0:	0f 93       	push	r16
+   2:	1f 93       	push	r17
+   4:	cf 93       	push	r28
+   6:	df 93       	push	r29
+   8:	8c 01       	movw	r16, r24
+   a:	eb 01       	movw	r28, r22
+	if (_client.available()) {
+   c:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer11check_startEi>
+  10:	bc 01       	movw	r22, r24
+  12:	ce 01       	movw	r24, r28
+  14:	01 96       	adiw	r24, 0x01	; 1
+  16:	68 17       	cp	r22, r24
+  18:	79 07       	cpc	r23, r25
+  1a:	01 f4       	brne	.+0      	; 0x1c <_ZN10RestServer11check_startEi+0x1c>
+  1c:	c8 01       	movw	r24, r16
+  1e:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer11check_startEi>
+		start_timer();
+  22:	ec 01       	movw	r28, r24
+  24:	ce 01       	movw	r24, r28
+		read_request(_client.read());
+  26:	df 91       	pop	r29
+  28:	cf 91       	pop	r28
+  2a:	1f 91       	pop	r17
+  2c:	0f 91       	pop	r16
+  2e:	08 95       	ret
+
+Disassembly of section .text._ZN10RestServer12next_elementEi:
+
+00000000 <_ZN10RestServer12next_elementEi>:
+
+int RestServer::get_server_state() {
+	return server_state;
+}
+
+boolean RestServer::handle_requests(Stream &_client) {
+   0:	af 92       	push	r10
+   2:	bf 92       	push	r11
+   4:	cf 92       	push	r12
+   6:	df 92       	push	r13
+   8:	ef 92       	push	r14
+   a:	ff 92       	push	r15
+	if (_client.available()) {
+   c:	0f 93       	push	r16
+   e:	1f 93       	push	r17
+  10:	cf 93       	push	r28
+  12:	df 93       	push	r29
+  14:	7c 01       	movw	r14, r24
+  16:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer12next_elementEi>
+  1a:	6c 01       	movw	r12, r24
+  1c:	2f ef       	ldi	r18, 0xFF	; 255
+  1e:	8f 3f       	cpi	r24, 0xFF	; 255
+		start_timer();
+  20:	92 07       	cpc	r25, r18
+  22:	01 f0       	breq	.+0      	; 0x24 <_ZN10RestServer12next_elementEi+0x24>
+  24:	00 e0       	ldi	r16, 0x00	; 0
+		read_request(_client.read());
+  26:	10 e0       	ldi	r17, 0x00	; 0
+  28:	cf ef       	ldi	r28, 0xFF	; 255
+  2a:	df ef       	ldi	r29, 0xFF	; 255
+  2c:	f3 e0       	ldi	r31, 0x03	; 3
+  2e:	af 2e       	mov	r10, r31
+  30:	b1 2c       	mov	r11, r1
+  32:	ae 0c       	add	r10, r14
+  34:	bf 1c       	adc	r11, r15
+  36:	f7 01       	movw	r30, r14
+  38:	e0 0f       	add	r30, r16
+  3a:	f1 1f       	adc	r31, r17
+  3c:	ee 59       	subi	r30, 0x9E	; 158
+	}
+	parse_request();
+  3e:	ff 4f       	sbci	r31, 0xFF	; 255
+  40:	c5 01       	movw	r24, r10
+  42:	60 81       	ld	r22, Z
+	process();	
+  44:	a6 01       	movw	r20, r12
+  46:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer12next_elementEi>
+	if (server_state == PROCESS) return true;
+  4a:	2f ef       	ldi	r18, 0xFF	; 255
+  4c:	8f 3f       	cpi	r24, 0xFF	; 255
+  4e:	92 07       	cpc	r25, r18
+  50:	01 f0       	breq	.+0      	; 0x52 <_ZN10RestServer12next_elementEi+0x52>
+  52:	2f ef       	ldi	r18, 0xFF	; 255
+  54:	cf 3f       	cpi	r28, 0xFF	; 255
+  56:	d2 07       	cpc	r29, r18
+	else return false;
+}
+  58:	01 f0       	breq	.+0      	; 0x5a <_ZN10RestServer12next_elementEi+0x5a>
+  5a:	8c 17       	cp	r24, r28
+  5c:	9d 07       	cpc	r25, r29
+  5e:	04 f4       	brge	.+0      	; 0x60 <_ZN10RestServer12next_elementEi+0x60>
+  60:	ec 01       	movw	r28, r24
+  62:	0f 5f       	subi	r16, 0xFF	; 255
+  64:	1f 4f       	sbci	r17, 0xFF	; 255
+  66:	04 30       	cpi	r16, 0x04	; 4
+  68:	11 05       	cpc	r17, r1
+  6a:	01 f4       	brne	.+0      	; 0x6c <_ZN10RestServer12next_elementEi+0x6c>
+  6c:	00 c0       	rjmp	.+0      	; 0x6e <_ZN10RestServer12next_elementEi+0x6e>
+  6e:	cf ef       	ldi	r28, 0xFF	; 255
+  70:	df ef       	ldi	r29, 0xFF	; 255
+  72:	ce 01       	movw	r24, r28
+  74:	df 91       	pop	r29
+  76:	cf 91       	pop	r28
+  78:	1f 91       	pop	r17
+  7a:	0f 91       	pop	r16
+  7c:	ff 90       	pop	r15
+  7e:	ef 90       	pop	r14
+  80:	df 90       	pop	r13
+  82:	cf 90       	pop	r12
+  84:	bf 90       	pop	r11
+  86:	af 90       	pop	r10
+  88:	08 95       	ret
+
+Disassembly of section .text._ZN10RestServer19check_for_state_msgEi:
+
+00000000 <_ZN10RestServer19check_for_state_msgEi>:
+
+int RestServer::get_server_state() {
+	return server_state;
+}
+
+boolean RestServer::handle_requests(Stream &_client) {
+   0:	ef 92       	push	r14
+   2:	ff 92       	push	r15
+   4:	0f 93       	push	r16
+   6:	1f 93       	push	r17
+   8:	cf 93       	push	r28
+   a:	df 93       	push	r29
+	if (_client.available()) {
+   c:	8c 01       	movw	r16, r24
+   e:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer19check_for_state_msgEi>
+  12:	ec 01       	movw	r28, r24
+  14:	2f ef       	ldi	r18, 0xFF	; 255
+  16:	8f 3f       	cpi	r24, 0xFF	; 255
+  18:	92 07       	cpc	r25, r18
+  1a:	01 f0       	breq	.+0      	; 0x1c <_ZN10RestServer19check_for_state_msgEi+0x1c>
+  1c:	ae e4       	ldi	r26, 0x4E	; 78
+  1e:	ea 2e       	mov	r14, r26
+		start_timer();
+  20:	f1 2c       	mov	r15, r1
+  22:	e0 0e       	add	r14, r16
+  24:	f1 1e       	adc	r15, r17
+		read_request(_client.read());
+  26:	f7 01       	movw	r30, r14
+  28:	80 81       	ld	r24, Z
+  2a:	91 81       	ldd	r25, Z+1	; 0x01
+  2c:	c8 17       	cp	r28, r24
+  2e:	d9 07       	cpc	r29, r25
+  30:	04 f4       	brge	.+0      	; 0x32 <_ZN10RestServer19check_for_state_msgEi+0x32>
+  32:	c8 01       	movw	r24, r16
+  34:	be 01       	movw	r22, r28
+  36:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer19check_for_state_msgEi>
+  3a:	ff ef       	ldi	r31, 0xFF	; 255
+  3c:	8f 3f       	cpi	r24, 0xFF	; 255
+	}
+	parse_request();
+  3e:	9f 07       	cpc	r25, r31
+  40:	01 f4       	brne	.+0      	; 0x42 <_ZN10RestServer19check_for_state_msgEi+0x42>
+  42:	f7 01       	movw	r30, r14
+	process();	
+  44:	40 81       	ld	r20, Z
+  46:	51 81       	ldd	r21, Z+1	; 0x01
+  48:	00 c0       	rjmp	.+0      	; 0x4a <_ZN10RestServer19check_for_state_msgEi+0x4a>
+	if (server_state == PROCESS) return true;
+  4a:	ac 01       	movw	r20, r24
+  4c:	41 50       	subi	r20, 0x01	; 1
+  4e:	50 40       	sbci	r21, 0x00	; 0
+  50:	c8 01       	movw	r24, r16
+  52:	03 96       	adiw	r24, 0x03	; 3
+  54:	be 01       	movw	r22, r28
+  56:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer19check_for_state_msgEi>
+	else return false;
+}
+  5a:	00 c0       	rjmp	.+0      	; 0x5c <_ZN10RestServer19check_for_state_msgEi+0x5c>
+  5c:	8f ef       	ldi	r24, 0xFF	; 255
+  5e:	9f ef       	ldi	r25, 0xFF	; 255
+  60:	df 91       	pop	r29
+  62:	cf 91       	pop	r28
+  64:	1f 91       	pop	r17
+  66:	0f 91       	pop	r16
+  68:	ff 90       	pop	r15
+  6a:	ef 90       	pop	r14
+  6c:	08 95       	ret
+
+Disassembly of section .text._ZN10RestServer11state_matchEii:
+
+00000000 <_ZN10RestServer11state_matchEii>:
+
+int RestServer::get_server_state() {
+	return server_state;
+}
+
+boolean RestServer::handle_requests(Stream &_client) {
+   0:	8f 92       	push	r8
+   2:	9f 92       	push	r9
+   4:	af 92       	push	r10
+   6:	bf 92       	push	r11
+   8:	cf 92       	push	r12
+   a:	df 92       	push	r13
+	if (_client.available()) {
+   c:	ef 92       	push	r14
+   e:	ff 92       	push	r15
+  10:	0f 93       	push	r16
+  12:	1f 93       	push	r17
+  14:	cf 93       	push	r28
+  16:	df 93       	push	r29
+  18:	6c 01       	movw	r12, r24
+  1a:	eb 01       	movw	r28, r22
+  1c:	5a 01       	movw	r10, r20
+  1e:	ba 01       	movw	r22, r20
+		start_timer();
+  20:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer11state_matchEii>
+  24:	8c 01       	movw	r16, r24
+		read_request(_client.read());
+  26:	8f ef       	ldi	r24, 0xFF	; 255
+  28:	0f 3f       	cpi	r16, 0xFF	; 255
+  2a:	18 07       	cpc	r17, r24
+  2c:	01 f4       	brne	.+0      	; 0x2e <_ZN10RestServer11state_matchEii+0x2e>
+  2e:	00 c0       	rjmp	.+0      	; 0x30 <_ZN10RestServer11state_matchEii+0x30>
+  30:	7e 01       	movw	r14, r28
+  32:	ee 0c       	add	r14, r14
+  34:	ff 1c       	adc	r15, r15
+  36:	ee 0c       	add	r14, r14
+  38:	ff 1c       	adc	r15, r15
+  3a:	d6 01       	movw	r26, r12
+  3c:	ed 91       	ld	r30, X+
+	}
+	parse_request();
+  3e:	fc 91       	ld	r31, X
+  40:	11 97       	sbiw	r26, 0x01	; 1
+  42:	ee 0d       	add	r30, r14
+	process();	
+  44:	ff 1d       	adc	r31, r15
+  46:	81 e0       	ldi	r24, 0x01	; 1
+  48:	83 83       	std	Z+3, r24	; 0x03
+	if (server_state == PROCESS) return true;
+  4a:	ed 91       	ld	r30, X+
+  4c:	fc 91       	ld	r31, X
+  4e:	ee 0d       	add	r30, r14
+  50:	ff 1d       	adc	r31, r15
+  52:	80 81       	ld	r24, Z
+  54:	91 81       	ldd	r25, Z+1	; 0x01
+  56:	dc 01       	movw	r26, r24
+	else return false;
+}
+  58:	ed 91       	ld	r30, X+
+  5a:	fc 91       	ld	r31, X
+  5c:	86 80       	ldd	r8, Z+6	; 0x06
+  5e:	97 80       	ldd	r9, Z+7	; 0x07
+  60:	00 84       	ldd	r0, Z+8	; 0x08
+  62:	f1 85       	ldd	r31, Z+9	; 0x09
+  64:	e0 2d       	mov	r30, r0
+  66:	19 95       	eicall
+  68:	f6 01       	movw	r30, r12
+  6a:	20 81       	ld	r18, Z
+  6c:	31 81       	ldd	r19, Z+1	; 0x01
+  6e:	08 17       	cp	r16, r24
+  70:	19 07       	cpc	r17, r25
+  72:	04 f4       	brge	.+0      	; 0x74 <_ZN10RestServer11state_matchEii+0x74>
+  74:	e9 01       	movw	r28, r18
+  76:	ce 0d       	add	r28, r14
+  78:	df 1d       	adc	r29, r15
+  7a:	09 90       	ld	r0, Y+
+  7c:	d8 81       	ld	r29, Y
+  7e:	c0 2d       	mov	r28, r0
+  80:	e8 81       	ld	r30, Y
+  82:	f9 81       	ldd	r31, Y+1	; 0x01
+  84:	00 84       	ldd	r0, Z+8	; 0x08
+  86:	f1 85       	ldd	r31, Z+9	; 0x09
+  88:	e0 2d       	mov	r30, r0
+  8a:	00 c0       	rjmp	.+0      	; 0x8c <_ZN10RestServer11state_matchEii+0x8c>
+  8c:	2e 0d       	add	r18, r14
+  8e:	3f 1d       	adc	r19, r15
+  90:	d9 01       	movw	r26, r18
+  92:	cd 91       	ld	r28, X+
+  94:	dc 91       	ld	r29, X
+  96:	e8 81       	ld	r30, Y
+  98:	f9 81       	ldd	r31, Y+1	; 0x01
+  9a:	02 84       	ldd	r0, Z+10	; 0x0a
+  9c:	f3 85       	ldd	r31, Z+11	; 0x0b
+  9e:	e0 2d       	mov	r30, r0
+  a0:	ce 01       	movw	r24, r28
+  a2:	19 95       	eicall
+  a4:	80 17       	cp	r24, r16
+  a6:	91 07       	cpc	r25, r17
+  a8:	04 f4       	brge	.+0      	; 0xaa <_ZN10RestServer11state_matchEii+0xaa>
+  aa:	d6 01       	movw	r26, r12
+  ac:	ed 91       	ld	r30, X+
+  ae:	fc 91       	ld	r31, X
+  b0:	ee 0d       	add	r30, r14
+  b2:	ff 1d       	adc	r31, r15
+  b4:	c0 81       	ld	r28, Z
+  b6:	d1 81       	ldd	r29, Z+1	; 0x01
+  b8:	e8 81       	ld	r30, Y
+  ba:	f9 81       	ldd	r31, Y+1	; 0x01
+  bc:	02 84       	ldd	r0, Z+10	; 0x0a
+  be:	f3 85       	ldd	r31, Z+11	; 0x0b
+  c0:	e0 2d       	mov	r30, r0
+  c2:	ce 01       	movw	r24, r28
+  c4:	19 95       	eicall
+  c6:	8c 01       	movw	r16, r24
+  c8:	ce 01       	movw	r24, r28
+  ca:	b8 01       	movw	r22, r16
+  cc:	f4 01       	movw	r30, r8
+  ce:	19 95       	eicall
+  d0:	c6 01       	movw	r24, r12
+  d2:	b5 01       	movw	r22, r10
+  d4:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer11state_matchEii>
+  d8:	5c 01       	movw	r10, r24
+  da:	bf ef       	ldi	r27, 0xFF	; 255
+  dc:	8f 3f       	cpi	r24, 0xFF	; 255
+  de:	9b 07       	cpc	r25, r27
+  e0:	01 f4       	brne	.+0      	; 0xe2 <_ZN10RestServer11state_matchEii+0xe2>
+  e2:	f6 01       	movw	r30, r12
+  e4:	e2 5b       	subi	r30, 0xB2	; 178
+  e6:	ff 4f       	sbci	r31, 0xFF	; 255
+  e8:	a0 80       	ld	r10, Z
+  ea:	b1 80       	ldd	r11, Z+1	; 0x01
+  ec:	c5 01       	movw	r24, r10
+  ee:	df 91       	pop	r29
+  f0:	cf 91       	pop	r28
+  f2:	1f 91       	pop	r17
+  f4:	0f 91       	pop	r16
+  f6:	ff 90       	pop	r15
+  f8:	ef 90       	pop	r14
+  fa:	df 90       	pop	r13
+  fc:	cf 90       	pop	r12
+  fe:	bf 90       	pop	r11
+ 100:	af 90       	pop	r10
+ 102:	9f 90       	pop	r9
+ 104:	8f 90       	pop	r8
+ 106:	08 95       	ret
+
+Disassembly of section .text._ZN10RestServer13service_matchEii:
+
+00000000 <_ZN10RestServer13service_matchEii>:
+
+int RestServer::get_server_state() {
+	return server_state;
+}
+
+boolean RestServer::handle_requests(Stream &_client) {
+   0:	cf 92       	push	r12
+   2:	df 92       	push	r13
+   4:	ef 92       	push	r14
+   6:	ff 92       	push	r15
+   8:	0f 93       	push	r16
+   a:	1f 93       	push	r17
+	if (_client.available()) {
+   c:	cf 93       	push	r28
+   e:	df 93       	push	r29
+  10:	8c 01       	movw	r16, r24
+  12:	6b 01       	movw	r12, r22
+  14:	ba 01       	movw	r22, r20
+  16:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer13service_matchEii>
+  1a:	ec 01       	movw	r28, r24
+  1c:	8f ef       	ldi	r24, 0xFF	; 255
+  1e:	cf 3f       	cpi	r28, 0xFF	; 255
+		start_timer();
+  20:	d8 07       	cpc	r29, r24
+  22:	01 f4       	brne	.+0      	; 0x24 <_ZN10RestServer13service_matchEii+0x24>
+  24:	00 c0       	rjmp	.+0      	; 0x26 <_ZN10RestServer13service_matchEii+0x26>
+		read_request(_client.read());
+  26:	76 01       	movw	r14, r12
+  28:	ee 0c       	add	r14, r14
+  2a:	ff 1c       	adc	r15, r15
+  2c:	ee 0c       	add	r14, r14
+  2e:	ff 1c       	adc	r15, r15
+  30:	d8 01       	movw	r26, r16
+  32:	ed 91       	ld	r30, X+
+  34:	fc 91       	ld	r31, X
+  36:	ee 0d       	add	r30, r14
+  38:	ff 1d       	adc	r31, r15
+  3a:	80 81       	ld	r24, Z
+  3c:	91 81       	ldd	r25, Z+1	; 0x01
+	}
+	parse_request();
+  3e:	dc 01       	movw	r26, r24
+  40:	ed 91       	ld	r30, X+
+  42:	fc 91       	ld	r31, X
+	process();	
+  44:	01 90       	ld	r0, Z+
+  46:	f0 81       	ld	r31, Z
+  48:	e0 2d       	mov	r30, r0
+	if (server_state == PROCESS) return true;
+  4a:	19 95       	eicall
+  4c:	bc 01       	movw	r22, r24
+  4e:	c8 01       	movw	r24, r16
+  50:	03 96       	adiw	r24, 0x03	; 3
+  52:	ae 01       	movw	r20, r28
+  54:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer13service_matchEii>
+	else return false;
+}
+  58:	ec 01       	movw	r28, r24
+  5a:	bf ef       	ldi	r27, 0xFF	; 255
+  5c:	8f 3f       	cpi	r24, 0xFF	; 255
+  5e:	9b 07       	cpc	r25, r27
+  60:	01 f0       	breq	.+0      	; 0x62 <_ZN10RestServer13service_matchEii+0x62>
+  62:	d8 01       	movw	r26, r16
+  64:	ed 91       	ld	r30, X+
+  66:	fc 91       	ld	r31, X
+  68:	11 97       	sbiw	r26, 0x01	; 1
+  6a:	ee 0d       	add	r30, r14
+  6c:	ff 1d       	adc	r31, r15
+  6e:	81 e0       	ldi	r24, 0x01	; 1
+  70:	82 83       	std	Z+2, r24	; 0x02
+  72:	ed 91       	ld	r30, X+
+  74:	fc 91       	ld	r31, X
+  76:	ee 0d       	add	r30, r14
+  78:	ff 1d       	adc	r31, r15
+  7a:	80 81       	ld	r24, Z
+  7c:	91 81       	ldd	r25, Z+1	; 0x01
+  7e:	dc 01       	movw	r26, r24
+  80:	ed 91       	ld	r30, X+
+  82:	fc 91       	ld	r31, X
+  84:	02 80       	ldd	r0, Z+2	; 0x02
+  86:	f3 81       	ldd	r31, Z+3	; 0x03
+  88:	e0 2d       	mov	r30, r0
+  8a:	19 95       	eicall
+  8c:	88 23       	and	r24, r24
+  8e:	01 f0       	breq	.+0      	; 0x90 <_ZN10RestServer13service_matchEii+0x90>
+  90:	f8 01       	movw	r30, r16
+  92:	eb 5a       	subi	r30, 0xAB	; 171
+  94:	ff 4f       	sbci	r31, 0xFF	; 255
+  96:	80 81       	ld	r24, Z
+  98:	81 30       	cpi	r24, 0x01	; 1
+  9a:	01 f0       	breq	.+0      	; 0x9c <_ZN10RestServer13service_matchEii+0x9c>
+  9c:	f8 01       	movw	r30, r16
+  9e:	ec 5a       	subi	r30, 0xAC	; 172
+  a0:	ff 4f       	sbci	r31, 0xFF	; 255
+  a2:	80 81       	ld	r24, Z
+  a4:	81 ff       	sbrs	r24, 1
+  a6:	00 c0       	rjmp	.+0      	; 0xa8 <_ZN10RestServer13service_matchEii+0xa8>
+  a8:	ae 01       	movw	r20, r28
+  aa:	4f 5f       	subi	r20, 0xFF	; 255
+  ac:	5f 4f       	sbci	r21, 0xFF	; 255
+  ae:	c8 01       	movw	r24, r16
+  b0:	b6 01       	movw	r22, r12
+  b2:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer13service_matchEii>
+  b6:	ec 01       	movw	r28, r24
+  b8:	00 c0       	rjmp	.+0      	; 0xba <_ZN10RestServer13service_matchEii+0xba>
+  ba:	cf ef       	ldi	r28, 0xFF	; 255
+  bc:	df ef       	ldi	r29, 0xFF	; 255
+  be:	ce 01       	movw	r24, r28
+  c0:	df 91       	pop	r29
+  c2:	cf 91       	pop	r28
+  c4:	1f 91       	pop	r17
+  c6:	0f 91       	pop	r16
+  c8:	ff 90       	pop	r15
+  ca:	ef 90       	pop	r14
+  cc:	df 90       	pop	r13
+  ce:	cf 90       	pop	r12
+  d0:	08 95       	ret
+
+Disassembly of section .text._ZN10RestServer15parse_resourcesEv:
+
+00000000 <_ZN10RestServer15parse_resourcesEv>:
+
+int RestServer::get_server_state() {
+	return server_state;
+}
+
+boolean RestServer::handle_requests(Stream &_client) {
+   0:	8f 92       	push	r8
+   2:	9f 92       	push	r9
+   4:	bf 92       	push	r11
+   6:	cf 92       	push	r12
+   8:	df 92       	push	r13
+   a:	ef 92       	push	r14
+	if (_client.available()) {
+   c:	ff 92       	push	r15
+   e:	0f 93       	push	r16
+  10:	1f 93       	push	r17
+  12:	cf 93       	push	r28
+  14:	df 93       	push	r29
+  16:	7c 01       	movw	r14, r24
+  18:	cc 24       	eor	r12, r12
+  1a:	dd 24       	eor	r13, r13
+  1c:	2e e4       	ldi	r18, 0x4E	; 78
+  1e:	82 2e       	mov	r8, r18
+		start_timer();
+  20:	91 2c       	mov	r9, r1
+  22:	88 0e       	add	r8, r24
+  24:	99 1e       	adc	r9, r25
+		read_request(_client.read());
+  26:	00 c0       	rjmp	.+0      	; 0x28 <_ZN10RestServer15parse_resourcesEv+0x28>
+  28:	6e 01       	movw	r12, r28
+  2a:	c7 01       	movw	r24, r14
+  2c:	b6 01       	movw	r22, r12
+  2e:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer15parse_resourcesEv>
+  32:	ec 01       	movw	r28, r24
+  34:	8f ef       	ldi	r24, 0xFF	; 255
+  36:	cf 3f       	cpi	r28, 0xFF	; 255
+  38:	d8 07       	cpc	r29, r24
+  3a:	01 f4       	brne	.+0      	; 0x3c <_ZN10RestServer15parse_resourcesEv+0x3c>
+  3c:	f4 01       	movw	r30, r8
+	}
+	parse_request();
+  3e:	c0 81       	ld	r28, Z
+  40:	d1 81       	ldd	r29, Z+1	; 0x01
+  42:	21 97       	sbiw	r28, 0x01	; 1
+	process();	
+  44:	bb 24       	eor	r11, r11
+  46:	00 c0       	rjmp	.+0      	; 0x48 <_ZN10RestServer15parse_resourcesEv+0x48>
+  48:	bb 24       	eor	r11, r11
+	if (server_state == PROCESS) return true;
+  4a:	b3 94       	inc	r11
+  4c:	00 e0       	ldi	r16, 0x00	; 0
+  4e:	10 e0       	ldi	r17, 0x00	; 0
+  50:	00 c0       	rjmp	.+0      	; 0x52 <_ZN10RestServer15parse_resourcesEv+0x52>
+  52:	c7 01       	movw	r24, r14
+  54:	b8 01       	movw	r22, r16
+  56:	a6 01       	movw	r20, r12
+	else return false;
+}
+  58:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer15parse_resourcesEv>
+  5c:	9c 01       	movw	r18, r24
+  5e:	ff ef       	ldi	r31, 0xFF	; 255
+  60:	8f 3f       	cpi	r24, 0xFF	; 255
+  62:	9f 07       	cpc	r25, r31
+  64:	01 f0       	breq	.+0      	; 0x66 <_ZN10RestServer15parse_resourcesEv+0x66>
+  66:	f4 01       	movw	r30, r8
+  68:	80 81       	ld	r24, Z
+  6a:	91 81       	ldd	r25, Z+1	; 0x01
+  6c:	e9 01       	movw	r28, r18
+  6e:	28 17       	cp	r18, r24
+  70:	39 07       	cpc	r19, r25
+  72:	04 f4       	brge	.+0      	; 0x74 <_ZN10RestServer15parse_resourcesEv+0x74>
+  74:	0f 5f       	subi	r16, 0xFF	; 255
+  76:	1f 4f       	sbci	r17, 0xFF	; 255
+  78:	f7 01       	movw	r30, r14
+  7a:	82 81       	ldd	r24, Z+2	; 0x02
+  7c:	90 e0       	ldi	r25, 0x00	; 0
+  7e:	08 17       	cp	r16, r24
+  80:	19 07       	cpc	r17, r25
+  82:	04 f0       	brlt	.+0      	; 0x84 <_ZN10RestServer15parse_resourcesEv+0x84>
+  84:	f1 e0       	ldi	r31, 0x01	; 1
+  86:	bf 16       	cp	r11, r31
+  88:	01 f0       	breq	.+0      	; 0x8a <_ZN10RestServer15parse_resourcesEv+0x8a>
+  8a:	df 91       	pop	r29
+  8c:	cf 91       	pop	r28
+  8e:	1f 91       	pop	r17
+  90:	0f 91       	pop	r16
+  92:	ff 90       	pop	r15
+  94:	ef 90       	pop	r14
+  96:	df 90       	pop	r13
+  98:	cf 90       	pop	r12
+  9a:	bf 90       	pop	r11
+  9c:	9f 90       	pop	r9
+  9e:	8f 90       	pop	r8
+  a0:	08 95       	ret
+
+Disassembly of section .text._ZN10RestServer17read_get_requestsEc:
+
+00000000 <_ZN10RestServer17read_get_requestsEc>:
+
+int RestServer::get_server_state() {
+	return server_state;
+}
+
+boolean RestServer::handle_requests(Stream &_client) {
+   0:	ef 92       	push	r14
+   2:	ff 92       	push	r15
+   4:	0f 93       	push	r16
+   6:	1f 93       	push	r17
+   8:	cf 93       	push	r28
+   a:	df 93       	push	r29
+	if (_client.available()) {
+   c:	8c 01       	movw	r16, r24
+   e:	c6 2f       	mov	r28, r22
+  10:	fc 01       	movw	r30, r24
+  12:	eb 5a       	subi	r30, 0xAB	; 171
+  14:	ff 4f       	sbci	r31, 0xFF	; 255
+  16:	80 81       	ld	r24, Z
+  18:	88 23       	and	r24, r24
+  1a:	01 f0       	breq	.+0      	; 0x1c <_ZN10RestServer17read_get_requestsEc+0x1c>
+  1c:	00 c0       	rjmp	.+0      	; 0x1e <_ZN10RestServer17read_get_requestsEc+0x1e>
+  1e:	33 e0       	ldi	r19, 0x03	; 3
+		start_timer();
+  20:	e3 2e       	mov	r14, r19
+  22:	f1 2c       	mov	r15, r1
+  24:	e0 0e       	add	r14, r16
+		read_request(_client.read());
+  26:	f1 1e       	adc	r15, r17
+  28:	c7 01       	movw	r24, r14
+  2a:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer17read_get_requestsEc>
+  2e:	f8 01       	movw	r30, r16
+  30:	e5 5a       	subi	r30, 0xA5	; 165
+  32:	ff 4f       	sbci	r31, 0xFF	; 255
+  34:	80 81       	ld	r24, Z
+  36:	c8 17       	cp	r28, r24
+  38:	01 f4       	brne	.+0      	; 0x3a <_ZN10RestServer17read_get_requestsEc+0x3a>
+  3a:	b8 01       	movw	r22, r16
+  3c:	66 5a       	subi	r22, 0xA6	; 166
+	}
+	parse_request();
+  3e:	7f 4f       	sbci	r23, 0xFF	; 255
+  40:	e8 01       	movw	r28, r16
+  42:	c2 5b       	subi	r28, 0xB2	; 178
+	process();	
+  44:	df 4f       	sbci	r29, 0xFF	; 255
+  46:	48 81       	ld	r20, Y
+  48:	59 81       	ldd	r21, Y+1	; 0x01
+	if (server_state == PROCESS) return true;
+  4a:	42 50       	subi	r20, 0x02	; 2
+  4c:	50 40       	sbci	r21, 0x00	; 0
+  4e:	c7 01       	movw	r24, r14
+  50:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer17read_get_requestsEc>
+  54:	2f ef       	ldi	r18, 0xFF	; 255
+  56:	8f 3f       	cpi	r24, 0xFF	; 255
+	else return false;
+}
+  58:	92 07       	cpc	r25, r18
+  5a:	01 f0       	breq	.+0      	; 0x5c <_ZN10RestServer17read_get_requestsEc+0x5c>
+  5c:	48 81       	ld	r20, Y
+  5e:	59 81       	ldd	r21, Y+1	; 0x01
+  60:	42 50       	subi	r20, 0x02	; 2
+  62:	50 40       	sbci	r21, 0x00	; 0
+  64:	c7 01       	movw	r24, r14
+  66:	60 e0       	ldi	r22, 0x00	; 0
+  68:	70 e0       	ldi	r23, 0x00	; 0
+  6a:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer17read_get_requestsEc>
+  6e:	c8 01       	movw	r24, r16
+  70:	60 e0       	ldi	r22, 0x00	; 0
+  72:	70 e0       	ldi	r23, 0x00	; 0
+  74:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer17read_get_requestsEc>
+  78:	ac 01       	movw	r20, r24
+  7a:	c7 01       	movw	r24, r14
+  7c:	60 e2       	ldi	r22, 0x20	; 32
+  7e:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer17read_get_requestsEc>
+  82:	ac 01       	movw	r20, r24
+  84:	8f ef       	ldi	r24, 0xFF	; 255
+  86:	4f 3f       	cpi	r20, 0xFF	; 255
+  88:	58 07       	cpc	r21, r24
+  8a:	01 f0       	breq	.+0      	; 0x8c <_ZN10RestServer17read_get_requestsEc+0x8c>
+  8c:	c7 01       	movw	r24, r14
+  8e:	60 e0       	ldi	r22, 0x00	; 0
+  90:	70 e0       	ldi	r23, 0x00	; 0
+  92:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer17read_get_requestsEc>
+  96:	f8 01       	movw	r30, r16
+  98:	ed 5a       	subi	r30, 0xAD	; 173
+  9a:	ff 4f       	sbci	r31, 0xFF	; 255
+  9c:	83 e0       	ldi	r24, 0x03	; 3
+  9e:	80 83       	st	Z, r24
+  a0:	df 91       	pop	r29
+  a2:	cf 91       	pop	r28
+  a4:	1f 91       	pop	r17
+  a6:	0f 91       	pop	r16
+  a8:	ff 90       	pop	r15
+  aa:	ef 90       	pop	r14
+  ac:	08 95       	ret
+
+Disassembly of section .text._ZN10RestServer13parse_requestEv:
+
+00000000 <_ZN10RestServer13parse_requestEv>:
+
+int RestServer::get_server_state() {
+	return server_state;
+}
+
+boolean RestServer::handle_requests(Stream &_client) {
+   0:	ef 92       	push	r14
+   2:	ff 92       	push	r15
+   4:	0f 93       	push	r16
+   6:	1f 93       	push	r17
+   8:	cf 93       	push	r28
+   a:	df 93       	push	r29
+	if (_client.available()) {
+   c:	ec 01       	movw	r28, r24
+   e:	fc 01       	movw	r30, r24
+  10:	ed 5a       	subi	r30, 0xAD	; 173
+  12:	ff 4f       	sbci	r31, 0xFF	; 255
+  14:	80 81       	ld	r24, Z
+  16:	83 30       	cpi	r24, 0x03	; 3
+  18:	01 f0       	breq	.+0      	; 0x1a <_ZN10RestServer13parse_requestEv+0x1a>
+  1a:	00 c0       	rjmp	.+0      	; 0x1c <_ZN10RestServer13parse_requestEv+0x1c>
+  1c:	fe 01       	movw	r30, r28
+  1e:	ec 5a       	subi	r30, 0xAC	; 172
+		start_timer();
+  20:	ff 4f       	sbci	r31, 0xFF	; 255
+  22:	80 81       	ld	r24, Z
+  24:	82 ff       	sbrs	r24, 2
+		read_request(_client.read());
+  26:	00 c0       	rjmp	.+0      	; 0x28 <_ZN10RestServer13parse_requestEv+0x28>
+  28:	fe 01       	movw	r30, r28
+  2a:	ea 5a       	subi	r30, 0xAA	; 170
+  2c:	ff 4f       	sbci	r31, 0xFF	; 255
+  2e:	80 81       	ld	r24, Z
+  30:	81 60       	ori	r24, 0x01	; 1
+  32:	80 83       	st	Z, r24
+  34:	8e 01       	movw	r16, r28
+  36:	0d 5f       	subi	r16, 0xFD	; 253
+  38:	1f 4f       	sbci	r17, 0xFF	; 255
+  3a:	c8 01       	movw	r24, r16
+  3c:	60 e0       	ldi	r22, 0x00	; 0
+	}
+	parse_request();
+  3e:	70 e0       	ldi	r23, 0x00	; 0
+  40:	40 e0       	ldi	r20, 0x00	; 0
+  42:	50 e0       	ldi	r21, 0x00	; 0
+	process();	
+  44:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer13parse_requestEv>
+  48:	2f ef       	ldi	r18, 0xFF	; 255
+	if (server_state == PROCESS) return true;
+  4a:	8f 3f       	cpi	r24, 0xFF	; 255
+  4c:	92 07       	cpc	r25, r18
+  4e:	01 f0       	breq	.+0      	; 0x50 <_ZN10RestServer13parse_requestEv+0x50>
+  50:	fe 01       	movw	r30, r28
+  52:	e2 5b       	subi	r30, 0xB2	; 178
+  54:	ff 4f       	sbci	r31, 0xFF	; 255
+  56:	80 81       	ld	r24, Z
+	else return false;
+}
+  58:	91 81       	ldd	r25, Z+1	; 0x01
+  5a:	81 30       	cpi	r24, 0x01	; 1
+  5c:	91 05       	cpc	r25, r1
+  5e:	01 f4       	brne	.+0      	; 0x60 <_ZN10RestServer13parse_requestEv+0x60>
+  60:	fe 01       	movw	r30, r28
+  62:	ee 5a       	subi	r30, 0xAE	; 174
+  64:	ff 4f       	sbci	r31, 0xFF	; 255
+  66:	80 81       	ld	r24, Z
+  68:	88 23       	and	r24, r24
+  6a:	01 f0       	breq	.+0      	; 0x6c <_ZN10RestServer13parse_requestEv+0x6c>
+  6c:	80 e0       	ldi	r24, 0x00	; 0
+  6e:	90 e0       	ldi	r25, 0x00	; 0
+  70:	60 e0       	ldi	r22, 0x00	; 0
+  72:	70 e0       	ldi	r23, 0x00	; 0
+  74:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer13parse_requestEv>
+  78:	20 e0       	ldi	r18, 0x00	; 0
+  7a:	30 e0       	ldi	r19, 0x00	; 0
+  7c:	40 e0       	ldi	r20, 0x00	; 0
+  7e:	50 e0       	ldi	r21, 0x00	; 0
+  80:	61 e0       	ldi	r22, 0x01	; 1
+  82:	00 c0       	rjmp	.+0      	; 0x84 <_ZN10RestServer13parse_requestEv+0x84>
+  84:	e8 81       	ld	r30, Y
+  86:	f9 81       	ldd	r31, Y+1	; 0x01
+  88:	e2 0f       	add	r30, r18
+  8a:	f3 1f       	adc	r31, r19
+  8c:	62 83       	std	Z+2, r22	; 0x02
+  8e:	4f 5f       	subi	r20, 0xFF	; 255
+  90:	5f 4f       	sbci	r21, 0xFF	; 255
+  92:	2c 5f       	subi	r18, 0xFC	; 252
+  94:	3f 4f       	sbci	r19, 0xFF	; 255
+  96:	8a 81       	ldd	r24, Y+2	; 0x02
+  98:	90 e0       	ldi	r25, 0x00	; 0
+  9a:	48 17       	cp	r20, r24
+  9c:	59 07       	cpc	r21, r25
+  9e:	04 f0       	brlt	.+0      	; 0xa0 <_ZN10RestServer13parse_requestEv+0xa0>
+  a0:	00 c0       	rjmp	.+0      	; 0xa2 <_ZN10RestServer13parse_requestEv+0xa2>
+  a2:	c8 01       	movw	r24, r16
+  a4:	60 e0       	ldi	r22, 0x00	; 0
+  a6:	70 e0       	ldi	r23, 0x00	; 0
+  a8:	40 e0       	ldi	r20, 0x00	; 0
+  aa:	50 e0       	ldi	r21, 0x00	; 0
+  ac:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer13parse_requestEv>
+  b0:	2f ef       	ldi	r18, 0xFF	; 255
+  b2:	8f 3f       	cpi	r24, 0xFF	; 255
+  b4:	92 07       	cpc	r25, r18
+  b6:	01 f0       	breq	.+0      	; 0xb8 <_ZN10RestServer13parse_requestEv+0xb8>
+  b8:	fe 01       	movw	r30, r28
+  ba:	ea 5a       	subi	r30, 0xAA	; 170
+  bc:	ff 4f       	sbci	r31, 0xFF	; 255
+  be:	80 81       	ld	r24, Z
+  c0:	82 60       	ori	r24, 0x02	; 2
+  c2:	80 83       	st	Z, r24
+  c4:	cd 5a       	subi	r28, 0xAD	; 173
+  c6:	df 4f       	sbci	r29, 0xFF	; 255
+  c8:	85 e0       	ldi	r24, 0x05	; 5
+  ca:	00 c0       	rjmp	.+0      	; 0xcc <_ZN10RestServer13parse_requestEv+0xcc>
+  cc:	c8 01       	movw	r24, r16
+  ce:	60 e0       	ldi	r22, 0x00	; 0
+  d0:	70 e0       	ldi	r23, 0x00	; 0
+  d2:	40 e0       	ldi	r20, 0x00	; 0
+  d4:	50 e0       	ldi	r21, 0x00	; 0
+  d6:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer13parse_requestEv>
+  da:	2f ef       	ldi	r18, 0xFF	; 255
+  dc:	8f 3f       	cpi	r24, 0xFF	; 255
+  de:	92 07       	cpc	r25, r18
+  e0:	01 f0       	breq	.+0      	; 0xe2 <_ZN10RestServer13parse_requestEv+0xe2>
+  e2:	7c 01       	movw	r14, r24
+  e4:	08 94       	sec
+  e6:	e1 1c       	adc	r14, r1
+  e8:	f1 1c       	adc	r15, r1
+  ea:	fe 01       	movw	r30, r28
+  ec:	ee 0d       	add	r30, r14
+  ee:	ff 1d       	adc	r31, r15
+  f0:	ce 01       	movw	r24, r28
+  f2:	63 81       	ldd	r22, Z+3	; 0x03
+  f4:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer13parse_requestEv>
+  f8:	88 23       	and	r24, r24
+  fa:	01 f4       	brne	.+0      	; 0xfc <_ZN10RestServer13parse_requestEv+0xfc>
+  fc:	fe 01       	movw	r30, r28
+  fe:	e2 5b       	subi	r30, 0xB2	; 178
+ 100:	ff 4f       	sbci	r31, 0xFF	; 255
+ 102:	80 81       	ld	r24, Z
+ 104:	91 81       	ldd	r25, Z+1	; 0x01
+ 106:	87 30       	cpi	r24, 0x07	; 7
+ 108:	91 05       	cpc	r25, r1
+ 10a:	04 f4       	brge	.+0      	; 0x10c <_ZN10RestServer13parse_requestEv+0x10c>
+ 10c:	fe 01       	movw	r30, r28
+ 10e:	ea 5a       	subi	r30, 0xAA	; 170
+ 110:	ff 4f       	sbci	r31, 0xFF	; 255
+ 112:	80 81       	ld	r24, Z
+ 114:	81 60       	ori	r24, 0x01	; 1
+ 116:	80 83       	st	Z, r24
+ 118:	fe 01       	movw	r30, r28
+ 11a:	e2 5b       	subi	r30, 0xB2	; 178
+ 11c:	ff 4f       	sbci	r31, 0xFF	; 255
+ 11e:	80 81       	ld	r24, Z
+ 120:	91 81       	ldd	r25, Z+1	; 0x01
+ 122:	87 30       	cpi	r24, 0x07	; 7
+ 124:	91 05       	cpc	r25, r1
+ 126:	04 f0       	brlt	.+0      	; 0x128 <_ZN10RestServer13parse_requestEv+0x128>
+ 128:	00 c0       	rjmp	.+0      	; 0x12a <_ZN10RestServer13parse_requestEv+0x12a>
+ 12a:	e8 81       	ld	r30, Y
+ 12c:	f9 81       	ldd	r31, Y+1	; 0x01
+ 12e:	e2 0f       	add	r30, r18
+ 130:	f3 1f       	adc	r31, r19
+ 132:	62 83       	std	Z+2, r22	; 0x02
+ 134:	4f 5f       	subi	r20, 0xFF	; 255
+ 136:	5f 4f       	sbci	r21, 0xFF	; 255
+ 138:	2c 5f       	subi	r18, 0xFC	; 252
+ 13a:	3f 4f       	sbci	r19, 0xFF	; 255
+ 13c:	00 c0       	rjmp	.+0      	; 0x13e <_ZN10RestServer13parse_requestEv+0x13e>
+ 13e:	20 e0       	ldi	r18, 0x00	; 0
+ 140:	30 e0       	ldi	r19, 0x00	; 0
+ 142:	40 e0       	ldi	r20, 0x00	; 0
+ 144:	50 e0       	ldi	r21, 0x00	; 0
+ 146:	61 e0       	ldi	r22, 0x01	; 1
+ 148:	8a 81       	ldd	r24, Y+2	; 0x02
+ 14a:	90 e0       	ldi	r25, 0x00	; 0
+ 14c:	48 17       	cp	r20, r24
+ 14e:	59 07       	cpc	r21, r25
+ 150:	04 f0       	brlt	.+0      	; 0x152 <_ZN10RestServer13parse_requestEv+0x152>
+ 152:	00 c0       	rjmp	.+0      	; 0x154 <_ZN10RestServer13parse_requestEv+0x154>
+ 154:	ee 24       	eor	r14, r14
+ 156:	ff 24       	eor	r15, r15
+ 158:	c8 01       	movw	r24, r16
+ 15a:	60 e0       	ldi	r22, 0x00	; 0
+ 15c:	70 e0       	ldi	r23, 0x00	; 0
+ 15e:	a7 01       	movw	r20, r14
+ 160:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer13parse_requestEv>
+ 164:	2f ef       	ldi	r18, 0xFF	; 255
+ 166:	8f 3f       	cpi	r24, 0xFF	; 255
+ 168:	92 07       	cpc	r25, r18
+ 16a:	01 f0       	breq	.+0      	; 0x16c <_ZN10RestServer13parse_requestEv+0x16c>
+ 16c:	fe 01       	movw	r30, r28
+ 16e:	e8 0f       	add	r30, r24
+ 170:	f9 1f       	adc	r31, r25
+ 172:	ce 01       	movw	r24, r28
+ 174:	64 81       	ldd	r22, Z+4	; 0x04
+ 176:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer13parse_requestEv>
+ 17a:	88 23       	and	r24, r24
+ 17c:	01 f4       	brne	.+0      	; 0x17e <_ZN10RestServer13parse_requestEv+0x17e>
+ 17e:	fe 01       	movw	r30, r28
+ 180:	e2 5b       	subi	r30, 0xB2	; 178
+ 182:	ff 4f       	sbci	r31, 0xFF	; 255
+ 184:	80 81       	ld	r24, Z
+ 186:	91 81       	ldd	r25, Z+1	; 0x01
+ 188:	86 30       	cpi	r24, 0x06	; 6
+ 18a:	91 05       	cpc	r25, r1
+ 18c:	04 f0       	brlt	.+0      	; 0x18e <_ZN10RestServer13parse_requestEv+0x18e>
+ 18e:	00 c0       	rjmp	.+0      	; 0x190 <_ZN10RestServer13parse_requestEv+0x190>
+ 190:	e8 81       	ld	r30, Y
+ 192:	f9 81       	ldd	r31, Y+1	; 0x01
+ 194:	e8 0f       	add	r30, r24
+ 196:	f9 1f       	adc	r31, r25
+ 198:	62 83       	std	Z+2, r22	; 0x02
+ 19a:	4f 5f       	subi	r20, 0xFF	; 255
+ 19c:	5f 4f       	sbci	r21, 0xFF	; 255
+ 19e:	04 96       	adiw	r24, 0x04	; 4
+ 1a0:	00 c0       	rjmp	.+0      	; 0x1a2 <_ZN10RestServer13parse_requestEv+0x1a2>
+ 1a2:	80 e0       	ldi	r24, 0x00	; 0
+ 1a4:	90 e0       	ldi	r25, 0x00	; 0
+ 1a6:	40 e0       	ldi	r20, 0x00	; 0
+ 1a8:	50 e0       	ldi	r21, 0x00	; 0
+ 1aa:	61 e0       	ldi	r22, 0x01	; 1
+ 1ac:	2a 81       	ldd	r18, Y+2	; 0x02
+ 1ae:	30 e0       	ldi	r19, 0x00	; 0
+ 1b0:	42 17       	cp	r20, r18
+ 1b2:	53 07       	cpc	r21, r19
+ 1b4:	04 f0       	brlt	.+0      	; 0x1b6 <_ZN10RestServer13parse_requestEv+0x1b6>
+ 1b6:	ce 01       	movw	r24, r28
+ 1b8:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer13parse_requestEv>
+ 1bc:	cd 5a       	subi	r28, 0xAD	; 173
+ 1be:	df 4f       	sbci	r29, 0xFF	; 255
+ 1c0:	84 e0       	ldi	r24, 0x04	; 4
+ 1c2:	88 83       	st	Y, r24
+ 1c4:	df 91       	pop	r29
+ 1c6:	cf 91       	pop	r28
+ 1c8:	1f 91       	pop	r17
+ 1ca:	0f 91       	pop	r16
+ 1cc:	ff 90       	pop	r15
+ 1ce:	ef 90       	pop	r14
+ 1d0:	08 95       	ret
+
+Disassembly of section .text._ZN10RestServer14match_eol_charEc:
+
+00000000 <_ZN10RestServer14match_eol_charEc>:
+
+int RestServer::get_server_state() {
+	return server_state;
+}
+
+boolean RestServer::handle_requests(Stream &_client) {
+   0:	fc 01       	movw	r30, r24
+   2:	e6 5a       	subi	r30, 0xA6	; 166
+   4:	ff 4f       	sbci	r31, 0xFF	; 255
+   6:	20 81       	ld	r18, Z
+   8:	62 17       	cp	r22, r18
+   a:	01 f0       	breq	.+0      	; 0xc <_ZN10RestServer14match_eol_charEc+0xc>
+	if (_client.available()) {
+   c:	fc 01       	movw	r30, r24
+   e:	e5 5a       	subi	r30, 0xA5	; 165
+  10:	ff 4f       	sbci	r31, 0xFF	; 255
+  12:	81 e0       	ldi	r24, 0x01	; 1
+  14:	90 81       	ld	r25, Z
+  16:	69 17       	cp	r22, r25
+  18:	01 f0       	breq	.+0      	; 0x1a <_ZN10RestServer14match_eol_charEc+0x1a>
+  1a:	80 e0       	ldi	r24, 0x00	; 0
+  1c:	08 95       	ret
+  1e:	81 e0       	ldi	r24, 0x01	; 1
+		start_timer();
+  20:	08 95       	ret
+
+Disassembly of section .text._ZN10RestServer18read_post_requestsEc:
+
+00000000 <_ZN10RestServer18read_post_requestsEc>:
+
+int RestServer::get_server_state() {
+	return server_state;
+}
+
+boolean RestServer::handle_requests(Stream &_client) {
+   0:	cf 92       	push	r12
+   2:	df 92       	push	r13
+   4:	ff 92       	push	r15
+   6:	0f 93       	push	r16
+   8:	1f 93       	push	r17
+   a:	cf 93       	push	r28
+	if (_client.available()) {
+   c:	df 93       	push	r29
+   e:	0f 92       	push	r0
+  10:	cd b7       	in	r28, 0x3d	; 61
+  12:	de b7       	in	r29, 0x3e	; 62
+  14:	6c 01       	movw	r12, r24
+  16:	f6 2e       	mov	r15, r22
+  18:	fc 01       	movw	r30, r24
+  1a:	eb 5a       	subi	r30, 0xAB	; 171
+  1c:	ff 4f       	sbci	r31, 0xFF	; 255
+  1e:	80 81       	ld	r24, Z
+		start_timer();
+  20:	81 30       	cpi	r24, 0x01	; 1
+  22:	01 f0       	breq	.+0      	; 0x24 <_ZN10RestServer18read_post_requestsEc+0x24>
+  24:	00 c0       	rjmp	.+0      	; 0x26 <_ZN10RestServer18read_post_requestsEc+0x26>
+		read_request(_client.read());
+  26:	86 01       	movw	r16, r12
+  28:	09 5a       	subi	r16, 0xA9	; 169
+  2a:	1f 4f       	sbci	r17, 0xFF	; 255
+  2c:	f8 01       	movw	r30, r16
+  2e:	20 81       	ld	r18, Z
+  30:	22 23       	and	r18, r18
+  32:	01 f4       	brne	.+0      	; 0x34 <_ZN10RestServer18read_post_requestsEc+0x34>
+  34:	c6 01       	movw	r24, r12
+  36:	40 e0       	ldi	r20, 0x00	; 0
+  38:	50 e0       	ldi	r21, 0x00	; 0
+  3a:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer18read_post_requestsEc>
+	}
+	parse_request();
+  3e:	81 30       	cpi	r24, 0x01	; 1
+  40:	01 f0       	breq	.+0      	; 0x42 <_ZN10RestServer18read_post_requestsEc+0x42>
+  42:	00 c0       	rjmp	.+0      	; 0x44 <_ZN10RestServer18read_post_requestsEc+0x44>
+	process();	
+  44:	00 c0       	rjmp	.+0      	; 0x46 <_ZN10RestServer18read_post_requestsEc+0x46>
+  46:	21 30       	cpi	r18, 0x01	; 1
+  48:	01 f4       	brne	.+0      	; 0x4a <_ZN10RestServer18read_post_requestsEc+0x4a>
+	if (server_state == PROCESS) return true;
+  4a:	c6 01       	movw	r24, r12
+  4c:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer18read_post_requestsEc>
+  50:	88 23       	and	r24, r24
+  52:	01 f4       	brne	.+0      	; 0x54 <_ZN10RestServer18read_post_requestsEc+0x54>
+  54:	c6 01       	movw	r24, r12
+  56:	6f 2d       	mov	r22, r15
+	else return false;
+}
+  58:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer18read_post_requestsEc>
+  5c:	88 23       	and	r24, r24
+  5e:	01 f4       	brne	.+0      	; 0x60 <_ZN10RestServer18read_post_requestsEc+0x60>
+  60:	00 c0       	rjmp	.+0      	; 0x62 <_ZN10RestServer18read_post_requestsEc+0x62>
+  62:	f6 01       	movw	r30, r12
+  64:	e2 5b       	subi	r30, 0xB2	; 178
+  66:	ff 4f       	sbci	r31, 0xFF	; 255
+  68:	40 81       	ld	r20, Z
+  6a:	51 81       	ldd	r21, Z+1	; 0x01
+  6c:	14 16       	cp	r1, r20
+  6e:	15 06       	cpc	r1, r21
+  70:	04 f4       	brge	.+0      	; 0x72 <_ZN10RestServer18read_post_requestsEc+0x72>
+  72:	86 01       	movw	r16, r12
+  74:	0d 5f       	subi	r16, 0xFD	; 253
+  76:	1f 4f       	sbci	r17, 0xFF	; 255
+  78:	41 50       	subi	r20, 0x01	; 1
+  7a:	50 40       	sbci	r21, 0x00	; 0
+  7c:	c8 01       	movw	r24, r16
+  7e:	60 e0       	ldi	r22, 0x00	; 0
+  80:	70 e0       	ldi	r23, 0x00	; 0
+  82:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer18read_post_requestsEc>
+  86:	f6 01       	movw	r30, r12
+  88:	e8 5a       	subi	r30, 0xA8	; 168
+  8a:	ff 4f       	sbci	r31, 0xFF	; 255
+  8c:	80 83       	st	Z, r24
+  8e:	f6 01       	movw	r30, r12
+  90:	e9 5a       	subi	r30, 0xA9	; 169
+  92:	ff 4f       	sbci	r31, 0xFF	; 255
+  94:	82 e0       	ldi	r24, 0x02	; 2
+  96:	80 83       	st	Z, r24
+  98:	c8 01       	movw	r24, r16
+  9a:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer18read_post_requestsEc>
+  9e:	00 c0       	rjmp	.+0      	; 0xa0 <_ZN10RestServer18read_post_requestsEc+0xa0>
+  a0:	22 30       	cpi	r18, 0x02	; 2
+  a2:	01 f4       	brne	.+0      	; 0xa4 <_ZN10RestServer18read_post_requestsEc+0xa4>
+  a4:	c6 01       	movw	r24, r12
+  a6:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer18read_post_requestsEc>
+  aa:	81 30       	cpi	r24, 0x01	; 1
+  ac:	01 f4       	brne	.+0      	; 0xae <_ZN10RestServer18read_post_requestsEc+0xae>
+  ae:	83 e0       	ldi	r24, 0x03	; 3
+  b0:	f8 01       	movw	r30, r16
+  b2:	80 83       	st	Z, r24
+  b4:	00 c0       	rjmp	.+0      	; 0xb6 <_ZN10RestServer18read_post_requestsEc+0xb6>
+  b6:	23 30       	cpi	r18, 0x03	; 3
+  b8:	01 f4       	brne	.+0      	; 0xba <_ZN10RestServer18read_post_requestsEc+0xba>
+  ba:	c6 01       	movw	r24, r12
+  bc:	03 96       	adiw	r24, 0x03	; 3
+  be:	29 83       	std	Y+1, r18	; 0x01
+  c0:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer18read_post_requestsEc>
+  c4:	f6 01       	movw	r30, r12
+  c6:	e7 5a       	subi	r30, 0xA7	; 167
+  c8:	ff 4f       	sbci	r31, 0xFF	; 255
+  ca:	80 81       	ld	r24, Z
+  cc:	8f 5f       	subi	r24, 0xFF	; 255
+  ce:	80 83       	st	Z, r24
+  d0:	f6 01       	movw	r30, r12
+  d2:	e8 5a       	subi	r30, 0xA8	; 168
+  d4:	ff 4f       	sbci	r31, 0xFF	; 255
+  d6:	90 81       	ld	r25, Z
+  d8:	29 81       	ldd	r18, Y+1	; 0x01
+  da:	89 17       	cp	r24, r25
+  dc:	00 f0       	brcs	.+0      	; 0xde <_ZN10RestServer18read_post_requestsEc+0xde>
+  de:	f6 01       	movw	r30, r12
+  e0:	ed 5a       	subi	r30, 0xAD	; 173
+  e2:	ff 4f       	sbci	r31, 0xFF	; 255
+  e4:	20 83       	st	Z, r18
+  e6:	00 c0       	rjmp	.+0      	; 0xe8 <_ZN10RestServer18read_post_requestsEc+0xe8>
+  e8:	c6 01       	movw	r24, r12
+  ea:	03 96       	adiw	r24, 0x03	; 3
+  ec:	6f 2d       	mov	r22, r15
+  ee:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer18read_post_requestsEc>
+  f2:	0f 90       	pop	r0
+  f4:	df 91       	pop	r29
+  f6:	cf 91       	pop	r28
+  f8:	1f 91       	pop	r17
+  fa:	0f 91       	pop	r16
+  fc:	ff 90       	pop	r15
+  fe:	df 90       	pop	r13
+ 100:	cf 90       	pop	r12
+ 102:	08 95       	ret
+
+Disassembly of section .text._ZN10RestServer12read_requestEc:
+
+00000000 <_ZN10RestServer12read_requestEc>:
+
+int RestServer::get_server_state() {
+	return server_state;
+}
+
+boolean RestServer::handle_requests(Stream &_client) {
+   0:	1f 93       	push	r17
+   2:	cf 93       	push	r28
+   4:	df 93       	push	r29
+   6:	ec 01       	movw	r28, r24
+   8:	16 2f       	mov	r17, r22
+   a:	fc 01       	movw	r30, r24
+	if (_client.available()) {
+   c:	ee 5a       	subi	r30, 0xAE	; 174
+   e:	ff 4f       	sbci	r31, 0xFF	; 255
+  10:	80 81       	ld	r24, Z
+  12:	88 23       	and	r24, r24
+  14:	01 f0       	breq	.+0      	; 0x16 <_ZN10RestServer12read_requestEc+0x16>
+  16:	80 e0       	ldi	r24, 0x00	; 0
+  18:	90 e0       	ldi	r25, 0x00	; 0
+  1a:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer12read_requestEc>
+  1e:	fe 01       	movw	r30, r28
+		start_timer();
+  20:	ed 5a       	subi	r30, 0xAD	; 173
+  22:	ff 4f       	sbci	r31, 0xFF	; 255
+  24:	80 81       	ld	r24, Z
+		read_request(_client.read());
+  26:	81 30       	cpi	r24, 0x01	; 1
+  28:	01 f4       	brne	.+0      	; 0x2a <_ZN10RestServer12read_requestEc+0x2a>
+  2a:	ce 01       	movw	r24, r28
+  2c:	61 2f       	mov	r22, r17
+  2e:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer12read_requestEc>
+  32:	00 c0       	rjmp	.+0      	; 0x34 <_ZN10RestServer12read_requestEc+0x34>
+  34:	82 30       	cpi	r24, 0x02	; 2
+  36:	01 f4       	brne	.+0      	; 0x38 <_ZN10RestServer12read_requestEc+0x38>
+  38:	fe 01       	movw	r30, r28
+  3a:	eb 5a       	subi	r30, 0xAB	; 171
+  3c:	ff 4f       	sbci	r31, 0xFF	; 255
+	}
+	parse_request();
+  3e:	80 81       	ld	r24, Z
+  40:	88 23       	and	r24, r24
+  42:	01 f4       	brne	.+0      	; 0x44 <_ZN10RestServer12read_requestEc+0x44>
+	process();	
+  44:	ce 01       	movw	r24, r28
+  46:	61 2f       	mov	r22, r17
+  48:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer12read_requestEc>
+	if (server_state == PROCESS) return true;
+  4c:	00 c0       	rjmp	.+0      	; 0x4e <_ZN10RestServer12read_requestEc+0x4e>
+  4e:	81 30       	cpi	r24, 0x01	; 1
+  50:	01 f4       	brne	.+0      	; 0x52 <_ZN10RestServer12read_requestEc+0x52>
+  52:	ce 01       	movw	r24, r28
+  54:	61 2f       	mov	r22, r17
+  56:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer12read_requestEc>
+	else return false;
+}
+  5a:	fe 01       	movw	r30, r28
+  5c:	e2 5b       	subi	r30, 0xB2	; 178
+  5e:	ff 4f       	sbci	r31, 0xFF	; 255
+  60:	80 81       	ld	r24, Z
+  62:	91 81       	ldd	r25, Z+1	; 0x01
+  64:	8a 34       	cpi	r24, 0x4A	; 74
+  66:	91 05       	cpc	r25, r1
+  68:	01 f4       	brne	.+0      	; 0x6a <_ZN10RestServer12read_requestEc+0x6a>
+  6a:	cd 5a       	subi	r28, 0xAD	; 173
+  6c:	df 4f       	sbci	r29, 0xFF	; 255
+  6e:	83 e0       	ldi	r24, 0x03	; 3
+  70:	88 83       	st	Y, r24
+  72:	df 91       	pop	r29
+  74:	cf 91       	pop	r28
+  76:	1f 91       	pop	r17
+  78:	08 95       	ret
+
+Disassembly of section .text._ZN10RestServer15handle_requestsER6Stream:
+
+00000000 <_ZN10RestServer15handle_requestsER6Stream>:
+
+int RestServer::get_server_state() {
+	return server_state;
+}
+
+boolean RestServer::handle_requests(Stream &_client) {
+   0:	0f 93       	push	r16
+   2:	1f 93       	push	r17
+   4:	cf 93       	push	r28
+   6:	df 93       	push	r29
+   8:	ec 01       	movw	r28, r24
+   a:	8b 01       	movw	r16, r22
+	if (_client.available()) {
+   c:	db 01       	movw	r26, r22
+   e:	ed 91       	ld	r30, X+
+  10:	fc 91       	ld	r31, X
+  12:	04 80       	ldd	r0, Z+4	; 0x04
+  14:	f5 81       	ldd	r31, Z+5	; 0x05
+  16:	e0 2d       	mov	r30, r0
+  18:	cb 01       	movw	r24, r22
+  1a:	19 95       	eicall
+  1c:	00 97       	sbiw	r24, 0x00	; 0
+  1e:	01 f0       	breq	.+0      	; 0x20 <_ZN10RestServer15handle_requestsER6Stream+0x20>
+		start_timer();
+  20:	ce 01       	movw	r24, r28
+  22:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer15handle_requestsER6Stream>
+		read_request(_client.read());
+  26:	d8 01       	movw	r26, r16
+  28:	ed 91       	ld	r30, X+
+  2a:	fc 91       	ld	r31, X
+  2c:	06 80       	ldd	r0, Z+6	; 0x06
+  2e:	f7 81       	ldd	r31, Z+7	; 0x07
+  30:	e0 2d       	mov	r30, r0
+  32:	c8 01       	movw	r24, r16
+  34:	19 95       	eicall
+  36:	68 2f       	mov	r22, r24
+  38:	ce 01       	movw	r24, r28
+  3a:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer15handle_requestsER6Stream>
+	}
+	parse_request();
+  3e:	ce 01       	movw	r24, r28
+  40:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer15handle_requestsER6Stream>
+	process();	
+  44:	ce 01       	movw	r24, r28
+  46:	0e 94 00 00 	call	0	; 0x0 <_ZN10RestServer15handle_requestsER6Stream>
+	if (server_state == PROCESS) return true;
+  4a:	cd 5a       	subi	r28, 0xAD	; 173
+  4c:	df 4f       	sbci	r29, 0xFF	; 255
+  4e:	81 e0       	ldi	r24, 0x01	; 1
+  50:	98 81       	ld	r25, Y
+  52:	94 30       	cpi	r25, 0x04	; 4
+  54:	01 f0       	breq	.+0      	; 0x56 <_ZN10RestServer15handle_requestsER6Stream+0x56>
+  56:	80 e0       	ldi	r24, 0x00	; 0
+	else return false;
+}
+  58:	df 91       	pop	r29
+  5a:	cf 91       	pop	r28
+  5c:	1f 91       	pop	r17
+  5e:	0f 91       	pop	r16
+  60:	08 95       	ret

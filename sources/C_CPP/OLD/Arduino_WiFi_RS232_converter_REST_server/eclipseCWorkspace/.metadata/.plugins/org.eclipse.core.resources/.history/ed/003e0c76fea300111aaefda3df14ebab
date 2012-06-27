@@ -1,0 +1,18 @@
+/*
+ * RWSubTaskDecideToSendOutgoingData.cpp
+ *
+ *  Created on: 22-05-2012
+ *      Author: root
+ */
+
+#include "RWSubTaskDecideToSendOutgoingData.h"
+
+RWSubTaskDecideToSendOutgoingData::RWSubTaskDecideToSendOutgoingData() {
+	// TODO Auto-generated constructor stub
+
+}
+
+RWSubTaskDecideToSendOutgoingData::~RWSubTaskDecideToSendOutgoingData() {
+	// TODO Auto-generated destructor stub
+}
+

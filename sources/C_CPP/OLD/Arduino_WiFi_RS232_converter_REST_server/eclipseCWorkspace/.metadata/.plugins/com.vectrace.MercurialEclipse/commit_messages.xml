@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<commitmessages>
+<commitmessage>Tylko miganie dioda nr. D13.</commitmessage>
+<commitmessage>Alarm pracujacy z czujka OPTEX MX-40PT za pomoca digitalRead() i odpalonych pullup resistors (a wiec do 5V caly czas podlaczam ground, niezbyt dobrze ale dzieki temu stabilnie odczytuje LOW; kiedy czujka rozewrze swoj N.C. to odczytuje stabline HIGH i wiem, ze to sabotaz lub alarm).</commitmessage>
+<commitmessage>Alarm oparty o czuke OPTEX MX-40PT</commitmessage>
+<commitmessage>Usunalem sprawy z EEPROM (EEPROM, InternalEEPROM) oraz sprawy z ePIR.</commitmessage>
+<commitmessage>Arduino TaskManager</commitmessage>
+</commitmessages>

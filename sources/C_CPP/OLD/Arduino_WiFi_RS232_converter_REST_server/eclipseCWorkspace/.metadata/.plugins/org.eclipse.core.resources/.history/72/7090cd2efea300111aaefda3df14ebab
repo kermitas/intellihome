@@ -1,0 +1,17 @@
+/*
+ * RWSubTaskDecideToSendOutgoingData.h
+ *
+ *  Created on: 22-05-2012
+ *      Author: root
+ */
+
+#ifndef RWSUBTASKDECIDETOSENDOUTGOINGDATA_H_
+#define RWSUBTASKDECIDETOSENDOUTGOINGDATA_H_
+
+class RWSubTaskDecideToSendOutgoingData {
+public:
+	RWSubTaskDecideToSendOutgoingData();
+	virtual ~RWSubTaskDecideToSendOutgoingData();
+};
+
+#endif /* RWSUBTASKDECIDETOSENDOUTGOINGDATA_H_ */

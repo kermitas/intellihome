@@ -1,0 +1,40 @@
+
+**** Build of configuration Release for project Satelita1_REST ****
+
+make all 
+Building file: ../RestServer.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_REST" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"RestServer.d" -MT"RestServer.d" -c -o "RestServer.o" -x c++ "../RestServer.cpp"
+avr-ar: creating libSatelita1_REST.a
+avr-objcopy:libSatelita1_REST.hex: Invalid operation
+make: [libSatelita1_REST.hex] Błąd 1 (zignorowany)
+avr-objcopy:libSatelita1_REST.eep: Invalid operation
+make: [libSatelita1_REST.eep] Błąd 1 (zignorowany)
+Finished building: ../RestServer.cpp
+ 
+Building target: libSatelita1_REST.a
+Invoking: AVR Archiver
+avr-ar -r  "libSatelita1_REST.a"  ./RestServer.o  
+Finished building target: libSatelita1_REST.a
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S libSatelita1_REST.a  >"libSatelita1_REST.lss"
+Finished building: libSatelita1_REST.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex libSatelita1_REST.a  "libSatelita1_REST.hex"
+Finished building: libSatelita1_REST.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex libSatelita1_REST.a  "libSatelita1_REST.eep"
+Finished building: libSatelita1_REST.eep
+ 
+Invoking: Print Size
+avr-size --format=berkeley -t libSatelita1_REST.a
+   text	   data	    bss	    dec	    hex	filename
+     12	      0	      0	     12	      c	RestServer.o (ex libSatelita1_REST.a)
+     12	      0	      0	     12	      c	(TOTALS)
+Finished building: sizedummy
+ 
+
+**** Build Finished ****

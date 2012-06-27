@@ -1,0 +1,17 @@
+/*
+ * RWSubTaskReadRECVACKCommandData.h
+ *
+ *  Created on: 21-05-2012
+ *      Author: root
+ */
+
+#ifndef RWSUBTASKREADRECVACKCOMMANDDATA_H_
+#define RWSUBTASKREADRECVACKCOMMANDDATA_H_
+
+class RWSubTaskReadRECVACKCommandData {
+public:
+	RWSubTaskReadRECVACKCommandData();
+	virtual ~RWSubTaskReadRECVACKCommandData();
+};
+
+#endif /* RWSUBTASKREADRECVACKCOMMANDDATA_H_ */

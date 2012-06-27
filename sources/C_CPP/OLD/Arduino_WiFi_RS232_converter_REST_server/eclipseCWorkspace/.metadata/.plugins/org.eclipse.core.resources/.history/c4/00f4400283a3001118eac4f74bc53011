@@ -1,0 +1,18 @@
+/*
+ * RWCommandSerialNumber.cpp
+ *
+ *  Created on: 21-05-2012
+ *      Author: root
+ */
+
+#include "RWCommandSerialNumber.h"
+
+RWCommandSerialNumber::RWCommandSerialNumber() {
+	// TODO Auto-generated constructor stub
+
+}
+
+RWCommandSerialNumber::~RWCommandSerialNumber() {
+	// TODO Auto-generated destructor stub
+}
+

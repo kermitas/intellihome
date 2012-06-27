@@ -1,0 +1,250 @@
+
+**** Build of configuration Release for project Satelita1_RestServer ****
+
+make all 
+Building file: ../DeterminateHttpMethodSubTask.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_RestServer" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"DeterminateHttpMethodSubTask.d" -MT"DeterminateHttpMethodSubTask.d" -c -o "DeterminateHttpMethodSubTask.o" -x c++ "../DeterminateHttpMethodSubTask.cpp"
+In file included from ../ReadHttpPathSubTask.h:23:0,
+                 from ../DeterminateHttpMethodSubTask.h:22,
+                 from ../DeterminateHttpMethodSubTask.cpp:10:
+../RestServerCommon.h:43:1: warning: 'typedef' was ignored in this declaration [enabled by default]
+Finished building: ../DeterminateHttpMethodSubTask.cpp
+ 
+Building file: ../ErrorSubTask.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_RestServer" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"ErrorSubTask.d" -MT"ErrorSubTask.d" -c -o "ErrorSubTask.o" -x c++ "../ErrorSubTask.cpp"
+../DeterminateHttpMethodSubTask.cpp: In member function 'virtual char* DeterminateHttpMethodSubTask::getSubTaskName()':
+../DeterminateHttpMethodSubTask.cpp:25:9: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+Finished building: ../ErrorSubTask.cpp
+ 
+Building file: ../HttpChunkedTransferEncodingStream.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_RestServer" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"HttpChunkedTransferEncodingStream.d" -MT"HttpChunkedTransferEncodingStream.d" -c -o "HttpChunkedTransferEncodingStream.o" -x c++ "../HttpChunkedTransferEncodingStream.cpp"
+../DeterminateHttpMethodSubTask.cpp: In member function 'virtual RestServerSubTask* DeterminateHttpMethodSubTask::executeSubTask(Stream*)':
+../DeterminateHttpMethodSubTask.cpp:36:33: warning: unused variable 'functionName' [-Wunused-variable]
+../ErrorSubTask.cpp: In member function 'virtual char* ErrorSubTask::getSubTaskName()':
+../ErrorSubTask.cpp:16:9: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+In file included from ../JsonPageRenderer.h:20:0,
+                 from ../JsonPageRenderer.cpp:10:
+../RestServerCommon.h:43:1: warning: 'typedef' was ignored in this declaration [enabled by default]
+In file included from ../ReadHttpParameterNameSubTask.h:22:0,
+Finished building: ../HttpChunkedTransferEncodingStream.cpp
+ 
+Building file: ../JsonMetadescriptionRestServiceRenderer.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_RestServer" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"JsonMetadescriptionRestServiceRenderer.d" -MT"JsonMetadescriptionRestServiceRenderer.d" -c -o "JsonMetadescriptionRestServiceRenderer.o" -x c++ "../JsonMetadescriptionRestServiceRenderer.cpp"
+Finished building: ../JsonMetadescriptionRestServiceRenderer.cpp
+ 
+Building file: ../JsonPageRenderer.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_RestServer" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"JsonPageRenderer.d" -MT"JsonPageRenderer.d" -c -o "JsonPageRenderer.o" -x c++ "../JsonPageRenderer.cpp"
+Finished building: ../JsonPageRenderer.cpp
+ 
+Building file: ../JsonRestServiceRenderer.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_RestServer" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"JsonRestServiceRenderer.d" -MT"JsonRestServiceRenderer.d" -c -o "JsonRestServiceRenderer.o" -x c++ "../JsonRestServiceRenderer.cpp"
+Finished building: ../JsonRestServiceRenderer.cpp
+ 
+Building file: ../NameValueRestService.cpp
+                 from ../ReadHttpParameterNameSubTask.cpp:10:
+../RestServerCommon.h:43:1: warning: 'typedef' was ignored in this declaration [enabled by default]
+Invoking: AVR C++ Compiler
+../ReadHttpParameterNameSubTask.cpp: In member function 'virtual char* ReadHttpParameterNameSubTask::getSubTaskName()':
+../ReadHttpParameterNameSubTask.cpp:40:9: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../ReadHttpParameterNameSubTask.cpp: In member function 'virtual void ReadHttpParameterNameSubTask::resetInternalState()':
+../ReadHttpParameterNameSubTask.cpp:47:33: warning: unused variable 'functionName' [-Wunused-variable]
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_RestServer" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"NameValueRestService.d" -MT"NameValueRestService.d" -c -o "NameValueRestService.o" -x c++ "../NameValueRestService.cpp"
+Finished building: ../NameValueRestService.cpp
+ 
+Building file: ../ReadHttpParameterNameSubTask.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_RestServer" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"ReadHttpParameterNameSubTask.d" -MT"ReadHttpParameterNameSubTask.d" -c -o "ReadHttpParameterNameSubTask.o" -x c++ "../ReadHttpParameterNameSubTask.cpp"
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h: In member function 'virtual RestServerSubTask* ReadHttpParameterNameSubTask::executeSubTask(Stream*)':
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h:55:57: warning: uninitialized variable 'DebugPrinter::debugLevelPrefixForALL' put into program memory area [-Wuninitialized]
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h:50:42: warning: uninitialized variable 'DebugPrinter::newLine' put into program memory area [-Wuninitialized]
+In file included from ../ReadHttpParameterValueSubTask.h:22:0,
+                 from ../ReadHttpParameterValueSubTask.cpp:10:
+../RestServerCommon.h:43:1: warning: 'typedef' was ignored in this declaration [enabled by default]
+../ReadHttpParameterValueSubTask.cpp: In member function 'virtual char* ReadHttpParameterValueSubTask::getSubTaskName()':
+Finished building: ../ReadHttpParameterNameSubTask.cpp
+ 
+Building file: ../ReadHttpParameterValueSubTask.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_RestServer" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"ReadHttpParameterValueSubTask.d" -MT"ReadHttpParameterValueSubTask.d" -c -o "ReadHttpParameterValueSubTask.o" -x c++ "../ReadHttpParameterValueSubTask.cpp"
+Finished building: ../ReadHttpParameterValueSubTask.cpp
+ 
+Building file: ../ReadHttpPathSubTask.cpp
+Invoking: AVR C++ Compiler
+../ReadHttpParameterValueSubTask.cpp:36:9: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../ReadHttpParameterValueSubTask.cpp: In member function 'virtual void ReadHttpParameterValueSubTask::resetInternalState()':
+../ReadHttpParameterValueSubTask.cpp:43:33: warning: unused variable 'functionName' [-Wunused-variable]
+../ReadHttpParameterValueSubTask.cpp: In member function 'virtual RestServerSubTask* ReadHttpParameterValueSubTask::executeSubTask(Stream*)':
+../ReadHttpParameterValueSubTask.cpp:57:33: warning: unused variable 'functionName' [-Wunused-variable]
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h: In member function 'void ReadHttpParameterValueSubTask::parseReadParameterValue()':
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h:55:57: warning: uninitialized variable 'DebugPrinter::debugLevelPrefixForALL' put into program memory area [-Wuninitialized]
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h:50:42: warning: uninitialized variable 'DebugPrinter::newLine' put into program memory area [-Wuninitialized]
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h:57:61: warning: uninitialized variable 'DebugPrinter::debugLevelPrefixForWARNING' put into program memory area [-Wuninitialized]
+In file included from ../ReadHttpPathSubTask.h:23:0,
+                 from ../ReadHttpPathSubTask.cpp:10:
+../RestServerCommon.h:43:1: warning: 'typedef' was ignored in this declaration [enabled by default]
+../ReadHttpPathSubTask.cpp: In member function 'virtual char* ReadHttpPathSubTask::getSubTaskName()':
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_RestServer" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"ReadHttpPathSubTask.d" -MT"ReadHttpPathSubTask.d" -c -o "ReadHttpPathSubTask.o" -x c++ "../ReadHttpPathSubTask.cpp"
+Finished building: ../ReadHttpPathSubTask.cpp
+ 
+Building file: ../RestServer.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_RestServer" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"RestServer.d" -MT"RestServer.d" -c -o "RestServer.o" -x c++ "../RestServer.cpp"
+Finished building: ../RestServer.cpp
+ 
+Building file: ../RestService.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_RestServer" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"RestService.d" -MT"RestService.d" -c -o "RestService.o" -x c++ "../RestService.cpp"
+../ReadHttpPathSubTask.cpp:52:9: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../ReadHttpPathSubTask.cpp: In member function 'virtual void ReadHttpPathSubTask::resetInternalState()':
+../ReadHttpPathSubTask.cpp:59:33: warning: unused variable 'functionName' [-Wunused-variable]
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h: In member function 'bool ReadHttpPathSubTask::isStringStartsWith(char*, char*)':
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h:55:57: warning: uninitialized variable 'DebugPrinter::debugLevelPrefixForALL' put into program memory area [-Wuninitialized]
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h:50:42: warning: uninitialized variable 'DebugPrinter::newLine' put into program memory area [-Wuninitialized]
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h: In member function 'virtual RestServerSubTask* ReadHttpPathSubTask::executeSubTask(Stream*)':
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h:56:58: warning: uninitialized variable 'DebugPrinter::debugLevelPrefixForINFO' put into program memory area [-Wuninitialized]
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h:57:61: warning: uninitialized variable 'DebugPrinter::debugLevelPrefixForWARNING' put into program memory area [-Wuninitialized]
+In file included from ../RestServer.h:24:0,
+Finished building: ../RestService.cpp
+ 
+Building file: ../SendResponseSubTask.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_RestServer" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"SendResponseSubTask.d" -MT"SendResponseSubTask.d" -c -o "SendResponseSubTask.o" -x c++ "../SendResponseSubTask.cpp"
+Finished building: ../SendResponseSubTask.cpp
+ 
+Building file: ../SkipBytesUntilSequenceSubTask.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_RestServer" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"SkipBytesUntilSequenceSubTask.d" -MT"SkipBytesUntilSequenceSubTask.d" -c -o "SkipBytesUntilSequenceSubTask.o" -x c++ "../SkipBytesUntilSequenceSubTask.cpp"
+Finished building: ../SkipBytesUntilSequenceSubTask.cpp
+                 from ../RestServer.cpp:29:
+../RestServerCommon.h:43:1: warning: 'typedef' was ignored in this declaration [enabled by default]
+../RestServer.h: In constructor 'RestServer::RestServer(ServiceDescription**, unsigned char, PageRenderer*, PageRenderer*, const char*, const char*, ServiceDescription*, bool, bool*, unsigned char*, unsigned char, AnyBuffer<unsigned char, unsigned char>*, char*, unsigned char)':
+../RestServer.h:86:32: warning: 'RestServer::determinateHttpMethodSubTask' will be initialized after [-Wreorder]
+../RestServer.h:62:15: warning:   'RestService RestServer::jsonActivatorRestService' [-Wreorder]
+../RestServer.cpp:33:1: warning:   when initialized here [-Wreorder]
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h: In member function 'bool RestServer::processStream(Stream*)':
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h:55:57: warning: uninitialized variable 'DebugPrinter::debugLevelPrefixForALL' put into program memory area [-Wuninitialized]
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h:50:42: warning: uninitialized variable 'DebugPrinter::newLine' put into program memory area [-Wuninitialized]
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h:57:61: warning: uninitialized variable 'DebugPrinter::debugLevelPrefixForWARNING' put into program memory area [-Wuninitialized]
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h:56:58: warning: uninitialized variable 'DebugPrinter::debugLevelPrefixForINFO' put into program memory area [-Wuninitialized]
+ 
+Building file: ../TableHTMLPageRenderer.cpp
+In file included from ../SendResponseSubTask.h:23:0,
+                 from ../SendResponseSubTask.cpp:8:
+../RestServerCommon.h:43:1: warning: 'typedef' was ignored in this declaration [enabled by default]
+../SendResponseSubTask.cpp: In member function 'virtual char* SendResponseSubTask::getSubTaskName()':
+../SendResponseSubTask.cpp:32:9: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h: In member function 'virtual RestServerSubTask* SendResponseSubTask::executeSubTask(Stream*)':
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_RestServer" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"TableHTMLPageRenderer.d" -MT"TableHTMLPageRenderer.d" -c -o "TableHTMLPageRenderer.o" -x c++ "../TableHTMLPageRenderer.cpp"
+Finished building: ../TableHTMLPageRenderer.cpp
+ 
+Building file: ../TableHTMLRestServiceRenderer.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_RestServer" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"TableHTMLRestServiceRenderer.d" -MT"TableHTMLRestServiceRenderer.d" -c -o "TableHTMLRestServiceRenderer.o" -x c++ "../TableHTMLRestServiceRenderer.cpp"
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h:55:57: warning: uninitialized variable 'DebugPrinter::debugLevelPrefixForALL' put into program memory area [-Wuninitialized]
+/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/DebugPrinter.h:50:42: warning: uninitialized variable 'DebugPrinter::newLine' put into program memory area [-Wuninitialized]
+Finished building: ../TableHTMLRestServiceRenderer.cpp
+ 
+Building file: ../_BasicHTMLPageRenderer.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_RestServer" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"_BasicHTMLPageRenderer.d" -MT"_BasicHTMLPageRenderer.d" -c -o "_BasicHTMLPageRenderer.o" -x c++ "../_BasicHTMLPageRenderer.cpp"
+Finished building: ../_BasicHTMLPageRenderer.cpp
+ 
+Building file: ../_BasicHTMLRestServiceRenderer.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_RestServer" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"_BasicHTMLRestServiceRenderer.d" -MT"_BasicHTMLRestServiceRenderer.d" -c -o "_BasicHTMLRestServiceRenderer.o" -x c++ "../_BasicHTMLRestServiceRenderer.cpp"
+Finished building: ../_BasicHTMLRestServiceRenderer.cpp
+ 
+Building file: ../_BasicValueSetterHTMLGenerator.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_RestServer" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"_BasicValueSetterHTMLGenerator.d" -MT"_BasicValueSetterHTMLGenerator.d" -c -o "_BasicValueSetterHTMLGenerator.o" -x c++ "../_BasicValueSetterHTMLGenerator.cpp"
+Finished building: ../_BasicValueSetterHTMLGenerator.cpp
+ 
+Building file: ../_EmptyRestService.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_RestServer" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"_EmptyRestService.d" -MT"_EmptyRestService.d" -c -o "_EmptyRestService.o" -x c++ "../_EmptyRestService.cpp"
+Finished building: ../_EmptyRestService.cpp
+ 
+Building file: ../_ReadHttpPathSubTask.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_RestServer" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"_ReadHttpPathSubTask.d" -MT"_ReadHttpPathSubTask.d" -c -o "_ReadHttpPathSubTask.o" -x c++ "../_ReadHttpPathSubTask.cpp"
+Finished building: ../_ReadHttpPathSubTask.cpp
+ 
+../SkipBytesUntilSequenceSubTask.cpp: In member function 'virtual char* SkipBytesUntilSequenceSubTask::getSubTaskName()':
+../SkipBytesUntilSequenceSubTask.cpp:55:9: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../SkipBytesUntilSequenceSubTask.cpp: In member function 'virtual RestServerSubTask* SkipBytesUntilSequenceSubTask::executeSubTask(Stream*)':
+../SkipBytesUntilSequenceSubTask.cpp:72:33: warning: unused variable 'functionName' [-Wunused-variable]
+In file included from ../TableHTMLPageRenderer.h:20:0,
+                 from ../TableHTMLPageRenderer.cpp:10:
+../RestServerCommon.h:43:1: warning: 'typedef' was ignored in this declaration [enabled by default]
+../TableHTMLPageRenderer.cpp: In member function 'void TableHTMLPageRenderer::generateReadOnlyOrUpdateableServicesNamesForLink(Stream*, bool)':
+../TableHTMLPageRenderer.cpp:162:58: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+avr-ar: creating libSatelita1_RestServer.a
+avr-objcopy:libSatelita1_RestServer.hex: Invalid operation
+make: [libSatelita1_RestServer.hex] Błąd 1 (zignorowany)
+avr-objcopy:libSatelita1_RestServer.eep: Invalid operation
+make: [libSatelita1_RestServer.eep] Błąd 1 (zignorowany)
+Building file: ../_RestUpdateableService.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_RestServer" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"_RestUpdateableService.d" -MT"_RestUpdateableService.d" -c -o "_RestUpdateableService.o" -x c++ "../_RestUpdateableService.cpp"
+Finished building: ../_RestUpdateableService.cpp
+ 
+Building file: ../_SettableRestUpdateableService.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino" -I"/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/variants/mega" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils" -I"/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_RestServer" -D__IN_ECLIPSE__=1 -DARDUINO=100 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega2560 -DF_CPU=16000000UL -MMD -MP -MF"_SettableRestUpdateableService.d" -MT"_SettableRestUpdateableService.d" -c -o "_SettableRestUpdateableService.o" -x c++ "../_SettableRestUpdateableService.cpp"
+Finished building: ../_SettableRestUpdateableService.cpp
+ 
+Building target: libSatelita1_RestServer.a
+Invoking: AVR Archiver
+avr-ar -r  "libSatelita1_RestServer.a"  ./DeterminateHttpMethodSubTask.o ./ErrorSubTask.o ./HttpChunkedTransferEncodingStream.o ./JsonMetadescriptionRestServiceRenderer.o ./JsonPageRenderer.o ./JsonRestServiceRenderer.o ./NameValueRestService.o ./ReadHttpParameterNameSubTask.o ./ReadHttpParameterValueSubTask.o ./ReadHttpPathSubTask.o ./RestServer.o ./RestService.o ./SendResponseSubTask.o ./SkipBytesUntilSequenceSubTask.o ./TableHTMLPageRenderer.o ./TableHTMLRestServiceRenderer.o ./_BasicHTMLPageRenderer.o ./_BasicHTMLRestServiceRenderer.o ./_BasicValueSetterHTMLGenerator.o ./_EmptyRestService.o ./_ReadHttpPathSubTask.o ./_RestUpdateableService.o ./_SettableRestUpdateableService.o  
+Finished building target: libSatelita1_RestServer.a
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S libSatelita1_RestServer.a  >"libSatelita1_RestServer.lss"
+Finished building: libSatelita1_RestServer.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex libSatelita1_RestServer.a  "libSatelita1_RestServer.hex"
+Finished building: libSatelita1_RestServer.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex libSatelita1_RestServer.a  "libSatelita1_RestServer.eep"
+Finished building: libSatelita1_RestServer.eep
+ 
+Invoking: Print Size
+avr-size --format=berkeley -t libSatelita1_RestServer.a
+   text	   data	    bss	    dec	    hex	filename
+    247	     31	      0	    278	    116	DeterminateHttpMethodSubTask.o (ex libSatelita1_RestServer.a)
+     24	     15	      0	     39	     27	ErrorSubTask.o (ex libSatelita1_RestServer.a)
+    378	     11	      0	    389	    185	HttpChunkedTransferEncodingStream.o (ex libSatelita1_RestServer.a)
+    412	    217	      0	    629	    275	JsonMetadescriptionRestServiceRenderer.o (ex libSatelita1_RestServer.a)
+    142	    105	      0	    247	     f7	JsonPageRenderer.o (ex libSatelita1_RestServer.a)
+    200	     16	      0	    216	     d8	JsonRestServiceRenderer.o (ex libSatelita1_RestServer.a)
+    114	      0	      0	    114	     72	NameValueRestService.o (ex libSatelita1_RestServer.a)
+    979	     31	      0	   1010	    3f2	ReadHttpParameterNameSubTask.o (ex libSatelita1_RestServer.a)
+   1035	     32	      0	   1067	    42b	ReadHttpParameterValueSubTask.o (ex libSatelita1_RestServer.a)
+   2215	     36	      0	   2251	    8cb	ReadHttpPathSubTask.o (ex libSatelita1_RestServer.a)
+   2805	      0	      0	   2805	    af5	RestServer.o (ex libSatelita1_RestServer.a)
+     66	      0	      0	     66	     42	RestService.o (ex libSatelita1_RestServer.a)
+   1249	     22	      0	   1271	    4f7	SendResponseSubTask.o (ex libSatelita1_RestServer.a)
+    212	     32	      0	    244	     f4	SkipBytesUntilSequenceSubTask.o (ex libSatelita1_RestServer.a)
+    850	   1547	      0	   2397	    95d	TableHTMLPageRenderer.o (ex libSatelita1_RestServer.a)
+   1088	    475	      0	   1563	    61b	TableHTMLRestServiceRenderer.o (ex libSatelita1_RestServer.a)
+      0	      0	      0	      0	      0	_BasicHTMLPageRenderer.o (ex libSatelita1_RestServer.a)
+      0	      0	      0	      0	      0	_BasicHTMLRestServiceRenderer.o (ex libSatelita1_RestServer.a)
+      0	      0	      0	      0	      0	_BasicValueSetterHTMLGenerator.o (ex libSatelita1_RestServer.a)
+      0	      0	      0	      0	      0	_EmptyRestService.o (ex libSatelita1_RestServer.a)
+      0	      0	      0	      0	      0	_ReadHttpPathSubTask.o (ex libSatelita1_RestServer.a)
+      0	      0	      0	      0	      0	_RestUpdateableService.o (ex libSatelita1_RestServer.a)
+      0	      0	      0	      0	      0	_SettableRestUpdateableService.o (ex libSatelita1_RestServer.a)
+  12016	   2570	      0	  14586	   38fa	(TOTALS)
+Finished building: sizedummy
+ 
+
+**** Build Finished ****

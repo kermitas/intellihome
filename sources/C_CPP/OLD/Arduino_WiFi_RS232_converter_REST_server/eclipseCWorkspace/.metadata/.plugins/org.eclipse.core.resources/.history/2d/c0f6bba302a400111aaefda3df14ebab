@@ -1,0 +1,17 @@
+/*
+ * RWSubTaskSendSENDCommand.h
+ *
+ *  Created on: 22-05-2012
+ *      Author: root
+ */
+
+#ifndef RWSUBTASKSENDSENDCOMMAND_H_
+#define RWSUBTASKSENDSENDCOMMAND_H_
+
+class RWSubTaskSendSENDCommand {
+public:
+	RWSubTaskSendSENDCommand();
+	virtual ~RWSubTaskSendSENDCommand();
+};
+
+#endif /* RWSUBTASKSENDSENDCOMMAND_H_ */

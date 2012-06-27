@@ -1,0 +1,18 @@
+/*
+ * RWSubTaskWaitForData.cpp
+ *
+ *  Created on: 21-05-2012
+ *      Author: root
+ */
+
+#include "RWSubTaskWaitForData.h"
+
+RWSubTaskWaitForData::RWSubTaskWaitForData() {
+	// TODO Auto-generated constructor stub
+
+}
+
+RWSubTaskWaitForData::~RWSubTaskWaitForData() {
+	// TODO Auto-generated destructor stub
+}
+

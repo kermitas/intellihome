@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;CmdMessenger/CmdMessenger.h&apos; to &apos;CmdMessengerExample.h&apos;" description="Rename resource &apos;CmdMessenger.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="CmdMessenger.h" name="CmdMessengerExample.h" stamp="1326151283723" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;CmdMessenger/CmdMessenger.cpp&apos; to &apos;CmdMessengerExample.cpp&apos;" description="Rename resource &apos;CmdMessenger.cpp&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="CmdMessenger.cpp" name="CmdMessengerExample.cpp" stamp="1326151289444" updateReferences="true"/>
+</session>

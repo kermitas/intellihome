@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Satelita1_RestServer/EmptyRestService.cpp&apos; to &apos;_EmptyRestService.cpp&apos;" description="Rename resource &apos;EmptyRestService.cpp&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="EmptyRestService.cpp" name="_EmptyRestService.cpp" stamp="1337086428550" updateReferences="true"/>
+</session>

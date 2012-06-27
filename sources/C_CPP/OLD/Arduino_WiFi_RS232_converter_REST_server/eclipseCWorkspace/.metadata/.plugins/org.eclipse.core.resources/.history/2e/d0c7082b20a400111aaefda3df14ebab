@@ -1,0 +1,119 @@
+/*
+ * HFA11xRS232WiFiCRCStateMachine.cpp
+ *
+ *  Created on: 21-05-2012
+ *      Author: root
+ */
+
+// =================================================
+
+#include "RWStateMachine.h"
+
+// =================================================
+
+RWStateMachine::RWStateMachine( AnyBuffer< byte , byte >* _inputBuffer , AnyBuffer< byte , byte >* _outputBuffer , Stream* stream )
+	: dp( PSTR( "RWStateMachine" ) , DEBUG_LEVEL_ALL ) ,
+	  crcStream( stream ) ,
+	  rwSubTaskWaitForData( stream ) ,
+	  rwSubTaskReadSENDACKCommand( _outputBuffer ,  &crcStream , &rwCommandSerialNumber , &rwSubTaskGoBackToFirstSubTask , &rwSubTaskGoBackToFirstSubTask ) ,
+	  rwSubTaskSendSENDCommand( _outputBuffer , &crcStream , &rwCommandSerialNumber , &rwSubTaskWaitForData , &rwSubTaskReadSENDACKCommand , &rwSubTaskGoBackToFirstSubTask ) ,
+	  rwSubTaskDecideToSendOutgoingData( _outputBuffer , &rwSubTaskSendSENDCommand , &rwSubTaskGoBackToFirstSubTask ) ,
+	  rwSubTaskReadRECVACKCommandData( _inputBuffer , &crcStream , &rwCommandSerialNumber , &rwSubTaskDecideToSendOutgoingData , &rwSubTaskDecideToSendOutgoingData ) ,
+	  rwSubTaskReadRECVACKCommandHeader( _inputBuffer , &crcStream , &rwCommandSerialNumber , &rwSubTaskWaitForData , &rwSubTaskReadRECVACKCommandData , &rwSubTaskDecideToSendOutgoingData ) ,
+	  rwSubTaskSendRECVCommand( _inputBuffer , &crcStream , &rwCommandSerialNumber , &rwSubTaskWaitForData , &rwSubTaskReadRECVACKCommandHeader , &rwSubTaskDecideToSendOutgoingData ) ,
+	  rwSubTaskDecideToReadIncommingData( _inputBuffer , &rwSubTaskSendRECVCommand , &rwSubTaskDecideToSendOutgoingData )
+{
+	// ---
+
+	//firstState = &rwSubTaskDecideToReadIncommingData;
+
+	_inputBuffer->setPositionAndLimit( 0 , 0 );
+	_outputBuffer->setPositionAndLimit( 0 , 0 );
+
+	currentState = &rwSubTaskDecideToReadIncommingData;
+	goToState( currentState );
+}
+
+// =================================================
+
+void RWStateMachine::goToStateWithVerbose( RWSubTask* nextState )
+{
+	static const PROGMEM prog_char functionName[] = "goToState";
+
+	iln( "current state '%s' will be replaced by '%s'" , currentState->getSubTaskName() , nextState->getSubTaskName() )
+
+	goToState( nextState );
+
+	if( stateTimeoutTime > 0 )
+	{
+		RWSubTask* stateAfterTimeout = currentState->getStateAfterTimeout();
+
+		if( stateAfterTimeout != NULL )
+		{
+			iln( "current (new) state '%s' has set timeout to %ums (on timeout will be replaced by '%s')" , currentState->getSubTaskName() , currentState->getStateTimeout() , stateAfterTimeout->getSubTaskName() )
+		}
+		else
+		{
+			iln( "current (new) state '%s' has set timeout to %ums (on timeout will be replaced by '-null-')" , currentState->getSubTaskName() , currentState->getStateTimeout() )
+		}
+	}
+}
+
+// =================================================
+
+void RWStateMachine::goToState( RWSubTask* nextState )
+{
+	currentState = nextState;
+	currentState->resetInternalState();
+
+	unsigned long stateTimeout = currentState->getStateTimeout();
+
+	if( stateTimeout > 0 )
+	{
+		stateTimeoutTime = millis() + stateTimeout;
+	}
+	else
+	{
+		stateTimeoutTime = 0;
+	}
+}
+
+// =================================================
+
+void RWStateMachine::run()
+{
+	static const PROGMEM prog_char functionName[] = "run";
+
+	if( stateTimeoutTime > 0 && millis() >= stateTimeoutTime )
+	{
+		wln( "timeout of state '%s'" , currentState->getSubTaskName() )
+		RWSubTask* stateAfterTimeout = currentState->getStateAfterTimeout();
+		goToStateWithVerbose( stateAfterTimeout != NULL ? stateAfterTimeout : &rwSubTaskDecideToReadIncommingData );
+	}
+	else
+	{
+		RWSubTask* nextState = currentState->executeSubTask();
+
+		if( nextState != NULL )
+		{
+			if( nextState == &rwSubTaskGoBackToFirstSubTask )
+			{
+				goToStateWithVerbose( &rwSubTaskDecideToReadIncommingData );
+			}
+			else
+			{
+				goToStateWithVerbose( nextState );
+			}
+
+			//goToStateWithVerbose( nextState == &rwSubTaskGoBackToFirstSubTask ? &rwSubTaskDecideToReadIncommingData : nextState );
+		}
+		else
+		{
+			iln( "current state '%s' will be executed in future" , currentState->getSubTaskName() )
+		}
+	}
+}
+
+// =================================================
+
+

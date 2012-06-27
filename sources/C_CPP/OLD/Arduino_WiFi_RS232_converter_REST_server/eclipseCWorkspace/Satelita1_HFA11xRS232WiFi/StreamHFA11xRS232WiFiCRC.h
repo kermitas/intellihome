@@ -1,0 +1,64 @@
+/*
+ * StreamHFA11xRS232WiFiCRC.h
+ *
+ *  Created on: 12-05-2012
+ *      Author: root
+ */
+
+#ifndef STREAMHFA11XRS232WIFICRC_H_
+#define STREAMHFA11XRS232WIFICRC_H_
+
+// =================================================
+
+#include <Arduino.h>
+
+// =================================================
+
+#include "DebugPrinter.h"
+#include "HFA11xRS232WiFiCRC.h"
+
+// =================================================
+
+class StreamHFA11xRS232WiFiCRC : public Stream
+{
+	public:
+
+		//StreamHFA11xRS232WiFiCRC();
+		StreamHFA11xRS232WiFiCRC( Stream* _underlyingStream );
+
+		size_t write( uint8_t b );
+		size_t write( const uint8_t* buffer , size_t size );
+		int available();
+		int read();
+		int peek();
+		void flush();
+
+		void setStream( Stream* _underlyingStream );
+		void resetInternalState();
+
+		// outgoing
+		bool writeCRC();
+		void resetOutgoingState();
+
+		// incomming
+		unsigned int getCRC();
+		bool isIncommingCRCMatch();
+		void resetIncommingState();
+
+		int getWriteError();
+		void clearWriteError();
+
+		Stream* underlyingStream;
+
+	protected:
+
+		DebugPrinter dp;
+
+		HFA11xRS232WiFiCRC outgoingCRC;
+		HFA11xRS232WiFiCRC incommingCRC;
+};
+
+// =================================================
+
+#endif  /* STREAMHFA11XRS232WIFICRC_H_ */
+

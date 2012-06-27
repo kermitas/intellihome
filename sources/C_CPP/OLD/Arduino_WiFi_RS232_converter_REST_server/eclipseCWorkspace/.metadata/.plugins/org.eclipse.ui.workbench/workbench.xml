@@ -1,0 +1,572 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workbench progressCount="35" version="2.0">
+<workbenchAdvisor/>
+<window height="829" maximized="true" width="1413" x="59" y="206">
+<fastViewData fastViewLocation="1024"/>
+<perspectiveBar>
+<itemSize x="160"/>
+</perspectiveBar>
+<coolbarLayout>
+<coolItem id="group.file" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="166" y="38"/>
+<coolItem id="additions" itemType="typeGroupMarker"/>
+<coolItem id="it.baeyens.avreclipse.actionset.avrdude" itemType="typeToolBarContribution" x="48" y="38"/>
+<coolItem id="org.eclipse.cdt.ui.CElementCreationActionSet" itemType="typeToolBarContribution" x="156" y="38"/>
+<coolItem id="org.eclipse.cdt.ui.buildConfigActionSet" itemType="typeToolBarContribution" x="82" y="38"/>
+<coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="120" y="38"/>
+<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="132" y="38"/>
+<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="124" y="38"/>
+<coolItem id="group.nav" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="184" y="38"/>
+<coolItem id="group.editor" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.cdt.ui.editor.CEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="group.help" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="-1" y="-1"/>
+</coolbarLayout>
+<page aggregateWorkingSetId="Aggregate for window 1325353327437" focus="true" label="Workspace - C/C++">
+<editors>
+<editorArea activeWorkbook="DefaultEditorWorkbook">
+<info part="DefaultEditorWorkbook">
+<folder appearance="1" expanded="2">
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+<part id="2"/>
+<part id="3"/>
+<part id="4"/>
+<part id="5"/>
+<part id="6"/>
+<part id="7"/>
+<part id="8"/>
+<part id="9"/>
+<part id="10"/>
+<part id="11"/>
+<part id="12"/>
+<part id="13"/>
+<part id="14"/>
+<part id="15"/>
+<part id="16"/>
+<part id="17"/>
+<part id="18"/>
+<part id="19"/>
+<part id="20"/>
+<part id="21"/>
+<part id="22"/>
+<part id="23"/>
+<part id="24"/>
+<part id="25"/>
+<part id="26"/>
+<part id="27"/>
+<part id="28"/>
+</presentation>
+</folder>
+</info>
+</editorArea>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="StreamHttpChunkedTransferEncoding.h" partName="StreamHttpChunkedTransferEncoding.h" path="/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/StreamHttpChunkedTransferEncoding.h" title="StreamHttpChunkedTransferEncoding.h" tooltip="Satelita1_Utils/StreamHttpChunkedTransferEncoding.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Satelita1_Utils/StreamHttpChunkedTransferEncoding.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="48" selectionOffset="848" selectionTopPixel="298"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="StreamHttpChunkedTransferEncoding.cpp" partName="StreamHttpChunkedTransferEncoding.cpp" path="/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/StreamHttpChunkedTransferEncoding.cpp" title="StreamHttpChunkedTransferEncoding.cpp" tooltip="Satelita1_Utils/StreamHttpChunkedTransferEncoding.cpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Satelita1_Utils/StreamHttpChunkedTransferEncoding.cpp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="312" selectionOffset="3943" selectionTopPixel="2829"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="AnyBuffer.h" partName="AnyBuffer.h" path="/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/AnyBuffer.h" title="AnyBuffer.h" tooltip="Satelita1_Utils/AnyBuffer.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Satelita1_Utils/AnyBuffer.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="1809" selectionOffset="6792" selectionTopPixel="4647"/>
+</editor>
+<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="Satelita1.h" partName="Satelita1.h" path="/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1/Satelita1.h" title="Satelita1.h" tooltip="Satelita1/Satelita1.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Satelita1/Satelita1.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="18207" selectionTopPixel="5565"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="Satelita1.cpp" partName="Satelita1.cpp" path="/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1/Satelita1.cpp" title="Satelita1.cpp" tooltip="Satelita1/Satelita1.cpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Satelita1/Satelita1.cpp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3991" selectionTopPixel="2105"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="HardwareSerial.h" partName="HardwareSerial.h" path="/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/HardwareSerial.h" title="HardwareSerial.h" tooltip="Arduino_Mega_2560_or_Mega_ADK/arduino/HardwareSerial.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Arduino_Mega_2560_or_Mega_ADK/arduino/HardwareSerial.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1068" selectionTopPixel="264"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="StreamHFA11xRS232WiFiCRC.cpp" partName="StreamHFA11xRS232WiFiCRC.cpp" path="/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_HFA11xRS232WiFi/StreamHFA11xRS232WiFiCRC.cpp" title="StreamHFA11xRS232WiFiCRC.cpp" tooltip="Satelita1_HFA11xRS232WiFi/StreamHFA11xRS232WiFiCRC.cpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Satelita1_HFA11xRS232WiFi/StreamHFA11xRS232WiFiCRC.cpp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1451" selectionTopPixel="720"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="StreamHFA11xRS232WiFiCRC.h" partName="StreamHFA11xRS232WiFiCRC.h" path="/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_HFA11xRS232WiFi/StreamHFA11xRS232WiFiCRC.h" title="StreamHFA11xRS232WiFiCRC.h" tooltip="Satelita1_HFA11xRS232WiFi/StreamHFA11xRS232WiFiCRC.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Satelita1_HFA11xRS232WiFi/StreamHFA11xRS232WiFiCRC.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="804" selectionTopPixel="405"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="HFA11xRS232WiFiCRC.h" partName="HFA11xRS232WiFiCRC.h" path="/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_HFA11xRS232WiFi/HFA11xRS232WiFiCRC.h" title="HFA11xRS232WiFiCRC.h" tooltip="Satelita1_HFA11xRS232WiFi/HFA11xRS232WiFiCRC.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Satelita1_HFA11xRS232WiFi/HFA11xRS232WiFiCRC.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="665" selectionTopPixel="241"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="HFA11xRS232WiFiCRC.cpp" partName="HFA11xRS232WiFiCRC.cpp" path="/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_HFA11xRS232WiFi/HFA11xRS232WiFiCRC.cpp" title="HFA11xRS232WiFiCRC.cpp" tooltip="Satelita1_HFA11xRS232WiFi/HFA11xRS232WiFiCRC.cpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Satelita1_HFA11xRS232WiFi/HFA11xRS232WiFiCRC.cpp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3368" selectionTopPixel="2159"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="Configuration.c" partName="Configuration.c" path="/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/Configuration.c" title="Configuration.c" tooltip="Satelita1_Utils/Configuration.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Satelita1_Utils/Configuration.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1356" selectionTopPixel="482"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="StreamHFA11xRS232WiFi.cpp" partName="StreamHFA11xRS232WiFi.cpp" path="/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_HFA11xRS232WiFi/StreamHFA11xRS232WiFi.cpp" title="StreamHFA11xRS232WiFi.cpp" tooltip="Satelita1_HFA11xRS232WiFi/StreamHFA11xRS232WiFi.cpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Satelita1_HFA11xRS232WiFi/StreamHFA11xRS232WiFi.cpp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1092" selectionTopPixel="8"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="StreamHFA11xRS232WiFi.h" partName="StreamHFA11xRS232WiFi.h" path="/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_HFA11xRS232WiFi/StreamHFA11xRS232WiFi.h" title="StreamHFA11xRS232WiFi.h" tooltip="Satelita1_HFA11xRS232WiFi/StreamHFA11xRS232WiFi.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Satelita1_HFA11xRS232WiFi/StreamHFA11xRS232WiFi.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="921" selectionTopPixel="301"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="RWSubTaskSendRECVCommand.cpp" partName="RWSubTaskSendRECVCommand.cpp" path="/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_HFA11xRS232WiFi/RWSubTaskSendRECVCommand.cpp" title="RWSubTaskSendRECVCommand.cpp" tooltip="Satelita1_HFA11xRS232WiFi/RWSubTaskSendRECVCommand.cpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Satelita1_HFA11xRS232WiFi/RWSubTaskSendRECVCommand.cpp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="125" selectionOffset="1765" selectionTopPixel="1767"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="RWSubTaskSendSENDCommand.cpp" partName="RWSubTaskSendSENDCommand.cpp" path="/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_HFA11xRS232WiFi/RWSubTaskSendSENDCommand.cpp" title="RWSubTaskSendSENDCommand.cpp" tooltip="Satelita1_HFA11xRS232WiFi/RWSubTaskSendSENDCommand.cpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Satelita1_HFA11xRS232WiFi/RWSubTaskSendSENDCommand.cpp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4592" selectionTopPixel="2346"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="StreamHFA11xRS232WiFi2.cpp" partName="StreamHFA11xRS232WiFi2.cpp" path="/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_HFA11xRS232WiFi/StreamHFA11xRS232WiFi2.cpp" title="StreamHFA11xRS232WiFi2.cpp" tooltip="Satelita1_HFA11xRS232WiFi/StreamHFA11xRS232WiFi2.cpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Satelita1_HFA11xRS232WiFi/StreamHFA11xRS232WiFi2.cpp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="10764" selectionOffset="0" selectionTopPixel="2505"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="AnyRingBuffer.h" partName="AnyRingBuffer.h" path="/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/AnyRingBuffer.h" title="AnyRingBuffer.h" tooltip="Satelita1_Utils/AnyRingBuffer.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Satelita1_Utils/AnyRingBuffer.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="16573" selectionTopPixel="9477"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="HardwareSerial.cpp" partName="HardwareSerial.cpp" path="/home/as/Pobrane/PROGRAMOWANIE/arduino-1.0/hardware/arduino/cores/arduino/HardwareSerial.cpp" title="HardwareSerial.cpp" tooltip="Arduino_Mega_2560_or_Mega_ADK/arduino/HardwareSerial.cpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Arduino_Mega_2560_or_Mega_ADK/arduino/HardwareSerial.cpp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1692" selectionTopPixel="404"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="StreamHFA11xRS232WiFi3.cpp" partName="StreamHFA11xRS232WiFi3.cpp" path="/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_HFA11xRS232WiFi/StreamHFA11xRS232WiFi3.cpp" title="StreamHFA11xRS232WiFi3.cpp" tooltip="Satelita1_HFA11xRS232WiFi/StreamHFA11xRS232WiFi3.cpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Satelita1_HFA11xRS232WiFi/StreamHFA11xRS232WiFi3.cpp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="8770" selectionTopPixel="5055"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="StreamHFA11xRS232WiFi3.h" partName="StreamHFA11xRS232WiFi3.h" path="/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_HFA11xRS232WiFi/StreamHFA11xRS232WiFi3.h" title="StreamHFA11xRS232WiFi3.h" tooltip="Satelita1_HFA11xRS232WiFi/StreamHFA11xRS232WiFi3.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Satelita1_HFA11xRS232WiFi/StreamHFA11xRS232WiFi3.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="906" selectionTopPixel="299"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="StreamHFA11xRS232WiFi2.h" partName="StreamHFA11xRS232WiFi2.h" path="/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_HFA11xRS232WiFi/StreamHFA11xRS232WiFi2.h" title="StreamHFA11xRS232WiFi2.h" tooltip="Satelita1_HFA11xRS232WiFi/StreamHFA11xRS232WiFi2.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Satelita1_HFA11xRS232WiFi/StreamHFA11xRS232WiFi2.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="1447" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="ReadHttpPathSubTask.cpp" partName="ReadHttpPathSubTask.cpp" path="/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_RestServer/ReadHttpPathSubTask.cpp" title="ReadHttpPathSubTask.cpp" tooltip="Satelita1_RestServer/ReadHttpPathSubTask.cpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Satelita1_RestServer/ReadHttpPathSubTask.cpp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3401" selectionTopPixel="1385"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="DeterminateHttpMethodSubTask.cpp" partName="DeterminateHttpMethodSubTask.cpp" path="/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_RestServer/DeterminateHttpMethodSubTask.cpp" title="DeterminateHttpMethodSubTask.cpp" tooltip="Satelita1_RestServer/DeterminateHttpMethodSubTask.cpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Satelita1_RestServer/DeterminateHttpMethodSubTask.cpp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1224" selectionTopPixel="278"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="DeterminateHttpMethodSubTask.h" partName="DeterminateHttpMethodSubTask.h" path="/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_RestServer/DeterminateHttpMethodSubTask.h" title="DeterminateHttpMethodSubTask.h" tooltip="Satelita1_RestServer/DeterminateHttpMethodSubTask.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Satelita1_RestServer/DeterminateHttpMethodSubTask.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1140" selectionTopPixel="330"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="StreamReadHttpMethod.h" partName="StreamReadHttpMethod.h" path="/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/StreamReadHttpMethod.h" title="StreamReadHttpMethod.h" tooltip="Satelita1_Utils/StreamReadHttpMethod.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Satelita1_Utils/StreamReadHttpMethod.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="434" selectionTopPixel="60"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="StreamReadHttpMethod.cpp" partName="StreamReadHttpMethod.cpp" path="/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/StreamReadHttpMethod.cpp" title="StreamReadHttpMethod.cpp" tooltip="Satelita1_Utils/StreamReadHttpMethod.cpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Satelita1_Utils/StreamReadHttpMethod.cpp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="329" selectionTopPixel="421"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="StreamConsolePrinter.h" partName="StreamConsolePrinter.h" path="/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/StreamConsolePrinter.h" title="StreamConsolePrinter.h" tooltip="Satelita1_Utils/StreamConsolePrinter.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Satelita1_Utils/StreamConsolePrinter.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="429" selectionTopPixel="120"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="StreamConsolePrinter.cpp" partName="StreamConsolePrinter.cpp" path="/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_Utils/StreamConsolePrinter.cpp" title="StreamConsolePrinter.cpp" tooltip="Satelita1_Utils/StreamConsolePrinter.cpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Satelita1_Utils/StreamConsolePrinter.cpp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="20" selectionOffset="252" selectionTopPixel="964"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="RestServer.cpp" partName="RestServer.cpp" path="/home/as/Pobrane/PROGRAMOWANIE/eclipseCWorkspace/Satelita1_RestServer/RestServer.cpp" title="RestServer.cpp" tooltip="Satelita1_RestServer/RestServer.cpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Satelita1_RestServer/RestServer.cpp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1592" selectionTopPixel="361"/>
+</editor>
+</editors>
+<views>
+<view id="org.eclipse.ui.navigator.ProjectExplorer" partName="Project Explorer">
+<viewState CommonNavigator.LINKING_ENABLED="0" org.eclipse.cdt.ui.cview.groupincludes="false" org.eclipse.cdt.ui.cview.groupmacros="false" org.eclipse.cdt.ui.editor.CUChildren="true" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0"/>
+</view>
+<view id="org.eclipse.ui.views.ProgressView" partName="Progress">
+<viewState/>
+</view>
+<view id="org.eclipse.ui.views.PropertySheet" partName="Properties"/>
+<view id="org.eclipse.cdt.make.ui.views.MakeView" partName="Make Target"/>
+<view id="org.eclipse.ui.views.ProblemView" partName="Problems">
+<viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
+<expanded>
+<category IMemento.internal.id="Errors"/>
+<category IMemento.internal.id="Warnings"/>
+<category IMemento.internal.id="Warnings (100 of 163 items)"/>
+</expanded>
+<columnWidths org.eclipse.ui.ide.locationField="105" org.eclipse.ui.ide.markerType="211" org.eclipse.ui.ide.pathField="140" org.eclipse.ui.ide.resourceField="105" org.eclipse.ui.ide.severityAndDescriptionField="350"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.pathField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.locationField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.markerType"/>
+</viewState>
+</view>
+<view id="org.eclipse.ui.console.ConsoleView" partName="Console">
+<viewState/>
+</view>
+<view id="org.eclipse.mylyn.tasks.ui.views.tasks" partName="Task List"/>
+<view id="org.eclipse.ui.views.TaskList" partName="Tasks"/>
+<view id="org.eclipse.ui.views.ContentOutline" partName="Outline">
+<viewState/>
+</view>
+<view id="com.vectrace.MercurialEclipse.repository.RepositoriesView" partName="Mercurial Repositories">
+<viewState/>
+</view>
+</views>
+<perspectives activePart="org.eclipse.cdt.ui.editor.CEditor" activePerspective="org.eclipse.cdt.ui.CPerspective">
+<perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
+<descriptor class="org.eclipse.cdt.internal.ui.CPerspectiveFactory" id="org.eclipse.cdt.ui.CPerspective" label="C/C++"/>
+<alwaysOnActionSet id="org.eclipse.egit.ui.navigation"/>
+<alwaysOnActionSet id="org.eclipse.mylyn.context.ui.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.mylyn.doc.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.mylyn.tasks.ui.navigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.rse.core.search.searchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.search.searchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.annotationNavigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.navigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.convertLineDelimitersTo"/>
+<alwaysOnActionSet id="org.eclipse.ui.externaltools.ExternalToolsSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.keyBindings"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.openFiles"/>
+<alwaysOnActionSet id="org.eclipse.cdt.ui.SearchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.cdt.ui.CElementCreationActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.NavigateActionSet"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.breakpointActionSet"/>
+<alwaysOnActionSet id="org.eclipse.cdt.make.ui.makeTargetActionSet"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.launchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.cdt.ui.buildConfigActionSet"/>
+<alwaysOnActionSet id="org.eclipse.cdt.ui.NavigationActionSet"/>
+<alwaysOnActionSet id="org.eclipse.cdt.ui.OpenActionSet"/>
+<alwaysOnActionSet id="org.eclipse.cdt.ui.CodingActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.presentation"/>
+<alwaysOnActionSet id="it.baeyens.avreclipse.actionset.avrdude"/>
+<alwaysOnActionSet id="org.eclipse.pde.ui.SearchActionSet"/>
+<show_view_action id="org.eclipse.ui.console.ConsoleView"/>
+<show_view_action id="org.eclipse.search.ui.views.SearchView"/>
+<show_view_action id="org.eclipse.ui.views.ContentOutline"/>
+<show_view_action id="org.eclipse.ui.views.ProblemView"/>
+<show_view_action id="org.eclipse.cdt.ui.CView"/>
+<show_view_action id="org.eclipse.ui.views.ResourceNavigator"/>
+<show_view_action id="org.eclipse.ui.views.PropertySheet"/>
+<show_view_action id="org.eclipse.ui.views.TaskList"/>
+<show_view_action id="org.eclipse.cdt.codan.internal.ui.views.ProblemDetails"/>
+<show_view_action id="org.eclipse.cdt.make.ui.views.MakeView"/>
+<show_view_action id="org.eclipse.ui.navigator.ProjectExplorer"/>
+<show_view_action id="org.eclipse.cdt.ui.includeBrowser"/>
+<show_view_action id="org.eclipse.mylyn.tasks.ui.views.tasks"/>
+<new_wizard_action id="org.eclipse.cdt.ui.wizards.ConvertToMakeWizard"/>
+<new_wizard_action id="org.eclipse.cdt.ui.wizards.NewMakeFromExisting"/>
+<new_wizard_action id="org.eclipse.cdt.ui.wizards.NewCWizard1"/>
+<new_wizard_action id="org.eclipse.cdt.ui.wizards.NewCWizard2"/>
+<new_wizard_action id="org.eclipse.linuxtools.cdt.autotools.ui.wizards.conversionWizard"/>
+<new_wizard_action id="org.eclipse.cdt.ui.wizards.NewSourceFolderCreationWizard"/>
+<new_wizard_action id="org.eclipse.cdt.ui.wizards.NewFolderCreationWizard"/>
+<new_wizard_action id="org.eclipse.cdt.ui.wizards.NewSourceFileCreationWizard"/>
+<new_wizard_action id="org.eclipse.cdt.ui.wizards.NewHeaderFileCreationWizard"/>
+<new_wizard_action id="org.eclipse.cdt.ui.wizards.NewFileCreationWizard"/>
+<new_wizard_action id="org.eclipse.cdt.ui.wizards.NewClassCreationWizard"/>
+<new_wizard_action id="org.eclipse.mylyn.tasks.ui.wizards.new.repository.task"/>
+<perspective_action id="org.eclipse.debug.ui.DebugPerspective"/>
+<perspective_action id="org.eclipse.team.ui.TeamSynchronizingPerspective"/>
+<hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
+<view id="org.eclipse.ui.views.ProblemView"/>
+<view id="org.eclipse.ui.views.TaskList"/>
+<view id="org.eclipse.ui.console.ConsoleView"/>
+<view id="org.eclipse.ui.views.PropertySheet"/>
+<view id="com.vectrace.MercurialEclipse.repository.RepositoriesView"/>
+<view id="org.eclipse.ui.views.ProgressView"/>
+<view id="org.eclipse.ui.navigator.ProjectExplorer"/>
+<fastViewBars>
+<fastViewBar fastViewLocation="131072" id="topRight" orientation="512" selectedTabId="org.eclipse.ui.views.ContentOutline" style="0">
+<fastViews>
+<view id="org.eclipse.ui.views.ContentOutline" ratio="0.3"/>
+<view id="org.eclipse.cdt.make.ui.views.MakeView" ratio="0.3"/>
+<view id="org.eclipse.mylyn.tasks.ui.views.tasks" ratio="0.3"/>
+</fastViews>
+</fastViewBar>
+</fastViewBars>
+<layout>
+<mainWindow>
+<info folder="true" part="topLeft">
+<folder activePageID="org.eclipse.ui.navigator.ProjectExplorer" appearance="2" expanded="2">
+<page content="org.eclipse.ui.navigator.ProjectExplorer" label="Project Explorer"/>
+<page content="org.eclipse.cdt.ui.CView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.views.ResourceNavigator" label="LabelNotFound"/>
+<page content="org.eclipse.ui.views.BookmarkView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@697e7dbf" ratio="0.7495049" ratioLeft="757" ratioRight="253" relationship="2" relative="topLeft">
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
+<page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+</folder>
+</info>
+<info part="org.eclipse.ui.editorss" ratio="0.16867469" ratioLeft="322" ratioRight="1587" relationship="2" relative="topLeft"/>
+<info folder="true" part="bottom" ratio="0.66035354" ratioLeft="523" ratioRight="269" relationship="4" relative="org.eclipse.ui.editorss">
+<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
+<page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
+<page content="org.eclipse.ui.views.TaskList" label="Tasks"/>
+<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
+<page content="org.eclipse.ui.views.PropertySheet" label="Properties"/>
+<page content="com.vectrace.MercurialEclipse.repository.RepositoriesView" label="Mercurial Repositories"/>
+<page content="org.eclipse.ui.views.ProgressView" label="Progress"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+<part id="2"/>
+<part id="3"/>
+<part id="4"/>
+<part id="5"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="topRight" ratio="0.74934036" ratioLeft="568" ratioRight="190" relationship="2" relative="org.eclipse.ui.editorss">
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.ui.views.ContentOutline" label="LabelNotFound"/>
+<page content="org.eclipse.cdt.make.ui.views.MakeView" label="LabelNotFound"/>
+<page content="org.eclipse.mylyn.tasks.ui.views.tasks" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+</folder>
+</info>
+</mainWindow>
+</layout>
+</perspective>
+</perspectives>
+<workingSets/>
+<navigationHistory>
+<editors>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Satelita1_Utils/AnyRingBuffer.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Satelita1_HFA11xRS232WiFi/StreamHFA11xRS232WiFi3.cpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Satelita1/Satelita1.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Satelita1/Satelita1.cpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Satelita1_Utils/Configuration.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Satelita1_RestServer/RestServer.cpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Satelita1_HFA11xRS232WiFi/StreamHFA11xRS232WiFi3.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Arduino_Mega_2560_or_Mega_ADK/arduino/HardwareSerial.cpp"/>
+</editors>
+<item historyLabel="AnyRingBuffer.h" index="0">
+<position info="not_deleted" x="996" y="0"/>
+</item>
+<item historyLabel="AnyRingBuffer.h" index="0">
+<position info="not_deleted" x="4878" y="16"/>
+</item>
+<item historyLabel="AnyRingBuffer.h" index="0">
+<position info="not_deleted" x="15907" y="0"/>
+</item>
+<item historyLabel="AnyRingBuffer.h" index="0">
+<position info="not_deleted" x="5069" y="0"/>
+</item>
+<item historyLabel="AnyRingBuffer.h" index="0">
+<position info="not_deleted" x="6979" y="0"/>
+</item>
+<item historyLabel="AnyRingBuffer.h" index="0">
+<position info="not_deleted" x="10222" y="0"/>
+</item>
+<item historyLabel="StreamHFA11xRS232WiFi3.cpp" index="1">
+<position info="not_deleted" x="11588" y="0"/>
+</item>
+<item historyLabel="AnyRingBuffer.h" index="0">
+<position info="not_deleted" x="10222" y="0"/>
+</item>
+<item historyLabel="AnyRingBuffer.h" index="0">
+<position info="not_deleted" x="1225" y="0"/>
+</item>
+<item historyLabel="AnyRingBuffer.h" index="0">
+<position info="not_deleted" x="5927" y="12"/>
+</item>
+<item historyLabel="StreamHFA11xRS232WiFi3.cpp" index="1">
+<position info="not_deleted" x="11588" y="0"/>
+</item>
+<item historyLabel="Configuration.c" index="4">
+<position info="not_deleted" x="1356" y="0"/>
+</item>
+<item historyLabel="StreamHFA11xRS232WiFi3.cpp" index="1">
+<position info="not_deleted" x="11588" y="0"/>
+</item>
+<item historyLabel="Satelita1.cpp" index="3">
+<position info="not_deleted" x="3966" y="0"/>
+</item>
+<item historyLabel="Satelita1.h" index="2">
+<position info="not_deleted" x="16935" y="0"/>
+</item>
+<item historyLabel="StreamHFA11xRS232WiFi3.cpp" index="1">
+<position info="not_deleted" x="11588" y="0"/>
+</item>
+<item historyLabel="AnyRingBuffer.h" index="0">
+<position info="not_deleted" x="3416" y="0"/>
+</item>
+<item historyLabel="StreamHFA11xRS232WiFi3.cpp" index="1">
+<position info="not_deleted" x="441" y="0"/>
+</item>
+<item historyLabel="Satelita1.cpp" index="3">
+<position info="not_deleted" x="3966" y="0"/>
+</item>
+<item historyLabel="Satelita1.h" index="2">
+<position info="not_deleted" x="16935" y="0"/>
+</item>
+<item historyLabel="Configuration.c" index="4">
+<position info="not_deleted" x="1356" y="0"/>
+</item>
+<item historyLabel="Satelita1.h" index="2">
+<position info="not_deleted" x="16935" y="0"/>
+</item>
+<item historyLabel="StreamHFA11xRS232WiFi3.cpp" index="1">
+<position info="not_deleted" x="4113" y="0"/>
+</item>
+<item historyLabel="RestServer.cpp" index="5">
+<position info="not_deleted" x="1592" y="0"/>
+</item>
+<item historyLabel="StreamHFA11xRS232WiFi3.cpp" index="1">
+<position info="not_deleted" x="5767" y="0"/>
+</item>
+<item historyLabel="Satelita1.h" index="2">
+<position info="not_deleted" x="19074" y="0"/>
+</item>
+<item historyLabel="StreamHFA11xRS232WiFi3.cpp" index="1">
+<position info="not_deleted" x="5767" y="0"/>
+</item>
+<item historyLabel="StreamHFA11xRS232WiFi3.h" index="6">
+<position info="not_deleted" x="906" y="0"/>
+</item>
+<item historyLabel="StreamHFA11xRS232WiFi3.cpp" index="1">
+<position info="not_deleted" x="6111" y="0"/>
+</item>
+<item historyLabel="Satelita1.h" index="2">
+<position info="not_deleted" x="22087" y="0"/>
+</item>
+<item historyLabel="Satelita1.cpp" index="3">
+<position info="not_deleted" x="3991" y="0"/>
+</item>
+<item historyLabel="Satelita1.h" index="2">
+<position info="not_deleted" x="22087" y="0"/>
+</item>
+<item historyLabel="StreamHFA11xRS232WiFi3.cpp" index="1">
+<position info="not_deleted" x="6111" y="0"/>
+</item>
+<item historyLabel="StreamHFA11xRS232WiFi3.cpp" index="1">
+<position info="not_deleted" x="8770" y="0"/>
+</item>
+<item historyLabel="AnyRingBuffer.h" index="0">
+<position info="not_deleted" x="1648" y="0"/>
+</item>
+<item historyLabel="AnyRingBuffer.h" index="0">
+<position info="not_deleted" x="8944" y="5"/>
+</item>
+<item historyLabel="AnyRingBuffer.h" index="0">
+<position info="not_deleted" x="16573" y="0"/>
+</item>
+<item historyLabel="Satelita1.cpp" index="3">
+<position info="not_deleted" x="3991" y="0"/>
+</item>
+<item historyLabel="Satelita1.h" index="2">
+<position info="not_deleted" x="22259" y="0"/>
+</item>
+<item historyLabel="StreamHFA11xRS232WiFi3.cpp" index="1">
+<position info="not_deleted" x="8770" y="0"/>
+</item>
+<item historyLabel="Satelita1.h" index="2">
+<position info="not_deleted" x="16935" y="0"/>
+</item>
+<item historyLabel="StreamHFA11xRS232WiFi3.cpp" index="1">
+<position info="not_deleted" x="8770" y="0"/>
+</item>
+<item historyLabel="Satelita1.h" index="2">
+<position info="not_deleted" x="16935" y="0"/>
+</item>
+<item historyLabel="StreamHFA11xRS232WiFi3.cpp" index="1">
+<position info="not_deleted" x="8770" y="0"/>
+</item>
+<item historyLabel="HardwareSerial.cpp" index="7">
+<position info="not_deleted" x="1701" y="109"/>
+</item>
+<item historyLabel="Satelita1.h" index="2">
+<position info="not_deleted" x="15552" y="0"/>
+</item>
+<item historyLabel="StreamHFA11xRS232WiFi3.cpp" index="1">
+<position info="not_deleted" x="8770" y="0"/>
+</item>
+<item historyLabel="Satelita1.h" index="2">
+<position info="not_deleted" x="18207" y="0"/>
+</item>
+<item historyLabel="HardwareSerial.cpp" index="7">
+<position info="not_deleted" x="1692" y="0"/>
+</item>
+<item active="true" historyLabel="Satelita1.h" index="2">
+<position info="not_deleted" x="18207" y="0"/>
+</item>
+</navigationHistory>
+<input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
+</page>
+<workbenchWindowAdvisor/>
+<actionBarAdvisor/>
+<trimLayout>
+<trimArea IMemento.internal.id="131072">
+<trimItem IMemento.internal.id="topRight"/>
+</trimArea>
+<trimArea IMemento.internal.id="128">
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
+<trimItem IMemento.internal.id="org.eclipse.mylyn.tasks.ui.trim.container"/>
+</trimArea>
+<trimArea IMemento.internal.id="1024">
+<trimItem IMemento.internal.id="org.eclise.ui.internal.FastViewBar"/>
+<trimItem IMemento.internal.id="org.eclipse.jface.action.StatusLineManager"/>
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.progress.ProgressRegion"/>
+</trimArea>
+</trimLayout>
+</window>
+<mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="RestServer.cpp" tooltip="Satelita1_RestServer/RestServer.cpp">
+<persistable path="/Satelita1_RestServer/RestServer.cpp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="StreamConsolePrinter.cpp" tooltip="Satelita1_Utils/StreamConsolePrinter.cpp">
+<persistable path="/Satelita1_Utils/StreamConsolePrinter.cpp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="StreamConsolePrinter.h" tooltip="Satelita1_Utils/StreamConsolePrinter.h">
+<persistable path="/Satelita1_Utils/StreamConsolePrinter.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="StreamReadHttpMethod.cpp" tooltip="Satelita1_Utils/StreamReadHttpMethod.cpp">
+<persistable path="/Satelita1_Utils/StreamReadHttpMethod.cpp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="StreamReadHttpMethod.h" tooltip="Satelita1_Utils/StreamReadHttpMethod.h">
+<persistable path="/Satelita1_Utils/StreamReadHttpMethod.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="DeterminateHttpMethodSubTask.h" tooltip="Satelita1_RestServer/DeterminateHttpMethodSubTask.h">
+<persistable path="/Satelita1_RestServer/DeterminateHttpMethodSubTask.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="DeterminateHttpMethodSubTask.cpp" tooltip="Satelita1_RestServer/DeterminateHttpMethodSubTask.cpp">
+<persistable path="/Satelita1_RestServer/DeterminateHttpMethodSubTask.cpp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="ReadHttpPathSubTask.cpp" tooltip="Satelita1_RestServer/ReadHttpPathSubTask.cpp">
+<persistable path="/Satelita1_RestServer/ReadHttpPathSubTask.cpp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Print.cpp" tooltip="Arduino_Mega_2560_or_Mega_ADK/arduino/Print.cpp">
+<persistable path="/Arduino_Mega_2560_or_Mega_ADK/arduino/Print.cpp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="StreamHFA11xRS232WiFi2.h" tooltip="Satelita1_HFA11xRS232WiFi/StreamHFA11xRS232WiFi2.h">
+<persistable path="/Satelita1_HFA11xRS232WiFi/StreamHFA11xRS232WiFi2.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="StreamHFA11xRS232WiFi3.h" tooltip="Satelita1_HFA11xRS232WiFi/StreamHFA11xRS232WiFi3.h">
+<persistable path="/Satelita1_HFA11xRS232WiFi/StreamHFA11xRS232WiFi3.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="StreamHFA11xRS232WiFi3.cpp" tooltip="Satelita1_HFA11xRS232WiFi/StreamHFA11xRS232WiFi3.cpp">
+<persistable path="/Satelita1_HFA11xRS232WiFi/StreamHFA11xRS232WiFi3.cpp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="HardwareSerial.cpp" tooltip="Arduino_Mega_2560_or_Mega_ADK/arduino/HardwareSerial.cpp">
+<persistable path="/Arduino_Mega_2560_or_Mega_ADK/arduino/HardwareSerial.cpp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="AnyBuffer2.h" tooltip="Satelita1_Utils/AnyBuffer2.h">
+<persistable path="/Satelita1_Utils/AnyBuffer2.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="StreamHFA11xRS232WiFi2.cpp" tooltip="Satelita1_HFA11xRS232WiFi/StreamHFA11xRS232WiFi2.cpp">
+<persistable path="/Satelita1_HFA11xRS232WiFi/StreamHFA11xRS232WiFi2.cpp"/>
+</file>
+</mruList>
+</workbench>

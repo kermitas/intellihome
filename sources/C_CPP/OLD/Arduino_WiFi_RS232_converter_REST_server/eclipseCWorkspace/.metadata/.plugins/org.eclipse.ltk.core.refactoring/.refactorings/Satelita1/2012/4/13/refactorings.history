@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Satelita1/AcceptIncommingConnectionTask&apos; to &apos;AcceptIncommingConnectionTask.h&apos;" description="Rename resource &apos;AcceptIncommingConnectionTask&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="AcceptIncommingConnectionTask" name="AcceptIncommingConnectionTask.h" stamp="1333278185256" updateReferences="true"/>
+</session>

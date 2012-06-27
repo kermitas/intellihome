@@ -1,0 +1,133 @@
+/*
+ * RWSubTaskSendSENDCommand.cpp
+ *
+ *  Created on: 22-05-2012
+ *      Author: root
+ */
+
+// =================================================
+
+#include "RWSubTaskSendSENDCommand.h"
+
+// =================================================
+
+RWSubTaskSendSENDCommand::RWSubTaskSendSENDCommand( AnyBuffer< byte , byte >* _outputBuffer , StreamHFA11xRS232WiFiCRC* _crcStream , RWCommandSerialNumber* _rwCommandSerialNumber , RWSubTaskWaitForData* _rwSubTaskWaitForData , RWSubTaskReadSENDACKCommand* _rwSubTaskReadSENDACKCommand , RWSubTask* _subTaskOnFail ) : dp( PSTR( "RWSubTaskSendSENDCommand" ) , DEBUG_LEVEL_ALL )
+{
+	outputBuffer = _outputBuffer;
+	crcStream = _crcStream;
+	rwCommandSerialNumber = _rwCommandSerialNumber;
+	rwSubTaskWaitForData = _rwSubTaskWaitForData;
+	rwSubTaskReadSENDACKCommand = _rwSubTaskReadSENDACKCommand;
+	subTaskOnFail = _subTaskOnFail;
+}
+
+// =================================================
+
+char* RWSubTaskSendSENDCommand::getSubTaskName()
+{
+	return "SendSENDCommand";
+}
+
+// =================================================
+
+void RWSubTaskSendSENDCommand::resetInternalState()
+{
+
+}
+
+// =================================================
+
+unsigned long RWSubTaskSendSENDCommand::getStateTimeout()
+{
+	return 2*1000;
+}
+
+// =================================================
+
+RWSubTask* RWSubTaskSendSENDCommand::getStateAfterTimeout()
+{
+	return subTaskOnFail;
+}
+
+// =================================================
+
+void RWSubTaskSendSENDCommand::setWork( byte _retryNumber )
+{
+	retryNumber = _retryNumber;
+}
+
+// =================================================
+
+RWSubTask* RWSubTaskSendSENDCommand::executeSubTask()
+{
+	static const PROGMEM prog_char functionName[] = "executeSubTask";
+
+	byte positionBefore = outputBuffer->position;
+
+	// ---
+
+	iln( "sending %u data, retry %u" , outputBuffer->getRemaining() , retryNumber )
+
+	// ---
+
+	crcStream->resetOutgoingState();
+
+	// ---
+
+	if(
+		// command
+		crcStream->write( (unsigned char)1 ) != 1 ||
+
+		// sn
+		crcStream->write( rwCommandSerialNumber->commandSerialNumber ) != 1 ||
+
+		// reserved two bytes byte (0 and 0)
+		crcStream->write( (unsigned char)0 ) != 1 ||
+		crcStream->write( (unsigned char)0 ) != 1 ||
+
+		// low byte of data length
+		crcStream->write( outputBuffer->getRemaining() ) != 1 ||
+
+		// high byte of data length
+		crcStream->write( (unsigned char)0 ) != 1 ||
+
+		// sending data
+		!outputBuffer->writeToStream( crcStream )// ||
+
+		//!crcStream->writeOutgoingDataCRCToStream()
+	)
+	{
+		outputBuffer->setPosition( positionBefore );
+
+		return subTaskOnFail;
+	}
+	else
+	{
+
+		iln( "waiting for data to be send, available=%u" , crcStream->available() )
+		delay( 1000 ); // todo remove
+		iln( "wait finished, available=%u" , crcStream->available() )
+
+		crcStream->writeOutgoingDataCRCToStream()
+
+		outputBuffer->setPosition( positionBefore );
+
+		rwSubTaskReadSENDACKCommand->setWork( outputBuffer->getRemaining() , retryNumber-- , this );
+
+		if( crcStream->available() >= 5 )
+		{
+			return rwSubTaskReadSENDACKCommand;
+		}
+		else
+		{
+			rwSubTaskWaitForData->setWork( 5 , rwSubTaskReadSENDACKCommand , 2*1000 , subTaskOnFail );
+			return rwSubTaskWaitForData;
+		}
+	}
+
+	// ---
+}
+
+// =================================================
+
+

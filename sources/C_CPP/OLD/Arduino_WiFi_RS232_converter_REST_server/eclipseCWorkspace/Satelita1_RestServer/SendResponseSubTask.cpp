@@ -1,0 +1,185 @@
+/*
+ * SendResponseSubTask.cpp
+ *
+ *  Created on: 22-04-2012
+ *      Author: root
+ */
+
+#include "SendResponseSubTask.h"
+
+// =================================================
+
+//const PROGMEM prog_char SendResponseSubTask::className[] = "SendResponseSubTask";
+
+// =================================================
+
+SendResponseSubTask::SendResponseSubTask( RestServerSubTask* _errorSubTask , PageRenderer* _htmlPageRenderer , PageRenderer* _jsonPageRenderer , bool _readLasyByteFromStreamAfterFullResponse , AnyBuffer< byte , byte >* _chunkedStreamBuffer )
+	: dp( PSTR( "SendResponseSubTask" ) ) ,
+	  chunkedStream( _chunkedStreamBuffer , NULL )
+{
+	errorSubTask = _errorSubTask;
+	htmlPageRenderer = _htmlPageRenderer;
+	jsonPageRenderer = _jsonPageRenderer;
+	readLasyByteFromStreamAfterFullResponse = _readLasyByteFromStreamAfterFullResponse;
+
+	//chunkedStreamPtr = &chunkedStream;
+}
+
+// =================================================
+
+char* SendResponseSubTask::getSubTaskName()
+{
+	return "SendResponse-sub-task";
+}
+
+// =================================================
+
+void SendResponseSubTask::resetInternalState()
+{
+	indexOfGeneratedService = 0;
+}
+
+// =================================================
+
+void SendResponseSubTask::setWork( bool _isGETHttpMethod , bool _sendResponseInJSON, bool _sendResponseAsServiceMetaDescription , ServiceDescription* _selectdServices , unsigned char _selectedServicesCount )
+{
+	static const PROGMEM prog_char functionName[] = "setWork";
+	//static const char* prefix = "SendResponseSubTask:setWork():";
+
+	isGETHttpMethod = _isGETHttpMethod;
+	sendResponseInJSON = _sendResponseInJSON;
+	sendResponseAsServiceMetaDescription = _sendResponseAsServiceMetaDescription;
+	selectdServices = _selectdServices;
+	selectedServicesCount = _selectedServicesCount;
+
+	if( sendResponseAsServiceMetaDescription ) sendResponseInJSON = true;
+
+	//all( p << prefix << "isGETHttpMethod = " << isGETHttpMethod << ", sendResponseInJSON = " << sendResponseInJSON << ", sendResponseAsServiceMetaDescription = " << sendResponseAsServiceMetaDescription << ", selectedServicesCount = " << selectedServicesCount << endl; )
+	//all( wpln( "isGETHttpMethod = %u, sendResponseInJSON = %u, sendResponseAsServiceMetaDescription = %u, selectedServicesCount = %u" , isGETHttpMethod , sendResponseInJSON , sendResponseAsServiceMetaDescription , selectedServicesCount ) )
+	aln( "isGETHttpMethod = %u, sendResponseInJSON = %u, sendResponseAsServiceMetaDescription = %u, selectedServicesCount = %u" , isGETHttpMethod , sendResponseInJSON , sendResponseAsServiceMetaDescription , selectedServicesCount )
+
+	currentPageRenderer = sendResponseInJSON ? jsonPageRenderer : htmlPageRenderer;
+
+	//if( sendResponseInJSON )
+	//	currentPageRenderer = jsonPageRenderer;
+	//else
+	//	currentPageRenderer = htmlPageRenderer;
+}
+
+// =================================================
+
+RestServerSubTask* SendResponseSubTask::executeSubTask( Stream* stream )
+{
+	static const PROGMEM prog_char functionName[] = "executeSubTask";
+	//static const char* prefix = "SendResponseSubTask:executeSubTask():";
+
+	if( !isGETHttpMethod )
+	{
+		// TODO: POST nie jest jeszcze obslugiwany
+		return errorSubTask;
+	}
+	else
+	{
+		//all( p << prefix << "sending response, in this execution generating response for rest service under index " << indexOfGeneratedService << " '" << selectdServices[indexOfGeneratedService].restService->name << "' (of all " << selectedServicesCount << ")" << endl; )
+		//all( wpln( "sending response, in this execution generating response for rest service under index %u '%s' (of all %u)" , indexOfGeneratedService , selectdServices[indexOfGeneratedService].restService->name , selectedServicesCount ) )
+		aln( "sending response, in this execution generating response for rest service under index %u '%s' (of all %u)" , indexOfGeneratedService , selectdServices[indexOfGeneratedService].restService->name , selectedServicesCount )
+
+		if( indexOfGeneratedService == 0 )
+		{
+			//info( p << prefix << "1" << endl; )
+
+			currentPageRenderer->renderHttpHeader( stream );
+
+			//info( p << prefix << "2" << endl; )
+
+			//chunkedStream.setStreamAndResetInternalState( stream );
+			chunkedStream.setStream( stream );
+			chunkedStream.resetInternalState();
+
+			currentPageRenderer->renderPageTop( &chunkedStream );
+
+			chunkedStream.flush();
+
+			//info( p << prefix << "3" << endl; )
+		}
+
+		if( indexOfGeneratedService < selectedServicesCount )
+		{
+			//info( p << prefix << "4" << endl; )
+
+			currentPageRenderer->renderBeforeRestService( &chunkedStream );
+
+			//info( p << prefix << "5" << endl; )
+
+			//RestServiceRenderer* currentRestServiceRenderer = sendResponseAsServiceMetaDescription ? selectdServices[indexOfGeneratedService].metadescriptionRestServiceRenderer : ( sendResponseInJSON ? selectdServices[indexOfGeneratedService].jsonRestServiceRenderer : selectdServices[indexOfGeneratedService].htmlRestServiceRenderer);
+
+			//unsigned char indexOfRenderer = sendResponseAsServiceMetaDescription ? 2 : ( sendResponseInJSON ? 1 : 0 );
+			RestServiceRenderer* currentRestServiceRenderer = selectdServices[indexOfGeneratedService].restServiceRenderers[ sendResponseAsServiceMetaDescription ? 2 : ( sendResponseInJSON ? 1 : 0 ) ];
+
+			//info( p << prefix << "6" << endl; )
+
+			currentRestServiceRenderer->renderBeforeRestService( &chunkedStream );
+
+			currentRestServiceRenderer->renderGetValue( &chunkedStream , selectdServices[indexOfGeneratedService].restService );
+
+			currentRestServiceRenderer->renderSpaceBetweenRestServicePatrs( &chunkedStream );
+
+			currentRestServiceRenderer->renderValueSetter( &chunkedStream , selectdServices[indexOfGeneratedService].restService );
+
+			currentRestServiceRenderer->renderAfterRestService( &chunkedStream );
+
+			currentPageRenderer->renderAfterRestService( &chunkedStream );
+
+			chunkedStream.flush();
+
+			/*
+			if( sendResponseAsServiceMetaDescription )
+			{
+				selectdServices[indexOfGeneratedService].htmlRestServiceRenderer->renderMetadescription( stream , selectdServices[indexOfGeneratedService].restService );
+			}
+			else
+			{
+				currentPageRenderer->renderBeforeRestService( stream );
+
+				selectdServices[indexOfGeneratedService].htmlRestServiceRenderer->renderGetValue( stream , selectdServices[indexOfGeneratedService].restService , sendResponseInJSON );
+
+				if( !sendResponseInJSON )
+				{
+					//htmlPageRenderer->renderSpaceBetweenRestServiceParts( stream );
+
+
+					if( selectdServices[indexOfGeneratedService].restService->type > 0 )
+					{
+						//selectdServices[indexOfGeneratedService].htmlRestServiceRenderer->renderValueSetter( stream , (RestUpdateableService*)selectdServices[indexOfGeneratedService].restService );
+						selectdServices[indexOfGeneratedService].htmlRestServiceRenderer->renderValueSetter( stream , selectdServices[indexOfGeneratedService].restService );
+						//htmlPageRenderer->renderSpaceBetweenRestServices( stream );
+					}
+				}
+
+				currentPageRenderer->renderAfterRestService( stream );
+			}*/
+
+			indexOfGeneratedService++;
+
+			//delay( 100 ); // tutaj mozna spowolnic sztucznie odsylanie odpowiedzi
+		}
+
+		if( indexOfGeneratedService >= selectedServicesCount )
+		{
+			currentPageRenderer->renderPageBottom( &chunkedStream );
+
+			chunkedStream.finishChunkedTransmission();
+			//chunkedStream.flush();
+
+			if( readLasyByteFromStreamAfterFullResponse ) stream->read();
+
+			return errorSubTask;
+		}
+
+		return NULL;
+	}
+}
+
+// =================================================
+
+

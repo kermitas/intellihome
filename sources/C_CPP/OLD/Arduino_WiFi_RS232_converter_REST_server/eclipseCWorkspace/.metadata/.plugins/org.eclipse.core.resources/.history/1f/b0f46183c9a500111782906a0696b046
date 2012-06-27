@@ -1,0 +1,46 @@
+/*
+ * StreamHttpChunkedTransferEncoding.h
+ *
+ *  Created on: 08-05-2012
+ *      Author: root
+ */
+
+#ifndef StreamHttpChunkedTransferEncoding_H_
+#define StreamHttpChunkedTransferEncoding_H_
+
+// =================================================
+
+#include <Arduino.h>
+#include <Stream.h>
+
+// =================================================
+
+class StreamHttpChunkedTransferEncoding : public Stream
+{
+	public:
+
+		StreamHttpChunkedTransferEncoding( uint8_t* _buffer , unsigned char _bufferSize , Stream* _underlyingStream );
+
+		size_t write( uint8_t b );
+		void flush();
+		int available();
+		int read();
+		int peek();
+
+		void resetInternalState();
+		void setStream( Stream* _mainStream );
+
+		void finishChunkedTransmission();
+
+		Stream* underlyingStream;
+
+	protected:
+
+		uint8_t* buffer;
+		unsigned char bufferSize;
+		unsigned char index;
+};
+
+// =================================================
+
+#endif /* StreamHttpChunkedTransferEncoding_H_ */

@@ -1,0 +1,76 @@
+/*
+ * HFA11xRS232WiFiCRC.h
+ *
+ *  Created on: 13-05-2012
+ *      Author: root
+ */
+
+#ifndef HFA11XRS232WIFICRC_H_
+#define HFA11XRS232WIFICRC_H_
+
+// =================================================
+
+#include <Arduino.h>
+
+// =================================================
+
+#include "DebugPrinter.h"
+
+// =================================================
+
+class HFA11xRS232WiFiCRC
+{
+	public:
+
+		HFA11xRS232WiFiCRC();
+
+		void processByte( unsigned char b );
+
+		void reset();
+
+		unsigned int getCRCSum();
+		unsigned char getCRCLowByte( unsigned int crcSum );
+		unsigned char getCRCHighByte( unsigned int crcSum );
+		bool writeCRCBytesToStream( Stream* stream );
+
+	protected:
+
+		DebugPrinter dp;
+
+		unsigned char lastprocessedByte;
+		bool isLastprocessedByteSet;
+
+		unsigned long crcCounter;
+};
+
+/*
+class HFA11xRS232WiFiCRC
+{
+	public:
+
+		HFA11xRS232WiFiCRC();
+
+		void processByte( unsigned char b );
+
+		//void calculateCRC();
+		void reset();
+
+		unsigned int getCRCSum();
+		unsigned char getCRCLowByte( unsigned int crcSum );
+		unsigned char getCRCHighByte( unsigned int crcSum );
+		bool writeCRCBytesToStream( Stream* stream );
+
+	protected:
+
+		DebugPrinter dp;
+
+		unsigned char lastprocessedByte;
+		bool oddByte;
+
+		unsigned long crcCounter;
+};
+*/
+// =================================================
+
+#endif /* HFA11XRS232WIFICRC_H_ */
+

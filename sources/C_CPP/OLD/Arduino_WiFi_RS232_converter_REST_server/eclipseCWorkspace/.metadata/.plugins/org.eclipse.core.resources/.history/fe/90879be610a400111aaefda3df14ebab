@@ -1,0 +1,17 @@
+/*
+ * RWSubTaskGoBackToFirstSubTask.h
+ *
+ *  Created on: 22-05-2012
+ *      Author: root
+ */
+
+#ifndef RWSUBTASKGOBACKTOFIRSTSUBTASK_H_
+#define RWSUBTASKGOBACKTOFIRSTSUBTASK_H_
+
+class RWSubTaskGoBackToFirstSubTask {
+public:
+	RWSubTaskGoBackToFirstSubTask();
+	virtual ~RWSubTaskGoBackToFirstSubTask();
+};
+
+#endif /* RWSUBTASKGOBACKTOFIRSTSUBTASK_H_ */

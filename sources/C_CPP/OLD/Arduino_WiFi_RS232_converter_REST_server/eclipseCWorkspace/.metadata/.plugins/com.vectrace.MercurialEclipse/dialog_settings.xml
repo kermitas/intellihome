@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="com.vectrace.MercurialEclipse.wizards.NewLocationWizard">
+		<list key="ConfigurationWizardMainPage.STORE_USERNAME_ID">
+			<item value="kermitas"/>
+		</list>
+	</section>
+	<section name="CommitDialog">
+		<item value="613" key="DIALOG_WIDTH"/>
+		<item value="32" key="DIALOG_Y_ORIGIN"/>
+		<item value="654" key="DIALOG_X_ORIGIN"/>
+		<item value="885" key="DIALOG_HEIGHT"/>
+		<item value="1|Cantarell|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+	</section>
+	<section name="com.vectrace.MercurialEclipse.wizards.PushRepoWizard">
+		<list key="ConfigurationWizardMainPage.STORE_USERNAME_ID">
+			<item value="kermitas"/>
+		</list>
+	</section>
+</section>

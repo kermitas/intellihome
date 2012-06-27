@@ -1,0 +1,189 @@
+/*
+ * StreamHFA11xRS232WiFiCRC.cpp
+ *
+ *  Created on: 12-05-2012
+ *      Author: root
+ */
+
+// =================================================
+
+#include "StreamHFA11xRS232WiFiCRC.h"
+
+// =================================================
+
+//const PROGMEM prog_char StreamHFA11xRS232WiFiCRC::className[] = "StreamHFA11xRS232WiFiCRC";
+
+// =================================================
+
+StreamHFA11xRS232WiFiCRC::StreamHFA11xRS232WiFiCRC() : dp( PSTR( "StreamHFA11xRS232WiFiCRC" ) )//( Print& _p ) : p( _p ) //, outgoingCRC( _p ) , incommingCRC( _p )
+{
+	setStream( NULL );
+	resetInternalState();
+}
+
+// =================================================
+
+StreamHFA11xRS232WiFiCRC::StreamHFA11xRS232WiFiCRC( Stream* _mainStream ) : dp( PSTR( "StreamHFA11xRS232WiFiCRC" ) )//( Print& _p ) : p( _p ) //, outgoingCRC( _p ) , incommingCRC( _p )
+{
+	setStream( _mainStream );
+	resetInternalState();
+}
+
+// =================================================
+
+void StreamHFA11xRS232WiFiCRC::setStream( Stream* _mainStream )
+{
+	//static const char* prefix = "StreamHFA11xRS232WiFiCRC::setStream():";
+
+	mainStream = _mainStream;
+
+	//if( _mainStream != NULL )
+	//{
+	//	info( p << prefix << "stream was set" << endl; )
+	//}
+}
+
+// =================================================
+
+void StreamHFA11xRS232WiFiCRC::resetInternalState()
+{
+	resetIncommingState();
+	resetOutgoingState();
+}
+
+// =================================================
+
+void StreamHFA11xRS232WiFiCRC::resetOutgoingState()
+{
+	outgoingCRC.reset();
+}
+
+// =================================================
+
+void StreamHFA11xRS232WiFiCRC::resetIncommingState()
+{
+	incommingCRC.reset();
+	//readOrPeekResponseIfThereWasPeekedByte = -1000;
+	//wasPeeked = false;
+}
+
+// =================================================
+
+bool StreamHFA11xRS232WiFiCRC::writeOutgoingDataCRCToStream()
+{
+	static const PROGMEM prog_char functionName[] = "writeCRCToStream";
+	//static const char* prefix = "StreamHFA11xRS232WiFiCRC::writeCRCToStream():";
+
+	//info( p << prefix << "calculating CRC and write to stream" << endl; )
+	//info( wpln( "calculating CRC and write to stream" ) )
+	aln( "calculating CRC and write to stream" )
+
+	//outgoingCRC.calculateCRC();
+
+	//info( p << prefix << "crc1=" << outgoingCRC.getCRCByte1() << ", crc2=" << outgoingCRC.getCRCByte2() << endl; )
+
+	bool result = outgoingCRC.writeCRCBytesToStream( mainStream );
+	//mainStream->flush(); // ?? czy to tutaj potrzebne??
+
+	resetOutgoingState();
+
+	return result;
+}
+
+// =================================================
+
+int StreamHFA11xRS232WiFiCRC::read()
+{
+	return readOrPeek( false );
+}
+
+// =================================================
+
+int StreamHFA11xRS232WiFiCRC::peek()
+{
+	return readOrPeek( true );
+}
+
+// =================================================
+
+int StreamHFA11xRS232WiFiCRC::readOrPeek( bool doPeek )
+{
+	int b = doPeek ? mainStream->peek() : mainStream->read();
+
+	if( b == -1 )
+	{
+		return -1;
+	}
+	else
+	{
+		if( !doPeek )
+		{
+			incommingCRC.processByte( b );
+		}
+
+		/*
+		if( doPeek )
+		{
+			if( !wasPeeked )
+			{
+				wasPeeked = true;
+				incommingCRC.processByte( b );
+			}
+		}
+		else
+		{
+			if( wasPeeked )
+			{
+				wasPeeked = false;
+			}
+			else
+			{
+				incommingCRC.processByte( b );
+			}
+		}*/
+
+		return b;
+	}
+}
+
+// =================================================
+
+unsigned int StreamHFA11xRS232WiFiCRC::getIncommingDataCRC()
+{
+	unsigned int result = incommingCRC.getCRCSum();
+	resetIncommingState();
+
+	return result;
+}
+
+// =================================================
+
+void StreamHFA11xRS232WiFiCRC::flush()
+{
+	mainStream->flush();
+}
+
+// =================================================
+
+size_t StreamHFA11xRS232WiFiCRC::write( uint8_t b )
+{
+	//static const PROGMEM prog_char functionName[] = "write";
+
+	//info( p << "StreamHFA11xRS232WiFiCRC::write():b=" << b << endl; )
+	//info( wpln( "b=%u" , b ) )
+	//iln( "b=%u" , b )
+
+	outgoingCRC.processByte( b );
+	return mainStream->write( b );
+
+	//return 1;
+}
+
+// =================================================
+
+int StreamHFA11xRS232WiFiCRC::available()
+{
+	return mainStream->available();
+}
+
+// =================================================

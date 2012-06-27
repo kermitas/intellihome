@@ -1,0 +1,73 @@
+/*
+ * RWSubTaskSendSENDCommand.h
+ *
+ *  Created on: 22-05-2012
+ *      Author: root
+ */
+
+#ifndef RWSUBTASKSENDSENDCOMMAND_H_
+#define RWSUBTASKSENDSENDCOMMAND_H_
+
+// =================================================
+
+#include <Arduino.h>
+
+// =================================================
+
+#include "DebugPrinter.h"
+#include "RWSubTask.h"
+#include "AnyBuffer.h"
+#include "StreamHFA11xRS232WiFiCRC.h"
+#include "RWCommandSerialNumber.h"
+#include "RWSubTaskWaitForData.h"
+#include "RWSubTaskReadSENDACKCommand.h"
+
+// =================================================
+
+class RWSubTaskSendSENDCommand : public RWSubTask
+{
+	public:
+
+		RWSubTaskSendSENDCommand( AnyBuffer< byte , byte >* _outputBuffer , StreamHFA11xRS232WiFiCRC* _crcStream , RWCommandSerialNumber* _rwCommandSerialNumber , RWSubTaskWaitForData* _rwSubTaskWaitForData , RWSubTaskReadSENDACKCommand* _rwSubTaskReadSENDACKCommand , RWSubTask* _subTaskOnFail );
+
+		char* getSubTaskName();
+
+		void resetInternalState();
+
+		unsigned long getStateTimeout();
+		RWSubTask* getStateAfterTimeout();
+
+		RWSubTask* executeSubTask();
+
+		void setWork( byte _retryNumber );
+
+	protected:
+
+		// ---
+
+		DebugPrinter dp;
+
+		// ---
+
+		AnyBuffer< byte , byte >* outputBuffer;
+
+		StreamHFA11xRS232WiFiCRC* crcStream;
+
+		RWCommandSerialNumber* rwCommandSerialNumber;
+
+		RWSubTaskWaitForData* rwSubTaskWaitForData;
+		RWSubTaskReadSENDACKCommand* rwSubTaskReadSENDACKCommand;
+		RWSubTask* subTaskOnFail;
+
+		byte retryCounter;
+		byte retryMaxNumber;
+
+		byte arr[6];
+
+		// ---
+};
+
+// =================================================
+
+#endif /* RWSUBTASKSENDSENDCOMMAND_H_ */
+

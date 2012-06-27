@@ -1,0 +1,40 @@
+/*
+ * TaskManager.h
+ *
+ *  Created on: 05-01-2012
+ *      Author: root
+ */
+
+#ifndef TASKMANAGER_H_
+#define TASKMANAGER_H_
+
+#include "QueueList.h"
+#include "TaskManagerTaskRecord.h"
+#include "TaskManagerTaskMemoryConfigurator.h"
+#include "TaskManagerTaskExecutionInfo.h"
+#include "Runnable.h"
+
+class TaskManager
+{
+	public:
+		TaskManager();
+		void addTask( TaskManagerTaskMemoryConfigurator* taskManagerTaskMemoryConfigurator , TaskManagerTaskExecutionInfo* taskManagerTaskExecutionInfo , Runnable* runnable );
+		void execute(); // execution from Arduino main loop
+		virtual ~TaskManager();
+
+	protected:
+		QueueList <TaskManagerTaskRecord*>* tasksQueueA;
+		QueueList <TaskManagerTaskRecord*>* tasksQueueB;
+
+	private:
+		void tryToFreeRecordAndWhatItKeeps( TaskManagerTaskRecord* record );
+};
+
+TaskManager* tm = new TaskManager();
+
+TaskManager* getTaskManager()
+{
+	return tm;
+}
+
+#endif /* TASKMANAGER_H_ */

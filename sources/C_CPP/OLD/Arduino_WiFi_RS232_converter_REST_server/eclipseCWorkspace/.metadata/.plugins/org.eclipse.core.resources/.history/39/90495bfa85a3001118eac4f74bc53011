@@ -1,0 +1,18 @@
+/*
+ * RWSubTaskReadRECVACKCommand.cpp
+ *
+ *  Created on: 21-05-2012
+ *      Author: root
+ */
+
+#include "RWSubTaskReadRECVACKCommand.h"
+
+RWSubTaskReadRECVACKCommand::RWSubTaskReadRECVACKCommand() {
+	// TODO Auto-generated constructor stub
+
+}
+
+RWSubTaskReadRECVACKCommand::~RWSubTaskReadRECVACKCommand() {
+	// TODO Auto-generated destructor stub
+}
+

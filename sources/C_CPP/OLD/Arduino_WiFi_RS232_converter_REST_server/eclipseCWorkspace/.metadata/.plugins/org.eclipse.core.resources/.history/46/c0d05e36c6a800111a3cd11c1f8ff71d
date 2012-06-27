@@ -1,0 +1,17 @@
+/*
+ * StreamHFA11xRS232WiFi3.h
+ *
+ *  Created on: 28-05-2012
+ *      Author: root
+ */
+
+#ifndef STREAMHFA11XRS232WIFI3_H_
+#define STREAMHFA11XRS232WIFI3_H_
+
+class StreamHFA11xRS232WiFi3 {
+public:
+	StreamHFA11xRS232WiFi3();
+	virtual ~StreamHFA11xRS232WiFi3();
+};
+
+#endif /* STREAMHFA11XRS232WIFI3_H_ */

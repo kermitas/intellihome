@@ -1,0 +1,2445 @@
+In archive libSatelita1_TaskManager.a:
+
+BasicTaskManagerScheduler.o:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  00000000  00000000  00000034  2**0
+                  ALLOC
+  3 .stab         000003b4  00000000  00000000  00000034  2**2
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  4 .stabstr      00000c7a  00000000  00000000  000003e8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .text._ZN25BasicTaskManagerScheduler10canExecuteEv 00000006  00000000  00000000  00001062  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  6 .text._ZN25BasicTaskManagerScheduler24canRemoveFromTaskManagerEv 00000006  00000000  00000000  00001068  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  7 .text._ZN25BasicTaskManagerSchedulerC2Ebb 00000010  00000000  00000000  0000106e  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  8 .text._ZN25BasicTaskManagerScheduler13setCanExecuteEb 00000006  00000000  00000000  0000107e  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  9 .text._ZN25BasicTaskManagerScheduler27setCanRemoveFromTaskManagerEb 00000006  00000000  00000000  00001084  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 10 .rodata._ZTV25BasicTaskManagerScheduler 00000008  00000000  00000000  0000108a  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+ 11 .rodata._ZTV20TaskManagerScheduler 00000008  00000000  00000000  00001092  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+
+Disassembly of section .text._ZN25BasicTaskManagerScheduler10canExecuteEv:
+
+00000000 <_ZN25BasicTaskManagerScheduler10canExecuteEv>:
+
+// =================================================
+
+void BasicTaskManagerScheduler::setCanRemoveFromTaskManager( bool _canRemoveFromTaskManager )
+{
+	canRemoveFromTaskManagerValue = _canRemoveFromTaskManager;
+   0:	fc 01       	movw	r30, r24
+   2:	82 81       	ldd	r24, Z+2	; 0x02
+}
+   4:	08 95       	ret
+
+Disassembly of section .text._ZN25BasicTaskManagerScheduler24canRemoveFromTaskManagerEv:
+
+00000000 <_ZN25BasicTaskManagerScheduler24canRemoveFromTaskManagerEv>:
+
+// =================================================
+
+void BasicTaskManagerScheduler::setCanRemoveFromTaskManager( bool _canRemoveFromTaskManager )
+{
+	canRemoveFromTaskManagerValue = _canRemoveFromTaskManager;
+   0:	fc 01       	movw	r30, r24
+   2:	83 81       	ldd	r24, Z+3	; 0x03
+}
+   4:	08 95       	ret
+
+Disassembly of section .text._ZN25BasicTaskManagerSchedulerC2Ebb:
+
+00000000 <_ZN25BasicTaskManagerSchedulerC1Ebb>:
+
+// =================================================
+
+void BasicTaskManagerScheduler::setCanRemoveFromTaskManager( bool _canRemoveFromTaskManager )
+{
+	canRemoveFromTaskManagerValue = _canRemoveFromTaskManager;
+   0:	fc 01       	movw	r30, r24
+   2:	80 e0       	ldi	r24, 0x00	; 0
+}
+   4:	90 e0       	ldi	r25, 0x00	; 0
+   6:	91 83       	std	Z+1, r25	; 0x01
+   8:	80 83       	st	Z, r24
+   a:	62 83       	std	Z+2, r22	; 0x02
+   c:	43 83       	std	Z+3, r20	; 0x03
+   e:	08 95       	ret
+
+Disassembly of section .text._ZN25BasicTaskManagerScheduler13setCanExecuteEb:
+
+00000000 <_ZN25BasicTaskManagerScheduler13setCanExecuteEb>:
+
+// =================================================
+
+void BasicTaskManagerScheduler::setCanRemoveFromTaskManager( bool _canRemoveFromTaskManager )
+{
+	canRemoveFromTaskManagerValue = _canRemoveFromTaskManager;
+   0:	fc 01       	movw	r30, r24
+   2:	62 83       	std	Z+2, r22	; 0x02
+}
+   4:	08 95       	ret
+
+Disassembly of section .text._ZN25BasicTaskManagerScheduler27setCanRemoveFromTaskManagerEb:
+
+00000000 <_ZN25BasicTaskManagerScheduler27setCanRemoveFromTaskManagerEb>:
+
+// =================================================
+
+void BasicTaskManagerScheduler::setCanRemoveFromTaskManager( bool _canRemoveFromTaskManager )
+{
+	canRemoveFromTaskManagerValue = _canRemoveFromTaskManager;
+   0:	fc 01       	movw	r30, r24
+   2:	63 83       	std	Z+3, r22	; 0x03
+}
+   4:	08 95       	ret
+
+SampleTaskRunnable.o:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  00000000  00000000  00000034  2**0
+                  ALLOC
+  3 .stab         000006c0  00000000  00000000  00000034  2**2
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  4 .stabstr      0000351d  00000000  00000000  000006f4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .text._ZN18SampleTaskRunnable3runEv 0000004e  00000000  00000000  00003c11  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  6 .text._ZN18SampleTaskRunnableC2EPKct 0000003c  00000000  00000000  00003c5f  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  7 .rodata._ZTV18SampleTaskRunnable 00000006  00000000  00000000  00003c9b  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+  8 .rodata._ZTV8Runnable 00000006  00000000  00000000  00003ca1  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+  9 .progmem.data 00000017  00000000  00000000  00003ca7  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+
+Disassembly of section .text._ZN18SampleTaskRunnable3runEv:
+
+00000000 <_ZN18SampleTaskRunnable3runEv>:
+
+//const PROGMEM prog_char SampleTaskRunnable::className[] = "SampleTaskRunnable";
+
+// =================================================
+
+SampleTaskRunnable::SampleTaskRunnable( const PROGMEM prog_char* _str , unsigned short _sleepInMs ) : dp( PSTR( "SampleTaskRunnable" ) )//: p(_p)
+   0:	cf 93       	push	r28
+   2:	df 93       	push	r29
+   4:	ec 01       	movw	r28, r24
+   6:	02 96       	adiw	r24, 0x02	; 2
+   8:	60 e0       	ldi	r22, 0x00	; 0
+   a:	70 e0       	ldi	r23, 0x00	; 0
+   c:	40 e0       	ldi	r20, 0x00	; 0
+   e:	50 e0       	ldi	r21, 0x00	; 0
+  10:	0e 94 00 00 	call	0	; 0x0 <_ZN18SampleTaskRunnable3runEv>
+  14:	0f 92       	push	r0
+  16:	0f 92       	push	r0
+  18:	8d 81       	ldd	r24, Y+5	; 0x05
+  1a:	9e 81       	ldd	r25, Y+6	; 0x06
+  1c:	ed b7       	in	r30, 0x3d	; 61
+  1e:	fe b7       	in	r31, 0x3e	; 62
+  20:	92 83       	std	Z+2, r25	; 0x02
+  22:	81 83       	std	Z+1, r24	; 0x01
+  24:	0e 94 00 00 	call	0	; 0x0 <_ZN18SampleTaskRunnable3runEv>
+{
+	str =  _str;
+  28:	80 e0       	ldi	r24, 0x00	; 0
+	sleepInMs = _sleepInMs;
+  2a:	90 e0       	ldi	r25, 0x00	; 0
+  2c:	ed b7       	in	r30, 0x3d	; 61
+}
+  2e:	fe b7       	in	r31, 0x3e	; 62
+  30:	92 83       	std	Z+2, r25	; 0x02
+  32:	81 83       	std	Z+1, r24	; 0x01
+  34:	0e 94 00 00 	call	0	; 0x0 <_ZN18SampleTaskRunnable3runEv>
+  38:	0f 90       	pop	r0
+  3a:	0f 90       	pop	r0
+  3c:	6f 81       	ldd	r22, Y+7	; 0x07
+  3e:	78 85       	ldd	r23, Y+8	; 0x08
+  40:	80 e0       	ldi	r24, 0x00	; 0
+  42:	90 e0       	ldi	r25, 0x00	; 0
+  44:	0e 94 00 00 	call	0	; 0x0 <_ZN18SampleTaskRunnable3runEv>
+  48:	df 91       	pop	r29
+  4a:	cf 91       	pop	r28
+  4c:	08 95       	ret
+
+Disassembly of section .text._ZN18SampleTaskRunnableC2EPKct:
+
+00000000 <_ZN18SampleTaskRunnableC1EPKct>:
+
+//const PROGMEM prog_char SampleTaskRunnable::className[] = "SampleTaskRunnable";
+
+// =================================================
+
+SampleTaskRunnable::SampleTaskRunnable( const PROGMEM prog_char* _str , unsigned short _sleepInMs ) : dp( PSTR( "SampleTaskRunnable" ) )//: p(_p)
+   0:	ef 92       	push	r14
+   2:	ff 92       	push	r15
+   4:	0f 93       	push	r16
+   6:	1f 93       	push	r17
+   8:	cf 93       	push	r28
+   a:	df 93       	push	r29
+   c:	ec 01       	movw	r28, r24
+   e:	7b 01       	movw	r14, r22
+  10:	8a 01       	movw	r16, r20
+  12:	20 e0       	ldi	r18, 0x00	; 0
+  14:	30 e0       	ldi	r19, 0x00	; 0
+  16:	fc 01       	movw	r30, r24
+  18:	21 93       	st	Z+, r18
+  1a:	31 93       	st	Z+, r19
+  1c:	cf 01       	movw	r24, r30
+  1e:	60 e0       	ldi	r22, 0x00	; 0
+  20:	70 e0       	ldi	r23, 0x00	; 0
+  22:	0e 94 00 00 	call	0	; 0x0 <_ZN18SampleTaskRunnableC1EPKct>
+{
+	str =  _str;
+  26:	fe 82       	std	Y+6, r15	; 0x06
+  28:	ed 82       	std	Y+5, r14	; 0x05
+	sleepInMs = _sleepInMs;
+  2a:	18 87       	std	Y+8, r17	; 0x08
+  2c:	0f 83       	std	Y+7, r16	; 0x07
+}
+  2e:	df 91       	pop	r29
+  30:	cf 91       	pop	r28
+  32:	1f 91       	pop	r17
+  34:	0f 91       	pop	r16
+  36:	ff 90       	pop	r15
+  38:	ef 90       	pop	r14
+  3a:	08 95       	ret
+
+TaskManager.o:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  00000000  00000000  00000034  2**0
+                  ALLOC
+  3 .stab         00001074  00000000  00000000  00000034  2**2
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  4 .stabstr      00003c31  00000000  00000000  000010a8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .text._ZN11TaskManagerD2Ev 0000000c  00000000  00000000  00004cd9  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  6 .text._ZN11TaskManagerD0Ev 00000010  00000000  00000000  00004ce5  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  7 .text._ZN11TaskManagerC2EjPPK17TaskManagerRecord 00000042  00000000  00000000  00004cf5  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  8 .text._ZN11TaskManager3addEP17TaskManagerRecord 00000152  00000000  00000000  00004d37  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  9 .text._ZN11TaskManager8getIndexEP17TaskManagerRecord 00000048  00000000  00000000  00004e89  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 10 .text._ZN11TaskManager15printTasksArrayEv 00000128  00000000  00000000  00004ed1  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 11 .text._ZN11TaskManager18recompactTaskArrayEv 0000025e  00000000  00000000  00004ff9  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 12 .text._ZN11TaskManager7executeEv 0000029c  00000000  00000000  00005257  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 13 .text._ZN11TaskManager13removeByIndexEj 0000012c  00000000  00000000  000054f3  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 14 .text._ZN11TaskManager15removeByPointerEP17TaskManagerRecord 000000e0  00000000  00000000  0000561f  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 15 .rodata._ZTV11TaskManager 00000008  00000000  00000000  000056ff  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+ 16 .progmem.data 00000365  00000000  00000000  00005707  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+
+Disassembly of section .text._ZN11TaskManagerD2Ev:
+
+00000000 <_ZN11TaskManagerD1Ev>:
+}
+
+// =================================================
+
+bool TaskManager::removeByPointer( TaskManagerRecord* ptr )
+{
+   0:	20 e0       	ldi	r18, 0x00	; 0
+   2:	30 e0       	ldi	r19, 0x00	; 0
+   4:	fc 01       	movw	r30, r24
+   6:	31 83       	std	Z+1, r19	; 0x01
+   8:	20 83       	st	Z, r18
+   a:	08 95       	ret
+
+Disassembly of section .text._ZN11TaskManagerD0Ev:
+
+00000000 <_ZN11TaskManagerD0Ev>:
+   0:	20 e0       	ldi	r18, 0x00	; 0
+   2:	30 e0       	ldi	r19, 0x00	; 0
+   4:	fc 01       	movw	r30, r24
+   6:	31 83       	std	Z+1, r19	; 0x01
+   8:	20 83       	st	Z, r18
+   a:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManagerD0Ev>
+   e:	08 95       	ret
+
+Disassembly of section .text._ZN11TaskManagerC2EjPPK17TaskManagerRecord:
+
+00000000 <_ZN11TaskManagerC1EjPPK17TaskManagerRecord>:
+   0:	ef 92       	push	r14
+   2:	ff 92       	push	r15
+   4:	0f 93       	push	r16
+   6:	1f 93       	push	r17
+   8:	cf 93       	push	r28
+   a:	df 93       	push	r29
+   c:	ec 01       	movw	r28, r24
+   e:	7b 01       	movw	r14, r22
+	static const PROGMEM prog_char functionName[] = "removeByPointer";
+	//static const char prefix[] = "TaskManager:removeByPointer():";
+
+	unsigned int index = getIndex( ptr );
+  10:	8a 01       	movw	r16, r20
+  12:	20 e0       	ldi	r18, 0x00	; 0
+  14:	30 e0       	ldi	r19, 0x00	; 0
+
+	if( index < maxTasksCount )
+  16:	fc 01       	movw	r30, r24
+  18:	21 93       	st	Z+, r18
+  1a:	31 93       	st	Z+, r19
+  1c:	cf 01       	movw	r24, r30
+  1e:	60 e0       	ldi	r22, 0x00	; 0
+  20:	70 e0       	ldi	r23, 0x00	; 0
+	{
+		//info( p << prefix << "removing ptr*=" << (int)ptr << ", in tasksArray index=" << index << endl; )
+		//info( wpln( "removing ptr* = %u, in tasksArray index = %u" , ptr , index ) )
+		iln( "removing ptr* = %u, in tasksArray index = %u" , ptr , index )
+  22:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManagerC1EjPPK17TaskManagerRecord>
+  26:	fe 82       	std	Y+6, r15	; 0x06
+  28:	ed 82       	std	Y+5, r14	; 0x05
+  2a:	1a 87       	std	Y+10, r17	; 0x0a
+  2c:	09 87       	std	Y+9, r16	; 0x09
+  2e:	18 86       	std	Y+8, r1	; 0x08
+  30:	1f 82       	std	Y+7, r1	; 0x07
+  32:	1d 86       	std	Y+13, r1	; 0x0d
+  34:	df 91       	pop	r29
+  36:	cf 91       	pop	r28
+  38:	1f 91       	pop	r17
+  3a:	0f 91       	pop	r16
+  3c:	ff 90       	pop	r15
+  3e:	ef 90       	pop	r14
+  40:	08 95       	ret
+
+Disassembly of section .text._ZN11TaskManager3addEP17TaskManagerRecord:
+
+00000000 <_ZN11TaskManager3addEP17TaskManagerRecord>:
+}
+
+// =================================================
+
+bool TaskManager::removeByPointer( TaskManagerRecord* ptr )
+{
+   0:	0f 93       	push	r16
+   2:	1f 93       	push	r17
+   4:	cf 93       	push	r28
+   6:	df 93       	push	r29
+   8:	ec 01       	movw	r28, r24
+   a:	8b 01       	movw	r16, r22
+   c:	61 15       	cp	r22, r1
+   e:	71 05       	cpc	r23, r1
+	static const PROGMEM prog_char functionName[] = "removeByPointer";
+	//static const char prefix[] = "TaskManager:removeByPointer():";
+
+	unsigned int index = getIndex( ptr );
+  10:	01 f0       	breq	.+0      	; 0x12 <_ZN11TaskManager3addEP17TaskManagerRecord+0x12>
+  12:	db 01       	movw	r26, r22
+  14:	12 96       	adiw	r26, 0x02	; 2
+
+	if( index < maxTasksCount )
+  16:	8d 91       	ld	r24, X+
+  18:	9c 91       	ld	r25, X
+  1a:	13 97       	sbiw	r26, 0x03	; 3
+  1c:	00 97       	sbiw	r24, 0x00	; 0
+  1e:	01 f4       	brne	.+0      	; 0x20 <_ZN11TaskManager3addEP17TaskManagerRecord+0x20>
+  20:	8c 81       	ldd	r24, Y+4	; 0x04
+	{
+		//info( p << prefix << "removing ptr*=" << (int)ptr << ", in tasksArray index=" << index << endl; )
+		//info( wpln( "removing ptr* = %u, in tasksArray index = %u" , ptr , index ) )
+		iln( "removing ptr* = %u, in tasksArray index = %u" , ptr , index )
+  22:	8f 31       	cpi	r24, 0x1F	; 31
+  24:	00 f0       	brcs	.+0      	; 0x26 <_ZN11TaskManager3addEP17TaskManagerRecord+0x26>
+  26:	00 c0       	rjmp	.+0      	; 0x28 <_ZN11TaskManager3addEP17TaskManagerRecord+0x28>
+  28:	ce 01       	movw	r24, r28
+  2a:	02 96       	adiw	r24, 0x02	; 2
+  2c:	60 e0       	ldi	r22, 0x00	; 0
+  2e:	70 e0       	ldi	r23, 0x00	; 0
+  30:	40 e0       	ldi	r20, 0x00	; 0
+  32:	50 e0       	ldi	r21, 0x00	; 0
+  34:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager3addEP17TaskManagerRecord>
+  38:	0f 92       	push	r0
+  3a:	0f 92       	push	r0
+  3c:	80 e0       	ldi	r24, 0x00	; 0
+  3e:	90 e0       	ldi	r25, 0x00	; 0
+  40:	ed b7       	in	r30, 0x3d	; 61
+  42:	fe b7       	in	r31, 0x3e	; 62
+  44:	92 83       	std	Z+2, r25	; 0x02
+  46:	81 83       	std	Z+1, r24	; 0x01
+  48:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager3addEP17TaskManagerRecord>
+  4c:	80 e0       	ldi	r24, 0x00	; 0
+  4e:	90 e0       	ldi	r25, 0x00	; 0
+  50:	ad b7       	in	r26, 0x3d	; 61
+  52:	be b7       	in	r27, 0x3e	; 62
+  54:	12 96       	adiw	r26, 0x02	; 2
+  56:	9c 93       	st	X, r25
+  58:	8e 93       	st	-X, r24
+  5a:	11 97       	sbiw	r26, 0x01	; 1
+  5c:	00 c0       	rjmp	.+0      	; 0x5e <_ZN11TaskManager3addEP17TaskManagerRecord+0x5e>
+  5e:	2f 81       	ldd	r18, Y+7	; 0x07
+  60:	38 85       	ldd	r19, Y+8	; 0x08
+  62:	8d 81       	ldd	r24, Y+5	; 0x05
+  64:	9e 81       	ldd	r25, Y+6	; 0x06
+  66:	4c 81       	ldd	r20, Y+4	; 0x04
+  68:	28 17       	cp	r18, r24
+  6a:	39 07       	cpc	r19, r25
+  6c:	00 f0       	brcs	.+0      	; 0x6e <_ZN11TaskManager3addEP17TaskManagerRecord+0x6e>
+  6e:	4f 31       	cpi	r20, 0x1F	; 31
+  70:	00 f0       	brcs	.+0      	; 0x72 <_ZN11TaskManager3addEP17TaskManagerRecord+0x72>
+  72:	00 c0       	rjmp	.+0      	; 0x74 <_ZN11TaskManager3addEP17TaskManagerRecord+0x74>
+  74:	ce 01       	movw	r24, r28
+  76:	02 96       	adiw	r24, 0x02	; 2
+
+		removeByIndex( index );
+  78:	60 e0       	ldi	r22, 0x00	; 0
+  7a:	70 e0       	ldi	r23, 0x00	; 0
+  7c:	40 e0       	ldi	r20, 0x00	; 0
+  7e:	50 e0       	ldi	r21, 0x00	; 0
+		return true;
+  80:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager3addEP17TaskManagerRecord>
+	}
+	else
+	{
+		//warning( p << prefix << "could not find ptr*=" << (int)ptr << " in tasksArray" << endl; )
+		//warning( wpln( "could not find ptr* = %u in tasksArray" , ptr ) )
+		wln( "could not find ptr* = %u in tasksArray" , ptr )
+  84:	00 d0       	rcall	.+0      	; 0x86 <_ZN11TaskManager3addEP17TaskManagerRecord+0x86>
+  86:	00 d0       	rcall	.+0      	; 0x88 <_ZN11TaskManager3addEP17TaskManagerRecord+0x88>
+  88:	ed b7       	in	r30, 0x3d	; 61
+  8a:	fe b7       	in	r31, 0x3e	; 62
+  8c:	31 96       	adiw	r30, 0x01	; 1
+  8e:	80 e0       	ldi	r24, 0x00	; 0
+  90:	90 e0       	ldi	r25, 0x00	; 0
+  92:	ad b7       	in	r26, 0x3d	; 61
+  94:	be b7       	in	r27, 0x3e	; 62
+  96:	12 96       	adiw	r26, 0x02	; 2
+  98:	9c 93       	st	X, r25
+  9a:	8e 93       	st	-X, r24
+  9c:	11 97       	sbiw	r26, 0x01	; 1
+  9e:	8f 81       	ldd	r24, Y+7	; 0x07
+  a0:	98 85       	ldd	r25, Y+8	; 0x08
+  a2:	93 83       	std	Z+3, r25	; 0x03
+  a4:	82 83       	std	Z+2, r24	; 0x02
+  a6:	15 83       	std	Z+5, r17	; 0x05
+  a8:	04 83       	std	Z+4, r16	; 0x04
+  aa:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager3addEP17TaskManagerRecord>
+  ae:	0f 90       	pop	r0
+  b0:	0f 90       	pop	r0
+  b2:	0f 90       	pop	r0
+  b4:	0f 90       	pop	r0
+  b6:	80 e0       	ldi	r24, 0x00	; 0
+  b8:	90 e0       	ldi	r25, 0x00	; 0
+  ba:	ed b7       	in	r30, 0x3d	; 61
+  bc:	fe b7       	in	r31, 0x3e	; 62
+  be:	92 83       	std	Z+2, r25	; 0x02
+  c0:	81 83       	std	Z+1, r24	; 0x01
+  c2:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager3addEP17TaskManagerRecord>
+  c6:	0f 90       	pop	r0
+  c8:	0f 90       	pop	r0
+  ca:	00 c0       	rjmp	.+0      	; 0xcc <_ZN11TaskManager3addEP17TaskManagerRecord+0xcc>
+  cc:	45 31       	cpi	r20, 0x15	; 21
+  ce:	00 f4       	brcc	.+0      	; 0xd0 <_ZN11TaskManager3addEP17TaskManagerRecord+0xd0>
+
+		return false;
+  d0:	ce 01       	movw	r24, r28
+	}
+}
+  d2:	02 96       	adiw	r24, 0x02	; 2
+  d4:	60 e0       	ldi	r22, 0x00	; 0
+  d6:	70 e0       	ldi	r23, 0x00	; 0
+  d8:	40 e0       	ldi	r20, 0x00	; 0
+  da:	50 e0       	ldi	r21, 0x00	; 0
+  dc:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager3addEP17TaskManagerRecord>
+  e0:	00 d0       	rcall	.+0      	; 0xe2 <_ZN11TaskManager3addEP17TaskManagerRecord+0xe2>
+  e2:	00 d0       	rcall	.+0      	; 0xe4 <_ZN11TaskManager3addEP17TaskManagerRecord+0xe4>
+  e4:	ed b7       	in	r30, 0x3d	; 61
+  e6:	fe b7       	in	r31, 0x3e	; 62
+  e8:	31 96       	adiw	r30, 0x01	; 1
+  ea:	80 e0       	ldi	r24, 0x00	; 0
+  ec:	90 e0       	ldi	r25, 0x00	; 0
+  ee:	ad b7       	in	r26, 0x3d	; 61
+  f0:	be b7       	in	r27, 0x3e	; 62
+  f2:	12 96       	adiw	r26, 0x02	; 2
+  f4:	9c 93       	st	X, r25
+  f6:	8e 93       	st	-X, r24
+  f8:	11 97       	sbiw	r26, 0x01	; 1
+  fa:	8f 81       	ldd	r24, Y+7	; 0x07
+  fc:	98 85       	ldd	r25, Y+8	; 0x08
+  fe:	93 83       	std	Z+3, r25	; 0x03
+ 100:	82 83       	std	Z+2, r24	; 0x02
+ 102:	15 83       	std	Z+5, r17	; 0x05
+ 104:	04 83       	std	Z+4, r16	; 0x04
+ 106:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager3addEP17TaskManagerRecord>
+ 10a:	0f 90       	pop	r0
+ 10c:	0f 90       	pop	r0
+ 10e:	0f 90       	pop	r0
+ 110:	0f 90       	pop	r0
+ 112:	80 e0       	ldi	r24, 0x00	; 0
+ 114:	90 e0       	ldi	r25, 0x00	; 0
+ 116:	ed b7       	in	r30, 0x3d	; 61
+ 118:	fe b7       	in	r31, 0x3e	; 62
+ 11a:	92 83       	std	Z+2, r25	; 0x02
+ 11c:	81 83       	std	Z+1, r24	; 0x01
+ 11e:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager3addEP17TaskManagerRecord>
+ 122:	0f 90       	pop	r0
+ 124:	0f 90       	pop	r0
+ 126:	8f 81       	ldd	r24, Y+7	; 0x07
+ 128:	98 85       	ldd	r25, Y+8	; 0x08
+ 12a:	9c 01       	movw	r18, r24
+ 12c:	22 0f       	add	r18, r18
+ 12e:	33 1f       	adc	r19, r19
+ 130:	e9 85       	ldd	r30, Y+9	; 0x09
+ 132:	fa 85       	ldd	r31, Y+10	; 0x0a
+ 134:	e2 0f       	add	r30, r18
+ 136:	f3 1f       	adc	r31, r19
+ 138:	11 83       	std	Z+1, r17	; 0x01
+ 13a:	00 83       	st	Z, r16
+ 13c:	01 96       	adiw	r24, 0x01	; 1
+ 13e:	98 87       	std	Y+8, r25	; 0x08
+ 140:	8f 83       	std	Y+7, r24	; 0x07
+ 142:	81 e0       	ldi	r24, 0x01	; 1
+ 144:	00 c0       	rjmp	.+0      	; 0x146 <_ZN11TaskManager3addEP17TaskManagerRecord+0x146>
+ 146:	80 e0       	ldi	r24, 0x00	; 0
+ 148:	df 91       	pop	r29
+ 14a:	cf 91       	pop	r28
+ 14c:	1f 91       	pop	r17
+ 14e:	0f 91       	pop	r16
+ 150:	08 95       	ret
+
+Disassembly of section .text._ZN11TaskManager8getIndexEP17TaskManagerRecord:
+
+00000000 <_ZN11TaskManager8getIndexEP17TaskManagerRecord>:
+}
+
+// =================================================
+
+bool TaskManager::removeByPointer( TaskManagerRecord* ptr )
+{
+   0:	dc 01       	movw	r26, r24
+   2:	61 15       	cp	r22, r1
+   4:	71 05       	cpc	r23, r1
+   6:	01 f0       	breq	.+0      	; 0x8 <_ZN11TaskManager8getIndexEP17TaskManagerRecord+0x8>
+   8:	15 96       	adiw	r26, 0x05	; 5
+   a:	4d 91       	ld	r20, X+
+   c:	5c 91       	ld	r21, X
+   e:	16 97       	sbiw	r26, 0x06	; 6
+	static const PROGMEM prog_char functionName[] = "removeByPointer";
+	//static const char prefix[] = "TaskManager:removeByPointer():";
+
+	unsigned int index = getIndex( ptr );
+  10:	20 e0       	ldi	r18, 0x00	; 0
+  12:	30 e0       	ldi	r19, 0x00	; 0
+  14:	00 c0       	rjmp	.+0      	; 0x16 <_ZN11TaskManager8getIndexEP17TaskManagerRecord+0x16>
+
+	if( index < maxTasksCount )
+  16:	c9 01       	movw	r24, r18
+  18:	88 0f       	add	r24, r24
+  1a:	99 1f       	adc	r25, r25
+  1c:	19 96       	adiw	r26, 0x09	; 9
+  1e:	ed 91       	ld	r30, X+
+  20:	fc 91       	ld	r31, X
+	{
+		//info( p << prefix << "removing ptr*=" << (int)ptr << ", in tasksArray index=" << index << endl; )
+		//info( wpln( "removing ptr* = %u, in tasksArray index = %u" , ptr , index ) )
+		iln( "removing ptr* = %u, in tasksArray index = %u" , ptr , index )
+  22:	1a 97       	sbiw	r26, 0x0a	; 10
+  24:	e8 0f       	add	r30, r24
+  26:	f9 1f       	adc	r31, r25
+  28:	80 81       	ld	r24, Z
+  2a:	91 81       	ldd	r25, Z+1	; 0x01
+  2c:	86 17       	cp	r24, r22
+  2e:	97 07       	cpc	r25, r23
+  30:	01 f0       	breq	.+0      	; 0x32 <_ZN11TaskManager8getIndexEP17TaskManagerRecord+0x32>
+  32:	2f 5f       	subi	r18, 0xFF	; 255
+  34:	3f 4f       	sbci	r19, 0xFF	; 255
+  36:	24 17       	cp	r18, r20
+  38:	35 07       	cpc	r19, r21
+  3a:	01 f4       	brne	.+0      	; 0x3c <_ZN11TaskManager8getIndexEP17TaskManagerRecord+0x3c>
+  3c:	15 96       	adiw	r26, 0x05	; 5
+  3e:	2d 91       	ld	r18, X+
+  40:	3c 91       	ld	r19, X
+  42:	16 97       	sbiw	r26, 0x06	; 6
+  44:	c9 01       	movw	r24, r18
+  46:	08 95       	ret
+
+Disassembly of section .text._ZN11TaskManager15printTasksArrayEv:
+
+00000000 <_ZN11TaskManager15printTasksArrayEv>:
+}
+
+// =================================================
+
+bool TaskManager::removeByPointer( TaskManagerRecord* ptr )
+{
+   0:	af 92       	push	r10
+   2:	bf 92       	push	r11
+   4:	cf 92       	push	r12
+   6:	df 92       	push	r13
+   8:	ef 92       	push	r14
+   a:	ff 92       	push	r15
+   c:	0f 93       	push	r16
+   e:	1f 93       	push	r17
+	static const PROGMEM prog_char functionName[] = "removeByPointer";
+	//static const char prefix[] = "TaskManager:removeByPointer():";
+
+	unsigned int index = getIndex( ptr );
+  10:	cf 93       	push	r28
+  12:	df 93       	push	r29
+  14:	ec 01       	movw	r28, r24
+
+	if( index < maxTasksCount )
+  16:	8c 81       	ldd	r24, Y+4	; 0x04
+  18:	85 31       	cpi	r24, 0x15	; 21
+  1a:	00 f4       	brcc	.+0      	; 0x1c <_ZN11TaskManager15printTasksArrayEv+0x1c>
+  1c:	ce 01       	movw	r24, r28
+  1e:	02 96       	adiw	r24, 0x02	; 2
+  20:	60 e0       	ldi	r22, 0x00	; 0
+	{
+		//info( p << prefix << "removing ptr*=" << (int)ptr << ", in tasksArray index=" << index << endl; )
+		//info( wpln( "removing ptr* = %u, in tasksArray index = %u" , ptr , index ) )
+		iln( "removing ptr* = %u, in tasksArray index = %u" , ptr , index )
+  22:	70 e0       	ldi	r23, 0x00	; 0
+  24:	40 e0       	ldi	r20, 0x00	; 0
+  26:	50 e0       	ldi	r21, 0x00	; 0
+  28:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager15printTasksArrayEv>
+  2c:	0f 92       	push	r0
+  2e:	0f 92       	push	r0
+  30:	80 e0       	ldi	r24, 0x00	; 0
+  32:	90 e0       	ldi	r25, 0x00	; 0
+  34:	ed b7       	in	r30, 0x3d	; 61
+  36:	fe b7       	in	r31, 0x3e	; 62
+  38:	92 83       	std	Z+2, r25	; 0x02
+  3a:	81 83       	std	Z+1, r24	; 0x01
+  3c:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager15printTasksArrayEv>
+  40:	0f 90       	pop	r0
+  42:	0f 90       	pop	r0
+  44:	00 e0       	ldi	r16, 0x00	; 0
+  46:	10 e0       	ldi	r17, 0x00	; 0
+  48:	32 e0       	ldi	r19, 0x02	; 2
+  4a:	e3 2e       	mov	r14, r19
+  4c:	f1 2c       	mov	r15, r1
+  4e:	ec 0e       	add	r14, r28
+  50:	fd 1e       	adc	r15, r29
+  52:	40 e0       	ldi	r20, 0x00	; 0
+  54:	c4 2e       	mov	r12, r20
+  56:	40 e0       	ldi	r20, 0x00	; 0
+  58:	d4 2e       	mov	r13, r20
+  5a:	50 e0       	ldi	r21, 0x00	; 0
+  5c:	a5 2e       	mov	r10, r21
+  5e:	50 e0       	ldi	r21, 0x00	; 0
+  60:	b5 2e       	mov	r11, r21
+  62:	00 c0       	rjmp	.+0      	; 0x64 <_ZN11TaskManager15printTasksArrayEv+0x64>
+  64:	25 31       	cpi	r18, 0x15	; 21
+  66:	00 f4       	brcc	.+0      	; 0x68 <_ZN11TaskManager15printTasksArrayEv+0x68>
+  68:	c7 01       	movw	r24, r14
+  6a:	60 e0       	ldi	r22, 0x00	; 0
+  6c:	70 e0       	ldi	r23, 0x00	; 0
+  6e:	40 e0       	ldi	r20, 0x00	; 0
+  70:	50 e0       	ldi	r21, 0x00	; 0
+  72:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager15printTasksArrayEv>
+  76:	00 d0       	rcall	.+0      	; 0x78 <_ZN11TaskManager15printTasksArrayEv+0x78>
+
+		removeByIndex( index );
+  78:	00 d0       	rcall	.+0      	; 0x7a <_ZN11TaskManager15printTasksArrayEv+0x7a>
+  7a:	ad b7       	in	r26, 0x3d	; 61
+  7c:	be b7       	in	r27, 0x3e	; 62
+  7e:	11 96       	adiw	r26, 0x01	; 1
+		return true;
+  80:	ed b7       	in	r30, 0x3d	; 61
+  82:	fe b7       	in	r31, 0x3e	; 62
+	}
+	else
+	{
+		//warning( p << prefix << "could not find ptr*=" << (int)ptr << " in tasksArray" << endl; )
+		//warning( wpln( "could not find ptr* = %u in tasksArray" , ptr ) )
+		wln( "could not find ptr* = %u in tasksArray" , ptr )
+  84:	d2 82       	std	Z+2, r13	; 0x02
+  86:	c1 82       	std	Z+1, r12	; 0x01
+  88:	13 96       	adiw	r26, 0x03	; 3
+  8a:	1c 93       	st	X, r17
+  8c:	0e 93       	st	-X, r16
+  8e:	12 97       	sbiw	r26, 0x02	; 2
+  90:	c8 01       	movw	r24, r16
+  92:	88 0f       	add	r24, r24
+  94:	99 1f       	adc	r25, r25
+  96:	e9 85       	ldd	r30, Y+9	; 0x09
+  98:	fa 85       	ldd	r31, Y+10	; 0x0a
+  9a:	e8 0f       	add	r30, r24
+  9c:	f9 1f       	adc	r31, r25
+  9e:	80 81       	ld	r24, Z
+  a0:	91 81       	ldd	r25, Z+1	; 0x01
+  a2:	15 96       	adiw	r26, 0x05	; 5
+  a4:	9c 93       	st	X, r25
+  a6:	8e 93       	st	-X, r24
+  a8:	14 97       	sbiw	r26, 0x04	; 4
+  aa:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager15printTasksArrayEv>
+  ae:	0f 90       	pop	r0
+  b0:	0f 90       	pop	r0
+  b2:	0f 90       	pop	r0
+  b4:	0f 90       	pop	r0
+  b6:	ed b7       	in	r30, 0x3d	; 61
+  b8:	fe b7       	in	r31, 0x3e	; 62
+  ba:	b2 82       	std	Z+2, r11	; 0x02
+  bc:	a1 82       	std	Z+1, r10	; 0x01
+  be:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager15printTasksArrayEv>
+  c2:	0f 90       	pop	r0
+  c4:	0f 90       	pop	r0
+  c6:	0f 5f       	subi	r16, 0xFF	; 255
+  c8:	1f 4f       	sbci	r17, 0xFF	; 255
+  ca:	8d 81       	ldd	r24, Y+5	; 0x05
+  cc:	9e 81       	ldd	r25, Y+6	; 0x06
+  ce:	2c 81       	ldd	r18, Y+4	; 0x04
+
+		return false;
+  d0:	08 17       	cp	r16, r24
+	}
+}
+  d2:	19 07       	cpc	r17, r25
+  d4:	00 f0       	brcs	.+0      	; 0xd6 <_ZN11TaskManager15printTasksArrayEv+0xd6>
+  d6:	25 31       	cpi	r18, 0x15	; 21
+  d8:	00 f4       	brcc	.+0      	; 0xda <_ZN11TaskManager15printTasksArrayEv+0xda>
+  da:	ce 01       	movw	r24, r28
+  dc:	02 96       	adiw	r24, 0x02	; 2
+  de:	60 e0       	ldi	r22, 0x00	; 0
+  e0:	70 e0       	ldi	r23, 0x00	; 0
+  e2:	40 e0       	ldi	r20, 0x00	; 0
+  e4:	50 e0       	ldi	r21, 0x00	; 0
+  e6:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager15printTasksArrayEv>
+  ea:	0f 92       	push	r0
+  ec:	0f 92       	push	r0
+  ee:	80 e0       	ldi	r24, 0x00	; 0
+  f0:	90 e0       	ldi	r25, 0x00	; 0
+  f2:	ed b7       	in	r30, 0x3d	; 61
+  f4:	fe b7       	in	r31, 0x3e	; 62
+  f6:	92 83       	std	Z+2, r25	; 0x02
+  f8:	81 83       	std	Z+1, r24	; 0x01
+  fa:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager15printTasksArrayEv>
+  fe:	80 e0       	ldi	r24, 0x00	; 0
+ 100:	90 e0       	ldi	r25, 0x00	; 0
+ 102:	ed b7       	in	r30, 0x3d	; 61
+ 104:	fe b7       	in	r31, 0x3e	; 62
+ 106:	92 83       	std	Z+2, r25	; 0x02
+ 108:	81 83       	std	Z+1, r24	; 0x01
+ 10a:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager15printTasksArrayEv>
+ 10e:	0f 90       	pop	r0
+ 110:	0f 90       	pop	r0
+ 112:	df 91       	pop	r29
+ 114:	cf 91       	pop	r28
+ 116:	1f 91       	pop	r17
+ 118:	0f 91       	pop	r16
+ 11a:	ff 90       	pop	r15
+ 11c:	ef 90       	pop	r14
+ 11e:	df 90       	pop	r13
+ 120:	cf 90       	pop	r12
+ 122:	bf 90       	pop	r11
+ 124:	af 90       	pop	r10
+ 126:	08 95       	ret
+
+Disassembly of section .text._ZN11TaskManager18recompactTaskArrayEv:
+
+00000000 <_ZN11TaskManager18recompactTaskArrayEv>:
+}
+
+// =================================================
+
+bool TaskManager::removeByPointer( TaskManagerRecord* ptr )
+{
+   0:	6f 92       	push	r6
+   2:	7f 92       	push	r7
+   4:	8f 92       	push	r8
+   6:	9f 92       	push	r9
+   8:	af 92       	push	r10
+   a:	bf 92       	push	r11
+   c:	cf 92       	push	r12
+   e:	df 92       	push	r13
+	static const PROGMEM prog_char functionName[] = "removeByPointer";
+	//static const char prefix[] = "TaskManager:removeByPointer():";
+
+	unsigned int index = getIndex( ptr );
+  10:	ef 92       	push	r14
+  12:	ff 92       	push	r15
+  14:	0f 93       	push	r16
+
+	if( index < maxTasksCount )
+  16:	1f 93       	push	r17
+  18:	cf 93       	push	r28
+  1a:	df 93       	push	r29
+  1c:	cd b7       	in	r28, 0x3d	; 61
+  1e:	de b7       	in	r29, 0x3e	; 62
+  20:	8c 01       	movw	r16, r24
+	{
+		//info( p << prefix << "removing ptr*=" << (int)ptr << ", in tasksArray index=" << index << endl; )
+		//info( wpln( "removing ptr* = %u, in tasksArray index = %u" , ptr , index ) )
+		iln( "removing ptr* = %u, in tasksArray index = %u" , ptr , index )
+  22:	8d b6       	in	r8, 0x3d	; 61
+  24:	9e b6       	in	r9, 0x3e	; 62
+  26:	dc 01       	movw	r26, r24
+  28:	14 96       	adiw	r26, 0x04	; 4
+  2a:	8c 91       	ld	r24, X
+  2c:	14 97       	sbiw	r26, 0x04	; 4
+  2e:	85 31       	cpi	r24, 0x15	; 21
+  30:	00 f4       	brcc	.+0      	; 0x32 <_ZN11TaskManager18recompactTaskArrayEv+0x32>
+  32:	c8 01       	movw	r24, r16
+  34:	02 96       	adiw	r24, 0x02	; 2
+  36:	60 e0       	ldi	r22, 0x00	; 0
+  38:	70 e0       	ldi	r23, 0x00	; 0
+  3a:	40 e0       	ldi	r20, 0x00	; 0
+  3c:	50 e0       	ldi	r21, 0x00	; 0
+  3e:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager18recompactTaskArrayEv>
+  42:	0f 92       	push	r0
+  44:	0f 92       	push	r0
+  46:	80 e0       	ldi	r24, 0x00	; 0
+  48:	90 e0       	ldi	r25, 0x00	; 0
+  4a:	ed b7       	in	r30, 0x3d	; 61
+  4c:	fe b7       	in	r31, 0x3e	; 62
+  4e:	92 83       	std	Z+2, r25	; 0x02
+  50:	81 83       	std	Z+1, r24	; 0x01
+  52:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager18recompactTaskArrayEv>
+  56:	80 e0       	ldi	r24, 0x00	; 0
+  58:	90 e0       	ldi	r25, 0x00	; 0
+  5a:	ad b7       	in	r26, 0x3d	; 61
+  5c:	be b7       	in	r27, 0x3e	; 62
+  5e:	12 96       	adiw	r26, 0x02	; 2
+  60:	9c 93       	st	X, r25
+  62:	8e 93       	st	-X, r24
+  64:	11 97       	sbiw	r26, 0x01	; 1
+  66:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager18recompactTaskArrayEv>
+  6a:	0f 90       	pop	r0
+  6c:	0f 90       	pop	r0
+  6e:	f8 01       	movw	r30, r16
+  70:	84 81       	ldd	r24, Z+4	; 0x04
+  72:	85 31       	cpi	r24, 0x15	; 21
+  74:	00 f4       	brcc	.+0      	; 0x76 <_ZN11TaskManager18recompactTaskArrayEv+0x76>
+  76:	c8 01       	movw	r24, r16
+
+		removeByIndex( index );
+  78:	02 96       	adiw	r24, 0x02	; 2
+  7a:	60 e0       	ldi	r22, 0x00	; 0
+  7c:	70 e0       	ldi	r23, 0x00	; 0
+  7e:	40 e0       	ldi	r20, 0x00	; 0
+		return true;
+  80:	50 e0       	ldi	r21, 0x00	; 0
+  82:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager18recompactTaskArrayEv>
+	}
+	else
+	{
+		//warning( p << prefix << "could not find ptr*=" << (int)ptr << " in tasksArray" << endl; )
+		//warning( wpln( "could not find ptr* = %u in tasksArray" , ptr ) )
+		wln( "could not find ptr* = %u in tasksArray" , ptr )
+  86:	0f 92       	push	r0
+  88:	0f 92       	push	r0
+  8a:	80 e0       	ldi	r24, 0x00	; 0
+  8c:	90 e0       	ldi	r25, 0x00	; 0
+  8e:	ad b7       	in	r26, 0x3d	; 61
+  90:	be b7       	in	r27, 0x3e	; 62
+  92:	12 96       	adiw	r26, 0x02	; 2
+  94:	9c 93       	st	X, r25
+  96:	8e 93       	st	-X, r24
+  98:	11 97       	sbiw	r26, 0x01	; 1
+  9a:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager18recompactTaskArrayEv>
+  9e:	80 e0       	ldi	r24, 0x00	; 0
+  a0:	90 e0       	ldi	r25, 0x00	; 0
+  a2:	ed b7       	in	r30, 0x3d	; 61
+  a4:	fe b7       	in	r31, 0x3e	; 62
+  a6:	92 83       	std	Z+2, r25	; 0x02
+  a8:	81 83       	std	Z+1, r24	; 0x01
+  aa:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager18recompactTaskArrayEv>
+  ae:	0f 90       	pop	r0
+  b0:	0f 90       	pop	r0
+  b2:	c8 01       	movw	r24, r16
+  b4:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager18recompactTaskArrayEv>
+  b8:	d8 01       	movw	r26, r16
+  ba:	15 96       	adiw	r26, 0x05	; 5
+  bc:	ed 90       	ld	r14, X+
+  be:	fc 90       	ld	r15, X
+  c0:	16 97       	sbiw	r26, 0x06	; 6
+  c2:	c7 01       	movw	r24, r14
+  c4:	88 0f       	add	r24, r24
+  c6:	99 1f       	adc	r25, r25
+  c8:	ed b7       	in	r30, 0x3d	; 61
+  ca:	fe b7       	in	r31, 0x3e	; 62
+  cc:	e8 1b       	sub	r30, r24
+  ce:	f9 0b       	sbc	r31, r25
+
+		return false;
+  d0:	0f b6       	in	r0, 0x3f	; 63
+	}
+}
+  d2:	f8 94       	cli
+  d4:	fe bf       	out	0x3e, r31	; 62
+  d6:	0f be       	out	0x3f, r0	; 63
+  d8:	ed bf       	out	0x3d, r30	; 61
+  da:	6d b6       	in	r6, 0x3d	; 61
+  dc:	7e b6       	in	r7, 0x3e	; 62
+  de:	08 94       	sec
+  e0:	61 1c       	adc	r6, r1
+  e2:	71 1c       	adc	r7, r1
+  e4:	20 e0       	ldi	r18, 0x00	; 0
+  e6:	30 e0       	ldi	r19, 0x00	; 0
+  e8:	40 e0       	ldi	r20, 0x00	; 0
+  ea:	50 e0       	ldi	r21, 0x00	; 0
+  ec:	00 c0       	rjmp	.+0      	; 0xee <_ZN11TaskManager18recompactTaskArrayEv+0xee>
+  ee:	c9 01       	movw	r24, r18
+  f0:	88 0f       	add	r24, r24
+  f2:	99 1f       	adc	r25, r25
+  f4:	d8 01       	movw	r26, r16
+  f6:	19 96       	adiw	r26, 0x09	; 9
+  f8:	ed 91       	ld	r30, X+
+  fa:	fc 91       	ld	r31, X
+  fc:	1a 97       	sbiw	r26, 0x0a	; 10
+  fe:	e8 0f       	add	r30, r24
+ 100:	f9 1f       	adc	r31, r25
+ 102:	80 81       	ld	r24, Z
+ 104:	91 81       	ldd	r25, Z+1	; 0x01
+ 106:	00 97       	sbiw	r24, 0x00	; 0
+ 108:	01 f0       	breq	.+0      	; 0x10a <_ZN11TaskManager18recompactTaskArrayEv+0x10a>
+ 10a:	fa 01       	movw	r30, r20
+ 10c:	ee 0f       	add	r30, r30
+ 10e:	ff 1f       	adc	r31, r31
+ 110:	e6 0d       	add	r30, r6
+ 112:	f7 1d       	adc	r31, r7
+ 114:	91 83       	std	Z+1, r25	; 0x01
+ 116:	80 83       	st	Z, r24
+ 118:	4f 5f       	subi	r20, 0xFF	; 255
+ 11a:	5f 4f       	sbci	r21, 0xFF	; 255
+ 11c:	2f 5f       	subi	r18, 0xFF	; 255
+ 11e:	3f 4f       	sbci	r19, 0xFF	; 255
+ 120:	2e 15       	cp	r18, r14
+ 122:	3f 05       	cpc	r19, r15
+ 124:	01 f4       	brne	.+0      	; 0x126 <_ZN11TaskManager18recompactTaskArrayEv+0x126>
+ 126:	f8 01       	movw	r30, r16
+ 128:	a7 80       	ldd	r10, Z+7	; 0x07
+ 12a:	b0 84       	ldd	r11, Z+8	; 0x08
+ 12c:	ba 01       	movw	r22, r20
+ 12e:	50 87       	std	Z+8, r21	; 0x08
+ 130:	47 83       	std	Z+7, r20	; 0x07
+ 132:	80 e0       	ldi	r24, 0x00	; 0
+ 134:	90 e0       	ldi	r25, 0x00	; 0
+ 136:	00 c0       	rjmp	.+0      	; 0x138 <_ZN11TaskManager18recompactTaskArrayEv+0x138>
+ 138:	d3 01       	movw	r26, r6
+ 13a:	cd 90       	ld	r12, X+
+ 13c:	dd 90       	ld	r13, X+
+ 13e:	3d 01       	movw	r6, r26
+ 140:	9c 01       	movw	r18, r24
+ 142:	22 0f       	add	r18, r18
+ 144:	33 1f       	adc	r19, r19
+ 146:	d8 01       	movw	r26, r16
+ 148:	19 96       	adiw	r26, 0x09	; 9
+ 14a:	ed 91       	ld	r30, X+
+ 14c:	fc 91       	ld	r31, X
+ 14e:	1a 97       	sbiw	r26, 0x0a	; 10
+ 150:	e2 0f       	add	r30, r18
+ 152:	f3 1f       	adc	r31, r19
+ 154:	d1 82       	std	Z+1, r13	; 0x01
+ 156:	c0 82       	st	Z, r12
+ 158:	01 96       	adiw	r24, 0x01	; 1
+ 15a:	84 17       	cp	r24, r20
+ 15c:	95 07       	cpc	r25, r21
+ 15e:	01 f4       	brne	.+0      	; 0x160 <_ZN11TaskManager18recompactTaskArrayEv+0x160>
+ 160:	88 0f       	add	r24, r24
+ 162:	99 1f       	adc	r25, r25
+ 164:	00 c0       	rjmp	.+0      	; 0x166 <_ZN11TaskManager18recompactTaskArrayEv+0x166>
+ 166:	d8 01       	movw	r26, r16
+ 168:	19 96       	adiw	r26, 0x09	; 9
+ 16a:	ed 91       	ld	r30, X+
+ 16c:	fc 91       	ld	r31, X
+ 16e:	1a 97       	sbiw	r26, 0x0a	; 10
+ 170:	e8 0f       	add	r30, r24
+ 172:	f9 1f       	adc	r31, r25
+ 174:	11 82       	std	Z+1, r1	; 0x01
+ 176:	10 82       	st	Z, r1
+ 178:	6f 5f       	subi	r22, 0xFF	; 255
+ 17a:	7f 4f       	sbci	r23, 0xFF	; 255
+ 17c:	02 96       	adiw	r24, 0x02	; 2
+ 17e:	6e 15       	cp	r22, r14
+ 180:	7f 05       	cpc	r23, r15
+ 182:	00 f0       	brcs	.+0      	; 0x184 <_ZN11TaskManager18recompactTaskArrayEv+0x184>
+ 184:	f8 01       	movw	r30, r16
+ 186:	84 81       	ldd	r24, Z+4	; 0x04
+ 188:	85 31       	cpi	r24, 0x15	; 21
+ 18a:	00 f4       	brcc	.+0      	; 0x18c <_ZN11TaskManager18recompactTaskArrayEv+0x18c>
+ 18c:	c8 01       	movw	r24, r16
+ 18e:	02 96       	adiw	r24, 0x02	; 2
+ 190:	60 e0       	ldi	r22, 0x00	; 0
+ 192:	70 e0       	ldi	r23, 0x00	; 0
+ 194:	40 e0       	ldi	r20, 0x00	; 0
+ 196:	50 e0       	ldi	r21, 0x00	; 0
+ 198:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager18recompactTaskArrayEv>
+ 19c:	0f 92       	push	r0
+ 19e:	0f 92       	push	r0
+ 1a0:	80 e0       	ldi	r24, 0x00	; 0
+ 1a2:	90 e0       	ldi	r25, 0x00	; 0
+ 1a4:	ad b7       	in	r26, 0x3d	; 61
+ 1a6:	be b7       	in	r27, 0x3e	; 62
+ 1a8:	12 96       	adiw	r26, 0x02	; 2
+ 1aa:	9c 93       	st	X, r25
+ 1ac:	8e 93       	st	-X, r24
+ 1ae:	11 97       	sbiw	r26, 0x01	; 1
+ 1b0:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager18recompactTaskArrayEv>
+ 1b4:	80 e0       	ldi	r24, 0x00	; 0
+ 1b6:	90 e0       	ldi	r25, 0x00	; 0
+ 1b8:	ed b7       	in	r30, 0x3d	; 61
+ 1ba:	fe b7       	in	r31, 0x3e	; 62
+ 1bc:	92 83       	std	Z+2, r25	; 0x02
+ 1be:	81 83       	std	Z+1, r24	; 0x01
+ 1c0:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager18recompactTaskArrayEv>
+ 1c4:	0f 90       	pop	r0
+ 1c6:	0f 90       	pop	r0
+ 1c8:	c8 01       	movw	r24, r16
+ 1ca:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager18recompactTaskArrayEv>
+ 1ce:	d8 01       	movw	r26, r16
+ 1d0:	14 96       	adiw	r26, 0x04	; 4
+ 1d2:	8c 91       	ld	r24, X
+ 1d4:	14 97       	sbiw	r26, 0x04	; 4
+ 1d6:	85 31       	cpi	r24, 0x15	; 21
+ 1d8:	00 f4       	brcc	.+0      	; 0x1da <_ZN11TaskManager18recompactTaskArrayEv+0x1da>
+ 1da:	c8 01       	movw	r24, r16
+ 1dc:	02 96       	adiw	r24, 0x02	; 2
+ 1de:	60 e0       	ldi	r22, 0x00	; 0
+ 1e0:	70 e0       	ldi	r23, 0x00	; 0
+ 1e2:	40 e0       	ldi	r20, 0x00	; 0
+ 1e4:	50 e0       	ldi	r21, 0x00	; 0
+ 1e6:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager18recompactTaskArrayEv>
+ 1ea:	00 d0       	rcall	.+0      	; 0x1ec <_ZN11TaskManager18recompactTaskArrayEv+0x1ec>
+ 1ec:	00 d0       	rcall	.+0      	; 0x1ee <_ZN11TaskManager18recompactTaskArrayEv+0x1ee>
+ 1ee:	ed b7       	in	r30, 0x3d	; 61
+ 1f0:	fe b7       	in	r31, 0x3e	; 62
+ 1f2:	31 96       	adiw	r30, 0x01	; 1
+ 1f4:	80 e0       	ldi	r24, 0x00	; 0
+ 1f6:	90 e0       	ldi	r25, 0x00	; 0
+ 1f8:	ad b7       	in	r26, 0x3d	; 61
+ 1fa:	be b7       	in	r27, 0x3e	; 62
+ 1fc:	12 96       	adiw	r26, 0x02	; 2
+ 1fe:	9c 93       	st	X, r25
+ 200:	8e 93       	st	-X, r24
+ 202:	11 97       	sbiw	r26, 0x01	; 1
+ 204:	b3 82       	std	Z+3, r11	; 0x03
+ 206:	a2 82       	std	Z+2, r10	; 0x02
+ 208:	d8 01       	movw	r26, r16
+ 20a:	17 96       	adiw	r26, 0x07	; 7
+ 20c:	8d 91       	ld	r24, X+
+ 20e:	9c 91       	ld	r25, X
+ 210:	18 97       	sbiw	r26, 0x08	; 8
+ 212:	95 83       	std	Z+5, r25	; 0x05
+ 214:	84 83       	std	Z+4, r24	; 0x04
+ 216:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager18recompactTaskArrayEv>
+ 21a:	0f 90       	pop	r0
+ 21c:	0f 90       	pop	r0
+ 21e:	0f 90       	pop	r0
+ 220:	0f 90       	pop	r0
+ 222:	80 e0       	ldi	r24, 0x00	; 0
+ 224:	90 e0       	ldi	r25, 0x00	; 0
+ 226:	ed b7       	in	r30, 0x3d	; 61
+ 228:	fe b7       	in	r31, 0x3e	; 62
+ 22a:	92 83       	std	Z+2, r25	; 0x02
+ 22c:	81 83       	std	Z+1, r24	; 0x01
+ 22e:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager18recompactTaskArrayEv>
+ 232:	0f 90       	pop	r0
+ 234:	0f 90       	pop	r0
+ 236:	0f b6       	in	r0, 0x3f	; 63
+ 238:	f8 94       	cli
+ 23a:	9e be       	out	0x3e, r9	; 62
+ 23c:	0f be       	out	0x3f, r0	; 63
+ 23e:	8d be       	out	0x3d, r8	; 61
+ 240:	df 91       	pop	r29
+ 242:	cf 91       	pop	r28
+ 244:	1f 91       	pop	r17
+ 246:	0f 91       	pop	r16
+ 248:	ff 90       	pop	r15
+ 24a:	ef 90       	pop	r14
+ 24c:	df 90       	pop	r13
+ 24e:	cf 90       	pop	r12
+ 250:	bf 90       	pop	r11
+ 252:	af 90       	pop	r10
+ 254:	9f 90       	pop	r9
+ 256:	8f 90       	pop	r8
+ 258:	7f 90       	pop	r7
+ 25a:	6f 90       	pop	r6
+ 25c:	08 95       	ret
+
+Disassembly of section .text._ZN11TaskManager7executeEv:
+
+00000000 <_ZN11TaskManager7executeEv>:
+}
+
+// =================================================
+
+bool TaskManager::removeByPointer( TaskManagerRecord* ptr )
+{
+   0:	2f 92       	push	r2
+   2:	3f 92       	push	r3
+   4:	4f 92       	push	r4
+   6:	5f 92       	push	r5
+   8:	6f 92       	push	r6
+   a:	7f 92       	push	r7
+   c:	8f 92       	push	r8
+   e:	9f 92       	push	r9
+	static const PROGMEM prog_char functionName[] = "removeByPointer";
+	//static const char prefix[] = "TaskManager:removeByPointer():";
+
+	unsigned int index = getIndex( ptr );
+  10:	bf 92       	push	r11
+  12:	cf 92       	push	r12
+  14:	df 92       	push	r13
+
+	if( index < maxTasksCount )
+  16:	ef 92       	push	r14
+  18:	ff 92       	push	r15
+  1a:	0f 93       	push	r16
+  1c:	1f 93       	push	r17
+  1e:	cf 93       	push	r28
+  20:	df 93       	push	r29
+	{
+		//info( p << prefix << "removing ptr*=" << (int)ptr << ", in tasksArray index=" << index << endl; )
+		//info( wpln( "removing ptr* = %u, in tasksArray index = %u" , ptr , index ) )
+		iln( "removing ptr* = %u, in tasksArray index = %u" , ptr , index )
+  22:	ec 01       	movw	r28, r24
+  24:	1c 86       	std	Y+12, r1	; 0x0c
+  26:	1b 86       	std	Y+11, r1	; 0x0b
+  28:	bb 24       	eor	r11, r11
+  2a:	b3 94       	inc	r11
+  2c:	62 e0       	ldi	r22, 0x02	; 2
+  2e:	e6 2e       	mov	r14, r22
+  30:	f1 2c       	mov	r15, r1
+  32:	e8 0e       	add	r14, r24
+  34:	f9 1e       	adc	r15, r25
+  36:	70 e0       	ldi	r23, 0x00	; 0
+  38:	87 2e       	mov	r8, r23
+  3a:	70 e0       	ldi	r23, 0x00	; 0
+  3c:	97 2e       	mov	r9, r23
+  3e:	e0 e0       	ldi	r30, 0x00	; 0
+  40:	ce 2e       	mov	r12, r30
+  42:	e0 e0       	ldi	r30, 0x00	; 0
+  44:	de 2e       	mov	r13, r30
+  46:	f0 e0       	ldi	r31, 0x00	; 0
+  48:	6f 2e       	mov	r6, r31
+  4a:	f0 e0       	ldi	r31, 0x00	; 0
+  4c:	7f 2e       	mov	r7, r31
+  4e:	a0 e0       	ldi	r26, 0x00	; 0
+  50:	4a 2e       	mov	r4, r26
+  52:	a0 e0       	ldi	r26, 0x00	; 0
+  54:	5a 2e       	mov	r5, r26
+  56:	b0 e0       	ldi	r27, 0x00	; 0
+  58:	2b 2e       	mov	r2, r27
+  5a:	b0 e0       	ldi	r27, 0x00	; 0
+  5c:	3b 2e       	mov	r3, r27
+  5e:	00 c0       	rjmp	.+0      	; 0x60 <_ZN11TaskManager7executeEv+0x60>
+  60:	88 0f       	add	r24, r24
+  62:	99 1f       	adc	r25, r25
+  64:	e9 85       	ldd	r30, Y+9	; 0x09
+  66:	fa 85       	ldd	r31, Y+10	; 0x0a
+  68:	e8 0f       	add	r30, r24
+  6a:	f9 1f       	adc	r31, r25
+  6c:	00 81       	ld	r16, Z
+  6e:	11 81       	ldd	r17, Z+1	; 0x01
+  70:	8c 81       	ldd	r24, Y+4	; 0x04
+  72:	01 15       	cp	r16, r1
+  74:	11 05       	cpc	r17, r1
+  76:	01 f4       	brne	.+0      	; 0x78 <_ZN11TaskManager7executeEv+0x78>
+
+		removeByIndex( index );
+  78:	00 c0       	rjmp	.+0      	; 0x7a <_ZN11TaskManager7executeEv+0x7a>
+  7a:	8b 30       	cpi	r24, 0x0B	; 11
+  7c:	00 f4       	brcc	.+0      	; 0x7e <_ZN11TaskManager7executeEv+0x7e>
+  7e:	c7 01       	movw	r24, r14
+		return true;
+  80:	60 e0       	ldi	r22, 0x00	; 0
+  82:	70 e0       	ldi	r23, 0x00	; 0
+	}
+	else
+	{
+		//warning( p << prefix << "could not find ptr*=" << (int)ptr << " in tasksArray" << endl; )
+		//warning( wpln( "could not find ptr* = %u in tasksArray" , ptr ) )
+		wln( "could not find ptr* = %u in tasksArray" , ptr )
+  84:	40 e0       	ldi	r20, 0x00	; 0
+  86:	50 e0       	ldi	r21, 0x00	; 0
+  88:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager7executeEv>
+  8c:	8d b7       	in	r24, 0x3d	; 61
+  8e:	9e b7       	in	r25, 0x3e	; 62
+  90:	08 97       	sbiw	r24, 0x08	; 8
+  92:	0f b6       	in	r0, 0x3f	; 63
+  94:	f8 94       	cli
+  96:	9e bf       	out	0x3e, r25	; 62
+  98:	0f be       	out	0x3f, r0	; 63
+  9a:	8d bf       	out	0x3d, r24	; 61
+  9c:	ed b7       	in	r30, 0x3d	; 61
+  9e:	fe b7       	in	r31, 0x3e	; 62
+  a0:	31 96       	adiw	r30, 0x01	; 1
+  a2:	ad b7       	in	r26, 0x3d	; 61
+  a4:	be b7       	in	r27, 0x3e	; 62
+  a6:	12 96       	adiw	r26, 0x02	; 2
+  a8:	3c 92       	st	X, r3
+  aa:	2e 92       	st	-X, r2
+  ac:	11 97       	sbiw	r26, 0x01	; 1
+  ae:	8b 85       	ldd	r24, Y+11	; 0x0b
+  b0:	9c 85       	ldd	r25, Y+12	; 0x0c
+  b2:	93 83       	std	Z+3, r25	; 0x03
+  b4:	82 83       	std	Z+2, r24	; 0x02
+  b6:	15 83       	std	Z+5, r17	; 0x05
+  b8:	04 83       	std	Z+4, r16	; 0x04
+  ba:	8f 81       	ldd	r24, Y+7	; 0x07
+  bc:	98 85       	ldd	r25, Y+8	; 0x08
+  be:	97 83       	std	Z+7, r25	; 0x07
+  c0:	86 83       	std	Z+6, r24	; 0x06
+  c2:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager7executeEv>
+  c6:	ed b7       	in	r30, 0x3d	; 61
+  c8:	fe b7       	in	r31, 0x3e	; 62
+  ca:	36 96       	adiw	r30, 0x06	; 6
+  cc:	0f b6       	in	r0, 0x3f	; 63
+  ce:	f8 94       	cli
+
+		return false;
+  d0:	fe bf       	out	0x3e, r31	; 62
+	}
+}
+  d2:	0f be       	out	0x3f, r0	; 63
+  d4:	ed bf       	out	0x3d, r30	; 61
+  d6:	d2 82       	std	Z+2, r13	; 0x02
+  d8:	c1 82       	std	Z+1, r12	; 0x01
+  da:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager7executeEv>
+  de:	0f 90       	pop	r0
+  e0:	0f 90       	pop	r0
+  e2:	d8 01       	movw	r26, r16
+  e4:	8d 91       	ld	r24, X+
+  e6:	9c 91       	ld	r25, X
+  e8:	11 97       	sbiw	r26, 0x01	; 1
+  ea:	00 97       	sbiw	r24, 0x00	; 0
+  ec:	01 f0       	breq	.+0      	; 0xee <_ZN11TaskManager7executeEv+0xee>
+  ee:	dc 01       	movw	r26, r24
+  f0:	ed 91       	ld	r30, X+
+  f2:	fc 91       	ld	r31, X
+  f4:	01 90       	ld	r0, Z+
+  f6:	f0 81       	ld	r31, Z
+  f8:	e0 2d       	mov	r30, r0
+  fa:	19 95       	eicall
+  fc:	88 23       	and	r24, r24
+  fe:	01 f0       	breq	.+0      	; 0x100 <_ZN11TaskManager7executeEv+0x100>
+ 100:	f8 01       	movw	r30, r16
+ 102:	82 81       	ldd	r24, Z+2	; 0x02
+ 104:	93 81       	ldd	r25, Z+3	; 0x03
+ 106:	dc 01       	movw	r26, r24
+ 108:	ed 91       	ld	r30, X+
+ 10a:	fc 91       	ld	r31, X
+ 10c:	01 90       	ld	r0, Z+
+ 10e:	f0 81       	ld	r31, Z
+ 110:	e0 2d       	mov	r30, r0
+ 112:	19 95       	eicall
+ 114:	f8 01       	movw	r30, r16
+ 116:	80 81       	ld	r24, Z
+ 118:	91 81       	ldd	r25, Z+1	; 0x01
+ 11a:	00 97       	sbiw	r24, 0x00	; 0
+ 11c:	01 f4       	brne	.+0      	; 0x11e <_ZN11TaskManager7executeEv+0x11e>
+ 11e:	00 c0       	rjmp	.+0      	; 0x120 <_ZN11TaskManager7executeEv+0x120>
+ 120:	dc 01       	movw	r26, r24
+ 122:	ed 91       	ld	r30, X+
+ 124:	fc 91       	ld	r31, X
+ 126:	02 80       	ldd	r0, Z+2	; 0x02
+ 128:	f3 81       	ldd	r31, Z+3	; 0x03
+ 12a:	e0 2d       	mov	r30, r0
+ 12c:	19 95       	eicall
+ 12e:	88 23       	and	r24, r24
+ 130:	01 f4       	brne	.+0      	; 0x132 <_ZN11TaskManager7executeEv+0x132>
+ 132:	00 c0       	rjmp	.+0      	; 0x134 <_ZN11TaskManager7executeEv+0x134>
+ 134:	8c 81       	ldd	r24, Y+4	; 0x04
+ 136:	85 31       	cpi	r24, 0x15	; 21
+ 138:	00 f4       	brcc	.+0      	; 0x13a <_ZN11TaskManager7executeEv+0x13a>
+ 13a:	c7 01       	movw	r24, r14
+ 13c:	60 e0       	ldi	r22, 0x00	; 0
+ 13e:	70 e0       	ldi	r23, 0x00	; 0
+ 140:	40 e0       	ldi	r20, 0x00	; 0
+ 142:	50 e0       	ldi	r21, 0x00	; 0
+ 144:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager7executeEv>
+ 148:	00 d0       	rcall	.+0      	; 0x14a <_ZN11TaskManager7executeEv+0x14a>
+ 14a:	00 d0       	rcall	.+0      	; 0x14c <_ZN11TaskManager7executeEv+0x14c>
+ 14c:	ed b7       	in	r30, 0x3d	; 61
+ 14e:	fe b7       	in	r31, 0x3e	; 62
+ 150:	31 96       	adiw	r30, 0x01	; 1
+ 152:	ad b7       	in	r26, 0x3d	; 61
+ 154:	be b7       	in	r27, 0x3e	; 62
+ 156:	12 96       	adiw	r26, 0x02	; 2
+ 158:	5c 92       	st	X, r5
+ 15a:	4e 92       	st	-X, r4
+ 15c:	11 97       	sbiw	r26, 0x01	; 1
+ 15e:	8b 85       	ldd	r24, Y+11	; 0x0b
+ 160:	9c 85       	ldd	r25, Y+12	; 0x0c
+ 162:	93 83       	std	Z+3, r25	; 0x03
+ 164:	82 83       	std	Z+2, r24	; 0x02
+ 166:	15 83       	std	Z+5, r17	; 0x05
+ 168:	04 83       	std	Z+4, r16	; 0x04
+ 16a:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager7executeEv>
+ 16e:	0f 90       	pop	r0
+ 170:	0f 90       	pop	r0
+ 172:	0f 90       	pop	r0
+ 174:	0f 90       	pop	r0
+ 176:	ed b7       	in	r30, 0x3d	; 61
+ 178:	fe b7       	in	r31, 0x3e	; 62
+ 17a:	d2 82       	std	Z+2, r13	; 0x02
+ 17c:	c1 82       	std	Z+1, r12	; 0x01
+ 17e:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager7executeEv>
+ 182:	0f 90       	pop	r0
+ 184:	0f 90       	pop	r0
+ 186:	2b 85       	ldd	r18, Y+11	; 0x0b
+ 188:	3c 85       	ldd	r19, Y+12	; 0x0c
+ 18a:	c9 01       	movw	r24, r18
+ 18c:	88 0f       	add	r24, r24
+ 18e:	99 1f       	adc	r25, r25
+ 190:	e9 85       	ldd	r30, Y+9	; 0x09
+ 192:	fa 85       	ldd	r31, Y+10	; 0x0a
+ 194:	e8 0f       	add	r30, r24
+ 196:	f9 1f       	adc	r31, r25
+ 198:	11 82       	std	Z+1, r1	; 0x01
+ 19a:	10 82       	st	Z, r1
+ 19c:	8f 81       	ldd	r24, Y+7	; 0x07
+ 19e:	98 85       	ldd	r25, Y+8	; 0x08
+ 1a0:	01 97       	sbiw	r24, 0x01	; 1
+ 1a2:	28 17       	cp	r18, r24
+ 1a4:	39 07       	cpc	r19, r25
+ 1a6:	01 f0       	breq	.+0      	; 0x1a8 <_ZN11TaskManager7executeEv+0x1a8>
+ 1a8:	00 c0       	rjmp	.+0      	; 0x1aa <_ZN11TaskManager7executeEv+0x1aa>
+ 1aa:	38 87       	std	Y+8, r19	; 0x08
+ 1ac:	2f 83       	std	Y+7, r18	; 0x07
+ 1ae:	8c 81       	ldd	r24, Y+4	; 0x04
+ 1b0:	8b 30       	cpi	r24, 0x0B	; 11
+ 1b2:	00 f0       	brcs	.+0      	; 0x1b4 <_ZN11TaskManager7executeEv+0x1b4>
+ 1b4:	00 c0       	rjmp	.+0      	; 0x1b6 <_ZN11TaskManager7executeEv+0x1b6>
+ 1b6:	c7 01       	movw	r24, r14
+ 1b8:	60 e0       	ldi	r22, 0x00	; 0
+ 1ba:	70 e0       	ldi	r23, 0x00	; 0
+ 1bc:	40 e0       	ldi	r20, 0x00	; 0
+ 1be:	50 e0       	ldi	r21, 0x00	; 0
+ 1c0:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager7executeEv>
+ 1c4:	00 d0       	rcall	.+0      	; 0x1c6 <_ZN11TaskManager7executeEv+0x1c6>
+ 1c6:	00 d0       	rcall	.+0      	; 0x1c8 <_ZN11TaskManager7executeEv+0x1c8>
+ 1c8:	ed b7       	in	r30, 0x3d	; 61
+ 1ca:	fe b7       	in	r31, 0x3e	; 62
+ 1cc:	31 96       	adiw	r30, 0x01	; 1
+ 1ce:	ad b7       	in	r26, 0x3d	; 61
+ 1d0:	be b7       	in	r27, 0x3e	; 62
+ 1d2:	12 96       	adiw	r26, 0x02	; 2
+ 1d4:	7c 92       	st	X, r7
+ 1d6:	6e 92       	st	-X, r6
+ 1d8:	11 97       	sbiw	r26, 0x01	; 1
+ 1da:	8b 85       	ldd	r24, Y+11	; 0x0b
+ 1dc:	9c 85       	ldd	r25, Y+12	; 0x0c
+ 1de:	93 83       	std	Z+3, r25	; 0x03
+ 1e0:	82 83       	std	Z+2, r24	; 0x02
+ 1e2:	8f 81       	ldd	r24, Y+7	; 0x07
+ 1e4:	98 85       	ldd	r25, Y+8	; 0x08
+ 1e6:	95 83       	std	Z+5, r25	; 0x05
+ 1e8:	84 83       	std	Z+4, r24	; 0x04
+ 1ea:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager7executeEv>
+ 1ee:	0f 90       	pop	r0
+ 1f0:	0f 90       	pop	r0
+ 1f2:	0f 90       	pop	r0
+ 1f4:	0f 90       	pop	r0
+ 1f6:	ed b7       	in	r30, 0x3d	; 61
+ 1f8:	fe b7       	in	r31, 0x3e	; 62
+ 1fa:	d2 82       	std	Z+2, r13	; 0x02
+ 1fc:	c1 82       	std	Z+1, r12	; 0x01
+ 1fe:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager7executeEv>
+ 202:	0f 90       	pop	r0
+ 204:	0f 90       	pop	r0
+ 206:	00 c0       	rjmp	.+0      	; 0x208 <_ZN11TaskManager7executeEv+0x208>
+ 208:	8f 31       	cpi	r24, 0x1F	; 31
+ 20a:	00 f4       	brcc	.+0      	; 0x20c <_ZN11TaskManager7executeEv+0x20c>
+ 20c:	c7 01       	movw	r24, r14
+ 20e:	60 e0       	ldi	r22, 0x00	; 0
+ 210:	70 e0       	ldi	r23, 0x00	; 0
+ 212:	40 e0       	ldi	r20, 0x00	; 0
+ 214:	50 e0       	ldi	r21, 0x00	; 0
+ 216:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager7executeEv>
+ 21a:	00 d0       	rcall	.+0      	; 0x21c <_ZN11TaskManager7executeEv+0x21c>
+ 21c:	0f 92       	push	r0
+ 21e:	ad b7       	in	r26, 0x3d	; 61
+ 220:	be b7       	in	r27, 0x3e	; 62
+ 222:	12 96       	adiw	r26, 0x02	; 2
+ 224:	9c 92       	st	X, r9
+ 226:	8e 92       	st	-X, r8
+ 228:	11 97       	sbiw	r26, 0x01	; 1
+ 22a:	8b 85       	ldd	r24, Y+11	; 0x0b
+ 22c:	9c 85       	ldd	r25, Y+12	; 0x0c
+ 22e:	14 96       	adiw	r26, 0x04	; 4
+ 230:	9c 93       	st	X, r25
+ 232:	8e 93       	st	-X, r24
+ 234:	13 97       	sbiw	r26, 0x03	; 3
+ 236:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager7executeEv>
+ 23a:	0f 90       	pop	r0
+ 23c:	0f 90       	pop	r0
+ 23e:	ed b7       	in	r30, 0x3d	; 61
+ 240:	fe b7       	in	r31, 0x3e	; 62
+ 242:	d2 82       	std	Z+2, r13	; 0x02
+ 244:	c1 82       	std	Z+1, r12	; 0x01
+ 246:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager7executeEv>
+ 24a:	0f 90       	pop	r0
+ 24c:	0f 90       	pop	r0
+ 24e:	bd 86       	std	Y+13, r11	; 0x0d
+ 250:	8b 85       	ldd	r24, Y+11	; 0x0b
+ 252:	9c 85       	ldd	r25, Y+12	; 0x0c
+ 254:	01 96       	adiw	r24, 0x01	; 1
+ 256:	9c 87       	std	Y+12, r25	; 0x0c
+ 258:	8b 87       	std	Y+11, r24	; 0x0b
+ 25a:	8b 85       	ldd	r24, Y+11	; 0x0b
+ 25c:	9c 85       	ldd	r25, Y+12	; 0x0c
+ 25e:	2f 81       	ldd	r18, Y+7	; 0x07
+ 260:	38 85       	ldd	r19, Y+8	; 0x08
+ 262:	82 17       	cp	r24, r18
+ 264:	93 07       	cpc	r25, r19
+ 266:	00 f4       	brcc	.+0      	; 0x268 <_ZN11TaskManager7executeEv+0x268>
+ 268:	00 c0       	rjmp	.+0      	; 0x26a <_ZN11TaskManager7executeEv+0x26a>
+ 26a:	8d 85       	ldd	r24, Y+13	; 0x0d
+ 26c:	88 23       	and	r24, r24
+ 26e:	01 f0       	breq	.+0      	; 0x270 <_ZN11TaskManager7executeEv+0x270>
+ 270:	1d 86       	std	Y+13, r1	; 0x0d
+ 272:	ce 01       	movw	r24, r28
+ 274:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager7executeEv>
+ 278:	df 91       	pop	r29
+ 27a:	cf 91       	pop	r28
+ 27c:	1f 91       	pop	r17
+ 27e:	0f 91       	pop	r16
+ 280:	ff 90       	pop	r15
+ 282:	ef 90       	pop	r14
+ 284:	df 90       	pop	r13
+ 286:	cf 90       	pop	r12
+ 288:	bf 90       	pop	r11
+ 28a:	9f 90       	pop	r9
+ 28c:	8f 90       	pop	r8
+ 28e:	7f 90       	pop	r7
+ 290:	6f 90       	pop	r6
+ 292:	5f 90       	pop	r5
+ 294:	4f 90       	pop	r4
+ 296:	3f 90       	pop	r3
+ 298:	2f 90       	pop	r2
+ 29a:	08 95       	ret
+
+Disassembly of section .text._ZN11TaskManager13removeByIndexEj:
+
+00000000 <_ZN11TaskManager13removeByIndexEj>:
+}
+
+// =================================================
+
+bool TaskManager::removeByPointer( TaskManagerRecord* ptr )
+{
+   0:	cf 92       	push	r12
+   2:	df 92       	push	r13
+   4:	ef 92       	push	r14
+   6:	ff 92       	push	r15
+   8:	0f 93       	push	r16
+   a:	1f 93       	push	r17
+   c:	cf 93       	push	r28
+   e:	df 93       	push	r29
+	static const PROGMEM prog_char functionName[] = "removeByPointer";
+	//static const char prefix[] = "TaskManager:removeByPointer():";
+
+	unsigned int index = getIndex( ptr );
+  10:	ec 01       	movw	r28, r24
+  12:	7b 01       	movw	r14, r22
+  14:	8d 81       	ldd	r24, Y+5	; 0x05
+
+	if( index < maxTasksCount )
+  16:	9e 81       	ldd	r25, Y+6	; 0x06
+  18:	68 17       	cp	r22, r24
+  1a:	79 07       	cpc	r23, r25
+  1c:	00 f0       	brcs	.+0      	; 0x1e <_ZN11TaskManager13removeByIndexEj+0x1e>
+  1e:	00 c0       	rjmp	.+0      	; 0x20 <_ZN11TaskManager13removeByIndexEj+0x20>
+  20:	6b 01       	movw	r12, r22
+	{
+		//info( p << prefix << "removing ptr*=" << (int)ptr << ", in tasksArray index=" << index << endl; )
+		//info( wpln( "removing ptr* = %u, in tasksArray index = %u" , ptr , index ) )
+		iln( "removing ptr* = %u, in tasksArray index = %u" , ptr , index )
+  22:	cc 0c       	add	r12, r12
+  24:	dd 1c       	adc	r13, r13
+  26:	e9 85       	ldd	r30, Y+9	; 0x09
+  28:	fa 85       	ldd	r31, Y+10	; 0x0a
+  2a:	ec 0d       	add	r30, r12
+  2c:	fd 1d       	adc	r31, r13
+  2e:	00 81       	ld	r16, Z
+  30:	11 81       	ldd	r17, Z+1	; 0x01
+  32:	8c 81       	ldd	r24, Y+4	; 0x04
+  34:	85 31       	cpi	r24, 0x15	; 21
+  36:	00 f4       	brcc	.+0      	; 0x38 <_ZN11TaskManager13removeByIndexEj+0x38>
+  38:	ce 01       	movw	r24, r28
+  3a:	02 96       	adiw	r24, 0x02	; 2
+  3c:	60 e0       	ldi	r22, 0x00	; 0
+  3e:	70 e0       	ldi	r23, 0x00	; 0
+  40:	40 e0       	ldi	r20, 0x00	; 0
+  42:	50 e0       	ldi	r21, 0x00	; 0
+  44:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager13removeByIndexEj>
+  48:	8d b7       	in	r24, 0x3d	; 61
+  4a:	9e b7       	in	r25, 0x3e	; 62
+  4c:	08 97       	sbiw	r24, 0x08	; 8
+  4e:	0f b6       	in	r0, 0x3f	; 63
+  50:	f8 94       	cli
+  52:	9e bf       	out	0x3e, r25	; 62
+  54:	0f be       	out	0x3f, r0	; 63
+  56:	8d bf       	out	0x3d, r24	; 61
+  58:	ed b7       	in	r30, 0x3d	; 61
+  5a:	fe b7       	in	r31, 0x3e	; 62
+  5c:	31 96       	adiw	r30, 0x01	; 1
+  5e:	80 e0       	ldi	r24, 0x00	; 0
+  60:	90 e0       	ldi	r25, 0x00	; 0
+  62:	ad b7       	in	r26, 0x3d	; 61
+  64:	be b7       	in	r27, 0x3e	; 62
+  66:	12 96       	adiw	r26, 0x02	; 2
+  68:	9c 93       	st	X, r25
+  6a:	8e 93       	st	-X, r24
+  6c:	11 97       	sbiw	r26, 0x01	; 1
+  6e:	f3 82       	std	Z+3, r15	; 0x03
+  70:	e2 82       	std	Z+2, r14	; 0x02
+  72:	f5 82       	std	Z+5, r15	; 0x05
+  74:	e4 82       	std	Z+4, r14	; 0x04
+  76:	17 83       	std	Z+7, r17	; 0x07
+
+		removeByIndex( index );
+  78:	06 83       	std	Z+6, r16	; 0x06
+  7a:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager13removeByIndexEj>
+  7e:	ed b7       	in	r30, 0x3d	; 61
+		return true;
+  80:	fe b7       	in	r31, 0x3e	; 62
+  82:	36 96       	adiw	r30, 0x06	; 6
+	}
+	else
+	{
+		//warning( p << prefix << "could not find ptr*=" << (int)ptr << " in tasksArray" << endl; )
+		//warning( wpln( "could not find ptr* = %u in tasksArray" , ptr ) )
+		wln( "could not find ptr* = %u in tasksArray" , ptr )
+  84:	0f b6       	in	r0, 0x3f	; 63
+  86:	f8 94       	cli
+  88:	fe bf       	out	0x3e, r31	; 62
+  8a:	0f be       	out	0x3f, r0	; 63
+  8c:	ed bf       	out	0x3d, r30	; 61
+  8e:	80 e0       	ldi	r24, 0x00	; 0
+  90:	90 e0       	ldi	r25, 0x00	; 0
+  92:	92 83       	std	Z+2, r25	; 0x02
+  94:	81 83       	std	Z+1, r24	; 0x01
+  96:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager13removeByIndexEj>
+  9a:	0f 90       	pop	r0
+  9c:	0f 90       	pop	r0
+  9e:	01 15       	cp	r16, r1
+  a0:	11 05       	cpc	r17, r1
+  a2:	01 f0       	breq	.+0      	; 0xa4 <_ZN11TaskManager13removeByIndexEj+0xa4>
+  a4:	e9 85       	ldd	r30, Y+9	; 0x09
+  a6:	fa 85       	ldd	r31, Y+10	; 0x0a
+  a8:	ec 0d       	add	r30, r12
+  aa:	fd 1d       	adc	r31, r13
+  ac:	11 82       	std	Z+1, r1	; 0x01
+  ae:	10 82       	st	Z, r1
+  b0:	ce 01       	movw	r24, r28
+  b2:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager13removeByIndexEj>
+  b6:	00 c0       	rjmp	.+0      	; 0xb8 <_ZN11TaskManager13removeByIndexEj+0xb8>
+  b8:	8c 81       	ldd	r24, Y+4	; 0x04
+  ba:	8f 31       	cpi	r24, 0x1F	; 31
+  bc:	00 f4       	brcc	.+0      	; 0xbe <_ZN11TaskManager13removeByIndexEj+0xbe>
+  be:	ce 01       	movw	r24, r28
+  c0:	02 96       	adiw	r24, 0x02	; 2
+  c2:	60 e0       	ldi	r22, 0x00	; 0
+  c4:	70 e0       	ldi	r23, 0x00	; 0
+  c6:	40 e0       	ldi	r20, 0x00	; 0
+  c8:	50 e0       	ldi	r21, 0x00	; 0
+  ca:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager13removeByIndexEj>
+  ce:	00 d0       	rcall	.+0      	; 0xd0 <_ZN11TaskManager13removeByIndexEj+0xd0>
+
+		return false;
+  d0:	00 d0       	rcall	.+0      	; 0xd2 <_ZN11TaskManager13removeByIndexEj+0xd2>
+	}
+}
+  d2:	ed b7       	in	r30, 0x3d	; 61
+  d4:	fe b7       	in	r31, 0x3e	; 62
+  d6:	31 96       	adiw	r30, 0x01	; 1
+  d8:	80 e0       	ldi	r24, 0x00	; 0
+  da:	90 e0       	ldi	r25, 0x00	; 0
+  dc:	ad b7       	in	r26, 0x3d	; 61
+  de:	be b7       	in	r27, 0x3e	; 62
+  e0:	12 96       	adiw	r26, 0x02	; 2
+  e2:	9c 93       	st	X, r25
+  e4:	8e 93       	st	-X, r24
+  e6:	11 97       	sbiw	r26, 0x01	; 1
+  e8:	f3 82       	std	Z+3, r15	; 0x03
+  ea:	e2 82       	std	Z+2, r14	; 0x02
+  ec:	8d 81       	ldd	r24, Y+5	; 0x05
+  ee:	9e 81       	ldd	r25, Y+6	; 0x06
+  f0:	95 83       	std	Z+5, r25	; 0x05
+  f2:	84 83       	std	Z+4, r24	; 0x04
+  f4:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager13removeByIndexEj>
+  f8:	0f 90       	pop	r0
+  fa:	0f 90       	pop	r0
+  fc:	0f 90       	pop	r0
+  fe:	0f 90       	pop	r0
+ 100:	80 e0       	ldi	r24, 0x00	; 0
+ 102:	90 e0       	ldi	r25, 0x00	; 0
+ 104:	ed b7       	in	r30, 0x3d	; 61
+ 106:	fe b7       	in	r31, 0x3e	; 62
+ 108:	92 83       	std	Z+2, r25	; 0x02
+ 10a:	81 83       	std	Z+1, r24	; 0x01
+ 10c:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager13removeByIndexEj>
+ 110:	0f 90       	pop	r0
+ 112:	0f 90       	pop	r0
+ 114:	00 e0       	ldi	r16, 0x00	; 0
+ 116:	10 e0       	ldi	r17, 0x00	; 0
+ 118:	c8 01       	movw	r24, r16
+ 11a:	df 91       	pop	r29
+ 11c:	cf 91       	pop	r28
+ 11e:	1f 91       	pop	r17
+ 120:	0f 91       	pop	r16
+ 122:	ff 90       	pop	r15
+ 124:	ef 90       	pop	r14
+ 126:	df 90       	pop	r13
+ 128:	cf 90       	pop	r12
+ 12a:	08 95       	ret
+
+Disassembly of section .text._ZN11TaskManager15removeByPointerEP17TaskManagerRecord:
+
+00000000 <_ZN11TaskManager15removeByPointerEP17TaskManagerRecord>:
+}
+
+// =================================================
+
+bool TaskManager::removeByPointer( TaskManagerRecord* ptr )
+{
+   0:	ef 92       	push	r14
+   2:	ff 92       	push	r15
+   4:	0f 93       	push	r16
+   6:	1f 93       	push	r17
+   8:	cf 93       	push	r28
+   a:	df 93       	push	r29
+   c:	ec 01       	movw	r28, r24
+   e:	7b 01       	movw	r14, r22
+	static const PROGMEM prog_char functionName[] = "removeByPointer";
+	//static const char prefix[] = "TaskManager:removeByPointer():";
+
+	unsigned int index = getIndex( ptr );
+  10:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager15removeByPointerEP17TaskManagerRecord>
+  14:	8c 01       	movw	r16, r24
+
+	if( index < maxTasksCount )
+  16:	8d 81       	ldd	r24, Y+5	; 0x05
+  18:	9e 81       	ldd	r25, Y+6	; 0x06
+  1a:	2c 81       	ldd	r18, Y+4	; 0x04
+  1c:	08 17       	cp	r16, r24
+  1e:	19 07       	cpc	r17, r25
+  20:	00 f4       	brcc	.+0      	; 0x22 <_ZN11TaskManager15removeByPointerEP17TaskManagerRecord+0x22>
+	{
+		//info( p << prefix << "removing ptr*=" << (int)ptr << ", in tasksArray index=" << index << endl; )
+		//info( wpln( "removing ptr* = %u, in tasksArray index = %u" , ptr , index ) )
+		iln( "removing ptr* = %u, in tasksArray index = %u" , ptr , index )
+  22:	25 31       	cpi	r18, 0x15	; 21
+  24:	00 f4       	brcc	.+0      	; 0x26 <_ZN11TaskManager15removeByPointerEP17TaskManagerRecord+0x26>
+  26:	ce 01       	movw	r24, r28
+  28:	02 96       	adiw	r24, 0x02	; 2
+  2a:	60 e0       	ldi	r22, 0x00	; 0
+  2c:	70 e0       	ldi	r23, 0x00	; 0
+  2e:	40 e0       	ldi	r20, 0x00	; 0
+  30:	50 e0       	ldi	r21, 0x00	; 0
+  32:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager15removeByPointerEP17TaskManagerRecord>
+  36:	00 d0       	rcall	.+0      	; 0x38 <_ZN11TaskManager15removeByPointerEP17TaskManagerRecord+0x38>
+  38:	00 d0       	rcall	.+0      	; 0x3a <_ZN11TaskManager15removeByPointerEP17TaskManagerRecord+0x3a>
+  3a:	ed b7       	in	r30, 0x3d	; 61
+  3c:	fe b7       	in	r31, 0x3e	; 62
+  3e:	31 96       	adiw	r30, 0x01	; 1
+  40:	80 e0       	ldi	r24, 0x00	; 0
+  42:	90 e0       	ldi	r25, 0x00	; 0
+  44:	ad b7       	in	r26, 0x3d	; 61
+  46:	be b7       	in	r27, 0x3e	; 62
+  48:	12 96       	adiw	r26, 0x02	; 2
+  4a:	9c 93       	st	X, r25
+  4c:	8e 93       	st	-X, r24
+  4e:	11 97       	sbiw	r26, 0x01	; 1
+  50:	f3 82       	std	Z+3, r15	; 0x03
+  52:	e2 82       	std	Z+2, r14	; 0x02
+  54:	15 83       	std	Z+5, r17	; 0x05
+  56:	04 83       	std	Z+4, r16	; 0x04
+  58:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager15removeByPointerEP17TaskManagerRecord>
+  5c:	0f 90       	pop	r0
+  5e:	0f 90       	pop	r0
+  60:	0f 90       	pop	r0
+  62:	0f 90       	pop	r0
+  64:	80 e0       	ldi	r24, 0x00	; 0
+  66:	90 e0       	ldi	r25, 0x00	; 0
+  68:	ed b7       	in	r30, 0x3d	; 61
+  6a:	fe b7       	in	r31, 0x3e	; 62
+  6c:	92 83       	std	Z+2, r25	; 0x02
+  6e:	81 83       	std	Z+1, r24	; 0x01
+  70:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager15removeByPointerEP17TaskManagerRecord>
+  74:	0f 90       	pop	r0
+  76:	0f 90       	pop	r0
+
+		removeByIndex( index );
+  78:	ce 01       	movw	r24, r28
+  7a:	b8 01       	movw	r22, r16
+  7c:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager15removeByPointerEP17TaskManagerRecord>
+		return true;
+  80:	81 e0       	ldi	r24, 0x01	; 1
+  82:	00 c0       	rjmp	.+0      	; 0x84 <_ZN11TaskManager15removeByPointerEP17TaskManagerRecord+0x84>
+	}
+	else
+	{
+		//warning( p << prefix << "could not find ptr*=" << (int)ptr << " in tasksArray" << endl; )
+		//warning( wpln( "could not find ptr* = %u in tasksArray" , ptr ) )
+		wln( "could not find ptr* = %u in tasksArray" , ptr )
+  84:	2f 31       	cpi	r18, 0x1F	; 31
+  86:	00 f4       	brcc	.+0      	; 0x88 <_ZN11TaskManager15removeByPointerEP17TaskManagerRecord+0x88>
+  88:	ce 01       	movw	r24, r28
+  8a:	02 96       	adiw	r24, 0x02	; 2
+  8c:	60 e0       	ldi	r22, 0x00	; 0
+  8e:	70 e0       	ldi	r23, 0x00	; 0
+  90:	40 e0       	ldi	r20, 0x00	; 0
+  92:	50 e0       	ldi	r21, 0x00	; 0
+  94:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager15removeByPointerEP17TaskManagerRecord>
+  98:	00 d0       	rcall	.+0      	; 0x9a <_ZN11TaskManager15removeByPointerEP17TaskManagerRecord+0x9a>
+  9a:	0f 92       	push	r0
+  9c:	80 e0       	ldi	r24, 0x00	; 0
+  9e:	90 e0       	ldi	r25, 0x00	; 0
+  a0:	ad b7       	in	r26, 0x3d	; 61
+  a2:	be b7       	in	r27, 0x3e	; 62
+  a4:	12 96       	adiw	r26, 0x02	; 2
+  a6:	9c 93       	st	X, r25
+  a8:	8e 93       	st	-X, r24
+  aa:	11 97       	sbiw	r26, 0x01	; 1
+  ac:	14 96       	adiw	r26, 0x04	; 4
+  ae:	fc 92       	st	X, r15
+  b0:	ee 92       	st	-X, r14
+  b2:	13 97       	sbiw	r26, 0x03	; 3
+  b4:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager15removeByPointerEP17TaskManagerRecord>
+  b8:	0f 90       	pop	r0
+  ba:	0f 90       	pop	r0
+  bc:	80 e0       	ldi	r24, 0x00	; 0
+  be:	90 e0       	ldi	r25, 0x00	; 0
+  c0:	ed b7       	in	r30, 0x3d	; 61
+  c2:	fe b7       	in	r31, 0x3e	; 62
+  c4:	92 83       	std	Z+2, r25	; 0x02
+  c6:	81 83       	std	Z+1, r24	; 0x01
+  c8:	0e 94 00 00 	call	0	; 0x0 <_ZN11TaskManager15removeByPointerEP17TaskManagerRecord>
+  cc:	0f 90       	pop	r0
+  ce:	0f 90       	pop	r0
+
+		return false;
+  d0:	80 e0       	ldi	r24, 0x00	; 0
+	}
+}
+  d2:	df 91       	pop	r29
+  d4:	cf 91       	pop	r28
+  d6:	1f 91       	pop	r17
+  d8:	0f 91       	pop	r16
+  da:	ff 90       	pop	r15
+  dc:	ef 90       	pop	r14
+  de:	08 95       	ret
+
+TaskManagerRecord.o:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  00000000  00000000  00000034  2**0
+                  ALLOC
+  3 .stab         0000021c  00000000  00000000  00000034  2**2
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  4 .stabstr      0000066c  00000000  00000000  00000250  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .text._ZN17TaskManagerRecordC2EP20TaskManagerSchedulerP8Runnable 0000000c  00000000  00000000  000008bc  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+
+Disassembly of section .text._ZN17TaskManagerRecordC2EP20TaskManagerSchedulerP8Runnable:
+
+00000000 <_ZN17TaskManagerRecordC1EP20TaskManagerSchedulerP8Runnable>:
+
+#include "TaskManagerRecord.h"
+
+// =================================================
+
+TaskManagerRecord::TaskManagerRecord( TaskManagerScheduler* _scheduler , Runnable* _runnable )
+   0:	fc 01       	movw	r30, r24
+{
+	scheduler = _scheduler;
+   2:	71 83       	std	Z+1, r23	; 0x01
+   4:	60 83       	st	Z, r22
+	runnable = _runnable;
+   6:	53 83       	std	Z+3, r21	; 0x03
+   8:	42 83       	std	Z+2, r20	; 0x02
+}
+   a:	08 95       	ret
+
+TaskManagerScheduler.o:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  00000000  00000000  00000034  2**0
+                  ALLOC
+  3 .stab         0000018c  00000000  00000000  00000034  2**2
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  4 .stabstr      0000049d  00000000  00000000  000001c0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+TaskManagerSchedulerCount.o:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  00000000  00000000  00000034  2**0
+                  ALLOC
+  3 .stab         00000780  00000000  00000000  00000034  2**2
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  4 .stabstr      0000375f  00000000  00000000  000007b4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .text._ZN25TaskManagerSchedulerCount10canExecuteEv 000000c4  00000000  00000000  00003f13  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  6 .text._ZN25TaskManagerSchedulerCount24canRemoveFromTaskManagerEv 00000072  00000000  00000000  00003fd7  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  7 .text._ZN25TaskManagerSchedulerCountC2Em 00000044  00000000  00000000  00004049  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  8 .rodata._ZTV25TaskManagerSchedulerCount 00000008  00000000  00000000  0000408d  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+  9 .rodata._ZTV20TaskManagerScheduler 00000008  00000000  00000000  00004095  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+ 10 .progmem.data 00000094  00000000  00000000  0000409d  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+
+Disassembly of section .text._ZN25TaskManagerSchedulerCount10canExecuteEv:
+
+00000000 <_ZN25TaskManagerSchedulerCount10canExecuteEv>:
+
+//const PROGMEM prog_char TaskManagerSchedulerCount::className[] = "TaskManagerSchedulerCount";
+
+// =================================================
+
+TaskManagerSchedulerCount::TaskManagerSchedulerCount( unsigned long _executionCount ) : dp( PSTR( "TaskManagerSchedulerCount" ) )//: p(_p)
+   0:	1f 93       	push	r17
+   2:	cf 93       	push	r28
+   4:	df 93       	push	r29
+   6:	ec 01       	movw	r28, r24
+   8:	8e 81       	ldd	r24, Y+6	; 0x06
+   a:	9f 81       	ldd	r25, Y+7	; 0x07
+   c:	a8 85       	ldd	r26, Y+8	; 0x08
+   e:	b9 85       	ldd	r27, Y+9	; 0x09
+  10:	01 96       	adiw	r24, 0x01	; 1
+  12:	a1 1d       	adc	r26, r1
+  14:	b1 1d       	adc	r27, r1
+  16:	8e 83       	std	Y+6, r24	; 0x06
+  18:	9f 83       	std	Y+7, r25	; 0x07
+  1a:	a8 87       	std	Y+8, r26	; 0x08
+  1c:	b9 87       	std	Y+9, r27	; 0x09
+  1e:	11 e0       	ldi	r17, 0x01	; 1
+  20:	4a 81       	ldd	r20, Y+2	; 0x02
+  22:	5b 81       	ldd	r21, Y+3	; 0x03
+  24:	6c 81       	ldd	r22, Y+4	; 0x04
+{
+	executionCount = _executionCount;
+  26:	7d 81       	ldd	r23, Y+5	; 0x05
+  28:	48 17       	cp	r20, r24
+  2a:	59 07       	cpc	r21, r25
+  2c:	6a 07       	cpc	r22, r26
+	currentExecutionCount = 0;
+  2e:	7b 07       	cpc	r23, r27
+  30:	00 f4       	brcc	.+0      	; 0x32 <_ZN25TaskManagerSchedulerCount10canExecuteEv+0x32>
+  32:	10 e0       	ldi	r17, 0x00	; 0
+  34:	8c 85       	ldd	r24, Y+12	; 0x0c
+}
+  36:	8b 30       	cpi	r24, 0x0B	; 11
+  38:	00 f0       	brcs	.+0      	; 0x3a <_ZN25TaskManagerSchedulerCount10canExecuteEv+0x3a>
+  3a:	00 c0       	rjmp	.+0      	; 0x3c <_ZN25TaskManagerSchedulerCount10canExecuteEv+0x3c>
+  3c:	ce 01       	movw	r24, r28
+  3e:	0a 96       	adiw	r24, 0x0a	; 10
+  40:	60 e0       	ldi	r22, 0x00	; 0
+  42:	70 e0       	ldi	r23, 0x00	; 0
+  44:	40 e0       	ldi	r20, 0x00	; 0
+  46:	50 e0       	ldi	r21, 0x00	; 0
+  48:	0e 94 00 00 	call	0	; 0x0 <_ZN25TaskManagerSchedulerCount10canExecuteEv>
+  4c:	8d b7       	in	r24, 0x3d	; 61
+  4e:	9e b7       	in	r25, 0x3e	; 62
+  50:	0c 97       	sbiw	r24, 0x0c	; 12
+  52:	0f b6       	in	r0, 0x3f	; 63
+  54:	f8 94       	cli
+  56:	9e bf       	out	0x3e, r25	; 62
+  58:	0f be       	out	0x3f, r0	; 63
+  5a:	8d bf       	out	0x3d, r24	; 61
+  5c:	ed b7       	in	r30, 0x3d	; 61
+  5e:	fe b7       	in	r31, 0x3e	; 62
+  60:	31 96       	adiw	r30, 0x01	; 1
+  62:	80 e0       	ldi	r24, 0x00	; 0
+  64:	90 e0       	ldi	r25, 0x00	; 0
+  66:	ad b7       	in	r26, 0x3d	; 61
+  68:	be b7       	in	r27, 0x3e	; 62
+  6a:	12 96       	adiw	r26, 0x02	; 2
+  6c:	9c 93       	st	X, r25
+  6e:	8e 93       	st	-X, r24
+  70:	11 97       	sbiw	r26, 0x01	; 1
+  72:	12 83       	std	Z+2, r17	; 0x02
+  74:	13 82       	std	Z+3, r1	; 0x03
+  76:	8e 81       	ldd	r24, Y+6	; 0x06
+  78:	9f 81       	ldd	r25, Y+7	; 0x07
+  7a:	a8 85       	ldd	r26, Y+8	; 0x08
+  7c:	b9 85       	ldd	r27, Y+9	; 0x09
+  7e:	84 83       	std	Z+4, r24	; 0x04
+  80:	95 83       	std	Z+5, r25	; 0x05
+  82:	a6 83       	std	Z+6, r26	; 0x06
+  84:	b7 83       	std	Z+7, r27	; 0x07
+  86:	8a 81       	ldd	r24, Y+2	; 0x02
+  88:	9b 81       	ldd	r25, Y+3	; 0x03
+  8a:	ac 81       	ldd	r26, Y+4	; 0x04
+  8c:	bd 81       	ldd	r27, Y+5	; 0x05
+  8e:	80 87       	std	Z+8, r24	; 0x08
+  90:	91 87       	std	Z+9, r25	; 0x09
+  92:	a2 87       	std	Z+10, r26	; 0x0a
+  94:	b3 87       	std	Z+11, r27	; 0x0b
+  96:	0e 94 00 00 	call	0	; 0x0 <_ZN25TaskManagerSchedulerCount10canExecuteEv>
+  9a:	ed b7       	in	r30, 0x3d	; 61
+  9c:	fe b7       	in	r31, 0x3e	; 62
+  9e:	3a 96       	adiw	r30, 0x0a	; 10
+  a0:	0f b6       	in	r0, 0x3f	; 63
+  a2:	f8 94       	cli
+  a4:	fe bf       	out	0x3e, r31	; 62
+  a6:	0f be       	out	0x3f, r0	; 63
+  a8:	ed bf       	out	0x3d, r30	; 61
+  aa:	80 e0       	ldi	r24, 0x00	; 0
+  ac:	90 e0       	ldi	r25, 0x00	; 0
+  ae:	92 83       	std	Z+2, r25	; 0x02
+  b0:	81 83       	std	Z+1, r24	; 0x01
+  b2:	0e 94 00 00 	call	0	; 0x0 <_ZN25TaskManagerSchedulerCount10canExecuteEv>
+  b6:	0f 90       	pop	r0
+  b8:	0f 90       	pop	r0
+  ba:	81 2f       	mov	r24, r17
+  bc:	df 91       	pop	r29
+  be:	cf 91       	pop	r28
+  c0:	1f 91       	pop	r17
+  c2:	08 95       	ret
+
+Disassembly of section .text._ZN25TaskManagerSchedulerCount24canRemoveFromTaskManagerEv:
+
+00000000 <_ZN25TaskManagerSchedulerCount24canRemoveFromTaskManagerEv>:
+
+//const PROGMEM prog_char TaskManagerSchedulerCount::className[] = "TaskManagerSchedulerCount";
+
+// =================================================
+
+TaskManagerSchedulerCount::TaskManagerSchedulerCount( unsigned long _executionCount ) : dp( PSTR( "TaskManagerSchedulerCount" ) )//: p(_p)
+   0:	cf 93       	push	r28
+   2:	df 93       	push	r29
+   4:	ec 01       	movw	r28, r24
+   6:	4e 81       	ldd	r20, Y+6	; 0x06
+   8:	5f 81       	ldd	r21, Y+7	; 0x07
+   a:	68 85       	ldd	r22, Y+8	; 0x08
+   c:	79 85       	ldd	r23, Y+9	; 0x09
+   e:	8a 81       	ldd	r24, Y+2	; 0x02
+  10:	9b 81       	ldd	r25, Y+3	; 0x03
+  12:	ac 81       	ldd	r26, Y+4	; 0x04
+  14:	bd 81       	ldd	r27, Y+5	; 0x05
+  16:	84 17       	cp	r24, r20
+  18:	95 07       	cpc	r25, r21
+  1a:	a6 07       	cpc	r26, r22
+  1c:	b7 07       	cpc	r27, r23
+  1e:	00 f4       	brcc	.+0      	; 0x20 <_ZN25TaskManagerSchedulerCount24canRemoveFromTaskManagerEv+0x20>
+  20:	8c 85       	ldd	r24, Y+12	; 0x0c
+  22:	8b 30       	cpi	r24, 0x0B	; 11
+  24:	00 f4       	brcc	.+0      	; 0x26 <_ZN25TaskManagerSchedulerCount24canRemoveFromTaskManagerEv+0x26>
+{
+	executionCount = _executionCount;
+  26:	ce 01       	movw	r24, r28
+  28:	0a 96       	adiw	r24, 0x0a	; 10
+  2a:	60 e0       	ldi	r22, 0x00	; 0
+  2c:	70 e0       	ldi	r23, 0x00	; 0
+	currentExecutionCount = 0;
+  2e:	40 e0       	ldi	r20, 0x00	; 0
+  30:	50 e0       	ldi	r21, 0x00	; 0
+  32:	0e 94 00 00 	call	0	; 0x0 <_ZN25TaskManagerSchedulerCount24canRemoveFromTaskManagerEv>
+}
+  36:	0f 92       	push	r0
+  38:	0f 92       	push	r0
+  3a:	80 e0       	ldi	r24, 0x00	; 0
+  3c:	90 e0       	ldi	r25, 0x00	; 0
+  3e:	ed b7       	in	r30, 0x3d	; 61
+  40:	fe b7       	in	r31, 0x3e	; 62
+  42:	92 83       	std	Z+2, r25	; 0x02
+  44:	81 83       	std	Z+1, r24	; 0x01
+  46:	0e 94 00 00 	call	0	; 0x0 <_ZN25TaskManagerSchedulerCount24canRemoveFromTaskManagerEv>
+  4a:	80 e0       	ldi	r24, 0x00	; 0
+  4c:	90 e0       	ldi	r25, 0x00	; 0
+  4e:	ed b7       	in	r30, 0x3d	; 61
+  50:	fe b7       	in	r31, 0x3e	; 62
+  52:	92 83       	std	Z+2, r25	; 0x02
+  54:	81 83       	std	Z+1, r24	; 0x01
+  56:	0e 94 00 00 	call	0	; 0x0 <_ZN25TaskManagerSchedulerCount24canRemoveFromTaskManagerEv>
+  5a:	0f 90       	pop	r0
+  5c:	0f 90       	pop	r0
+  5e:	1e 82       	std	Y+6, r1	; 0x06
+  60:	1f 82       	std	Y+7, r1	; 0x07
+  62:	18 86       	std	Y+8, r1	; 0x08
+  64:	19 86       	std	Y+9, r1	; 0x09
+  66:	81 e0       	ldi	r24, 0x01	; 1
+  68:	00 c0       	rjmp	.+0      	; 0x6a <_ZN25TaskManagerSchedulerCount24canRemoveFromTaskManagerEv+0x6a>
+  6a:	80 e0       	ldi	r24, 0x00	; 0
+  6c:	df 91       	pop	r29
+  6e:	cf 91       	pop	r28
+  70:	08 95       	ret
+
+Disassembly of section .text._ZN25TaskManagerSchedulerCountC2Em:
+
+00000000 <_ZN25TaskManagerSchedulerCountC1Em>:
+
+//const PROGMEM prog_char TaskManagerSchedulerCount::className[] = "TaskManagerSchedulerCount";
+
+// =================================================
+
+TaskManagerSchedulerCount::TaskManagerSchedulerCount( unsigned long _executionCount ) : dp( PSTR( "TaskManagerSchedulerCount" ) )//: p(_p)
+   0:	cf 92       	push	r12
+   2:	df 92       	push	r13
+   4:	ef 92       	push	r14
+   6:	ff 92       	push	r15
+   8:	cf 93       	push	r28
+   a:	df 93       	push	r29
+   c:	ec 01       	movw	r28, r24
+   e:	6a 01       	movw	r12, r20
+  10:	7b 01       	movw	r14, r22
+  12:	80 e0       	ldi	r24, 0x00	; 0
+  14:	90 e0       	ldi	r25, 0x00	; 0
+  16:	99 83       	std	Y+1, r25	; 0x01
+  18:	88 83       	st	Y, r24
+  1a:	ce 01       	movw	r24, r28
+  1c:	0a 96       	adiw	r24, 0x0a	; 10
+  1e:	60 e0       	ldi	r22, 0x00	; 0
+  20:	70 e0       	ldi	r23, 0x00	; 0
+  22:	0e 94 00 00 	call	0	; 0x0 <_ZN25TaskManagerSchedulerCountC1Em>
+{
+	executionCount = _executionCount;
+  26:	ca 82       	std	Y+2, r12	; 0x02
+  28:	db 82       	std	Y+3, r13	; 0x03
+  2a:	ec 82       	std	Y+4, r14	; 0x04
+  2c:	fd 82       	std	Y+5, r15	; 0x05
+	currentExecutionCount = 0;
+  2e:	1e 82       	std	Y+6, r1	; 0x06
+  30:	1f 82       	std	Y+7, r1	; 0x07
+  32:	18 86       	std	Y+8, r1	; 0x08
+  34:	19 86       	std	Y+9, r1	; 0x09
+}
+  36:	df 91       	pop	r29
+  38:	cf 91       	pop	r28
+  3a:	ff 90       	pop	r15
+  3c:	ef 90       	pop	r14
+  3e:	df 90       	pop	r13
+  40:	cf 90       	pop	r12
+  42:	08 95       	ret
+
+TaskManagerSchedulerTimeIntervals.o:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  00000000  00000000  00000034  2**0
+                  ALLOC
+  3 .stab         00000918  00000000  00000000  00000034  2**2
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  4 .stabstr      00003937  00000000  00000000  0000094c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .text._ZN33TaskManagerSchedulerTimeIntervals24canRemoveFromTaskManagerEv 00000078  00000000  00000000  00004283  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  6 .text._ZN33TaskManagerSchedulerTimeIntervals10canExecuteEv 000001a0  00000000  00000000  000042fb  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  7 .text._ZN33TaskManagerSchedulerTimeIntervalsC2EPmhb 00000060  00000000  00000000  0000449b  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  8 .text._ZN33TaskManagerSchedulerTimeIntervals10resetStateEv 00000012  00000000  00000000  000044fb  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  9 .rodata._ZTV33TaskManagerSchedulerTimeIntervals 00000008  00000000  00000000  0000450d  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+ 10 .rodata._ZTV20TaskManagerScheduler 00000008  00000000  00000000  00004515  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+ 11 .progmem.data 000000cc  00000000  00000000  0000451d  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+
+Disassembly of section .text._ZN33TaskManagerSchedulerTimeIntervals24canRemoveFromTaskManagerEv:
+
+00000000 <_ZN33TaskManagerSchedulerTimeIntervals24canRemoveFromTaskManagerEv>:
+}
+
+// =================================================
+
+void TaskManagerSchedulerTimeIntervals::resetState()
+{
+   0:	cf 93       	push	r28
+	lastExecutionTime = 0;
+   2:	df 93       	push	r29
+   4:	ec 01       	movw	r28, r24
+   6:	88 85       	ldd	r24, Y+8	; 0x08
+   8:	8b 30       	cpi	r24, 0x0B	; 11
+	executionTaskCounter = -1;
+   a:	00 f4       	brcc	.+0      	; 0xc <_ZN33TaskManagerSchedulerTimeIntervals24canRemoveFromTaskManagerEv+0xc>
+   c:	ce 01       	movw	r24, r28
+	wasAllTasksExecuted = false;
+   e:	06 96       	adiw	r24, 0x06	; 6
+}
+  10:	60 e0       	ldi	r22, 0x00	; 0
+  12:	70 e0       	ldi	r23, 0x00	; 0
+  14:	40 e0       	ldi	r20, 0x00	; 0
+  16:	50 e0       	ldi	r21, 0x00	; 0
+  18:	0e 94 00 00 	call	0	; 0x0 <_ZN33TaskManagerSchedulerTimeIntervals24canRemoveFromTaskManagerEv>
+  1c:	00 d0       	rcall	.+0      	; 0x1e <_ZN33TaskManagerSchedulerTimeIntervals24canRemoveFromTaskManagerEv+0x1e>
+  1e:	0f 92       	push	r0
+  20:	ed b7       	in	r30, 0x3d	; 61
+  22:	fe b7       	in	r31, 0x3e	; 62
+  24:	31 96       	adiw	r30, 0x01	; 1
+  26:	80 e0       	ldi	r24, 0x00	; 0
+  28:	90 e0       	ldi	r25, 0x00	; 0
+  2a:	ad b7       	in	r26, 0x3d	; 61
+  2c:	be b7       	in	r27, 0x3e	; 62
+  2e:	12 96       	adiw	r26, 0x02	; 2
+  30:	9c 93       	st	X, r25
+  32:	8e 93       	st	-X, r24
+  34:	11 97       	sbiw	r26, 0x01	; 1
+  36:	8e 85       	ldd	r24, Y+14	; 0x0e
+  38:	82 83       	std	Z+2, r24	; 0x02
+  3a:	13 82       	std	Z+3, r1	; 0x03
+  3c:	0e 94 00 00 	call	0	; 0x0 <_ZN33TaskManagerSchedulerTimeIntervals24canRemoveFromTaskManagerEv>
+  40:	0f 90       	pop	r0
+  42:	0f 90       	pop	r0
+  44:	80 e0       	ldi	r24, 0x00	; 0
+  46:	90 e0       	ldi	r25, 0x00	; 0
+  48:	ed b7       	in	r30, 0x3d	; 61
+  4a:	fe b7       	in	r31, 0x3e	; 62
+  4c:	92 83       	std	Z+2, r25	; 0x02
+  4e:	81 83       	std	Z+1, r24	; 0x01
+  50:	0e 94 00 00 	call	0	; 0x0 <_ZN33TaskManagerSchedulerTimeIntervals24canRemoveFromTaskManagerEv>
+  54:	0f 90       	pop	r0
+  56:	0f 90       	pop	r0
+  58:	8e 85       	ldd	r24, Y+14	; 0x0e
+  5a:	88 23       	and	r24, r24
+  5c:	01 f0       	breq	.+0      	; 0x5e <_ZN33TaskManagerSchedulerTimeIntervals24canRemoveFromTaskManagerEv+0x5e>
+  5e:	19 86       	std	Y+9, r1	; 0x09
+  60:	1a 86       	std	Y+10, r1	; 0x0a
+  62:	1b 86       	std	Y+11, r1	; 0x0b
+  64:	1c 86       	std	Y+12, r1	; 0x0c
+  66:	8f ef       	ldi	r24, 0xFF	; 255
+  68:	8d 87       	std	Y+13, r24	; 0x0d
+  6a:	1e 86       	std	Y+14, r1	; 0x0e
+  6c:	81 e0       	ldi	r24, 0x01	; 1
+  6e:	00 c0       	rjmp	.+0      	; 0x70 <_ZN33TaskManagerSchedulerTimeIntervals24canRemoveFromTaskManagerEv+0x70>
+  70:	80 e0       	ldi	r24, 0x00	; 0
+  72:	df 91       	pop	r29
+  74:	cf 91       	pop	r28
+  76:	08 95       	ret
+
+Disassembly of section .text._ZN33TaskManagerSchedulerTimeIntervals10canExecuteEv:
+
+00000000 <_ZN33TaskManagerSchedulerTimeIntervals10canExecuteEv>:
+}
+
+// =================================================
+
+void TaskManagerSchedulerTimeIntervals::resetState()
+{
+   0:	ff 92       	push	r15
+	lastExecutionTime = 0;
+   2:	0f 93       	push	r16
+   4:	1f 93       	push	r17
+   6:	cf 93       	push	r28
+   8:	df 93       	push	r29
+	executionTaskCounter = -1;
+   a:	ec 01       	movw	r28, r24
+   c:	0e 94 00 00 	call	0	; 0x0 <_ZN33TaskManagerSchedulerTimeIntervals10canExecuteEv>
+	wasAllTasksExecuted = false;
+}
+  10:	ab 01       	movw	r20, r22
+  12:	bc 01       	movw	r22, r24
+  14:	fd 84       	ldd	r15, Y+13	; 0x0d
+  16:	f7 fc       	sbrc	r15, 7
+  18:	00 c0       	rjmp	.+0      	; 0x1a <_ZN33TaskManagerSchedulerTimeIntervals10canExecuteEv+0x1a>
+  1a:	89 85       	ldd	r24, Y+9	; 0x09
+  1c:	9a 85       	ldd	r25, Y+10	; 0x0a
+  1e:	ab 85       	ldd	r26, Y+11	; 0x0b
+  20:	bc 85       	ldd	r27, Y+12	; 0x0c
+  22:	8a 01       	movw	r16, r20
+  24:	9b 01       	movw	r18, r22
+  26:	08 1b       	sub	r16, r24
+  28:	19 0b       	sbc	r17, r25
+  2a:	2a 0b       	sbc	r18, r26
+  2c:	3b 0b       	sbc	r19, r27
+  2e:	8f 2d       	mov	r24, r15
+  30:	99 27       	eor	r25, r25
+  32:	87 fd       	sbrc	r24, 7
+  34:	90 95       	com	r25
+  36:	88 0f       	add	r24, r24
+  38:	99 1f       	adc	r25, r25
+  3a:	88 0f       	add	r24, r24
+  3c:	99 1f       	adc	r25, r25
+  3e:	ea 81       	ldd	r30, Y+2	; 0x02
+  40:	fb 81       	ldd	r31, Y+3	; 0x03
+  42:	e8 0f       	add	r30, r24
+  44:	f9 1f       	adc	r31, r25
+  46:	80 81       	ld	r24, Z
+  48:	91 81       	ldd	r25, Z+1	; 0x01
+  4a:	a2 81       	ldd	r26, Z+2	; 0x02
+  4c:	b3 81       	ldd	r27, Z+3	; 0x03
+  4e:	08 17       	cp	r16, r24
+  50:	19 07       	cpc	r17, r25
+  52:	2a 07       	cpc	r18, r26
+  54:	3b 07       	cpc	r19, r27
+  56:	00 f4       	brcc	.+0      	; 0x58 <_ZN33TaskManagerSchedulerTimeIntervals10canExecuteEv+0x58>
+  58:	00 c0       	rjmp	.+0      	; 0x5a <_ZN33TaskManagerSchedulerTimeIntervals10canExecuteEv+0x5a>
+  5a:	49 87       	std	Y+9, r20	; 0x09
+  5c:	5a 87       	std	Y+10, r21	; 0x0a
+  5e:	6b 87       	std	Y+11, r22	; 0x0b
+  60:	7c 87       	std	Y+12, r23	; 0x0c
+  62:	f3 94       	inc	r15
+  64:	fd 86       	std	Y+13, r15	; 0x0d
+  66:	2f 2d       	mov	r18, r15
+  68:	33 27       	eor	r19, r19
+  6a:	27 fd       	sbrc	r18, 7
+  6c:	30 95       	com	r19
+  6e:	8c 81       	ldd	r24, Y+4	; 0x04
+  70:	90 e0       	ldi	r25, 0x00	; 0
+  72:	28 17       	cp	r18, r24
+  74:	39 07       	cpc	r19, r25
+  76:	04 f0       	brlt	.+0      	; 0x78 <_ZN33TaskManagerSchedulerTimeIntervals10canExecuteEv+0x78>
+  78:	1d 86       	std	Y+13, r1	; 0x0d
+  7a:	8d 81       	ldd	r24, Y+5	; 0x05
+  7c:	88 23       	and	r24, r24
+  7e:	01 f4       	brne	.+0      	; 0x80 <_ZN33TaskManagerSchedulerTimeIntervals10canExecuteEv+0x80>
+  80:	81 e0       	ldi	r24, 0x01	; 1
+  82:	8e 87       	std	Y+14, r24	; 0x0e
+  84:	88 85       	ldd	r24, Y+8	; 0x08
+  86:	8b 30       	cpi	r24, 0x0B	; 11
+  88:	00 f4       	brcc	.+0      	; 0x8a <_ZN33TaskManagerSchedulerTimeIntervals10canExecuteEv+0x8a>
+  8a:	ce 01       	movw	r24, r28
+  8c:	06 96       	adiw	r24, 0x06	; 6
+  8e:	60 e0       	ldi	r22, 0x00	; 0
+  90:	70 e0       	ldi	r23, 0x00	; 0
+  92:	40 e0       	ldi	r20, 0x00	; 0
+  94:	50 e0       	ldi	r21, 0x00	; 0
+  96:	0e 94 00 00 	call	0	; 0x0 <_ZN33TaskManagerSchedulerTimeIntervals10canExecuteEv>
+  9a:	0f 92       	push	r0
+  9c:	0f 92       	push	r0
+  9e:	80 e0       	ldi	r24, 0x00	; 0
+  a0:	90 e0       	ldi	r25, 0x00	; 0
+  a2:	ed b7       	in	r30, 0x3d	; 61
+  a4:	fe b7       	in	r31, 0x3e	; 62
+  a6:	92 83       	std	Z+2, r25	; 0x02
+  a8:	81 83       	std	Z+1, r24	; 0x01
+  aa:	0e 94 00 00 	call	0	; 0x0 <_ZN33TaskManagerSchedulerTimeIntervals10canExecuteEv>
+  ae:	0f 90       	pop	r0
+  b0:	0f 90       	pop	r0
+  b2:	9e 85       	ldd	r25, Y+14	; 0x0e
+  b4:	88 85       	ldd	r24, Y+8	; 0x08
+  b6:	99 23       	and	r25, r25
+  b8:	01 f0       	breq	.+0      	; 0xba <_ZN33TaskManagerSchedulerTimeIntervals10canExecuteEv+0xba>
+  ba:	8b 30       	cpi	r24, 0x0B	; 11
+  bc:	00 f0       	brcs	.+0      	; 0xbe <_ZN33TaskManagerSchedulerTimeIntervals10canExecuteEv+0xbe>
+  be:	00 c0       	rjmp	.+0      	; 0xc0 <_ZN33TaskManagerSchedulerTimeIntervals10canExecuteEv+0xc0>
+  c0:	ce 01       	movw	r24, r28
+  c2:	06 96       	adiw	r24, 0x06	; 6
+  c4:	60 e0       	ldi	r22, 0x00	; 0
+  c6:	70 e0       	ldi	r23, 0x00	; 0
+  c8:	40 e0       	ldi	r20, 0x00	; 0
+  ca:	50 e0       	ldi	r21, 0x00	; 0
+  cc:	0e 94 00 00 	call	0	; 0x0 <_ZN33TaskManagerSchedulerTimeIntervals10canExecuteEv>
+  d0:	0f 92       	push	r0
+  d2:	0f 92       	push	r0
+  d4:	80 e0       	ldi	r24, 0x00	; 0
+  d6:	90 e0       	ldi	r25, 0x00	; 0
+  d8:	ed b7       	in	r30, 0x3d	; 61
+  da:	fe b7       	in	r31, 0x3e	; 62
+  dc:	92 83       	std	Z+2, r25	; 0x02
+  de:	81 83       	std	Z+1, r24	; 0x01
+  e0:	0e 94 00 00 	call	0	; 0x0 <_ZN33TaskManagerSchedulerTimeIntervals10canExecuteEv>
+  e4:	0f 90       	pop	r0
+  e6:	0f 90       	pop	r0
+  e8:	00 c0       	rjmp	.+0      	; 0xea <_ZN33TaskManagerSchedulerTimeIntervals10canExecuteEv+0xea>
+  ea:	8b 30       	cpi	r24, 0x0B	; 11
+  ec:	00 f4       	brcc	.+0      	; 0xee <_ZN33TaskManagerSchedulerTimeIntervals10canExecuteEv+0xee>
+  ee:	ce 01       	movw	r24, r28
+  f0:	06 96       	adiw	r24, 0x06	; 6
+  f2:	60 e0       	ldi	r22, 0x00	; 0
+  f4:	70 e0       	ldi	r23, 0x00	; 0
+  f6:	40 e0       	ldi	r20, 0x00	; 0
+  f8:	50 e0       	ldi	r21, 0x00	; 0
+  fa:	0e 94 00 00 	call	0	; 0x0 <_ZN33TaskManagerSchedulerTimeIntervals10canExecuteEv>
+  fe:	8d 85       	ldd	r24, Y+13	; 0x0d
+ 100:	00 d0       	rcall	.+0      	; 0x102 <_ZN33TaskManagerSchedulerTimeIntervals10canExecuteEv+0x102>
+ 102:	00 d0       	rcall	.+0      	; 0x104 <_ZN33TaskManagerSchedulerTimeIntervals10canExecuteEv+0x104>
+ 104:	20 e0       	ldi	r18, 0x00	; 0
+ 106:	30 e0       	ldi	r19, 0x00	; 0
+ 108:	ed b7       	in	r30, 0x3d	; 61
+ 10a:	fe b7       	in	r31, 0x3e	; 62
+ 10c:	32 83       	std	Z+2, r19	; 0x02
+ 10e:	21 83       	std	Z+1, r18	; 0x01
+ 110:	99 27       	eor	r25, r25
+ 112:	87 fd       	sbrc	r24, 7
+ 114:	90 95       	com	r25
+ 116:	88 0f       	add	r24, r24
+ 118:	99 1f       	adc	r25, r25
+ 11a:	88 0f       	add	r24, r24
+ 11c:	99 1f       	adc	r25, r25
+ 11e:	ea 81       	ldd	r30, Y+2	; 0x02
+ 120:	fb 81       	ldd	r31, Y+3	; 0x03
+ 122:	e8 0f       	add	r30, r24
+ 124:	f9 1f       	adc	r31, r25
+ 126:	80 81       	ld	r24, Z
+ 128:	91 81       	ldd	r25, Z+1	; 0x01
+ 12a:	a2 81       	ldd	r26, Z+2	; 0x02
+ 12c:	b3 81       	ldd	r27, Z+3	; 0x03
+ 12e:	ed b7       	in	r30, 0x3d	; 61
+ 130:	fe b7       	in	r31, 0x3e	; 62
+ 132:	83 83       	std	Z+3, r24	; 0x03
+ 134:	94 83       	std	Z+4, r25	; 0x04
+ 136:	a5 83       	std	Z+5, r26	; 0x05
+ 138:	b6 83       	std	Z+6, r27	; 0x06
+ 13a:	0e 94 00 00 	call	0	; 0x0 <_ZN33TaskManagerSchedulerTimeIntervals10canExecuteEv>
+ 13e:	8d b7       	in	r24, 0x3d	; 61
+ 140:	9e b7       	in	r25, 0x3e	; 62
+ 142:	06 96       	adiw	r24, 0x06	; 6
+ 144:	0f b6       	in	r0, 0x3f	; 63
+ 146:	f8 94       	cli
+ 148:	9e bf       	out	0x3e, r25	; 62
+ 14a:	0f be       	out	0x3f, r0	; 63
+ 14c:	8d bf       	out	0x3d, r24	; 61
+ 14e:	88 85       	ldd	r24, Y+8	; 0x08
+ 150:	8b 30       	cpi	r24, 0x0B	; 11
+ 152:	00 f4       	brcc	.+0      	; 0x154 <_ZN33TaskManagerSchedulerTimeIntervals10canExecuteEv+0x154>
+ 154:	ce 01       	movw	r24, r28
+ 156:	06 96       	adiw	r24, 0x06	; 6
+ 158:	60 e0       	ldi	r22, 0x00	; 0
+ 15a:	70 e0       	ldi	r23, 0x00	; 0
+ 15c:	40 e0       	ldi	r20, 0x00	; 0
+ 15e:	50 e0       	ldi	r21, 0x00	; 0
+ 160:	0e 94 00 00 	call	0	; 0x0 <_ZN33TaskManagerSchedulerTimeIntervals10canExecuteEv>
+ 164:	0f 92       	push	r0
+ 166:	0f 92       	push	r0
+ 168:	80 e0       	ldi	r24, 0x00	; 0
+ 16a:	90 e0       	ldi	r25, 0x00	; 0
+ 16c:	ed b7       	in	r30, 0x3d	; 61
+ 16e:	fe b7       	in	r31, 0x3e	; 62
+ 170:	92 83       	std	Z+2, r25	; 0x02
+ 172:	81 83       	std	Z+1, r24	; 0x01
+ 174:	0e 94 00 00 	call	0	; 0x0 <_ZN33TaskManagerSchedulerTimeIntervals10canExecuteEv>
+ 178:	80 e0       	ldi	r24, 0x00	; 0
+ 17a:	90 e0       	ldi	r25, 0x00	; 0
+ 17c:	ed b7       	in	r30, 0x3d	; 61
+ 17e:	fe b7       	in	r31, 0x3e	; 62
+ 180:	92 83       	std	Z+2, r25	; 0x02
+ 182:	81 83       	std	Z+1, r24	; 0x01
+ 184:	0e 94 00 00 	call	0	; 0x0 <_ZN33TaskManagerSchedulerTimeIntervals10canExecuteEv>
+ 188:	0f 90       	pop	r0
+ 18a:	0f 90       	pop	r0
+ 18c:	00 c0       	rjmp	.+0      	; 0x18e <_ZN33TaskManagerSchedulerTimeIntervals10canExecuteEv+0x18e>
+ 18e:	80 e0       	ldi	r24, 0x00	; 0
+ 190:	00 c0       	rjmp	.+0      	; 0x192 <_ZN33TaskManagerSchedulerTimeIntervals10canExecuteEv+0x192>
+ 192:	81 e0       	ldi	r24, 0x01	; 1
+ 194:	df 91       	pop	r29
+ 196:	cf 91       	pop	r28
+ 198:	1f 91       	pop	r17
+ 19a:	0f 91       	pop	r16
+ 19c:	ff 90       	pop	r15
+ 19e:	08 95       	ret
+
+Disassembly of section .text._ZN33TaskManagerSchedulerTimeIntervalsC2EPmhb:
+
+00000000 <_ZN33TaskManagerSchedulerTimeIntervalsC1EPmhb>:
+}
+
+// =================================================
+
+void TaskManagerSchedulerTimeIntervals::resetState()
+{
+   0:	ef 92       	push	r14
+	lastExecutionTime = 0;
+   2:	ff 92       	push	r15
+   4:	0f 93       	push	r16
+   6:	1f 93       	push	r17
+   8:	cf 93       	push	r28
+	executionTaskCounter = -1;
+   a:	df 93       	push	r29
+   c:	0f 92       	push	r0
+	wasAllTasksExecuted = false;
+   e:	0f 92       	push	r0
+}
+  10:	cd b7       	in	r28, 0x3d	; 61
+  12:	de b7       	in	r29, 0x3e	; 62
+  14:	7c 01       	movw	r14, r24
+  16:	8b 01       	movw	r16, r22
+  18:	80 e0       	ldi	r24, 0x00	; 0
+  1a:	90 e0       	ldi	r25, 0x00	; 0
+  1c:	f7 01       	movw	r30, r14
+  1e:	91 83       	std	Z+1, r25	; 0x01
+  20:	80 83       	st	Z, r24
+  22:	c7 01       	movw	r24, r14
+  24:	06 96       	adiw	r24, 0x06	; 6
+  26:	60 e0       	ldi	r22, 0x00	; 0
+  28:	70 e0       	ldi	r23, 0x00	; 0
+  2a:	2a 83       	std	Y+2, r18	; 0x02
+  2c:	49 83       	std	Y+1, r20	; 0x01
+  2e:	0e 94 00 00 	call	0	; 0x0 <_ZN33TaskManagerSchedulerTimeIntervalsC1EPmhb>
+  32:	f7 01       	movw	r30, r14
+  34:	13 83       	std	Z+3, r17	; 0x03
+  36:	02 83       	std	Z+2, r16	; 0x02
+  38:	49 81       	ldd	r20, Y+1	; 0x01
+  3a:	44 83       	std	Z+4, r20	; 0x04
+  3c:	2a 81       	ldd	r18, Y+2	; 0x02
+  3e:	25 83       	std	Z+5, r18	; 0x05
+  40:	11 86       	std	Z+9, r1	; 0x09
+  42:	12 86       	std	Z+10, r1	; 0x0a
+  44:	13 86       	std	Z+11, r1	; 0x0b
+  46:	14 86       	std	Z+12, r1	; 0x0c
+  48:	8f ef       	ldi	r24, 0xFF	; 255
+  4a:	85 87       	std	Z+13, r24	; 0x0d
+  4c:	16 86       	std	Z+14, r1	; 0x0e
+  4e:	0f 90       	pop	r0
+  50:	0f 90       	pop	r0
+  52:	df 91       	pop	r29
+  54:	cf 91       	pop	r28
+  56:	1f 91       	pop	r17
+  58:	0f 91       	pop	r16
+  5a:	ff 90       	pop	r15
+  5c:	ef 90       	pop	r14
+  5e:	08 95       	ret
+
+Disassembly of section .text._ZN33TaskManagerSchedulerTimeIntervals10resetStateEv:
+
+00000000 <_ZN33TaskManagerSchedulerTimeIntervals10resetStateEv>:
+}
+
+// =================================================
+
+void TaskManagerSchedulerTimeIntervals::resetState()
+{
+   0:	fc 01       	movw	r30, r24
+	lastExecutionTime = 0;
+   2:	11 86       	std	Z+9, r1	; 0x09
+   4:	12 86       	std	Z+10, r1	; 0x0a
+   6:	13 86       	std	Z+11, r1	; 0x0b
+   8:	14 86       	std	Z+12, r1	; 0x0c
+	executionTaskCounter = -1;
+   a:	8f ef       	ldi	r24, 0xFF	; 255
+   c:	85 87       	std	Z+13, r24	; 0x0d
+	wasAllTasksExecuted = false;
+   e:	16 86       	std	Z+14, r1	; 0x0e
+}
+  10:	08 95       	ret

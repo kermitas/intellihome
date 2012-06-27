@@ -1,0 +1,427 @@
+#ifndef Satelita1_H_
+#define Satelita1_H_
+
+// =================================================
+
+/*
+
+zrobic podprojekt z dallasem i zrobic odczytywanie temp poprzez rest
+
+moze doczyscic cos tam zwiazane z tym, ze setValue zwraca status iz bylo ustawiane, na co komu to teraz
+
+czy da sie jakos dorobic pikniecie-on-set ?
+
+moze przytakowa .get i .post, po co one tam sa?
+
+zrobic aby zwracac samemu opis swoj w HTMLu, ktory poleci na stronke
+
+zrobic moze buforowanie jakos pracy dla czterech polaczen internetowych (ze bede przetrzymywal 4 sockety, ale tylko jeden w danej chwili obslugiwal az zostanie mu zrobione .stop() ).
+
+czemu jesli getMaxValue w resful service zwroci cos wiekszego do okolo 5000 to na www zaczyna sie to zle generowac?
+
+pokasowac konstruktory i destruktory z klas, ktore sa czysto abstrakcyjne
+
+sprawdzic po co restful server uzywa new i free, malloc itp , a moze to OneWire lub Dallasowe maja cos takiego?
+
+zrobic generatory HTML opisu resta
+
+jak zwracac wartosc temperatury???
+
+moze biblioteke OneWire przeniesc z glownego gdzies do Utils? zas biblioteke do dallas do prodporjektu "dallas" ?
+
+moze podzielic taski restful-owe na takie read-only i updateable, dziedzicace ze wspolnej klasy, a nastepnie sprawdzic czy w c++ jest cos takiego jak X instanceOf Klasa
+aby moc rozpoznawac jakiego typu to jest taks
+
+
+zrobic metoty oddzielne w stream : setStream oraz resetInternalState
+
+wywalic projekt ethernet oraz stary projekt rest
+wywalic nieuzywane pliki !!
+
+wywalic typ rest serwisu bool_on_off i zamienic na bool oraz dodac specjalny painter htmlOWY ktory nie bedzie pisal "true" "false" tylko "on" "off"
+
+pomiary czasu timeout przeniesc do wifi-task'u tam gdzie teraz juz mierze takze przetransferowane dane
+
+usunac z commons niepotrzebne stale define kiedy zakoncze podmianke stream w rest-sub-taksach
+
+
+*/
+
+// =================================================
+
+#include <Arduino.h>
+//#include <stdio.h>
+//#include <avr/pgmspace.h>
+
+// =================================================
+
+//add your includes for the project ArduinoUnderEclipse here
+
+	#include "Configuration.c"
+	#include "SampleTaskRunnable.h"
+	#include "TaskManager.h"
+	#include "TaskManagerSchedulerTimeIntervals.h"
+	#include "BasicTaskManagerScheduler.h"
+	//#include "Streaming.h"
+	#include "MemoryFree.h"
+	#include "SampleTaskRunnable.h"
+	#include "PinHighLowRunnable.h"
+	//#include "IPAddress.h"
+	//#include "Ethernet.h"
+	//#include "AcceptIncommingConnectionTask.h"
+	//#include "RESTfulTask.h"
+	//#include "TaskManagerSchedulerCount.h"
+	//#include "PinHighLowRESTfulService.h"
+	//#include "HeartBeatSpeedRESTfulService.h"
+	//#include "HeartBeatLEDOnOffRESTfulService.h"
+	//#include "HeartBeatBuzzerOnOffRESTfulService.h"
+	#include "HeartBeatRunnable.h"
+	//#include "GetLocalTimeRESTfulService.h"
+	//#include "GetTemperatureDS18B20RESTfulService.h"
+	//#include "OneWire.h"
+	//#include "DallasTemperature.h"
+
+	//#include "RestServerTask.h"
+	#include "RestServer.h"
+	//#include "SingleEthernetConnectionRestServerTask.h"
+	#include "NameValueRestService.h"
+	//#include "SettableRestUpdateableService.h"
+
+	//#include "BasicHTMLRestServiceRenderer.h"
+	#include "TableHTMLRestServiceRenderer.h"
+	#include "JsonRestServiceRenderer.h"
+	#include "JsonMetadescriptionRestServiceRenderer.h"
+
+	//#include "HTMLRenderer.h"
+
+	//#include "BasicHTMLPageRenderer.h"
+	#include "TableHTMLPageRenderer.h"
+	#include "JsonPageRenderer.h"
+	#include "LocalTimeRestService.h"
+	#include "HeartBeatSpeedRestService.h"
+	#include "TimeMeasurement.h"
+	#include "ResponseGenerationTimeRestService.h"
+	#include "HeartBeatLedOnOffRestService.h"
+	#include "HeartBeatBuzzerOnOffRestService.h"
+	#include "PinGetterSetterRestService.h"
+	#include "ResetRestService.h"
+
+	#include "RS232ToWiFiTask.h"
+
+	//#include <avr/pgmspace.h>
+	#include "DebugPrinter.h"
+
+	#include "StreamConsolePrinter.h"
+	#include "AnyBuffer.h"
+
+	#include "RWStateMachine.h"
+	#include "StreamHFA11xRS232WiFi.h"
+
+	//#include "SerialPort.h"
+
+	//#include "BasicValueSetterHTMLGenerator.h"
+
+	//#include "HTMLHeaderRenderer.h"
+
+	//#include "JsonActivatorRestReadOnlyService.h"
+
+//end of add your includes here
+// =================================================
+
+#ifdef __cplusplus
+	extern "C"
+	{
+		#endif
+
+			// -------------------------------------
+			void setup();
+			void loop();
+			// -------------------------------------
+
+		#ifdef __cplusplus
+	} // extern "C"
+#endif
+
+// =================================================
+//add your function definitions for the project ArduinoUnderEclipse here
+
+	static const char satelita1prefix[] = "Satelita1:";
+
+	static FILE redirectedOut = {0} ;
+	//static Print& p = DEFAULT_OUTPUT;
+
+	// -------------------------------
+
+	static const PROGMEM prog_char className[] = "Satelita1";
+	DebugPrinter dp( className );
+
+	// -------------------------------
+
+	static const TaskManagerRecord* tasksArray[ MAXIMUM_TASKS_IN_TASK_MANAGER_COUNT ];
+
+	TaskManager taskManager( MAXIMUM_TASKS_IN_TASK_MANAGER_COUNT , tasksArray );
+
+	// -------------------------------
+
+	unsigned long timeIntervals[] = { 1000 , 2000 , 3000 };
+	TaskManagerSchedulerTimeIntervals tmsti( timeIntervals , (sizeof(timeIntervals) / sizeof(unsigned long)) , true );
+	//char string1[] = { "sample task :)" };
+	static const PROGMEM prog_char sampleTaskText[] = "sample task :)";
+	SampleTaskRunnable runnable1( sampleTaskText , 0 );
+	TaskManagerRecord sampleTaskManagerRecord( &tmsti , &runnable1 );
+
+	//char string2[] = { "222222 22 2 22 222222" };
+	//SampleTaskRunnable runnable2( p , string2 , 0 );
+	//TaskManagerRecord task2( NULL , &runnable2 );
+
+	// -------------------------------
+
+	/*
+	unsigned long shortBeepTimeIntervals[] = { 0 };
+	TaskManagerSchedulerTimeIntervals shortBeepTaskManagerScheduler( p , shortBeepTimeIntervals , (sizeof(shortBeepTimeIntervals) / sizeof(unsigned long)) , false );
+
+	//TaskManagerSchedulerCount taskManagerSchedulerCount( p , 2 );
+	PinHighLowRunnable shortBeepRunnable( p , BUZZER_PIN , false );
+	TaskManagerRecord shortBeepTaskManagerRecord( &shortBeepTaskManagerScheduler , &shortBeepRunnable );
+	*/
+
+	// -------------------------------
+
+	unsigned long heartBeatLEDTimeIntervals[] = { 100 , 300 , 100 , 1500 };
+	TaskManagerSchedulerTimeIntervals heartBearLEDTaskManagerScheduler( heartBeatLEDTimeIntervals , (sizeof(heartBeatLEDTimeIntervals) / sizeof(unsigned long)) , true );
+	PinHighLowRunnable heartBeatLEDRunnable( HEART_BEAT_LED_PIN , false );
+	PinHighLowRunnable heartBeatBuzzerRunnable( HEART_BEAT_BUZZER_PIN , false );
+	HeartBeatRunnable heartBeatRunnable( &heartBeatLEDRunnable , IS_HEART_BEAT_LED_INITIALLY_ON , &heartBeatBuzzerRunnable , IS_HEART_BEAT_BUZZER_INITIALLY_ON );
+
+	TaskManagerRecord heartBeatLEDTaskManagerRecord( &heartBearLEDTaskManagerScheduler , &heartBeatRunnable );
+
+	// -------------------------------
+
+	//byte mac[] = { MAC_ADDRESS };
+	//byte ip[] = { IP_ADDRESS };
+	//byte gateway[] = { GATEWAY_ADDRESS };
+	//byte subnet[] = { SUBNET_MASK };
+
+
+	//EthernetServer serverSocket( LISTENING_TCP_IP_PORT );
+	//EthernetClient incommingSocketConnection(0);
+
+	// -------------------------------
+
+	/*
+	PinHighLowRESTfulService ledRESTfulService( LEDS_PIN , "led" , 0 );
+
+	HeartBeatSpeedRESTfulService heartBeatSpeedRESTfulService( heartBeatLEDTimeIntervals );
+
+	HeartBeatLEDOnOffRESTfulService heartBeatLEDOnOffRESTfulService( &heartBeatRunnable );
+	HeartBeatBuzzerOnOffRESTfulService heartBeatBuzzerOnOffRESTfulService( &heartBeatRunnable );
+
+	GetLocalTimeRESTfulService getLocalTimeRESTfulService;
+
+	OneWire oneWire( ONE_WIRE_PIN );
+	DallasTemperature dallasDS18B20Temperature( &oneWire );
+	GetTemperatureDS18B20RESTfulService getTemperatureDS18B20RESTfulService( p , &dallasDS18B20Temperature );
+
+	RESTfulService* restfulServices[] = { &getLocalTimeRESTfulService , &getTemperatureDS18B20RESTfulService , &heartBeatSpeedRESTfulService , &heartBeatLEDOnOffRESTfulService , &heartBeatBuzzerOnOffRESTfulService , &ledRESTfulService };
+	//RESTfulService* restfulServices[] = {   };
+	*/
+
+	// -------------------------------
+
+	//BasicHTMLRestServiceRenderer basicHTMLRestServiceRenderer( true );
+	TableHTMLRestServiceRenderer hTMLRestServiceRenderer( HTML_FORMS_GET_OR_POST_METHOD );
+	JsonRestServiceRenderer jsonRestServiceRenderer;
+	JsonMetadescriptionRestServiceRenderer jsonMetadescriptionRestServiceRenderer;
+
+	RestServiceRenderer* restServiceRenderers[ 3 ] = { &hTMLRestServiceRenderer , &jsonRestServiceRenderer , &jsonMetadescriptionRestServiceRenderer };
+
+	//BasicValueSetterHTMLGenerator valueSetterHTMLGenerator;
+
+	// ----
+
+	TimeMeasurement pageRendererTimeMeasurement;
+
+	// ----
+
+
+	NameValueRestService hardwareVersionRestService( 0 , "hardware_version" , "ArduinoMega2650+EthernetShield" );
+	ServiceDescription hardwareVersionServiceDescription = { &hardwareVersionRestService , &restServiceRenderers[0] };
+
+	NameValueRestService softwareVersionRestService( 1 , "software_version" , "0.5" );
+	ServiceDescription softwareVersionServiceDescription = { &softwareVersionRestService , &restServiceRenderers[0] };
+
+	LocalTimeRestService localTimeInMsRestService( 2 , "local_time_ms" , false );
+	ServiceDescription localTimeInMsServiceDescription = { &localTimeInMsRestService , &restServiceRenderers[0] };
+
+	LocalTimeRestService localTimeInDdHhMmSsRestService( 3 , "local_time_dd_hh_mm_ss" , true );
+	ServiceDescription localTimeInDdHhMmSsServiceDescription = { &localTimeInDdHhMmSsRestService , &restServiceRenderers[0] };
+
+
+	HeartBeatSpeedRestService heartBeatSpeedRestService( 4 , "heart_beat_speed" , heartBeatLEDTimeIntervals , 3 );
+	ServiceDescription heartBeatSpeedServiceDescription = { &heartBeatSpeedRestService , &restServiceRenderers[0] };
+
+	HeartBeatLedOnOffRestService heartBeatLedOnOffRestService( 5 , "heart_beat_led_on_off" , &heartBeatRunnable );
+	ServiceDescription heartBeatLedOnOffServiceDescription = { &heartBeatLedOnOffRestService , &restServiceRenderers[0] };
+
+	HeartBeatBuzzerOnOffRestService heartBeatBuzzerOnOffRestService( 6 , "heart_beat_buzzer_on_off" , &heartBeatRunnable );
+	//HeartBeatBuzzerOnOffRestService heartBeatBuzzerOnOffRestService( p , 6 , "hbbOnOff" , &heartBeatRunnable );
+	ServiceDescription heartBeatBuzzerOnOffServiceDescription = { &heartBeatBuzzerOnOffRestService , &restServiceRenderers[0] };
+
+	PinGetterSetterRestService heartBeatLedPinRestService( 7 , "heart_beat_led_pin" , &heartBeatLEDRunnable , 0 , 53 );
+	ServiceDescription heartBeatLedPinServiceDescription = { &heartBeatLedPinRestService , &restServiceRenderers[0] };
+
+	PinGetterSetterRestService heartBeatBuzzerPinRestService( 8 , "heart_beat_buzzer_pin" , &heartBeatBuzzerRunnable , 0 , 53 );
+	ServiceDescription heartBeatBuzzerPinServiceDescription = { &heartBeatBuzzerPinRestService , &restServiceRenderers[0] };
+
+	NameValueRestService isInBlockingModeRestService( 9 , "block_until_process_incomming_connection" , BLOCK_UNTIL_FINISH_PROCESSING_INCOMMING_REQUEST ? "true" : "false" );
+	ServiceDescription isInBlockingModeServiceDescription = { &isInBlockingModeRestService , &restServiceRenderers[0] };
+
+	// ---
+
+	ResetRestService resetRestService( 253 , "reset" );
+	ServiceDescription resetServiceDescription = { &resetRestService , &restServiceRenderers[0] };
+
+	ResponseGenerationTimeRestService responseGenerationTimeRestService( 254 , "response_generation_time" , &pageRendererTimeMeasurement );
+	ServiceDescription responseGenerationTimeServiceDescription = { &responseGenerationTimeRestService , &restServiceRenderers[0] };
+
+	// ----
+
+	ServiceDescription* serviceDescrptions[] = { &hardwareVersionServiceDescription , &softwareVersionServiceDescription , &localTimeInMsServiceDescription , &localTimeInDdHhMmSsServiceDescription , &heartBeatSpeedServiceDescription , &heartBeatLedOnOffServiceDescription , &heartBeatBuzzerOnOffServiceDescription , &heartBeatLedPinServiceDescription , &heartBeatBuzzerPinServiceDescription , &isInBlockingModeServiceDescription , &resetServiceDescription , &responseGenerationTimeServiceDescription , NULL , NULL };
+
+	ServiceDescription readHttpPathSubTaskArrayForSelectdServices1[ ((sizeof(serviceDescrptions) / sizeof(ServiceDescription*)))-2 ];
+	/*ServiceDescription readHttpPathSubTaskArrayForSelectdServices2[ ((sizeof(serviceDescrptions) / sizeof(ServiceDescription*)))-2 ];
+	ServiceDescription readHttpPathSubTaskArrayForSelectdServices3[ ((sizeof(serviceDescrptions) / sizeof(ServiceDescription*)))-2 ];
+	ServiceDescription readHttpPathSubTaskArrayForSelectdServices4[ ((sizeof(serviceDescrptions) / sizeof(ServiceDescription*)))-2 ];
+
+	ServiceDescription* readHttpPathSubTaskArrayForSelectdServices[ 4 ] =
+	{
+		&readHttpPathSubTaskArrayForSelectdServices1[ 0 ],
+		&readHttpPathSubTaskArrayForSelectdServices2[ 0 ],
+		&readHttpPathSubTaskArrayForSelectdServices3[ 0 ],
+		&readHttpPathSubTaskArrayForSelectdServices4[ 0 ]
+	};*/
+
+	//unsigned char readHttpPathSubTaskArrayForMatchServiceNames1[ ((sizeof(serviceDescrptions) / sizeof(ServiceDescription*))) ];
+	/*unsigned char readHttpPathSubTaskArrayForMatchServiceNames2[ ((sizeof(serviceDescrptions) / sizeof(ServiceDescription*))) ];
+	unsigned char readHttpPathSubTaskArrayForMatchServiceNames3[ ((sizeof(serviceDescrptions) / sizeof(ServiceDescription*))) ];
+	unsigned char readHttpPathSubTaskArrayForMatchServiceNames4[ ((sizeof(serviceDescrptions) / sizeof(ServiceDescription*))) ];
+
+	unsigned char* readHttpPathSubTaskArrayForMatchServiceNames[ 4 ] =
+	{
+		&readHttpPathSubTaskArrayForMatchServiceNames1[ 0 ],
+		&readHttpPathSubTaskArrayForMatchServiceNames2[ 0 ],
+		&readHttpPathSubTaskArrayForMatchServiceNames3[ 0 ],
+		&readHttpPathSubTaskArrayForMatchServiceNames4[ 0 ]
+	};*/
+
+	bool readHttpParameterNameSubTaskArrayForMatchServiceNames1[ ((sizeof(serviceDescrptions) / sizeof(ServiceDescription*)))-2 ];
+	/*bool readHttpParameterNameSubTaskArrayForMatchServiceNames2[ ((sizeof(serviceDescrptions) / sizeof(ServiceDescription*)))-2 ];
+	bool readHttpParameterNameSubTaskArrayForMatchServiceNames3[ ((sizeof(serviceDescrptions) / sizeof(ServiceDescription*)))-2 ];
+	bool readHttpParameterNameSubTaskArrayForMatchServiceNames4[ ((sizeof(serviceDescrptions) / sizeof(ServiceDescription*)))-2 ];
+
+	bool* readHttpParameterNameSubTaskArrayForMatchServiceNames[ 4 ] =
+	{
+		&readHttpParameterNameSubTaskArrayForMatchServiceNames1[ 0 ],
+		&readHttpParameterNameSubTaskArrayForMatchServiceNames2[ 0 ],
+		&readHttpParameterNameSubTaskArrayForMatchServiceNames3[ 0 ],
+		&readHttpParameterNameSubTaskArrayForMatchServiceNames4[ 0 ]
+	};*/
+
+	static const unsigned char readHttpParameterValueSubTaskArrayForValueBytesSize = 30;
+
+	unsigned char readHttpParameterValueSubTaskArrayForValueBytes1[ readHttpParameterValueSubTaskArrayForValueBytesSize ];
+	/*unsigned char readHttpParameterValueSubTaskArrayForValueBytes2[ readHttpParameterValueSubTaskArrayForValueBytesSize ];
+	unsigned char readHttpParameterValueSubTaskArrayForValueBytes3[ readHttpParameterValueSubTaskArrayForValueBytesSize ];
+	unsigned char readHttpParameterValueSubTaskArrayForValueBytes4[ readHttpParameterValueSubTaskArrayForValueBytesSize ];
+
+	unsigned char* readHttpParameterValueSubTaskArrayForValueBytes[ 4 ] =
+	{
+		&readHttpParameterValueSubTaskArrayForValueBytes1[ 0 ],
+		&readHttpParameterValueSubTaskArrayForValueBytes2[ 0 ],
+		&readHttpParameterValueSubTaskArrayForValueBytes3[ 0 ],
+		&readHttpParameterValueSubTaskArrayForValueBytes4[ 0 ]
+	};*/
+
+	// ---
+
+	static const unsigned char sendResponseSubTaskChunkedStreamBufferSize = 100;
+
+	byte sendResponseSubTaskChunkedStreamBufferArray[ sendResponseSubTaskChunkedStreamBufferSize ];
+
+	AnyBuffer< byte , byte > sendResponseSubTaskChunkedStreamBuffer( &sendResponseSubTaskChunkedStreamBufferArray[0] , sendResponseSubTaskChunkedStreamBufferSize );
+
+	// ---
+
+	static const unsigned char bufferSize = 25;
+	char buffer[ bufferSize ];
+
+	// -------------------------------
+
+	//const byte incommingByteBufferForStreamHFA11xRS232WiFiSize = INCOMMING_AND_OUTGOING_BUFFER_SIZE_FOR_COMMUNICATION_WITH_RS232_WIFI;
+	byte incommingByteBufferForStreamHFA11xRS232WiFiArray[ INCOMMING_BUFFER_SIZE_FOR_COMMUNICATION_WITH_RS232_WIFI ];
+
+	AnyBuffer< byte , byte > incommingByteBufferForStreamHFA11xRS232WiFi( &incommingByteBufferForStreamHFA11xRS232WiFiArray[0] , INCOMMING_BUFFER_SIZE_FOR_COMMUNICATION_WITH_RS232_WIFI );
+
+	//const byte outgoingByteBufferForStreamHFA11xRS232WiFiSize = OUTGOING_BUFFER_SIZE_FOR_COMMUNICATION_WITH_RS232_WIFI;
+	byte outgoingByteBufferForStreamHFA11xRS232WiFiArray[ OUTGOING_BUFFER_SIZE_FOR_COMMUNICATION_WITH_RS232_WIFI ];
+
+	AnyBuffer< byte , byte > outgoingByteBufferForStreamHFA11xRS232WiFi( &outgoingByteBufferForStreamHFA11xRS232WiFiArray[0] , OUTGOING_BUFFER_SIZE_FOR_COMMUNICATION_WITH_RS232_WIFI );
+
+	// -------------------------------
+
+	static const char* jsonActivatorURLPrefix = "j";
+	static const char* metadescriptionActivatorURLPrefix = "m";
+
+	//BasicHTMLPageRenderer basicHTMLPageRenderer;
+
+	//bool blockToServeOlnyOneIncommingConnectionToTheEnd = false;
+
+	TableHTMLPageRenderer tableHTMLPageRenderer( serviceDescrptions , (sizeof(serviceDescrptions) / sizeof(ServiceDescription*)) , &pageRendererTimeMeasurement );
+	JsonPageRenderer jsonPageRenderer( &pageRendererTimeMeasurement );
+
+	//BasicTaskManagerScheduler restTaskManagerScheduler( true , false );
+
+	//RestServerTask restServerTask( p , &serverSocket , serviceDescrptions , (sizeof(serviceDescrptions) / sizeof(ServiceDescription*)) , BLOCK_UNTIL_FINISH_PROCESSING_INCOMMING_REQUEST , &tableHTMLPageRenderer , &jsonPageRenderer , jsonActivatorURLPrefix , metadescriptionActivatorURLPrefix , &readHttpPathSubTaskArrayForSelectdServices[0] , &readHttpPathSubTaskArrayForMatchServiceNames[0] , &readHttpParameterNameSubTaskArrayForMatchServiceNames[0] , &readHttpParameterValueSubTaskArrayForValueBytes[0] , readHttpParameterValueSubTaskArrayForValueBytesSize );
+	//TaskManagerRecord restServerTaskManagerRecord( &restTaskManagerScheduler , &restServerTask );
+
+	//SingleEthernetConnectionRestServerTask singleEthernetConnectionRestServerTask( p , &serverSocket , serviceDescrptions , (sizeof(serviceDescrptions) / sizeof(ServiceDescription*)) , BLOCK_UNTIL_FINISH_PROCESSING_INCOMMING_REQUEST , &tableHTMLPageRenderer , &jsonPageRenderer , jsonActivatorURLPrefix , metadescriptionActivatorURLPrefix , &readHttpPathSubTaskArrayForSelectdServices1[ 0 ] , &readHttpPathSubTaskArrayForMatchServiceNames1[0] , &readHttpParameterNameSubTaskArrayForMatchServiceNames1[0] , &readHttpParameterValueSubTaskArrayForValueBytes1[0] , readHttpParameterValueSubTaskArrayForValueBytesSize );
+	//TaskManagerRecord singleEthernetConnectionRestServerTaskManagerRecord( &restTaskManagerScheduler , &singleEthernetConnectionRestServerTask );
+
+	// -------------------------------
+
+	//static Serial2* streamForWiFiConnection = &Serial2;
+
+	//StreamConsolePrinter streamConsolePrinter( &SERIAL_FOR_WIFI_CONNECTION );
+
+	//SerialPort< 1 , 64 , 64 >  port1;
+
+	RWStateMachine rwStateMachine( &incommingByteBufferForStreamHFA11xRS232WiFi , &outgoingByteBufferForStreamHFA11xRS232WiFi , &SERIAL_FOR_WIFI_CONNECTION );
+	BasicTaskManagerScheduler rwStateMachineTaskManagerScheduler( true , false );
+	TaskManagerRecord rwStateMachineTaskManagerRecord( &rwStateMachineTaskManagerScheduler , &rwStateMachine );
+
+	// -------------------------------
+
+	StreamHFA11xRS232WiFi streamHFA11xRS232WiFi( &incommingByteBufferForStreamHFA11xRS232WiFi , &outgoingByteBufferForStreamHFA11xRS232WiFi , &rwStateMachine );
+
+	// -------------------------------
+
+	RS232ToWiFiTask rs232ToWiFiTask( serviceDescrptions , (sizeof(serviceDescrptions) / sizeof(ServiceDescription*)) , BLOCK_UNTIL_FINISH_PROCESSING_INCOMMING_REQUEST , &tableHTMLPageRenderer , &jsonPageRenderer , jsonActivatorURLPrefix , metadescriptionActivatorURLPrefix , &readHttpPathSubTaskArrayForSelectdServices1[ 0 ] , &readHttpParameterNameSubTaskArrayForMatchServiceNames1[0] , &readHttpParameterValueSubTaskArrayForValueBytes1[0] , readHttpParameterValueSubTaskArrayForValueBytesSize , &sendResponseSubTaskChunkedStreamBuffer , &buffer[0] , bufferSize , &streamHFA11xRS232WiFi );
+	BasicTaskManagerScheduler restTaskManagerScheduler( true , false );
+	TaskManagerRecord rs232ToWiFiTaskManagerRecord( &restTaskManagerScheduler , &rs232ToWiFiTask );
+
+	// -------------------------------
+
+	void userSetup();
+	void printReport();
+	void hardReset();
+	void addTaskToTaskManager( TaskManagerRecord* ptr , const char* desrtiption );
+
+	void setSerial1( unsigned long baud , char parity , int wordlength , int stop );
+
+	static int redirectedOutPrintFunction( char c , FILE *stream );
+
+//Do not add code below this line
+// =================================================
+
+#endif /* Satelita1_H_ */
+

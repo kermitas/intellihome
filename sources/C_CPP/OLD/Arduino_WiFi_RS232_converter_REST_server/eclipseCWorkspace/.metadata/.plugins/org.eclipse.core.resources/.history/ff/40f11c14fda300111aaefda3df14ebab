@@ -1,0 +1,161 @@
+/*
+ * RWSubTaskReadRECVACKCommandData.cpp
+ *
+ *  Created on: 21-05-2012
+ *      Author: root
+ */
+
+// =================================================
+
+#include "RWSubTaskReadRECVACKCommandData.h"
+
+// =================================================
+
+//RWSubTaskReadRECVACKCommandData::RWSubTaskReadRECVACKCommandData( AnyBuffer< byte , byte >* _inputBuffer , StreamHFA11xRS232WiFiCRC* _crcStream , RWCommandSerialNumber* _rwCommandSerialNumber , RWSubTask* _rwSubTaskDecideToSendOutgoingData ) : dp( PSTR( "RWSubTaskReadRECVACKCommandData" ) , DEBUG_LEVEL_ALL )
+RWSubTaskReadRECVACKCommandData::RWSubTaskReadRECVACKCommandData( RWStateMachineHelper* _rwStateMachineHelper ) : dp( PSTR( "RWSubTaskReadRECVACKCommandData" ) , DEBUG_LEVEL_ALL )
+{
+	h = _rwStateMachineHelper;
+
+	//inputBuffer = _inputBuffer;
+	//crcStream = _crcStream;
+	//rwCommandSerialNumber = _rwCommandSerialNumber;
+	//rwSubTaskDecideToSendOutgoingData = _rwSubTaskDecideToSendOutgoingData;
+}
+
+// =================================================
+
+char* RWSubTaskReadRECVACKCommandData::getSubTaskName()
+{
+	return "ReadRECVACKCommandData"
+}
+
+// =================================================
+
+void RWSubTaskReadRECVACKCommandData::resetInternalState()
+{
+
+}
+
+// =================================================
+
+unsigned long RWSubTaskReadRECVACKCommandData::getStateTimeout()
+{
+	return 2*1000;
+}
+
+// =================================================
+
+RWSubTask* RWSubTaskReadRECVACKCommandData::getStateAfterTimeout()
+{
+	return h->rwSubTaskDecideToSendOutgoingData;
+}
+
+// =================================================
+
+void RWSubTaskReadRECVACKCommandData::setWork( unsigned int _size )
+{
+	size = _size;
+}
+
+// =================================================
+
+RWSubTask* RWSubTaskReadRECVACKCommandData::executeSubTask()
+{
+	static const PROGMEM prog_char functionName[] = "executeSubTask";
+
+	byte positionBefore = h->inputBuffer->position;
+	byte limitBefore = h->inputBuffer->limit;
+
+	if( size > 0 )
+	{
+		//iln( "command=2, sn=%u, incomming data size=%u" , commandSerialNumber , size )
+
+		//while( crcStream.available() < size ); // waiting for incomming data
+
+		h->inputBuffer->setPositionAndLimit( limitBefore , h->inputBuffer->limit + size );
+
+
+		{ // todo temporary
+			iln( "positionBefore=%u , limitBefore=%u , incomming data size=%u" , positionBefore , limitBefore , size );
+			h->inputBuffer->printReport( "BEFORE READING (after buffer set)" );
+			//delay( 1000 );
+		}
+
+		while( h->inputBuffer->getRemaining() > 0 )
+		{
+			int readByte = h->crcStream->read();
+
+			if( readByte == -1 )
+			{
+				h->inputBuffer->setPositionAndLimit( positionBefore , h->inputBuffer->position );
+
+				return h->rwSubTaskDecideToSendOutgoingData;
+			}
+
+			h->inputBuffer->put( readByte );
+
+			{ // todo temporary
+				h->inputBuffer->printReport( "WHILE READING" );
+				//delay( 1000 );
+			}
+		}
+
+		h->inputBuffer->setPositionAndLimit( positionBefore , h->inputBuffer->position );
+
+		//delay( 1000 ); // todo temporary
+	}
+
+	// ---
+
+	// todo temporary
+	if( h->inputBuffer->getRemaining() > 0 )
+	{
+		h->inputBuffer->printReport( "AFTER READING" );
+		//delay( 3000 );
+	}
+
+	// ---
+
+	if( !compareCRCsumWithCRCsumCalculatedOnTwoIncommingBytes( h->crcStream->getIncommingDataCRC() ) )
+	{
+		wln( "incomming CRC (in RECV_ACK) and our locally counted CRC does not match! setting write_error to -5" )
+
+		delay( 3000 ); // todo temporary
+
+		h->inputBuffer->setPositionAndLimit( positionBefore , limitBefore );
+
+		//read_error = -5;
+		//return;
+	}
+	else
+	{
+		h->rwCommandSerialNumber->commandSerialNumber++;
+	}
+
+	// ---
+
+	return h->rwSubTaskDecideToSendOutgoingData;
+}
+
+// =================================================
+
+bool RWSubTaskReadRECVACKCommandData::compareCRCsumWithCRCsumCalculatedOnTwoIncommingBytes( unsigned int crcCountedByUnderlyingCRCStream )
+{
+	static const PROGMEM prog_char functionName[] = "compareCRCsumWithCRCsumCalculatedOnTwoIncommingBytes";
+
+	//while( crcStream->available() < 2 ); // waiting for 2B of crc
+
+	unsigned int crcCountedUsingTwoLastBytes = 0;
+
+	crcCountedUsingTwoLastBytes = (unsigned char)h->crcStream->read(); // first byte of crc (low byte of u16)
+
+	crcCountedUsingTwoLastBytes += 256 * (unsigned char)h->crcStream->read(); // second byte of crc (high byte of u16)
+
+	aln( "crcCountedUsingTwoLastBytes = %u , crcCountedByUnderlyingCRCStream = %u" , crcCountedUsingTwoLastBytes , crcCountedByUnderlyingCRCStream )
+
+	return crcCountedUsingTwoLastBytes == crcCountedByUnderlyingCRCStream;
+}
+
+// =================================================
+
+

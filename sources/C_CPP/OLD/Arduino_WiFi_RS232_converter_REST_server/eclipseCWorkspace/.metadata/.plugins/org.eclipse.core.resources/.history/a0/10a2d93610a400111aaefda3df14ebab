@@ -1,0 +1,118 @@
+/*
+ * RWSubTaskSendSENDCommand.cpp
+ *
+ *  Created on: 22-05-2012
+ *      Author: root
+ */
+
+// =================================================
+
+#include "RWSubTaskSendSENDCommand.h"
+
+// =================================================
+
+RWSubTaskSendSENDCommand::RWSubTaskSendSENDCommand( AnyBuffer< byte , byte >* _outputBuffer , StreamHFA11xRS232WiFiCRC* _crcStream , RWCommandSerialNumber* _rwCommandSerialNumber , RWSubTaskWaitForData* _rwSubTaskWaitForData , RWSubTaskReadSENDACKCommand* _rwSubTaskReadSENDACKCommand , RWSubTask* _subTaskOnFail ) : dp( PSTR( "RWSubTaskSendSENDCommand" ) , DEBUG_LEVEL_ALL )
+{
+	outputBuffer = _outputBuffer;
+	crcStream = _crcStream;
+	rwCommandSerialNumber = _rwCommandSerialNumber;
+	rwSubTaskWaitForData = _rwSubTaskWaitForData;
+	rwSubTaskReadSENDACKCommand = _rwSubTaskReadSENDACKCommand;
+	subTaskOnFail = _subTaskOnFail;
+}
+
+// =================================================
+
+char* RWSubTaskSendSENDCommand::getSubTaskName()
+{
+	return "SendSENDCommand";
+}
+
+// =================================================
+
+void RWSubTaskSendSENDCommand::resetInternalState()
+{
+
+}
+
+// =================================================
+
+unsigned long RWSubTaskSendSENDCommand::getStateTimeout()
+{
+	return 2*1000;
+}
+
+// =================================================
+
+RWSubTask* RWSubTaskSendSENDCommand::getStateAfterTimeout()
+{
+	return subTaskOnFail;
+}
+
+// =================================================
+
+RWSubTask* RWSubTaskSendSENDCommand::executeSubTask()
+{
+	byte positionBefore = outputBuffer->position;
+	//outputBuffer->setPositionAndLimit( 0 , positionBefore );
+
+	// ---
+
+	crcStream->resetOutgoingState();
+
+	// ---
+
+	if(
+		// command
+		crcStream->write( (unsigned char)1 ) != 1 ||
+
+		// sn
+		crcStream->write( rwCommandSerialNumber->commandSerialNumber ) != 1 ||
+
+		// reserved two bytes byte (0 and 0)
+		crcStream->write( (unsigned char)0 ) != 1 ||
+		crcStream->write( (unsigned char)0 ) != 1 ||
+
+		// low byte of data length
+		crcStream->write( outputBuffer->getRemaining() ) != 1 ||
+
+		// high byte of data length
+		crcStream->write( (unsigned char)0 ) != 1 ||
+
+		// sending data
+		!outputBuffer->writeToStream( crcStream ) ||
+
+		!crcStream->writeOutgoingDataCRCToStream()
+	)
+	{
+		outputBuffer->setPositionAndLimit( positionBefore , outputBuffer->capacity );
+
+		return subTaskOnFail;
+	}
+	else
+	{
+		outputBuffer->setPositionAndLimit( positionBefore , outputBuffer->capacity );
+
+		// problem!!!!!!!!!!!!!1
+		// wyslalismy dane od 0 do position
+		// teraz po przerwaniu tego taska i czekaniu az naplynie potwierdzenie (ktore moze byc pozytywne lub negatywne) ktos moze dopisac kolejne kilka danych do bufora!
+		// trzeba przekazac do rwSubTaskReadSENDACKCommand ile danych nadalismy
+
+		// on ustawi position na zero jesli przyszlo potwierdzenie pozytywne, a nastepnie zorientuje sie czy ktos dopisal kilka nowych danych i przesunie je na poczatek
+		// bufora, poczym ustawi position za nimi
+
+		// jesli przyszlo potwierdzenie negatywne to nic nie musi robic
+
+		rwSubTaskReadSENDACKCommand->setWork( positionBefore );
+
+		rwSubTaskWaitForData->setWork( 5+2 , rwSubTaskReadSENDACKCommand , 2*1000 , subTaskOnFail );
+
+		return rwSubTaskWaitForData;
+	}
+
+	// ---
+}
+
+// =================================================
+
+

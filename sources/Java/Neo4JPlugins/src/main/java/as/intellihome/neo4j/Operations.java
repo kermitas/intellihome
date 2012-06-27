@@ -79,10 +79,10 @@ public class Operations
 
                 as.intellihome.neo4j.objects.Device device = user.createDevice( "test_device" , "This is a test device" , true , Relations.PhysicalityType.VIRTUAL , Relations.DataIncomeType.DEVICE_PUSH , Relations.InSystemLocalizationType.END_POINT , "laptop" , "Inside laptop on my desk." , 1.1d, 2.2d , 3.3d );
 
-                Relations.DataCollectingType dct = Relations.DataCollectingType.APPEND_LIMITED_BY_COUNT;
-                dct.limit = 100l;
+                Relations.DataCollectingType dct = Relations.DataCollectingType.getAppendLimitedByCount( 100 , Relations.DataCollectingLimitExceededAction.REMOVE_OLDEST );
 
                 Relations.SensorDataType sdt = Relations.SensorDataType.STRING;
+                Relations.SensorDataType.setMinLimit( sdt , 10  , Relations.SensorDataLimitExceededAction.TRIM );
                 sdt.max = 150l;        
 
                 as.intellihome.neo4j.objects.Sensor sensor = device.createSensor( "temperature" , "Temperature from Dallas DS18B20." , true , Relations.PhysicalityType.VIRTUAL ,  dct , Relations.DoorLocalizationType.INDOOR , sdt , "computer" , "Computer under my desk." , 5.5d , 6.6d , 7.7d ); 
